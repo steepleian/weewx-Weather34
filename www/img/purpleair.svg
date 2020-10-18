@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   width="600"
+   height="530"
+   version="1.1"
+   sodipodi:docname="purpleair_logo.svg">
+  <defs
+     id="defs3877" />
+     <style>
+     .logoText {
+     font-weight:bold;
+     font-size: 120px;
+     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 1.42857143;
+     }
+     </style>
+  <g
+     id="layer1"
+     transform="translate(0,-652.36218)">
+    <path
+       d="m 293.56901,673.8182 c -18.375,4.25 -34.625,11.75 -49.75,23.125 -16.375,12.375 -30.375,30.75 -38.375,50.375 -2.25,5.375 -4.375,10.125 -4.625,10.5 -0.375,0.375 -4.875,-0.875 -10.125,-2.625 -11,-3.625 -27.25,-4.25 -38.25,-1.25 -15.75,4.125 -30.125,14.25003 -39.25,27.62503 -7.5,11 -11.125,21.125 -11.875,33.25 l -0.625,9.625 -9.500003,3.25 c -31,10.25 -56.000003,36.125 -66.375003,68.75 -4.25,13.5 -5,39 -1.375,53.125 9.25,36.5 36.250003,65.12497 71.875003,76.12497 16.125003,5 29.750003,5.25 207.625003,4.75 187.125,-0.5 173.75,0.125 197,-8.375 31.625,-11.375 59.75,-39.49997 71.125,-70.99997 5.625,-15.75 7.5,-26.125 7.5,-42.75 0,-33.625 -11.75,-61.875 -35.5,-85.75 -24.75,-24.625 -54,-36.375 -88.25,-35.25 l -15.875,0.5 -1.5,-10.625 c -7.125,-49.62503 -41.375,-88.12503 -90.875,-102.12503 -9.625,-2.75 -43.25,-3.5 -53,-1.25 z"
+       id="path3033"
+       style="fill:none;stroke:rgba(154, 106, 196, 1.000);stroke-width:40;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+  </g>
+<g id="text_brand" fill="#FFFFFF" class="logoText"><text x="30" y="510" dy="0">PurpleAir</text></g>
+</svg>

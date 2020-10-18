@@ -1,0 +1,55 @@
+##errorCatcher Echo
+##
+##This program is free software; you can redistribute it and/or modify it
+##under the terms of the GNU General Public License as published by the Free
+##Software Foundation; either version 2 of the License, or (at your option)
+##any later version.
+##
+##This program is distributed in the hope that it will be useful, but WITHOUT
+##ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+##FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+##more details.
+##
+##############################################################################
+##                                                                           #
+## Highcharts for weewx Extension                                            #
+##                                                                           #
+## Barometer/Rain Week observation plots JSON data file template             #
+##                                                                           #
+## Version: 0.2.1                                     Date: June  2017       #
+##                                                                           #
+##############################################################################
+[{
+"_version": "bar_rain_week.json.tmpl version 1.0.0",
+"utcoffset": $utcOffset,
+"timespan": {"start": $weekPlotStart, "stop": $weekPlotEnd},
+##
+"rainplot": {
+"rain": $rainWeekjson,
+"rainRate": $rainRateWeekjson,
+"units": "$unit.label.rain"#slurp
+},
+##
+"barometerplot": {
+"barometer": $barometerWeekjson,
+"units": "$unit.label.barometer"#slurp
+},
+##
+"lightningplot": {
+#if $strikeCountWeek_json is not None
+"strikeCountWeek": $strikeCountWeek_json,
+#end if
+#if $noiseCountWeek_json is not None
+"noiseCountWeek": $noiseCountWeek_json,
+#end if
+#if $disturberCountWeek_json is not None
+"disturberCountWeek": $disturberCountWeek_json,
+#end if
+#if $distanceWeek_json is not None
+"distanceWeek": $distanceWeek_json,
+#end if
+#if $energyWeek_json is not None
+"energyWeek": $energyWeek_json
+#end if
+}
+}]

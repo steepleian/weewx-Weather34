@@ -1,0 +1,91 @@
+##errorCatcher Echo
+##
+##This program is free software; you can redistribute it and/or modify it
+##under the terms of the GNU General Public License as published by the Free
+##Software Foundation; either version 2 of the License, or (at your option)
+##any later version.
+##
+##This program is distributed in the hope that it will be useful, but WITHOUT
+##ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+##FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+##more details.
+##
+##############################################################################
+##                                                                           #
+## Highcharts for weewx Extension                                            #
+##                                                                           #
+## Wind Rose Week observation plots JSON data file template                  #
+##                                                                           #
+## Version: 0.2.1                                     Date: June 2017        #
+##                                                                           #
+##############################################################################
+[{
+"_version": "wind_rose_week.json.tmpl version 1.0.0",
+##
+"windroseHour": {
+"series": $wr3600['windrosejson'],
+"xAxis": {"categories": $wr3600['xAxisCategoriesjson']},
+"yAxis": $wr3600['yAxisjson'],
+"samples": $wr3600['samples'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseDay": {
+"series": $wr86400['windrosejson'],
+"xAxis": {"categories": $wr86400['xAxisCategoriesjson']},
+"yAxis": $wr86400['yAxisjson'],
+"samples": $wr86400['samples'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseWeek": {
+"series": $wr604800['windrosejson'],
+"xAxis": {"categories": $wr604800['xAxisCategoriesjson']},
+"yAxis": $wr604800['yAxisjson'],
+"samples": $wr604800['samples'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseHourGust": {
+"series": $wr3600Gust['windrosejson'],
+"xAxis": {"categories": $wr3600Gust['xAxisCategoriesjson']},
+"yAxis": $wr3600Gust['yAxisjson'],
+"samples": $wr3600Gust['samples'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseDayGust": {
+"series": $wr86400Gust['windrosejson'],
+"xAxis": {"categories": $wr86400Gust['xAxisCategoriesjson']},
+"yAxis": $wr86400Gust['yAxisjson'],
+"samples": $wr86400Gust['samples'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseWeekGust": {
+"series": $wr604800Gust['windrosejson'],
+"xAxis": {"categories": $wr604800Gust['xAxisCategoriesjson']},
+"yAxis": $wr604800Gust['yAxisjson'],
+"samples": $wr604800Gust['samples'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseMonth": {#slurp
+"series": $wrmonth['windrosejson'], 
+"xAxis": {"categories": $wrmonth['xAxisCategoriesjson']}, 
+"yAxis": $wrmonth['yAxisjson'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseYear": {#slurp
+"series": $wryear['windrosejson'], 
+"xAxis": {"categories": $wryear['xAxisCategoriesjson']}, 
+"yAxis": $wryear['yAxisjson'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseMonthGust": {#slurp
+"series": $wrmonthGust['windrosejson'], 
+"xAxis": {"categories": $wrmonthGust['xAxisCategoriesjson']}, 
+"yAxis": $wrmonthGust['yAxisjson'],
+"units": "$unit.label.windSpeed"#slurp
+},
+"windroseYearGust": {#slurp
+"series": $wryearGust['windrosejson'], 
+"xAxis": {"categories": $wryearGust['xAxisCategoriesjson']}, 
+"yAxis": $wryearGust['yAxisjson'],
+"units": "$unit.label.windSpeed"#slurp
+}
+}]

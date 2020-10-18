@@ -1,0 +1,283 @@
+#errorCatcher Echo
+##
+## Specifying an encoding of UTF-8 is usually safe, but if your text is 
+## actually in Latin-1, then you should replace the string "UTF-8" with "latin-1"
+## If you do this, you should also change the 'Content-Type' metadata below.
+#encoding UTF-8
+##
+<?php
+##		Calculate lenght of daylight
+	#set $daylenght = time.strftime('%H:%M', time.gmtime(int($almanac.sun.set.raw -  $almanac.sun.rise.raw)))
+##		Truncate station uptime decimals
+	#set $stationuptime = str($station.os_uptime.raw).split('.')[0] 	
+##		Calculate Beaufort based on wind speed in knots
+          #if $varExists('$current.windSpeed') and $current.windSpeed.raw is not None
+          #if $unit.unit_type.windSpeed == 'mile_per_hour'
+          #set $kts = $current.windSpeed.raw * 0.8689762
+          #elif $unit.unit_type.windSpeed == 'km_per_hour'
+            #set $kts = $current.windSpeed.raw * 0.539956
+          #elif $unit.unit_type.windSpeed == 'meter_per_second'
+            #set $kts = $current.windSpeed.raw * 1.943844
+          #elif $unit.unit_type.windSpeed == 'knot'
+            #set $kts = $current.windSpeed.raw
+          #else
+            #set $kts = 0
+          #end if
+          #if $kts < 1
+            #set $beaufort = 0
+          #elif $kts < 4
+            #set $beaufort = 1
+          #elif $kts < 7
+            #set $beaufort = 2
+          #elif $kts < 11
+            #set $beaufort = 3
+          #elif $kts < 17
+            #set $beaufort = 4
+          #elif $kts < 22
+            #set $beaufort = 5
+          #elif $kts < 28
+            #set $beaufort = 6
+          #elif $kts < 34
+            #set $beaufort = 7
+          #elif $kts < 41
+            #set $beaufort = 8
+          #elif $kts < 48
+            #set $beaufort = 9
+          #elif $kts < 56
+            #set $beaufort = 10
+          #elif $kts < 64
+            #set $beaufort = 11
+          #else
+            #set $beaufort = 12
+          #end if
+          #else
+            #set $beaufort = 'N/A'
+          #end if
+         #if $almanac.moon_phase.lower() == "New".lower()
+            #set $moonphase = "0"
+          #else if $almanac.moon_phase.lower() == "Waxing Crescent".lower()
+            #set $moonphase = "1"
+	  #else if $almanac.moon_phase.lower() == "First Quarter".lower()
+            #set $moonphase = "2"
+	  #else if $almanac.moon_phase.lower() == "Waxing Gibbous".lower()
+            #set $moonphase = "3"
+          #else if $almanac.moon_phase.lower() == "Full".lower()
+            #set $moonphase = "4"
+	  #else if $almanac.moon_phase.lower() == "Waning Gibbous".lower()
+            #set $moonphase = "5"
+	  #else if $almanac.moon_phase.lower() == "Last Quarter".lower()
+            #set $moonphase = "6"
+	  #else if $almanac.moon_phase.lower() == "Waning Crescent".lower()
+            #set $moonphase = "7"
+          #end if
+          
+      #import datetime
+      #set $now = datetime.datetime.now()
+      #set $nowHour = $now.hour
+      #set $sunrise_hour = datetime.datetime.fromtimestamp($almanac.sunrise.raw).strftime('%H')
+      #set $sunset_hour = datetime.datetime.fromtimestamp($almanac.sunset.raw).strftime('%H')
+        ##if $sunrise_hour <= $nowHour < $sunset_hour ## This works but to keep it inline with JavaScript the below works too
+        #if int($sunrise_hour) <= int($nowHour) and int($nowHour) < int($sunset_hour)
+            #set $bodyTheme = "light"
+            
+        #else
+            ## Night time, use dark mode
+            #set $bodyTheme = "dark"
+            
+        #end if  
+  
+        #set $mlsc = $month.lightning_strike_count.sum.format(add_label=False, $localize=False) 
+        #if $mlsc == "$month.lightning_strike_count.sum.format(add_label=False, $localize=False)" 
+           #set $mlsc = "N/A"
+        #end if
+        #set $ylsc = $year.lightning_strike_count.sum.format(add_label=False, $localize=False) 
+        #if $ylsc == "$year.lightning_strike_count.sum.format(add_label=False, $localize=False)" 
+           #set $ylsc = "N/A"
+        #end if
+        #set $dysc = $day.lightning_strike_count.sum.format(add_label=False, $localize=False) 
+        #if $dysc == "$day.lightning_strike_count.sum.format(add_label=False, $localize=False)" 
+           #set $dysc = "N/A"
+        #end if
+        #set $ldlt = $year.lightning_distance.lasttime
+        #if $ldlt == "$year.lightning_distance.lasttime" 
+           #set $ldlt = "N/A"
+        #end if
+  
+          #import time
+#set almost_end = $rainyear.end.raw - 1
+#set almost_end_tt = $time.localtime($almost_end)
+#######################SAME ORDER AS METEOBRIDGEAPI
+$theme_switch = "$bodyTheme";
+$weewxapi[17] = "$span($time_delta=300).windSpeed.avg.format(add_label=False, $localize=False)";
+$weewxapi[18] = "$span($hour_delta=1).barometer.avg.format(add_label=False, $localize=False)";
+$weewxapi[19] = "$month.rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[20] = "$rainyear.rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[21] = "$yesterday.rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[25] = "$span($hour_delta=1).outTemp.max.format(add_label=False, $localize=False)";
+$weewxapi[26] = "$day.outTemp.max.format(add_label=False, $localize=False)";
+$weewxapi[27] = "$day.outTemp.maxtime.format(format_string="%H:%M")";
+$weewxapi[28] = "$day.outTemp.min.format(add_label=False, $localize=False)";  
+$weewxapi[29] = "$day.outTemp.mintime.format(format_string="%H:%M")";
+$weewxapi[30] = "$day.windSpeed.max.format(add_label=False, $localize=False)";
+$weewxapi[31] = "$day.windSpeed.maxtime.format(format_string="%H:%M")";    
+$weewxapi[32] = "$day.windGust.max.format(add_label=False, $localize=False)";
+$weewxapi[33] = "$day.windGust.maxtime.format(format_string="%H:%M")";
+$weewxapi[34] = "$day.barometer.max.format(add_label=False, $localize=False)";	
+$weewxapi[35] = "$day.barometer.maxtime.format(format_string="%H:%M")";
+$weewxapi[36] = "$day.barometer.min.format(add_label=False, $localize=False)";
+$weewxapi[37] = "$day.barometer.mintime.format(format_string="%H:%M")";
+## $daymaxintemp = "$day.inTemp.max.format(add_label=False, $localize=False)";
+## $dayminintemp = "$day.inTemp.min.format(add_label=False, $localize=False)"; 
+$weewxapi[40] = "$current.windGust.format(add_label=False, $localize=False)";
+$weewxapi[41] = "--";
+$weewxapi[44] = "$span($hour_delta=24).rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[46] = "$span($time_delta=600).windDir.avg.format(add_label=False, $localize=False)";
+$weewxapi[47] = "$span($hour_delta=1).rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[48] = "$month.dewpoint.max.format(add_label=False, $localize=False)";
+$weewxapi[49] = "$month.dewpoint.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[50] = "$month.dewpoint.min.format(add_label=False, $localize=False)";
+$weewxapi[51] = "$month.dewpoint.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[52] = "$yesterday.dewpoint.max.format(add_label=False, $localize=False)";
+$weewxapi[53] = "$yesterday.dewpoint.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[54] = "$year.dewpoint.max.format(add_label=False, $localize=False)";
+$weewxapi[55] = "$year.dewpoint.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[56] = "$year.dewpoint.min.format(add_label=False, $localize=False)";
+$weewxapi[57] = "$year.dewpoint.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[58] = "$day.UV.max.format(add_label=False, $localize=False)";
+$weewxapi[59] = "$day.outHumidity.max.format(add_label=False, $localize=False)";
+$weewxapi[60] = "$day.outHumidity.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[61] = "$day.outHumidity.min.format(add_label=False, $localize=False)";
+$weewxapi[62] = "$day.outHumidity.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[63] = "$day.dewpoint.max.format(add_label=False, $localize=False)";
+$weewxapi[64] = "$day.dewpoint.maxtime.format(format_string="%Y%m%d%H%M%S")";  
+$weewxapi[65] = "$day.dewpoint.min.format(add_label=False, $localize=False)";
+$weewxapi[66] = "$day.dewpoint.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[67] = "$span(time_delta=900).outTemp.avg.format(add_label=False, $localize=False)";
+$weewxapi[68] = "$span(time_delta=900).outHumidity.avg.format(add_label=False, $localize=False)";
+$weewxapi[69] = "$span(time_delta=900).dewpoint.avg.format(add_label=False, $localize=False)";
+$weewxapi[70] = "$span(time_delta=900).inTemp.avg.format(add_label=False, $localize=False)";
+$weewxapi[71] = "$span(time_delta=900).inHumidity.avg.format(add_label=False, $localize=False)";
+$weewxapi[72] = "$span($time_delta=900).windSpeed.avg.format(add_label=False, $localize=False)";
+$weewxapi[73] = "$span($time_delta=1800).windSpeed.avg.format(add_label=False, $localize=False)";
+$weewxapi[74] = "$mlsc";	
+$weewxapi[75] = "$ylsc";	
+$weewxapi[76] = "$dysc";	
+$weewxapi[77] = "$ldlt";
+$weewxapi[78] = "N/A";	
+$weewxapi[79] = "N/A";
+$weewxapi[80] = "$day.radiation.max.format(add_label=False, $localize=False)";
+$weewxapi[81] = "$stationuptime";
+$weewxapi[82] = "$yesterday.outTemp.max.format(add_label=False, $localize=False)";
+$weewxapi[83] = "$yesterday.outTemp.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[84] = "$yesterday.outTemp.min.format(add_label=False, $localize=False)";
+$weewxapi[85] = "$yesterday.outTemp.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[86] = "$month.outTemp.max.format(add_label=False, $localize=False)";
+$weewxapi[87] = "$month.outTemp.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[88] = "$month.outTemp.min.format(add_label=False, $localize=False)";
+$weewxapi[89] = "$month.outTemp.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[90] = "$year.outTemp.max.format(add_label=False, $localize=False)";
+$weewxapi[91] = "$year.outTemp.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[92] = "$year.outTemp.min.format(add_label=False, $localize=False)";
+$weewxapi[93] = "$year.outTemp.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[94] = "$yesterday.windGust.max.format(add_label=False, $localize=False)";
+$weewxapi[95] = "$yesterday.windGust.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[96] = "$month.windGust.max.format(add_label=False, $localize=False)";
+$weewxapi[97] = "$month.windGust.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[98] = "$year.windGust.max.format(add_label=False, $localize=False)";
+$weewxapi[99] = "$year.windGust.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[100] = "$yesterday.rainRate.max.format(add_label=False, $localize=False)";
+$weewxapi[101] = "$month.rainRate.max.format(add_label=False, $localize=False)";
+$weewxapi[102] = "$month.rainRate.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[103] = "$rainyear.rainRate.max.format(add_label=False, $localize=False)";
+$weewxapi[104] = "$rainyear.rainRate.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[105] = "$day.radiation.max.format(add_label=False, $localize=False)";
+$weewxapi[106] = "$day.radiation.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[107] = "$yesterday.radiation.max.format(add_label=False, $localize=False)";
+$weewxapi[108] = "$yesterday.radiation.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[109] = "$month.radiation.max.format(add_label=False, $localize=False)";
+$weewxapi[110] = "$month.radiation.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[111] = "$year.radiation.max.format(add_label=False, $localize=False)";
+$weewxapi[112] = "$year.radiation.maxtime.format(format_string="%Y%m%d%H%M%S")";
+## $weewxapi[x] = "$day.UV.max.format(add_label=False, $localize=False)";
+$weewxapi[113] = "$day.UV.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[114] = "$yesterday.UV.max.format(add_label=False, $localize=False)";
+$weewxapi[115] = "$yesterday.UV.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[116] = "$month.UV.max.format(add_label=False, $localize=False)";
+$weewxapi[117] = "$month.UV.maxtime.format(format_string="%Y%m%d%H%M%S")"; 
+$weewxapi[118] = "$year.UV.max.format(add_label=False, $localize=False)";
+$weewxapi[119] = "$year.UV.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[120] = "$yesterday.dewpoint.min.format(add_label=False, $localize=False)";
+$weewxapi[121] = "$yesterday.dewpoint.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[122] = "$latest.dateTime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[123] = "$span($hour_delta=1).outTemp.avg.format(add_label=False, $localize=False)";
+$weewxapi[124] = "$last_rain.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[125] = "$alltime.outTemp.max.format(add_label=False, $localize=False)";
+$weewxapi[126] = "$alltime.outTemp.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[127] = "$alltime.outTemp.min.format(add_label=False, $localize=False)";
+$weewxapi[128] = "$alltime.outTemp.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[129] = "$alltime.dewpoint.max.format(add_label=False, $localize=False)";
+$weewxapi[130] = "$alltime.dewpoint.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[131] = "$alltime.dewpoint.min.format(add_label=False, $localize=False)";
+$weewxapi[132] = "$alltime.dewpoint.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[133] = "$alltime.windGust.max.format(add_label=False, $localize=False)";
+$weewxapi[134] = "$alltime.windGust.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[135] = "$yesterday.barometer.max.format(add_label=False, $localize=False)";
+$weewxapi[136] = "$yesterday.barometer.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[137] = "$yesterday.barometer.min.format(add_label=False, $localize=False)";
+$weewxapi[138] = "$yesterday.barometer.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[139] = "$month.barometer.max.format(add_label=False, $localize=False)";	
+$weewxapi[140] = "$month.barometer.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[141] = "$month.barometer.min.format(add_label=False, $localize=False)";	
+$weewxapi[142] = "$month.barometer.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[143] = "$year.barometer.max.format(add_label=False, $localize=False)";	
+$weewxapi[144] = "$year.barometer.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[145] = "$year.barometer.min.format(add_label=False, $localize=False)";	
+$weewxapi[146] = "$year.barometer.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[147] = "$alltime.barometer.max.format(add_label=False, $localize=False)";		
+$weewxapi[148] = "$alltime.barometer.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[149] = "$alltime.barometer.min.format(add_label=False, $localize=False)";
+$weewxapi[150] = "$alltime.barometer.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[151] = "$alltime.rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[152] = "$day.outTemp.avg.format(add_label=False, $localize=False)";
+$weewxapi[153] = "$moonphase";
+$weewxapi[154] = "$almanac.moon_fullness";
+$weewxapi[155] = "$daylenght";
+$weewxapi[156] = "$almanac.moon.rise.format(format_string="%H:%M")";
+$weewxapi[157] = "$almanac.moon.set.format(format_string="%H:%M")";
+$weewxapi[158] = "$day.windSpeed.avg.format(add_label=False, $localize=False)";
+$weewxapi[159] = "$month.outHumidity.max.format(add_label=False, $localize=False)";
+$weewxapi[160] = "$month.outHumidity.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[161] = "$month.outHumidity.min.format(add_label=False, $localize=False)";
+$weewxapi[162] = "$month.outHumidity.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[163] = "$year.outHumidity.max.format(add_label=False, $localize=False)";
+$weewxapi[164] = "$year.outHumidity.maxtime.format(format_string="%Y%m%d%H%M%S")";	
+$weewxapi[165] = "$year.outHumidity.min.format(add_label=False, $localize=False)";	
+$weewxapi[166] = "$year.outHumidity.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[167] = "$yesterday.outHumidity.max.format(add_label=False, $localize=False)";
+$weewxapi[168] = "$yesterday.outHumidity.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[169] = "$yesterday.outHumidity.min.format(add_label=False, $localize=False)";	
+$weewxapi[170] = "$yesterday.outHumidity.mintime.format(format_string="%Y%m%d%H%M%S")";  
+$weewxapi[200] = "$current.windrun.format(add_label=False, $localize=False)";
+$weewxapi[201] = "$span($time_delta=3600).windGust.max.format(add_label=False, $localize=False)";
+$weewxapi[202] = "$span($hour_delta=3).rain.sum.format(add_label=False, $localize=False)";
+$weewxapi[203] = "$current.cloudbase.format(add_label=False, $localize=False)";
+$weewxapi[204] = "$current.signal8.format("%.0f")";
+$startcivil = "$almanac(horizon=-6).sun(use_center=1).rise.raw";
+$endcivil = "$almanac(horizon=-6).sun(use_center=1).set.raw";
+$rain_year_start = "$rainyear.start.format(format_string="%b -")";
+$rain_year_end = "$time.strftime("%b", $almost_end_tt)";	
+$daymaxrainrate = "$day.rainRate.max.format(add_label=False, $localize=False)";
+$daymaxrainratetime = "$day.rainRate.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$yesterdaymaxrainratetime = "$yesterday.rainRate.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$alltimemaxrainrate = "$alltime.rainRate.max.format(add_label=False, $localize=False)";
+$alltimemaxrainratetime = "$alltime.rainRate.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$yesterdaymaxwind = "$yesterday.windSpeed.max.format(add_label=False, $localize=False)";
+$yesterdaymaxwindtime = "$yesterday.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$monthmaxwind = "$month.windSpeed.max.format(add_label=False, $localize=False)";
+$monthmaxwindtime = "$month.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$yearmaxwind = "$year.windSpeed.max.format(add_label=False, $localize=False)";
+$yearmaxwindtime = "$year.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+## $current_windchill = "$current.windchill.format(add_label=False, $localize=False)";   
+## $current_heatindex = "$current.heatindex.format(add_label=False, $localize=False)";
+?>
+

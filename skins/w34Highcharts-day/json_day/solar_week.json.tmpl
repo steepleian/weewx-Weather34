@@ -1,0 +1,78 @@
+##errorCatcher Echo
+##
+##This program is free software; you can redistribute it and/or modify it
+##under the terms of the GNU General Public License as published by the Free
+##Software Foundation; either version 2 of the License, or (at your option)
+##any later version.
+##
+##This program is distributed in the hope that it will be useful, but WITHOUT
+##ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+##FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+##more details.
+##
+##############################################################################
+##                                                                           #
+## Highcharts for weewx Extension                                            #
+##                                                                           #
+## Week observation plots JSON data file template                            #
+##                                                                           #
+## Version: 0.2.1                                     Date: 16 May 2017      #
+##                                                                           #
+##############################################################################
+[{
+"_version": "solar_week.json.tmpl version 1.0.0",
+"utcoffset": $utcOffset,
+"timespan": {"start": $weekPlotStart, "stop": $weekPlotEnd},
+##
+"radiationplot": {
+#if $uvaWmWeek_json is not None
+"uvaWmWeek": $uvaWmWeek_json, 
+#end if
+#if $uvbWmWeek_json is not None
+"uvbWmWeek": $uvbWmWeek_json, 
+#end if
+#if $insolationWeekjson is not None
+"radiation": $radiationWeekjson,
+"insolation": $insolationWeekjson,
+#else
+"radiation": $radiationWeekjson,
+#end if
+"units": "$unit.label.radiation"#slurp
+},
+##
+"uvplot": {
+"uv": $uvWeekjson,
+#if $uvaWeek_json is not None
+"uvaWeek": $uvaWeek_json, 
+#end if
+#if $uvbWeek_json is not None
+"uvbWeek": $uvbWeek_json, 
+#end if
+#if $full_spectrumWeek_json is not None
+"full_spectrumWeek": $full_spectrumWeek_json, 
+#end if
+#if $luxWeek_json is not None
+"luxWeek": $luxWeek_json, 
+#end if
+#if $infraredWeek_json is not None
+"infraredWeek": $infraredWeek_json, 
+#end if
+"units": "$unit.label.UV"#slurp
+},
+##
+"cloudcoverplot": {
+#if $cloudcoverWeek_json is not None
+"cloudcoverWeek": $cloudcoverWeek_json, 
+#end if
+"units": "$unit.label.UV"#slurp
+},
+##
+"aqplot": {
+#if $pm2_5Week_json is not None
+"pm2_5Week": $pm2_5Week_json, 
+#end if
+#if $pm10_0Week_json is not None
+"pm10_0Week": $pm10_0Week_json 
+#end if
+}
+}]

@@ -1,0 +1,184 @@
+##errorCatcher Echo
+##
+##This program is free software; you can redistribute it and/or modify it
+##under the terms of the GNU General Public License as published by the Free
+##Software Foundation; either version 2 of the License, or (at your option)
+##any later version.
+##
+##This program is distributed in the hope that it will be useful, but WITHOUT
+##ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+##FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+##more details.
+##
+##############################################################################
+##                                                                           #
+## Highcharts for weewx Extension                                            #
+##                                                                           #
+## Year observation plots JSON data file template                            #
+##                                                                           #
+## Version: 0.2.1                                     Date: 16 May 2017      #
+##                                                                           #
+##############################################################################
+[{
+"_version": "year.json.tmpl version 1.0.0", 
+"utcoffset": $utcOffset, 
+"timespan": {"start": $yearPlotStart, "stop": $yearPlotEnd}, 
+"temperatureplot": {
+"outTempminmax": $outTempMinMax_json, 
+"outTempaverage": $outTempAvg_json, 
+"inTempminmax": $inTempMinMax_json, 
+"inTempaverage": $inTempAvg_json, 
+"units": "$unit.label.outTemp"#slurp
+}, 
+"dewpointplot": {
+"dewpointminmax": $dewpointMinMax_json, 
+"dewpointaverage": $dewpointAvg_json, 
+"units": "$unit.label.outTemp"#slurp
+}, 
+"windchillplot": {
+#if $appTempMinMax_json is not None
+"appTempminmax": $appTempMinMax_json, 
+#end if
+#if $appTempMin_json is not None
+"appTempmin": $appTempMin_json, 
+#end if
+#if $appTempMax_json is not None
+"appTempmax": $appTempMax_json, 
+#end if
+#if $appTempAvg_json is not None
+"appTempaverage": $appTempAvg_json, 
+#end if
+"windchillaverage": $windchillAvg_json, 
+"windchillminmax": $windchillMinMax_json, 
+"heatindexaverage": $heatindexAvg_json, 
+"heatindexminmax": $heatindexMinMax_json, 
+"units": "$unit.label.outTemp"#slurp
+}, 
+"humidityplot": {
+"outHumidityminmax": $outHumidityMinMax_json, 
+"outHumidityaverage": $outHumidityAvg_json, 
+"inHumidityminmax": $inHumidityMinMax_json, 
+"inHumidityaverage": $inHumidityAvg_json, 
+"units": "$unit.label.outHumidity"#slurp
+}, 
+"barometerplot": {
+"barometerminmax": $barometerMinMax_json, 
+"barometeraverage": $barometerAvg_json, 
+"units": "$unit.label.barometer"#slurp
+}, 
+"windplot": {
+"windmax": $windMax_json, 
+"windaverage": $windAvg_json, 
+"windAvmax": $windSpeedMax_json, 
+"windAverage": $windSpeedAvg_json, 
+"units": "$unit.label.windSpeed"#slurp
+}, 
+"winddirplot": {"windDir": $windDir_json, 
+"units": "$unit.label.windDir"#slurp
+}, 
+"rainplot": {
+"rainsum": $rainSum_json, 
+"units": "$unit.label.rain"#slurp
+},
+"lightningplot": {
+#if $distanceMax_json is not None
+"distanceMax": $distanceMax_json, 
+#end if
+#if $distanceAvg_json is not None
+"distanceAvg": $distanceAvg_json, 
+#end if
+#if $strikeCount_json is not None
+"strikeCount": $strikeCount_json, 
+#end if
+#if $noiseCount_json is not None
+"noiseCount": $noiseCount_json, 
+#end if
+#if $disturberCount_json is not None
+"disturberCount": $disturberCount_json, 
+#end if
+#if $energyMax_json is not None
+"energyMax": $energyMax_json, 
+#end if
+#if $energyAvg_json is not None
+"energyAvg": $energyAvg_json, 
+#end if
+#if $lightningSum_json is not None
+"lightningsum": $lightningSum_json 
+#end if
+}, 
+"radiationplot": {
+"radiationmax": $radiationMax_json, 
+"radiationaverage": $radiationAvg_json, 
+#if $uvaWmMax_json is not None
+"uvaWmMax": $uvaWmMax_json, 
+#end if
+#if $uvaWmAvg_json is not None
+"uvaWmAvg": $uvaWmAvg_json, 
+#end if
+#if $uvbWmMax_json is not None
+"uvbWmMax": $uvbWmMax_json, 
+#end if
+#if $uvbWmAvg_json is not None
+"uvbWmAvg": $uvbWmAvg_json, 
+#end if
+"units": "$unit.label.radiation"#slurp
+}, 
+"uvplot": {
+"uvmax": $uvMax_json, 
+"uvaverage": $uvAvg_json,
+#if $uvaMax_json is not None
+"uvaMax": $uvaMax_json, 
+#end if
+#if $uvaAvg_json is not None
+"uvaAvg": $uvaAvg_json, 
+#end if
+#if $uvbMax_json is not None
+"uvbMax": $uvbMax_json, 
+#end if
+#if $uvbAvg_json is not None
+"uvbAvg": $uvbAvg_json, 
+#end if
+#if $full_spectrumMax_json is not None
+"full_spectrumMax": $full_spectrumMax_json, 
+#end if
+#if $full_spectrumAvg_json is not None
+"full_spectrumAvg": $full_spectrumAvg_json, 
+#end if
+#if $luxMax_json is not None
+"luxMax": $luxMax_json, 
+#end if
+#if $luxAvg_json is not None
+"luxAvg": $luxAvg_json, 
+#end if
+#if $infraredMax_json is not None
+"infraredMax": $infraredMax_json, 
+#end if
+#if $infraredAvg_json is not None
+"infraredAvg": $infraredAvg_json, 
+#end if
+"units": "$unit.label.UV"#slurp
+}, 
+"cloudcoverplot": {
+#if $cloudcoverMax_json is not None
+"cloudcoverMax": $cloudcoverMax_json, 
+#end if
+#if $cloudcoverAvg_json is not None
+"cloudcoverAvg": $cloudcoverAvg_json, 
+#end if
+"units": "$unit.label.UV"#slurp
+},
+"aqplot": {
+#if $pm2_5Max_json is not None
+"pm2_5Max": $pm2_5Max_json, 
+#end if
+#if $pm2_5Avg_json is not None
+"pm2_5Avg": $pm2_5Avg_json, 
+#end if
+#if $pm10_0Max_json is not None
+"pm10_0Max": $pm10_0Max_json, 
+#end if
+#if $pm10_0Avg_json is not None
+"pm10_0Avg": $pm10_0Avg_json 
+#end if
+}
+}]

@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+import sys
+import weewx
+import weecfg
+import weewx.station
+import weewx.reportengine
+
+def w34_reports():
+    _config_path, config_dict = weecfg.read_config(None, None)
+    save_entries = ["SKIN_ROOT","HTML_ROOT","data_binding","log_success","log_failure","w34Highcharts"]
+    for key in config_dict['StdReport']:
+        if key not in save_entries:
+            del config_dict['StdReport'][key]
+    config_dict['StdReport']['w34Highcharts']['skin'] = 'w34Highcharts-day'
+    config_dict['StdReport']['w34Highcharts']['CheetahGenerator'] =  {'search_list_extensions': 'user.w34highchartsSearchX.w34highcharts_' + sys.argv[2].split('/')[-1].split('.')[0], 'encoding': 'strict_ascii', 'ToDate': {'DayJSON': {'template': sys.argv[2],'HTML_ROOT': sys.argv[3]}}}
+    try:
+        binding = config_dict['StdArchive']['data_binding']
+    except KeyError:
+        binding = 'wx_binding'
+    with weewx.manager.DBBinder(config_dict) as db_binder:
+        db_manager = db_binder.get_manager(binding)
+        ts = int(sys.argv[1])
+        for i in range(1500):
+            record = db_manager.getRecord(ts)
+            if record == None:
+                ts = ts + 60
+            else:
+                break;
+        if record == None:
+           ts = db_manager.firstGoodStamp()
+           record = db_manager.getRecord(ts)
+        weewx.reportengine.StdReportEngine(config_dict, weewx.station.StationInfo(**config_dict['Station']), record=record, gen_ts=ts).run()
+    
+if __name__=="__main__" :
+    w34_reports()
