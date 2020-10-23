@@ -1,75 +1,176 @@
-# Installation Guide
+# Weather34 skin for WeeWX
+Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **Please note, some functionality will be lost if you are not using WeeWX 4.1.1 and its default extended database.** It is therefore strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.1.1.
 
-Before you start it is a wise precaution to backup your databases, settings1.php and any customised files you wish to keep.
+Version W34-HC-IMJD-3.0.0
 
-This installation guide assumes that you are already reasonably familiar with WeeWX and that it is already installed on your computer along with a webserver, php and curl.
+Packaged for installation using its own unique installer and an online pre-installation settings form https://steepleian.github.io/weewx-Weather34
 
-If you have not already done so, you must update your WeeWX installation to version 4.1.1 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.1.1/Python2.7 or Python3.x. 
+This repository contains the WeeWX version of Brian Underdown's Weather34 website template set. Brian's main website is https://weather34.com/homeweatherstation/index.html In January, 2019, Brian asked others to take over the distribution/maintainence of his design whilst he concentrated on development only for MB NanoSD, called Weather34 MB-SMART. This WeeWX version of the template is actively developed by Ian Millard and Jerry Dietrich.
 
-If you are carrying out a fresh install of WeeWX, my own personal preference is to use the setup.py method (http://www.weewx.com/docs/setup.htm). However, this increases the chances of requiring more path edits in the configuration files. Alternatively use one of the dedicated packaged installs (http://weewx.com/docs/debian.htm, http://weewx.com/docs/redhat.htm, http://weewx.com/docs/suse.htm or http://weewx.com/docs/macos.htm).
+This version requires WeeWX version 4.1.1 or later software. WeeWX is available at http://weewx.com
 
-* Please familiarise yourself with the location of your WeeWX system files in http://weewx.com/docs/ including your bin/user folder, skins folder and weewx.conf file. If you are unsure where to find these, please refer to the installation processes here: - https://claydonsweather.org.uk/weewx/docs/ which shows various WeeWX installation scenarios.
+This version is designed explicitly to harness the powerful WeeWX database to generate the weather data charts and statistical data. It was originally built on the current MB-UB40-IHVN which is now maintained by Lightmaster (Meteobridge-Weather34-Template). Although we maintain a similar look and feel with MB-UB40-IHVN,the weewx-Weather34 now has many unique features.
 
-IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP7.3 modules on a Debian based distribution: -
+This version is assembled as an install package and uses its own unique utility, w34_installer.py, to install. This greatly simplifies the installation process from that of previous versions. Depending on your own WeeWX setup, minor edits may be required to be made to weewx.conf and Weather34 skin.conf files. Please see the Weather34 skin Installation Guide for detailed instructions.
 
-	sudo apt install php
-	sudo apt install php-cli php-fpm php-json php-sqlite3 php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath
-	sudo apt install libapache2-mod-php
-	sudo a2enmod php7.3
-	sudo systemctl restart apache2
+# What's New in this Version W34-HC-IMJD-3.0.0
 
-* Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
+**Please Note.** The appearance and features of this new version are identical to those of the previous version (W34-HC-IMJD-2.0.0). The new changes relate to moving some of the settings from the skin's PHP coding into its core Python Module, weather34.py. If you are currently using W34-HC-IMJD-2.0.0 and you are happy that you have a stable setup, it is not absolutely necessary to upgrade.
 
-        sudo sudo apt install python2-ephem or sudo sudo apt install python3-ephem
+To improve efficiency and reliability the web services (forecasts and alerts etc) are now part of the weather34.py module coding and the settings for these have been moved from the template setup page to weewx.conf. This is also true for cloud coverage settings. To assist you we have created a new pre-install settings page at https://steepleian.github.io/weewx-Weather34/. When you have completed the settings form a file 'services.txt' is automatically downloaded to your default Download folder. This file should then be copied to your install folder prior to running the unique installer. When the install process is exectuted, the data contained in services.txt is used to populate weewx.conf
 
+# Demo
 
-Once completed, make sure you save weewx.conf
+A live example of Weather34 WeeWX skin can be seen at https://claydonsweather.org.uk
 
-* If you have have the CRT extension (Cumulus Real-Time) extension installed, unless you require it for another purpose, you can remove it now. (sudo ./wee_extension --uninstall crt)
+# Weather34 Historic Timeline of design 2014-2019 
+https://weather34.com/homeweatherstation/weather34timeline/weather34timeline.html
 
-* This install process assumes that your are using one of the officially documented WeeWX installs and a typical Apache2 web server configuration of /var/www/html. In this instance, at the end of the installation process your path to thw Weather34 skin will be /var/www/html/weewx/weather34. If your installation deviates from this, you will need to adjust the paths in your weewx.conf file after the installation process has taken place.
+# Template Screenshots
 
-* The default WeeWX extension installer (wee_extension) was not really intended to deal with monolithic structure of the Weather34 skin. It is possible to configure an install package to use wee_extension, but it is a difficult and tedious process to maintain for this skin. I am very gratefully to Jerry Dietrich for writing a new installer specially for Weather34. This installer copies everything to the correct places and automatically configures the correct web server ownerships, permissions and groups etc. The whole process is very fast and your skin will be up and running without having to wait till the end of the first archive cycle. By using the supplied configuration files, setup.py, packaged or MacOS installed versions of WeeWX can be catered for.
+**Dark Theme**
 
-* Go to https://steepleian.github.io/weewx-Weather34 to complete the pre-install web services settings which which generates 'services.txt' in your default Download folder
+![image](https://user-images.githubusercontent.com/18438654/86633765-fb60a200-bfc8-11ea-99dc-f8dc8de56e8c.png)
 
-* From the command line: - 
-                
-		cd [path_to_your_Download_folder]
-		sudo git clone https://github.com/steepleian/weewx-Weather34.git
-		sudo cp services.txt weewx-Weather34
-		cd weewx-Weather34
-		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
-		
-		
-		    You will be prompted for the config file for your WeeWX install type.
-		    Select packaged if your WeeWX was installed by Debian, RedHat or Suse methods [default option]
-		    or
-		    Select setup_py. if your WeeWX was installed by setup.py method
-		    or
-		    Select macos if your WeeWX was installed by MacOS method
-		
-* Alternative install method : -
+**Light Theme**
 
-		Download weewx-Weather34-master.zip from https://github.com/steepleian/weewx-Weather34/edit/master/ into your Download folder
-		cd [path_to_your_Download_folder]
-		unzip weewx-Weather34-master.zip
-		sudo cp services.txt weewx-Weather34-master
-		cd weewx-Weather34-master
-		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
-		
-		    You will be prompted for the config file for your WeeWX install type.
-		    Select packaged if your WeeWX was installed by Debian, RedHat or Suse methods [default option]
-		    or
-		    Select setup_py. if your WeeWX was installed by setup.py method
-		    or
-		    Select macos if your WeeWX was installed by MacOS method
-		
+![image](https://user-images.githubusercontent.com/18438654/86635273-c8b7a900-bfca-11ea-9efd-76962364c2fd.png)
+
+**Pop Up Chart - Dark Theme**
+
+![image](https://user-images.githubusercontent.com/18438654/86635575-277d2280-bfcb-11ea-9452-e7acd7f44e62.png)
+
+**Pop Up Chart - Light Theme
+
+![image](https://user-images.githubusercontent.com/18438654/86636143-dae61700-bfcb-11ea-966d-4db7b487033f.png)
+
+**Pop Up AQI Info**
+
+![image](https://user-images.githubusercontent.com/18438654/86636425-2c8ea180-bfcc-11ea-957d-72c1180f44fb.png)
+
+**Pop UP Alerts**
+
+![image](https://user-images.githubusercontent.com/18438654/86637661-da4e8000-bfcd-11ea-8df6-1f872a6bb6ed.png)
+
+**Radial Charts**
+
+![Untitled](https://user-images.githubusercontent.com/18438654/86875356-34d50280-c0da-11ea-9b39-33acd451eb46.png)
+
+**Hays Charts**
+
+![image](https://user-images.githubusercontent.com/18438654/86639506-e25bef00-bfd0-11ea-9da3-043d2a640b46.png)
 
 
-* Restart WeeWX.
+# Setup
 
-* You can now test that the template is working by opening it up in your browser. Initially you will see random demo data. Click on the menu button at the top-left corner and select settings. This will open up a web form in which you apply your own settings. Pay particular attention to the location of the w34realtime.txt file being generated on a loop cycle by weeWX. The default location is “/[html_root]/weewx/w34weather/serverdata/w34realtime.txt” (for example /var/www/html/weewx/w34weather/serverdata/w34realtime.txt).
+**If you are upgrading from a previous version of this skin, due to the significant changes, you must recreate your settings!.php file by running the full install process. Just copying your previous settings1.php will cause errors which are then difficult to resolve.**
 
-* Any problems, please raise an Issue in this repository attaching a debug report (see here for details http://www.weewx.com/docs/utilities.htm#wee_debug_utility), your skin.conf files and a syslog tail report covering at least two archive cycles from startup.
+Follow the instructions in the 'installation guide' (INSTALLATION_GUIDE.md) to install the template.
+Browse to http://your/path/to/weewx/weather34/easyW34skinSetup.php
+There is no initial password when the page prompts the first time -- just press LOGIN to enter the page.
+IMPORTANT set a password in the screen for future use -- your browser can remember it. This will make future updates    reasonably secure so only you can do the updates to the configuration.
+Make setting entries in the easyweathersetup.php page and SAVE. The next time you run it, use the password you set in the step above.
+Repeat running easyW34skinSetup.php until the main screen appears as you like it.
 
+# License
+
+Copyright (c) 2016-2019 by Brian Underdown (https://weather34.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Template”), to deal in the Template without restriction, including without limitation the rights to, can use, can not copy without prior permission, can modify for personal use, can use and publish for personal use ,can not distribute without prior permission, can not sublicense without prior permission, and can not sell copies of the Template, and subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Template.
+
+THE TEMPLATE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE TEMPLATE OR THE USE OR OTHER DEALINGS IN THE TEMPLATE.
+
+Attribution-NonCommercial 4.0 International based on a work at https://weather34.com/homeweatherstation
+Non-weeWX versions Available
+
+# An Excerpt from Meteobridge-Weather34-Template MB-UB40-RRW README.md
+Github repository for the Meteobridge version of the original weather34 template 
+Weather Template for Meteobridge users only 
+
+# This work is not permitted to be used in any other versions without prior permission unless listed below 
+# Permission is granted for use in Cumulus version maintained by Ken True 
+# Permission is granted for use in Weewx version maintained by Ian Millard
+
+*This work means CSS/SVG/PHP .
+
+Meteobridge Version available via download maintained by Lightmaster (https://github.com/lightmaster/Meteobridge-Weather34-Template)
+
+Cumulus Version available via download and more info supported by Ken True ( https://github.com/ktrue/CU-HWS ). This version now also supports WeeWX and WeatherCat
+
+# Credits for this version
+
+Apart from Brian Underdown without him, this template would never exist, I would aslo like to acknowledge the following people: -
+
+Jerry Dietrich for his massive contribution in converting my wild ideas into reality, putting me straight on my mediocre coding skills and having the patience of a dozen saints.
+
+Gary Roderick for his original coding of Highcharts for WeeWX.
+
+William Bailey aka Lightmaster who maitains the MB version of Weather34. Incredibly helpful and always on the end of Telegram when I need a chat, night or day.
+
+Ken True for sharing files and who makes my job of maintaining the WeeWX version so much easier.
+
+Thomas Sosio for his invaluable contribution in producing the Meteobridge lookup code to translate WeeWX database output.
+
+David Marshall for contributing technical knowledge and solutions to create some original .tmpl files and alternative solutions for weather alerts.
+
+Taylormia for contributing his excellent setup example for instances where WeeWX and server/template are remote to each other.
+
+Gary Portellas for a helpful suggestion to further simplify the installation process.
+
+Drealine for his recent work on extending the French translations.
+
+All those unamed people who have helped me with testing updates.
+
+The creators of WeeWX without which there would be no point.
+
+# Alternative versions
+
+# Meteobridge
+you can find the Meteobridge version maintained by Lightmaster (William) at 
+https://github.com/weather34/Meteobridge-Weather34-Template34/
+
+# Cumulus
+you can find the Cumulus version maintained by Ken True (Saratoga) at 
+https://github.com/ktrue/CU-HWS
+
+# Weewx
+you can find a Weewx version maintained by Ian Millard is also avaialble via 
+https://github.com/steepleian/weewx-Weather34
+
+# Weatherflow
+you can find a Weatherflow version not maintained but fully tested as of May 5th 2019 
+https://github.com/weather34/Weather34-Weatherflow
+
+
+# This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+http://creativecommons.org/licenses/by-nc-nd/4.0/
+
+# Credits and thanks to the contributors who made the original version of Weather34 possible between 2015 and 2019.
+
+ Erik M Madsen for language idea and initial script
+ 
+ Paul @komoka weather in Canada for continous support and testing 
+ 
+ Josep for Spanish/Catalan language translation and for many ideas and refinements
+ 
+ Pascal Catte French translation and ideas fowarded 
+ 
+ Steve the developer of Cumulus for support and providing a platform to resolve issues 
+ 
+ Mats Ahlklo Swedish translation and his work on using Davis weatherlink 
+ 
+ Betejuice (Cumulus Forum) for providing a solution for meteor shower listings 
+ 
+ Ken True (Saratoga) for kindly granting permission allowing use of many scripts he developed which gave inspiration and ideas  though not used today it was the inspiration that allowed to do something more suited to the design. 
+ 
+ Eric Rechlin Special thanks for originally creating the theme switching and extensive work on metrics/non metrics
+ 
+ Boris at smartbedded (meteobridge) for ongoing support and upkeep of meteobridge 
+ 
+ Wim van der Kuil for the original meteobridge script 
+ 
+ David St John at weatherflow for providing hardware for testing and his non bias logical views 
+ 
+ Paul Wilman , Tina Thomas, Vaggos , Chuck M , Aaron Gersztoff , Ian Millard, and many many more for continous constructive supportive feedback .. 
