@@ -29,22 +29,15 @@ $_POST["showDate"] = "false";
 IF (ISSET($_POST["Submit"])) {
 
 $string = '<?php
-$apikey = "'. $_POST["apikey"]. '";
-$wuapikey = "'. $_POST["wuapikey"]. '";
 $weatherflowID = "'. $_POST["wfid"]. '";
 $weatherflowoption   = "'. $_POST["weatherflowoption"]. '";
 $weatherflowlightning = "'. $_POST["wfli"]. '";
 $weatherflowmapzoom   = "'. $_POST["weatherflowmapzoom"]. '";
-$id = "'. $_POST["WUID"]. '";
-$purpleairID = "'. $_POST["purpleair"]. '";
 $purpleairhardware   = "'. $_POST["purpleairhardware"]. '";
-$metarapikey ="'. $_POST["metarapikey"]. '";
 $TZ = "'. $_POST["TZ"]. '";
 $UTC = "'. $_POST["UTC"]. '";
 $lon = '. $_POST["lon"]. ';
 $lat = '. $_POST["lat"]. ';
-$darkskyunit   = "'. $_POST["darkskyunit"]. '";
-$wuapiunit   = "'. $_POST["wuapiunit"]. '";
 $stationlocation = "'. $_POST["stationlocation"]. '";
 $stationName = "'. $_POST["stationName"]. '";
 $moonadj = "'. $_POST["moonadj"]. '";
@@ -93,7 +86,6 @@ $twitter   = "'. $_POST["twitter"]. '";
 $theme1   = "'. $_POST["theme1"]. '";
 $since    = "'. $_POST["since"]. '";
 $weatherhardware   = "'.$_POST["weatherhardware"]. '";
-//$mbplatform   = "'.$_POST["mbplatform"]. '";
 $davis   = "'.$_POST["davis"]. '";
 $sunoption = "'. $_POST["sunoption"]. '";
 $hemisphere   = "'. $_POST["hemisphere"]. '";
@@ -113,6 +105,7 @@ $notifyEarthquake = "'. $_POST["notifyEarthquake"]. '";
 $notifyMagnitude = '. $_POST["notifyMagnitude"]. ';
 $linkWU = "'. $_POST["linkWU"]. '";
 $linkWUNew = "'. $_POST["linkWUNew"]. '";
+$id = "'. $_POST["id"]. '";
 $linkCWOPID = "'. $_POST["linkCWOPID"]. '";
 $linkFindUID = "'. $_POST["linkFindUID"]. '";
 $linkNOAA = "'. $_POST["linkNOAA"]. '";
@@ -132,10 +125,6 @@ $USAWeatherFinder = "'. $_POST["USAWeatherFinder"]. '";
 $extraLinkTitle = "'. $_POST["extraLinkTitle"]. '";
 $extraLinkColor = "'. $_POST["extraLinkColor"]. '";
 $extraLinkURL = "'. $_POST["extraLinkURL"]. '";
-
-$weewxserver_address = "'. $_POST["weewxserver_address"]. '";
-$weewxserver_port = "'. $_POST["weewxserver_port"]. '";
-$json_day_file_transfer = "'. $_POST["json_day_file_transfer"]. '";
 ?>';
 
 $fn = FOPEN('languages/lang.'.$defaultlanguage.'.php', 'r') or die("Cannot read input file ".'languages/lang.'.$defaultlanguage.'.php');
@@ -465,12 +454,6 @@ WeeWX Software Paths to Data files</div><br/>
     <svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
     <path d="M30 12 L16 24 2 12" /></svg>
 
-  <input name="jsondatapath" type="text" id="jsondatapath" value="<?php echo $jsondatapath ;?>" class="chooseapi">
-  <br/>
-  <span style='color:red'>Do not change unless you know what you're doing</span>
-  <br/>
-    
-     
      <div class="stationvalue">WeeWX Chart Data</div>
       <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
     <path d="M12 30 L24 16 12 2" />
@@ -1751,6 +1734,13 @@ General template settings with options to choose which type of module to display
         <option><?php echo ($linkWUNew=='yes'||empty($linkWUNew)?'no':'yes');?></option>
     </select>
     <br/>
+  <!-- WU id -->
+  <div class="stationvalue">Weather Underground ID</div>
+    <?php echo $rightchevron;?>
+    <label name="id"></label>
+    <input name="id" type="text" id="id" value="<?php echo $id;?>" class="choose">
+    
+    <br/>
     <!-- CWOP Link -->
     <div class="stationvalue">Display CWOP Link</div>
     <?php echo $rightchevron;?>
@@ -2056,58 +2046,14 @@ Weatherflow Map Zoom</div>
     <br/>
 
 
-    <div class="stationvalue"> Purple Air ID</div>
-    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-
-    <input name="purpleair" type="text" id="purpleair" value="<?php echo $purpleairID ;?>" class="choose">
-
-
-
-
-
-    <br/> <svg id="i-info" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M16 14 L16 23 M16 8 L16 10" />
-    <circle cx="16" cy="16" r="14" />
-</svg> <span style="color:#777;">enter your <strong>PurpleAir </strong> station id example <strong><span style="color:rgba(86, 95, 103, 1.000);"> 1200</strong></span></span>
-
+    
     </div>
     <br/>
        
 <!--##########################################################################################
     #########                        Start of Air Quality Section                     #########
     ##########################################################################################-->
-
-     <div class="weatheroptions">
-   <div class="weathersectiontitle"> Air Quality Index</div><br/>
-    <span style="color:rgba(236, 87, 27, 1.000);"> * <span style="color:#777;">Important<span style="color:rgba(236, 87, 27, 1.000);"> for Air Quality Open Data Platform</span></span></span> <br/>
-
-
-
-
-  
-    
-
-
-    <div class="stationvalue"> AQI API Token</div>
-    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-
-    <input name="aqitoken" type="text" id="aqitoken" value="<?php echo $aqitoken ;?>" class="choose">
-
-
-
-
-
-    <br/> <svg id="i-info" viewBox="0 0 32 32" width="12" height="14" fill="none" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M16 14 L16 23 M16 8 L16 10" />
-    <circle cx="16" cy="16" r="14" />
-</svg> <span style="color:#777;">enter your <strong>AQI </strong> Token <strong><span style="color:rgba(86, 95, 103, 1.000);">You can obtain a token here http://aqicn.org/data-platform/token/#/</strong></span></span>
-
-    </div>
-    <br/>       
+   
 
 <!--##########################################################################################
     #########                        Start of METAR Section                          #########
@@ -2116,13 +2062,7 @@ Weatherflow Map Zoom</div>
      <div class="weatheroptions">
    <div class="weathersectiontitle">Nearby Metar Aviation Weather Options</div><br/>
 <span style="color:rgba(236, 87, 27, 1.000);">
-    <div class="stationvalue">CheckWX API Key</div>
- <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-    <input name="metarapikey" type="text" id="" value="<?php echo $metarapikey ;?>" class="chooseapi">
-<br/> <span style="color:#777;">enter your <strong>CheckWx</strong> <strong>API key</strong> this is the most common mistake made be careful when cut and paste often an hidden space is either inserted before or after causing the <strong>API key</strong> to fail. This key is important for displaying nearby metar data. <a href="https://www.checkwx.com/signup" title="https://www.checkwx.com/signup" target="_blank">You need to sign up here for free API key https://www.checkwx.com/signup.</a></span>
-<br/>
+    <br/>
 
 
 <div class="stationvalue"> Display Nearby Metar (yes or no) *English Only </div>
@@ -2191,12 +2131,7 @@ Weatherflow Map Zoom</div>
 
   
 
-  <input id="weewxserver_address" type="hidden" name="weewxserver_address" value=NULL/><br/>
-  </div>
-  <input id="weewxserver_port" type="hidden" name="weewxserver_port" value=NULL/><br/>
-  </div>
-  <input id="json_day_file_transfer" type="hidden" name="json_day_file_transfer" value=""/><br/>
-  </div>
+  
 
 
 
