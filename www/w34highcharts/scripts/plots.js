@@ -1002,7 +1002,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    wd = reinflate_time(seriesData[0].winddirplot.windDir);
 	    ws = convert_wind(seriesData[0].windplot.units, units.wind, reinflate_time(seriesData[0].windplot.windGust));
 	    for (var i = j = 0; i < ws.length; i+=10, j++){
-	       wb[j]  = [ws[i][0], ws[i][1] > 0 || !hide_zero_wind_barb ? ws[i][1] : null, wd[i][1]]; 
+	       wb[j]  = [ws[i][0], ws[i][1] > 0 || !hide_zero_wind_barb ? convert_wind(units.wind, "mph", ws[i][1]) : null, wd[i][1]]; 
 	       wb1[j] = [ws[i][0], ws[i][1], wd[i][1]]; }
 	    options.plotOptions.series.turboThreshold = 0; //Need this to work around highcharts bug with wind barb 
 	    options.series[0].data = wb;
