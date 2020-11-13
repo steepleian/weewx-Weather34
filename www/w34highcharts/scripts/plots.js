@@ -542,6 +542,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	function getTranslation(term){
 	    if (typeof translations == 'undefined') return term;
 	    if (translations.hasOwnProperty(term)) return translations[term];
+            if (translations.hasOwnProperty(term.replace(' ', ''))) return translations[term.replace(' ', '')];
 	    var parts = term.split(/([" ", "/", "&"])/);
 	    var translation = "";
 	    for (var i = 0; i < parts.length; i++)
@@ -1015,7 +1016,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    options.rangeSelector.selected = 1;
 	    options.yAxis[0].title.text = "(" + units.wind + ")";
             options.tooltip.formatter = function(){if (this.points[1] == undefined) tooltip = '<span style="font-size: 10px">' + Highcharts.dateFormat('%e %B %Y %H:%M',new Date(this.points[0].x)) + '</span><br/>' + '<span style="color: ' + this.points[0].series.color+'">' + getTranslation("WindBarb") + ": " + 0 + " " + units.wind + " (" + getTranslation('Calm') + ')</span><br/>';
-                                                   else {spd = this.points[1].y;bn = this.points[0].series.beaufortName[Math.round(Math.pow(Math.pow((convert_wind(units.wind, "mph", spd)/1.8702),0.33),2))];tooltip = '<span style="font-size: 10px">' + Highcharts.dateFormat('%e %B %Y %H:%M',new Date(this.points[0].x)) + '</span><br/>' + '<span style="color: ' + this.points[1].series.color+'">' + getTranslation("WindBarb") + ": " + spd + " " + units.wind + " (" + bn + ')</span><br/><span style="color: '+ this.points[0].series.color + '">' + getTranslation("Wind Direction") + ": " + (this.points[0].point.options.direction == null ? getTranslation("Calm") : this.points[0].point.options.direction + '\xB0') + '</span><br/>';}
+                                                   else {spd = this.points[1].y;bn = this.points[0].series.beaufortName[Math.round(Math.pow(Math.pow((convert_wind(units.wind, "mph", spd)/1.8702),0.33),2))];tooltip = '<span style="font-size: 10px">' + Highcharts.dateFormat('%e %B %Y %H:%M',new Date(this.points[0].x)) + '</span><br/>' + '<span style="color: ' + this.points[1].series.color+'">' + getTranslation("WindBarb") + ": " + spd + " " + units.wind + " (" + getTranslation(bn) + ')</span><br/><span style="color: '+ this.points[0].series.color + '">' + getTranslation("Wind Direction") + ": " + (this.points[0].point.options.direction == null ? getTranslation("Calm") : this.points[0].point.options.direction + '\xB0') + '</span><br/>';}
 						   return tooltip;};
 	    return options;
 	};
