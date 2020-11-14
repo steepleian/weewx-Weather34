@@ -180,7 +180,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	            spacingLeft: 20,
                     events: {
                          load: function(event){             // Hack to make radial charts display correctly the first time when they are not full of data
-                            if (this.options.chart.polar && event.target.series[0].data.length > 10 && plot_type != 'windroseplot' && plot_type != 'windrosegustplot')
+                            if (enable_radial_charts_reload && this.options.chart.polar && event.target.series[0].data.length > 10 && plot_type != 'windroseplot' && plot_type != 'windrosegustplot')
                                setTimeout(polar_chart_hack,0);
                          }
                     },
