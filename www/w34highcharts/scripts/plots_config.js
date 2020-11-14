@@ -7,6 +7,7 @@ var autoupdateinterval = 60; //This is seconds
 var realtimeinterval = 10;  //This is seconds
 var hide_zero_wind_barb = false;  //Hide/display Zero Barb
 var disable_day_plots = true; //Disable day plots
+var enable_radial_charts_reload = true; //Hack for highcharts radial charts
 
 //[0] array offset(s) to wanted real-time data(s)(can be empty),[1] array offset(s) to data's real-time units(can be empty),[2] array of unit convert function(s)(can be empty), [3] plot type, [4] plot X resolution, [5] delta value
 // The (can be empty) entries then must have a plot_type that is another plot type entry with fill in values this is how to display a different plot_type when using real-time data.
