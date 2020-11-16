@@ -6,7 +6,6 @@
 	# 	LARGE DAY WU WEATHER FORECAST:  original MAR 2019			   		                           #
 	#   https://www.weather34.com 	                                                                   #
 	####################################################################################################
-if ($windunit=='kts'){$windunit="kn";}
 //start the wu output
 $json='jsondata/wuforecast.txt';
 $weather34wuurl=file_get_contents($json);
@@ -120,15 +119,14 @@ if ($tempunit=='F' && $wuapiunit=='h' ){$wuskydayTempHigh=($wuskydayTempHigh*9/5
 if ($tempunit=='F' && $wuapiunit=='h' ){$wuskyheatindex=($wuskyheatindex*9/5)+32;}
 if ($tempunit=='F' && $wuapiunit=='h' ){$wuskywindchill=($wuskywindchill*9/5)+32;}
 // ms non metric to c Scandinavia 
-if ($tempunit=='F' && $wuapiunit=='s'){$wuskydayTempHigh=($wuskydayTempHigh*30);}
-if ($tempunit=='F' && $wuapiunit=='s'){$wuskyheatindex=($wuskyheatindex*30);}
-if ($tempunit=='F' && $wuapiunit=='s'){$wuskywindchill=($wuskywindchill*30);}
+if ($tempunit=='F' && $wuapiunit=='s' ){$wuskydayTempHigh=($wuskydayTempHigh*9/5)+32;}
+if ($tempunit=='F' && $wuapiunit=='s' ){$wuskyheatindex=($wuskyheatindex*9/5)+32;}
+if ($tempunit=='F' && $wuapiunit=='s' ){$wuskywindchill=($wuskywindchill*9/5)+32;}
 // non metric to c US
 if ($tempunit=='C' && $wuapiunit=='e' ){$wuskydayTempHigh=($wuskydayTempHigh-32)/1.8;}
 if ($tempunit=='C' && $wuapiunit=='e' ){$wuskyheatindex=($wuskyheatindex-32)/1.8;}
 if ($tempunit=='C' && $wuapiunit=='e' ){$wuskywindchill=($wuskywindchill-32)/1.8;}
 //wind
-if ($windunit=='kts'){$windunit=='kn';}
 // mph to kmh US
 if ($windunit=='km/h' && $wuapiunit=='e' ){$wuskydayWindGust=(number_format($wuskydayWindGust,1)*1.60934);}
 // mph to kmh UK
@@ -169,7 +167,6 @@ else if($wuskydayTempHigh>18){echo '<wulargetemphihome><orangewu>'.number_format
 else if($wuskydayTempHigh>12.7){echo '<wulargetemphihome><yellowwu>'.number_format($wuskydayTempHigh,0).'°<wuunits>C</wuunits></yellowwu></wulargetemphihome>';}
 else if($wuskydayTempHigh>=7){echo '<wulargetemphihome><greenwu>'.number_format($wuskydayTempHigh,0).'°<wuunits>C</wuunits></greenwu></wulargetemphihome>';}
 //wind wu
-
 echo "<div class='wulargewindspeedicon'> Winds from  <blueu>";
 echo $wuskydayWinddircardinal; 
 echo " </blueu>at ".$windalert2." <div class=wuwindspeed> ".number_format($wuskydayWindGust,0),"&nbsp;<wuunits>".$windunit;echo  '</wuunits></div></div>';'<br><br>';
