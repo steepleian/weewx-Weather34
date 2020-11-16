@@ -1,7 +1,6 @@
 <?php include_once('w34CombinedData.php');
 error_reporting(0); date_default_timezone_set($TZ);
 header('Content-type: text/html; charset=UTF-8');
-
 //original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
 	####################################################################################################
 	#	HOME WEATHER STATION TEMPLATE by BRIAN UNDERDOWN 2016-17-18-19 
@@ -36,7 +35,7 @@ for ($k=0;$k<=4;$k++) {if(empty($parsed_weather34wujson->{'daypart'}[0]->{'iconC
 	// metric to F UK
 	if ($tempunit=='F' && $wuapiunit=='h' ){$wuskydayTempHigh=($wuskydayTempHigh*9/5)+32;}
 	// ms non metric to c Scandinavia 
-	if ($tempunit=='F' && $wuapiunit=='s'){$wuskydayTempHigh=($wuskydayTempHigh*30);}
+	if ($tempunit=='F' && $wuapiunit=='s'){$wuskydayTempHigh=($wuskydayTempHigh*9/5)+32;}
 	// non metric to c US
 	if ($tempunit=='C' && $wuapiunit=='e' ){$wuskydayTempHigh=($wuskydayTempHigh-32)/1.8;}
 	//wind
