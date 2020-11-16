@@ -125,6 +125,8 @@ $USAWeatherFinder = "'. $_POST["USAWeatherFinder"]. '";
 $extraLinkTitle = "'. $_POST["extraLinkTitle"]. '";
 $extraLinkColor = "'. $_POST["extraLinkColor"]. '";
 $extraLinkURL = "'. $_POST["extraLinkURL"]. '";
+$darkskyunit = "'. $_POST["darkskyunit"]. '";
+$wuapiunit = "'. $_POST["wuapiunit"]. '";
 ?>';
 
 $fn = FOPEN('languages/lang.'.$defaultlanguage.'.php', 'r') or die("Cannot read input file ".'languages/lang.'.$defaultlanguage.'.php');
@@ -207,7 +209,7 @@ if (isset($_POST['submit_pwd'])){    $pass = isset($_POST['passwd']) ? $_POST['p
   
 
 
-  <input type="hidden" name="ds_url" value="https://api.forecast.io/forecast/$apikey/$lat,$lon?lang=$language&units=$darkskyunit"/><br/>
+  
   
  
          
@@ -846,9 +848,55 @@ double check again
             <option>km</option>
 
         </select>
+     
+
+    <br/>
+  
+  <label name="wuapiunit"></label>
+  <div class="stationvalue">Weather Underground Forecast Units</div> <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M30 12 L16 24 2 12" />
+</svg>
+        <select id="wuapiunit" name="wuapiunit" value="<?php echo $wuapiunit ;?>" class="choose1" >
+          <option><?php echo $wuapiunit ;?></option>
+            <option>e</option>
+            <option>m</option>
+             <option>s</option>
+             <option>h</option>
+            </select>
+
+             <br/><span style="color:#777;"> e = <span style="color:rgba(236, 87, 27, 1.000);">Imperial(Non Metric) </span>
+             <br/><span style="color:#777;"> m = <span style="color:rgba(236, 87, 27, 1.000);">Metric </span>
+             <br/><span style="color:#777;"> s = <span style="color:rgba(236, 87, 27, 1.000);">m/s wind speed + metric(Scandinavia) </span>
+             <br/><span style="color:#777;"> h = <span style="color:rgba(236, 87, 27, 1.000);">mph wind speed + metric(UK) </span>
+     
+
+    <br/>
+  
+  <label name="darkskyunit"></label>
+        <div class="stationvalue">DarkSky Forecast Units</div> <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M30 12 L16 24 2 12" />
+</svg>
+        <select id="darkskyunit" name="darkskyunit" class="choose1">
+        <option><?php echo $darkskyunit;?></option>
+            <option>ca</option>
+            <option>uk2</option>
+            <option>us</option>
+            <option>si</option>
+
+        </select>
+  <br/><span style="color:#777;"> ca = <span style="color:rgba(236, 87, 27, 1.000);"> Metric, windSpeed km/h</span>
+<br/><span style="color:#777;"> uk2 = <span style="color:rgba(236, 87, 27, 1.000);">  Metric ,windSpeed mph</span>
+<br/><span style="color:#777;"> us = <span style="color:rgba(236, 87, 27, 1.000);"> Imperial units (NON METRIC)</span>
+<br/><span style="color:#777;"> si = <span style="color:rgba(236, 87, 27, 1.000);"> SI units, windSpeed m/s</span>
      </div>
 
     <br/>
+  
+  
 
 <!--##########################################################################################
     #########                        Start of Theming Sidebar                        #########
