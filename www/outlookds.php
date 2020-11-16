@@ -50,7 +50,7 @@ blueu{background:#01a4b5}zerou{color:#777}yellowu{background:#e6a141}orangeu{bac
 		 <div class="darkskyforecasthome">
 		<div class="darkskydiv"><value>
 <?php
-if ($windunit=='kts'){$windunit="kn";}        
+        
         foreach ($darkskydayCond as $cond) {
             $darkskydayTime = $cond['time'];
             $darkskydaySummary = $cond['summary'];
@@ -97,7 +97,7 @@ else if ($weather["wind_units"] == 'm/s' && $darkskyunit=='us') {$windspeedconve
 if ($weather["wind_units"] == 'mph' && $darkskyunit=='uk2') {$windspeedconversion =1;} 
 else if ($weather["wind_units"] == 'km/h' && $darkskyunit=='uk2') {$windspeedconversion = 1.6093466682922179523;} 
 else if ($weather["wind_units"] == 'm/s' && $darkskyunit=='uk2') {$windspeedconversion = 0.4470407411923185137;}     
-$darkskydayWindSpeed = round($cond['windGust']*$windspeedconversion,0);
+$darkskydayWindSpeed = round($cond['windSpeed']*$windspeedconversion,0);
 $darkskydayWindGust = round($cond['windGust']*$windspeedconversion,0);
             	  echo '<div class="darkskyforecastinghome">';  
                   echo '<div class="darkskyweekdayhome">'.strftime("%a %b %e", $darkskydayTime).'</div>';  
@@ -172,7 +172,7 @@ echo "<br><div class='darkskywindspeedicon'><img src = 'css/windicons/avgw.svg' 
 				  elseif ($darkskydayWinddir <340 ) echo 'NWN';
 				  elseif ($darkskydayWinddir <360 ) echo 'North';
 				  echo  '</div>';					   	 
-				  echo "<div class='darkskywindgust'>".$darkskydayWindSpeed	." ".$windunit."</div>";
+				  echo "<div class='darkskywindgust'>".$darkskydayWindGust	." ".$windunit."</div>";
 				  echo '<darkskytempwindhome><span>'.$darkskydaySummary.' </darkskywindhome></span><br>';
 				  if ( $darkskydayacumm>0 && $weather['temp_units']=='F'){
 				  echo ''.$snowflakesvg.'&nbsp;<darkskytempwindhome><span>Snow <blue1>&nbsp;'.$darkskydayacumm.'</blue1> in</darkskywindhome><br></span>';}  
