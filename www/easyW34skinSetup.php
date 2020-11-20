@@ -168,7 +168,7 @@ function showForm($error="LOGIN"){
 
   <div class="login_screen" style="width:60%;max-width:600px;margin:0 auto;color:rgba(24, 25, 27, 1.000);border:solid 1px grey;padding:10px;border-radius:4px;">  <?php echo 'Your Current PHP version is :<span style="color:rgba(236, 87, 27, 1.000);"> ' . phpversion(), '</span> <br/>(PHP 5.6 or higher PHP 7+ is  advised if you are not already using these versions)'; ?>
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="pwd" >
-   Enter Your Password For Meteobridge Setup Screen Below
+   Enter Your Password For Weather34 Setup Screen Below
 <center> <div class="modal-buttons">
      <input name="passwd" type="password" class="input-button"/>  <input type="submit" name="submit_pwd" value="Login " class="modal-button" />
          </form>
