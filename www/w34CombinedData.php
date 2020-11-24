@@ -57,9 +57,9 @@
 	$weather["uv"]                 = $weewxrt[43];
 	$weather["solar"]              = round($weewxrt[45],1);
 	$weather["temp"]               = $weewxrt[2];
-	$weather["apptemp"]            = ($weewxrt[54] == 'NULL' ? $weewxapi[41] : $weewxrt[54]); // Use Archive data if loop data missing^M
-	$weather["heatindex"]          = $weewxrt[41];
-	$weather["windchill"]          = ($weewxrt[24] == 'NULL' ? $weewxapi[24] : $weewxrt[24]); // Use Archive data if loop data missing^M
+	$weather["apptemp"]            = ($weewxrt[54] == 'NULL' ? $weewxapi[205] : $weewxrt[54]); // Use Archive data if loop data missing^M
+	$weather["heatindex"]          = ($weewxrt[41] == 'NULL' ? $weewxapi[41]  : $weewxrt[41]); // Use Archive data if loop data missing^M
+	$weather["windchill"]          = ($weewxrt[24] == 'NULL' ? $weewxapi[24]  : $weewxrt[24]); // Use Archive data if loop data missing^M
 	$weather["humidity"]           = number_format($weewxrt[3],0);	
 	$weather["temp_today_high"]    = $weewxapi[26];
 	$weather["temp_today_low"]     = $weewxapi[28];
