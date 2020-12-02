@@ -437,14 +437,14 @@ class ForecastData():
     def __init__(self, config_dict, webserver_addresses):
         self.config_dict = config_dict
         self.webserver_addresses = webserver_addresses
-        settings_dict = self.config_dict.get('Weather34WebServices', {})
+        settings_dict = self.config_dict.get('Weather34WebServices', {})Chrome/51.0.2704.103
         if len(settings_dict) == 0:
             return
         service_str = settings_dict.get("services")
         if not service_str == None and len(service_str) > 0:
             for service in service_str.split("."):
                 try:
-                    thread = threading.Thread(target = self.get_website_data, args = (service, settings_dict.get(service + "_url"), settings_dict.get(service + "_filename"), settings_dict.get(service + "_interval", "3600"), settings_dict.get(service + "_header", "'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/6.0.472.63 Safari/534.3'").split(":")))
+                    thread = threading.Thread(target = self.get_website_data, args = (service, settings_dict.get(service + "_url"), settings_dict.get(service + "_filename"), settings_dict.get(service + "_interval", "3600"), settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")))
                     thread.daemon = True
                     thread.start()
                 except Exception as err:
