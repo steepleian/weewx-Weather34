@@ -437,7 +437,7 @@ class ForecastData():
     def __init__(self, config_dict, webserver_addresses):
         self.config_dict = config_dict
         self.webserver_addresses = webserver_addresses
-        settings_dict = self.config_dict.get('Weather34WebServices', {})Chrome/51.0.2704.103
+        settings_dict = self.config_dict.get('Weather34WebServices', {})
         if len(settings_dict) == 0:
             return
         service_str = settings_dict.get("services")
