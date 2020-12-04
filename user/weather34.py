@@ -7,7 +7,7 @@
 Put this file in bin/user , then add this to your weewx.conf:
 
 [Weather34RealTime]
-    filename = /your/path/to/weather34/serverdata/w34realtime.txt
+    filename = /your/path/to/w34realtime.txt
 
 [Engine]
     [[Services]]
@@ -653,8 +653,9 @@ class Weather34RealTime(StdService):
         loginf("'None' values will be displayed as %s" % self.nonesub)
         self.prev_archive_time = time.time()
         weewx_file_transfer = d.get('weewx_file_transfer', '')
-
-        weewxserver_ip = socket.gethostbyname(socket.gethostname())
+        weewxserver_ip = config_dict['Weather34RealTime'].get('weewxserver_address', '')
+        if len(weewxserver_ip) == 0:
+            weewxserver_ip = socket.gethostbyname(socket.gethostname())
         try:
             if weewxserver_ip.startswith('127.'):
                 weewxserver_ip = subprocess.check_output(['hostname', '-s', '-I']).split(b" ")[0].decode()
@@ -664,7 +665,7 @@ class Weather34RealTime(StdService):
                 s.connect(('10.255.255.255', 1))
                 weewxserver_ip = s.getsockname()[0]
             except:
-                loginf("Cannot get local IP of weewx machine. Must use config entry weewxserver_address in [Weather34RealTime] in weewx.conf")
+                logerr("Cannot get local IP of weewx machine.")
             finally:
                 s.close() 
         bin_path = os.path.dirname(os.path.realpath(__file__)).split("/user")[0]
@@ -740,7 +741,7 @@ class Weather34RealTime(StdService):
             lpath = os.path.join(config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', ''), "serverdata")  
             lfilename = os.path.join(lpath, "weewxserverinfo.txt") if len(self.webserver_addresses) == 0 else "/tmp/weewxserverinfo/weewxserverinfo.txt" 
             data = str(weewxserver_ip) + ":" + str(config_dict['Weather34RealTime'].get('weewx_port', '25252')) + ":" + weewx_file_transfer + ":" + bin_path
-            if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
+            if len(self.webserver_addresses) > 0 and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
                 f.write(data)
