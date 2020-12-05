@@ -507,7 +507,7 @@ class CloudCover():
             lon = parts[3].split("&")[0]
             url2 = settings_dict.get('cc2_url')
             file1 = "/tmp/weather34/sat1.png"
-            file2 = "/tmp/weather34/sat1.png"
+            file2 = "/tmp/weather34/sat2.png"
             time_interval = int(settings_dict.get('cc_interval', 600))
             logdbg("CloudCover Url 1 " + url1)
             logdbg("CloudCover Url 2 " + url2)
