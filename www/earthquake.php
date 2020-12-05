@@ -1,4 +1,4 @@
-<?php include('w34CombinedData.php');include('common.php');date_default_timezone_set($TZ);$json_string=file_get_contents('jsondata/eqnotification.txt');$parsed_json=json_decode($json_string,true);
+<?php include('w34CombinedData.php');include('common.php');date_default_timezone_set($TZ);$json_string=file_get_contents('jsondata/eq.txt');$parsed_json=json_decode($json_string,true);
 $software    = 'Cumulus <span>Software</span>';
 $designedfor    = '<br>For Cumulus';
 $magnitude=number_format($parsed_json{0}{'magnitude'},1);
