@@ -18,7 +18,7 @@ if ($windunit=='kts'){$windunit="kn";}
 
 ?>
 <div class="updatedtimecurrent">
-<?php $forecastime=filemtime('jsondata/metar34.txt');$weather34wuurl = file_get_contents("jsondata/metar34.txt");if(filesize('jsondata/metar34.txt')<10){echo  $online;}
+<?php $forecastime=filemtime('jsondata/me.txt');$weather34wuurl = file_get_contents("jsondata/me.txt");if(filesize('jsondata/me.txt')<10){echo  $online;}
 else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
 <div class="cloudconverter">
 <?php //cloudbase-weather34
