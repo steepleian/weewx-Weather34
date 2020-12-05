@@ -146,7 +146,7 @@ else if ($weather["cloudbase3"]>0){echo "<div class=cloudbase0>".$weather["cloud
          
  
 	<?php  //air quality	
-$json_string             = file_get_contents("jsondata/aqi.txt");
+$json_string             = file_get_contents("jsondata/aq.txt");
 $parsed_json             = json_decode($json_string);
 $aqiweather["aqi"]       = $parsed_json->{'aqiv'};
 $aqiweather["aqiozone"]  = $parsed_json->{'data'}->{'iaqi'}->{'o3'}->{'v'};
