@@ -433,6 +433,8 @@ class ForecastData():
         self.config_dict = config_dict
         self.html_root = config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', '')
         self.remote_html_root = config_dict['Weather34RealTime'].get('HTML_ROOT', self.html_root)
+        if len(self.remote_html_root) == 0:
+            self.remote_html_root = self.html_root
         self.webserver_addresses = webserver_addresses
         settings_dict = self.config_dict.get('Weather34WebServices', {})
         if len(settings_dict) == 0:
@@ -644,6 +646,8 @@ class Weather34RealTime(StdService):
         self.config_dict = config_dict 
         self.html_root = config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', '')
         self.remote_html_root = config_dict['Weather34RealTime'].get('HTML_ROOT', self.html_root)
+        if len(self.remote_html_root) == 0:
+            self.remote_html_root = self.html_root
         self.sunny_threshold = 0.75
         self.nonesub = 'NULL'
         loginf("'None' values will be displayed as %s" % self.nonesub)
@@ -775,7 +779,7 @@ class Weather34RealTime(StdService):
     def handle_new_archive(self, event):
         if self.prev_archive_time + 50 < time.time():
             self.prev_archive_time = time.time()
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "json/"), os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), "json/"), os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), self.config_dict['StdReport']['RSYNC'].get('user', None))
             do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata/', self.config_dict['StdReport']['RSYNC'].get('user', None))
         if self.cc != None:
             self.cc.update_cloud_cover(event)
