@@ -148,7 +148,7 @@ if ($notifications == 'yes') {
     if ($notifyEarthquake == 'yes') {
         //earthquakes magnitude 6+
         date_default_timezone_set($TZ);
-        $json_string=file_get_contents('jsondata/eqnotification.txt');
+        $json_string=file_get_contents('jsondata/eq.txt');
         $parsed_json=json_decode($json_string,true);
         $magnitude = array();
         $eqtitle = array();
