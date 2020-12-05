@@ -7,7 +7,7 @@
 	#   https://www.weather34.com 	                                                                   #
 	####################################################################################################
 //start the wu output
-$json='jsondata/wuforecast.txt';
+$json='jsondata/wu.txt';
 $weather34wuurl=file_get_contents($json);
 $parsed_weather34wujson = json_decode($weather34wuurl,false);
 {    if ($parsed_weather34wujson->{'daypart'}[0]->{'iconCode'}[0]==null){
