@@ -3,7 +3,7 @@
 //current eq
 date_default_timezone_set($TZ);
 //$json_string=file_get_contents('http://earthquake-report.com/feeds/recent-eq?json');
-$json_string=file_get_contents('jsondata/eqnotification.txt');
+$json_string=file_get_contents('jsondata/eq.txt');
 $parsed_json=json_decode($json_string,true);
 $magnitude1=$parsed_json{0}{'magnitude'};
 $magnitude=number_format($magnitude1,1);
@@ -24,7 +24,7 @@ $eqdist;if ($weather["wind_units"] == 'mph') {$eqdist = round(distance($lat, $lo
 $eqdista;if ($weather["wind_units"] == 'mph') {$eqdista = round(distance($lat, $lon, $lati, $longi) * 0.621371) ."<smallrainunit>mi";} else {$eqdista = round(distance($lat, $lon, $lati, $longi)) ."<smallrainunit>km";} ?>  
 <div class="updatedtime">
 <span><?php 
-$updated=filemtime('jsondata/eqnotification.txt');
+$updated=filemtime('jsondata/eq.txt');
 echo  $online, " ",date($timeFormat, $updated);?></span>
 </div>
 <div class="rainconverter">
