@@ -1,5 +1,5 @@
  <?php //original weather34 script original css/svg/php by weather34 2015-2019 // 
-include('w34CombinedData.php');date_default_timezone_set($TZ);$json_string = file_get_contents("jsondata/darksky.txt");
+include('w34CombinedData.php');date_default_timezone_set($TZ);$json_string = file_get_contents("jsondata/ds.txt");
 $parsed_json = json_decode($json_string);
 $alerttype = $parsed_json->{'alerts'}[0]->{"title"};
 $type = explode(" ", $alerttype);
@@ -16,7 +16,7 @@ $alertissued = date('H:i d M',$alertiss);
 <?php 
 if ($position6=="forecast3wularge.php" || $position6=="forecast3wu.php"){
 
-$json='jsondata/wuforecast.txt';
+$json='jsondata/wu.txt';
 $weather34wuurl=file_get_contents($json);
 $parsed_weather34wujson = json_decode($weather34wuurl,false);
 {    
