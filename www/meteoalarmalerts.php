@@ -15,7 +15,7 @@
 ?>
 <?php 
 date_default_timezone_set($TZ);
-$json_string             = file_get_contents("jsondata/meteoalarm.txt");
+$json_string             = file_get_contents("jsondata/me.txt");
 $parsed_json             = json_decode($json_string);
 
 $published =  $parsed_json->{'warnings'}->{"regions"}[0]->{"published"};
