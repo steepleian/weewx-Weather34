@@ -16,7 +16,7 @@ error_reporting(0);
 <?php //current eqlist
 date_default_timezone_set($TZ);
 //$json_string=file_get_contents('http://earthquake-report.com/feeds/recent-eq?json');
-$json_string=file_get_contents('jsondata/eqnotification.txt');
+$json_string=file_get_contents('jsondata/eq.txt');
 $parsed_json=json_decode($json_string,true);
 $magnitude = array();
 $eqtitle = array();
