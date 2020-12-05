@@ -734,7 +734,7 @@ class Weather34RealTime(StdService):
             self.cache_debug = False
 
         try:
-            lfilename = os.path.join(self.html_root, "weewxserverinfo.txt") if len(self.webserver_addresses) == 0 else os.path.join('/tmp/weather34/serverdata', "weewxserverinfo.txt") 
+            lfilename = os.path.join(self.html_root, "serverdata","weewxserverinfo.txt") if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata/weewxserverinfo.txt'
             data = str(weewxserver_ip) + ":" + str(config_dict['Weather34RealTime'].get('weewx_port', '25252')) + ":" + weewx_file_transfer + ":" + bin_path
             if len(self.webserver_addresses) > 0 and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
@@ -776,7 +776,7 @@ class Weather34RealTime(StdService):
         if self.prev_archive_time + 50 < time.time():
             self.prev_archive_time = time.time()
             do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "json/"), os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), self.config_dict['StdReport']['RSYNC'].get('user', None))
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata', self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata/', self.config_dict['StdReport']['RSYNC'].get('user', None))
         if self.cc != None:
             self.cc.update_cloud_cover(event)
 
@@ -829,7 +829,7 @@ class Weather34RealTime(StdService):
     def write_data(self, data):
         data = self.create_realtime_string(data)
         try:
-            lfilename = os.path.join(self.html_root, "serverdata", "w34realtime.txt") if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/serverdata/", 'w34realtime.txt') 
+            lfilename = os.path.join(self.html_root, "serverdata", "w34realtime.txt") if len(self.webserver_addresses) == 0 else "/tmp/weather34/serverdata/w34realtime.txt"
             if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
