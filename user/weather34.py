@@ -6,8 +6,6 @@
 
 Put this file in bin/user , then add this to your weewx.conf:
 
-[Weather34RealTime]
-    filename = /your/path/to/w34realtime.txt
 
 [Engine]
     [[Services]]
@@ -17,9 +15,6 @@ If no unit_system is specified, the units will be those of the database.
 Units and other parameters may be specified:
 
 [Weather34RealTime]
-    filename = /path/to/w34realtime.txt
-    date_separator = /
-    none = NULL
     unit_system = (US | METRIC | METRICWX)
     wind_units = (meter_per_second | mile_per_hour | km_per_hour | knot)
     temperature_units = (degree_C | degree_F)
@@ -436,6 +431,8 @@ class ZambrettiForecast():
 class ForecastData():    
     def __init__(self, config_dict, webserver_addresses):
         self.config_dict = config_dict
+        self.html_root = config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', '')
+        self.remote_html_root = config_dict['Weather34RealTime'].get('HTML_ROOT', self.html_root)
         self.webserver_addresses = webserver_addresses
         settings_dict = self.config_dict.get('Weather34WebServices', {})
         if len(settings_dict) == 0:
@@ -444,17 +441,18 @@ class ForecastData():
         if not service_str == None and len(service_str) > 0:
             for service in service_str.split("."):
                 try:
-                    thread = threading.Thread(target = self.get_website_data, args = (service, settings_dict.get(service + "_url"), settings_dict.get(service + "_filename"), settings_dict.get(service + "_interval", "3600"), settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")))
+                    thread = threading.Thread(target = self.get_website_data, args = (service, settings_dict.get(service + "_url"), settings_dict.get(service + "_interval", "3600"), settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")))
                     thread.daemon = True
                     thread.start()
                 except Exception as err:
                     logerr("Failed to start service: %s, Error: %s" % (service, err))
                          
-    def get_website_data(self, service, url, filename, time_interval, header):
-        if url == None or filename == None or time_interval == None or header == None:
-            logerr("Error Invalid Webservice Data: %s, %s, %s, %s" % (url, filename, time_interval, header))
+    def get_website_data(self, service, url, time_interval, header):
+        if url == None or time_interval == None or header == None:
+            logerr("Error Invalid Webservice Data: %s, %s, %s" % (url, time_interval, header))
             return
         loginf("Web Service: %s is installed" % (service,))
+        filename = os.path.join(self.html_root, "jsondata", service + ".txt")
         time.sleep(60) # delay to give time for network interfaces to be established
         while True:
             try:
@@ -468,12 +466,12 @@ class ForecastData():
                 time.sleep(int(time_interval))
                 continue
             try:
-                lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp", service, os.path.basename(filename)) 
+                lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/jsondata", os.path.basename(filename)) 
                 if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
                     os.mkdir(os.path.dirname(lfilename), 0o777)
                 with open(lfilename, 'w+') as file_handle:
                     file_handle.write(str(page))
-                do_rsync_transfer(self.webserver_addresses, os.path.dirname(filename), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+                do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
             except Exception as err:
                 logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
             time.sleep(int(time_interval))
@@ -506,8 +504,8 @@ class CloudCover():
             lat = parts[2].split("&")[0]
             lon = parts[3].split("&")[0]
             url2 = settings_dict.get('cc2_url')
-            file1 = settings_dict.get('cc1_filename')
-            file2 = settings_dict.get('cc2_filename')
+            file1 = "/tmp/weather34/sat1.png"
+            file2 = "/tmp/weather34/sat1.png"
             time_interval = int(settings_dict.get('cc_interval', 600))
             logdbg("CloudCover Url 1 " + url1)
             logdbg("CloudCover Url 2 " + url2)
@@ -644,15 +642,13 @@ class Weather34RealTime(StdService):
         self.latitude = engine.stn_info.latitude_f
         self.longitude = engine.stn_info.longitude_f
         self.config_dict = config_dict 
-        d = config_dict.get('Weather34RealTime', {})
-        self.filename = d.get('filename', '')
-        loginf("output goes to %s" % self.filename)
-        self.datesep = d.get('date_separator', '/')
-        self.sunny_threshold = float(d.get('sunny_threshold', 0.75))
-        self.nonesub = d.get('none', 'NULL')
+        self.html_root = config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', '')
+        self.remote_html_root = config_dict['Weather34RealTime'].get('HTML_ROOT', self.html_root)
+        self.sunny_threshold = 0.75
+        self.nonesub = 'NULL'
         loginf("'None' values will be displayed as %s" % self.nonesub)
         self.prev_archive_time = time.time()
-        weewx_file_transfer = d.get('weewx_file_transfer', '')
+        weewx_file_transfer = config_dict['Weather34RealTime'].get('weewx_file_transfer', '')
         weewxserver_ip = config_dict['Weather34RealTime'].get('weewxserver_address', '')
         if len(weewxserver_ip) == 0:
             weewxserver_ip = socket.gethostbyname(socket.gethostname())
@@ -676,7 +672,7 @@ class Weather34RealTime(StdService):
 
         # get the unit system for display
         us = None
-        us_label = d.get('unit_system', None)
+        us_label = config_dict['Weather34RealTime'].get('unit_system', None)
         if us_label is not None:
             if us_label in weewx.units.unit_constants:
                 loginf("units will be displayed as %s" % us_label)
@@ -689,12 +685,12 @@ class Weather34RealTime(StdService):
         self.units = dict()
         for x in UNITS:
             ukey = '%s_units' % x
-            if ukey in d:
-                if d[ukey] in UNITS[x]:
-                    loginf("%s units will be displayed as %s" % (x, d[ukey]))
-                    self.units[x] = d[ukey]
+            if ukey in config_dict['Weather34RealTime']:
+                if config_dict['Weather34RealTime'][ukey] in UNITS[x]:
+                    loginf("%s units will be displayed as %s" % (x, config_dict['Weather34RealTime'][ukey]))
+                    self.units[x] = config_dict['Weather34RealTime'][ukey]
                 else:
-                    logerr("unknown unit '%s' for %s" % (d[ukey], ukey))
+                    logerr("unknown unit '%s' for %s" % (config_dict['Weather34RealTime'][ukey], ukey))
 
         # configure forecasting
         self.forecast = ZambrettiForecast(config_dict)
@@ -703,7 +699,7 @@ class Weather34RealTime(StdService):
         try:
             self.webserver_addresses = {}
             if len(self.webserver_addresses) == 0:
-                addresses = d.get('webserver_address')
+                addresses = config_dict['Weather34RealTime'].get('webserver_address')
                 if len(addresses) > 0 and not isinstance(addresses,list):
                     addresses = [addresses]
                 if len(addresses) > 0:
@@ -738,23 +734,24 @@ class Weather34RealTime(StdService):
             self.cache_debug = False
 
         try:
-            lpath = os.path.join(config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', ''), "serverdata")  
-            lfilename = os.path.join(lpath, "weewxserverinfo.txt") if len(self.webserver_addresses) == 0 else "/tmp/weewxserverinfo/weewxserverinfo.txt" 
+            lfilename = os.path.join(self.html_root, "weewxserverinfo.txt") if len(self.webserver_addresses) == 0 else os.path.join('/tmp/weather34/serverdata', "weewxserverinfo.txt") 
             data = str(weewxserver_ip) + ":" + str(config_dict['Weather34RealTime'].get('weewx_port', '25252')) + ":" + weewx_file_transfer + ":" + bin_path
             if len(self.webserver_addresses) > 0 and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
                 f.write(data)
-            do_rsync_transfer(self.webserver_addresses, lpath, os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
         except Exception as e:
             loginf("Cannot write to weewxserverinfo.txt due to error " + str(e))
         loginf("Check lightning Strike Count: " + str(self.chk_lightning_cnt))
         # setup caching
         self.cache_enable = False 
         self.cache_stale_time = 900
-        self.cache_file = '/tmp/RetainedLoopValues.txt'
+        self.cache_file = '/tmp/weather34/RetainedLoopValues.txt'
         self.retainedLoopValues = {}
         self.excludeFields = set([])
+        if not os.path.exists(os.path.dirname(self.cache_file)):
+            os.mkdir(os.path.dirname(self.cache_file), 0o777)
         if 'Weather34RealTime' in config_dict:
             if 'cache_enable' in config_dict['Weather34RealTime']:
                 self.cache_enable = True if config_dict['Weather34RealTime'].get('cache_enable') == 'True' else False; 
@@ -765,7 +762,7 @@ class Weather34RealTime(StdService):
                 if os.path.isdir(path):
                     self.cache_file = os.path.join(path, 'Weather34RealTimeRetainedLoopValues.txt')
                 else:
-                    logerr('Invalid cache_directory using default location tmp')	
+                    logerr('Invalid cache_directory using default location tmp/weather34')	
             if 'exclude_fields' in config_dict['Weather34RealTime']:
                 self.excludeFields = set(weeutil.weeutil.option_as_list(config_dict['Weather34RealTime'].get('exclude_fields', [])))
                 logdbg("excluding fields: %s" % (self.excludeFields,))
@@ -778,8 +775,8 @@ class Weather34RealTime(StdService):
     def handle_new_archive(self, event):
         if self.prev_archive_time + 50 < time.time():
             self.prev_archive_time = time.time()
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), None, self.config_dict['StdReport']['RSYNC'].get('user', None))
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/'), None, self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "json/"), os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata', self.config_dict['StdReport']['RSYNC'].get('user', None))
         if self.cc != None:
             self.cc.update_cloud_cover(event)
 
@@ -832,14 +829,14 @@ class Weather34RealTime(StdService):
     def write_data(self, data):
         data = self.create_realtime_string(data)
         try:
-            lfilename = self.filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/realtime/", os.path.basename(self.filename)) 
+            lfilename = os.path.join(self.html_root, "serverdata", "w34realtime.txt") if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/serverdata/", 'w34realtime.txt') 
             if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
                 f.write(data + "\n")
-            do_rsync_transfer(self.webserver_addresses, os.path.dirname(self.filename), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
         except Exception as err:
-            logerr("Error writing file: %s, Error: %s" % (lfilename, err))
+            logerr("Error writing file: Error: %s" % (err,))
 
     # convert from database unit system to specified units
     def _cvt(self, from_v, to_units, obs, group):
@@ -1049,7 +1046,7 @@ class Weather34RealTime(StdService):
         fields = []
         p_dp = 2 if data['units_pressure'] == 'in' else 1
         r_dp = 2 if data['units_rain'] == 'in' else 1
-        datefmt = "%%d%s%%m%s%%y" % (self.datesep, self.datesep)
+        datefmt = "%%d%s%%m%s%%y" % ("/", "/")
         tstr = time.strftime(datefmt, time.localtime(data['dateTime']))
         fields.append(tstr)                                           # 1
         tstr = time.strftime("%H:%M:%S", time.localtime(data['dateTime']))
