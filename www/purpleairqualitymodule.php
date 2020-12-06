@@ -33,7 +33,7 @@ function map($value, $fromLow, $fromHigh, $toLow, $toHigh){
     // Re-zero back to the to range
     return $tmpValue + $toLow;
 }
-$json_string             = file_get_contents("jsondata/purpleair.txt");
+$json_string             = file_get_contents("jsondata/pu.txt");
 $parsed_json             = json_decode($json_string);
 //$aqiweather["aqi"]       = $parsed_json->{'results'}[1]->{'PM2_5Value'};
 $aqiweather["aqi"]       = number_format(pm25_to_aqi(($parsed_json->{'results'}[0]->{'PM2_5Value'} + $parsed_json->{'results'}[1]->{'PM2_5Value'}) / 2),1);
@@ -44,8 +44,8 @@ $aqiweather["city"]      = $parsed_json->{'results'}[0]->{'ID'};
 $aqiweather["label"]     = $parsed_json->{'results'}[0]->{'Label'};
 $a="";if($aqiweather["aqi"]==$a){$aqiweather["aqi"] = "0" ;}
 ?>
-<div class="updatedtime"><span><?php if(file_exists('jsondata/purpleair.txt') && time() - filemtime('jsondata/purpleair.txt')<1800) {
-  echo $online." ".date($timeFormat, filemtime('jsondata/purpleair.txt'));
+<div class="updatedtime"><span><?php if(file_exists('jsondata/pu.txt') && time() - filemtime('jsondata/pu.txt')<1800) {
+  echo $online." ".date($timeFormat, filemtime('jsondata/pu.txt'));
   } else {
   echo $offline. '<offline> Offline </offline>';
   }?></div> 
