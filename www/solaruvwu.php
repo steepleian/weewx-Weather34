@@ -14,7 +14,7 @@ if ($weather["solar"]==0){echo "<div class=solarluxtodaydark>".$weather["solar"]
 else if ($weather["solar"]>0){echo "<div class=solarluxtoday>".$weather["solar"];}?></div></div></div>
 <div class="solarluxtodayword"><valuetext>Solar Radiation</valuetext></div><div class="solarwrap"></div>
 <?php
-$json='jsondata/wuforecast.txt';
+$json='jsondata/wu.txt';
 $weather34wuurl=file_get_contents($json);
 $parsed_weather34wujson = json_decode($weather34wuurl,false);
 $parsed_weather34wujson1 = json_decode($weather34wuurl,true);
