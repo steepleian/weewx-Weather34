@@ -671,10 +671,10 @@ if ($weather["wind_units"] == 'mph') {
 
 
 
-// darksky api forecast and current script for HOMEWEATHERSTATION gets data from jsondata/darksky.json Friday 2nd December 2016 //
+// darksky api forecast and current script for HOMEWEATHERSTATION gets data from jsondata/ds.json Friday 2nd December 2016 //
 //$units = 'auto';  // Read the API docs for full details // default is auto
 date_default_timezone_set($TZ);
-$json = 'jsondata/darksky.txt'; 
+$json = 'jsondata/ds.txt'; 
 $json = file_get_contents($json); 
 $response = json_decode($json, true);      
 if ($response != null) {
