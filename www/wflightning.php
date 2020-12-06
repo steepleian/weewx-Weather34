@@ -3,7 +3,7 @@
 <?php 
 $url2 = 'https://swd.weatherflow.com/swd/rest/observations/station/'.$weatherflowID.'?api_key=5675886d24b02a37107eb5076d5e1d9f'; 
 $ch2 = curl_init($url2);
-$filename2 = 'jsondata/weatherflow.txt';
+$filename2 = 'jsondata/wf.txt';
 $complete_save_loc2 = $filename2; 
 $fp2 = fopen($complete_save_loc2, 'wb'); 
 curl_setopt($ch2, CURLOPT_FILE, $fp2);
@@ -14,7 +14,7 @@ fclose($fp2);
 ?>
 <?php 
     //weather34 weatherflow air lightning
-$file1 = 'jsondata/weatherflow.txt';
+$file1 = 'jsondata/wf.txt';
 $url = $file1;
 $content = file_get_contents($url);
 $json = json_decode($content, true);    
