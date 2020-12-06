@@ -117,14 +117,14 @@ stationid{font-size:1.4em;font-family:weathertext2;color:#009bb4}
 <div class="pressure">
 <blue>Pressure</blue> <br>
 <?php
-if ($pressureunit == 'mb' || $pressureunit == 'hPa') {
+if ($pressureunit == 'mb' || $pressureunit == 'hPa' || $pressureunit == 'kPa' ) {
 	echo $metar34pressuremb ," (".$pressureunit.")";
 } else {
 	echo $metar34pressurehg ," (inHG)";
 }
 ?> - 
 <?php
-if ($pressureunit == 'mb' || $pressureunit == 'hPa') {
+if ($pressureunit == 'mb' || $pressureunit == 'hPa' || $pressureunit == 'kPa') {
 	echo $metar34pressurehg ," (inHG)";
 } else {
 	echo $metar34pressuremb ," (mb)";

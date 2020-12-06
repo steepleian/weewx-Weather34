@@ -13,7 +13,7 @@
       </div>
       <div class="weather34toolbar__right">
         <weather34mbuptime>
-          <?php echo "Server ".(shell_exec('uptime -p'));?>
+          <?php echo $info." Uptime: ".($uptimedays<1?$uptimehours." Hours":$uptimedays." Days");?>
         </weather34mbuptime>
           <?php if ($units!='us') {?>
             <a href="./?units=us" title="select Imperial"><topbarimperial>&deg;F</topbarimperial></a>
@@ -94,6 +94,11 @@
       if($units!='scandinavia') {?>
         <li>
           <a href="./?units=scandinavia"><weather34menumarkerred></weather34menumarkerred> M/S <topbarmetricc>&deg;C</topbarmetricc></a>
+        </li>
+      <?php }
+      if($units!='ca') {?>
+        <li>
+          <a href="./?units=ca"><weather34menumarkerred></weather34menumarkerred> CA (kPa) <topbarmetricc>&deg;C</topbarmetricc></a>
         </li>
       <?php }
       
