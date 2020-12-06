@@ -104,7 +104,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0}
   <article>  
    <div class=actualt>&nbsp;&nbsp UV-INDEX Forecast</div>        
    <div class="uvcontainer1"><?php 
- $json='jsondata/wuforecast.txt';
+ $json='jsondata/wu.txt';
 $weather34wuurl=file_get_contents($json);
 $parsed_weather34wujson = json_decode($weather34wuurl,false);
 $parsed_weather34wujson1 = json_decode($weather34wuurl,true);
