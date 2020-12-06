@@ -71,7 +71,7 @@ function do_pressure_conversion(source, dest, data, fixed){
    else if (source == 'mb'   && dest == 'kPa')  return parseFloat((data * 0.1).toFixed(fixed));
    else if (source == 'kPa'  && dest == 'inHg') return parseFloat((data * 0.02953).toFixed(fixed));
    else if (source == 'kPa'  && dest == 'hPa')  return parseFloat((data * 1000).toFixed(fixed));
-   else if (source == 'kPa'  && dest == 'mb')   return parseFloat((data * 0.001).toFixed(fixed));
+   else if (source == 'kPa'  && dest == 'mb')   return parseFloat((data * 10).toFixed(fixed));
    return data;
 }
 
