@@ -13,7 +13,7 @@
       </div>
       <div class="weather34toolbar__right">
         <weather34mbuptime>
-          <?php echo $info." Uptime: ".($uptimedays<1?$uptimehours." Hours":$uptimedays." Days");?>
+          <?php echo "Server ".(shell_exec('uptime -p'));?>
         </weather34mbuptime>
           <?php if ($units!='us') {?>
             <a href="./?units=us" title="select Imperial"><topbarimperial>&deg;F</topbarimperial></a>
