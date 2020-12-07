@@ -84,7 +84,7 @@ else echo "<img rel='prefetch' src='css/icons/overcast.svg' width='70px' height=
 }
 
 //metar with darksky fallback-weather34
-else if(filesize('jsondata/metar34.txt')<160){
+else if(filesize('jsondata/me.txt')<160){
 echo "<img rel='prefetch' src='css/icons/offline.svg'width='70px' height='60px' alt='weather34 offline icon'>";} 	
 else echo "<img rel='prefetch' src='css/icons/".$sky_icon."' width='70px' height='60px'>";
 ?></div>
@@ -118,7 +118,7 @@ else if($weather["cloud_cover"]<40) {echo "Scattered <br>Clouds";}
 else if($weather["cloud_cover"]<60) {echo "Partly Cloudy <br>Conditions";}
 else if($weather["cloud_cover"]<80) {echo "Mostly Cloudy <br>Conditions";}
 else if($weather["cloud_cover"]>=80) {echo "Overcast <br>Conditions";}
-else if(filesize('jsondata/metar34.txt')<160){echo "<uppercase>Conditions<br>Not Available</uppercase>";}
+else if(filesize('jsondata/me.txt')<160){echo "<uppercase>Conditions<br>Not Available</uppercase>";}
 //oktas
 if($weather["cloud_cover"]==0) {$weather["cloud_oktas"]="0 oktas";}
 else if($weather["cloud_cover"]<=12.5) {$weather["cloud_oktas"]="1 okta";}
