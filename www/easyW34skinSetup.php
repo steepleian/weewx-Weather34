@@ -47,6 +47,7 @@ $elevation = "'. $_POST["elevation"]. '";
 $uk = '. $_POST["uk"]. ';
 $usa = '. $_POST["usa"]. ';
 $scandinavia = '. $_POST["scandinavia"]. ';
+$ca = '. $_POST["ca"]. ';
 $restoftheworld = '. $_POST["restoftheworld"]. ';
 $windunit = "'. $_POST["windunit"]. '";
 $distanceunit = "'. $_POST["distanceunit"]. '";
@@ -830,6 +831,7 @@ double check again
          <option><?php echo $pressureunit ;?></option>
             <option>mb</option>
             <option>hPa</option>
+            <option>kPa</option>
             <option>inHg</option>
 
         </select>

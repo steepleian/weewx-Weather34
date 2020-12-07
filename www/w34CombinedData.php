@@ -35,7 +35,7 @@
 	$weather["barometer"]          = $weewxrt[10];
 	$weather["barometer_max"]      = $weewxapi[34];
 	$weather["barometer_min"]      = $weewxapi[36];
-	$weather["barometer_units"]    = $weewxrt[15]; // mb or hPa or in
+	$weather["barometer_units"]    = $weewxrt[15]; // mb or hPa or kPa or in
 	$weather["barometer_trend"]    = $weewxrt[10] - $weewxapi[18];
 	$weather["temp_units"]         = $weewxrt[14]; // C
 	$weather["temp_indoor"]        = $weewxrt[22];
@@ -578,52 +578,54 @@ if ($rainunit != $weather["rain_units"]) {
 // Convert pressure units if necessary
 if ($pressureunit != $weather["barometer_units"]) {
 	if (($pressureunit == 'hPa' && $weather["barometer_units"] == 'mb') ||
-		($pressureunit == 'mb' && $weather["barometer_units"] == 'hPa')) {
+		($pressureunit == 'mb' && $weather["barometer_units"] == 'hPa') ||
+	        ($pressureunit == 'kPa' && $weather["barometer_units"] == 'mb') ||
+		($pressureunit == 'mb' && $weather["barometer_units"] == 'kPa') ||
+	        ($pressureunit == 'kPa' && $weather["barometer_units"] == 'hPa') ||
+		($pressureunit == 'hPa' && $weather["barometer_units"] == 'kPa')) {
 		// 1 mb = 1 hPa so just change the unit being displayed
 		$weather["barometer_units"] = $pressureunit;
 	}
-	else if ($pressureunit == "inHg" && ($weather["barometer_units"] == 'mb' || $weather["barometer_units"] == 'hPa')) {
-		mbToin($weather, "barometer");	
-		mbToin($weather, "thb0seapressamax");
-		mbToin($weather, "thb0seapressamin");
-		mbToin($weather, "thb0seapressymax");
-		mbToin($weather, "thb0seapressymin");
-		mbToin($weather, "thb0seapressydmax");
-		mbToin($weather, "thb0seapressydmin");
-		mbToin($weather, "thb0seapressmmax");
-		mbToin($weather, "thb0seapressmmin");			
-		mbToin($weather, "barometer_trend");
-		mbToin($weather, "barometer_trend1");
-		mbToin($weather, "barometermovement");
-		mbToin($weather, "barometer_max");
-		mbToin($weather, "barometer_min");
-		mbToin($weather, "barometer_avg");
-		mbToin($weather, "barometert");
-		mbToin($weather, "barotrend");		
-		mbToin($weather, "barometer_trendt");
-		
+	else if ($pressureunit == "inHg" && ($weather["barometer_units"] == 'mb' || $weather["barometer_units"] == 'hPa' || $weather["barometer_units"] == 'kPa')) {
+		mbToin($weather, "barometer", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));	
+		mbToin($weather, "thb0seapressamax", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressamin", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressymax", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressymin", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressydmax", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressydmin", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressmmax", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "thb0seapressmmin", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));			
+		mbToin($weather, "barometer_trend", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barometer_trend1", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barometermovement", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barometer_max", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barometer_min", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barometer_avg", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barometert", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
+		mbToin($weather, "barotrend", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));		
+		mbToin($weather, "barometer_trendt", ($weather["barometer_units"] == 'kPa' ? 1000 : 1));
 		$weather["barometer_units"] = $pressureunit;
 	}
-	else if (($pressureunit == "mb" || $pressureunit == 'hPa') && $weather["barometer_units"] == 'inHg') {
-		inTomb($weather, "barometer");	
-		inTomb($weather, "thb0seapressamax");
-		inTomb($weather, "thb0seapressamin");
-		inTomb($weather, "thb0seapressymax");
-		inTomb($weather, "thb0seapressymin");
-		inTomb($weather, "thb0seapressydmax");
-		inTomb($weather, "thb0seapressydmin");
-		inTomb($weather, "thb0seapressmmax");
-		inTomb($weather, "thb0seapressmmin");	
-		inTomb($weather, "barometer_trend");
-		inTomb($weather, "barometer_trend1");
-		inTomb($weather, "barometermovement");
-		inTomb($weather, "barometer_max");
-		inTomb($weather, "barometer_min");
-		inTomb($weather, "barometer_avg");
-		inTomb($weather, "barometert");
-		inTomb($weather, "barotrend");
-		inTomb($weather, "barometer_trendt");
-		
+	else if (($pressureunit == "mb" || $pressureunit == 'hPa' || $pressureunit == 'kPa') && $weather["barometer_units"] == 'inHg') {
+		inTomb($weather, "barometer", ($pressureunit == 'kPa' ? 0.001 : 1));	
+		inTomb($weather, "thb0seapressamax", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressamin", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressymax", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressymin", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressydmax", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressydmin", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressmmax", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "thb0seapressmmin", ($pressureunit == 'kPa' ? 0.001 : 1));	
+		inTomb($weather, "barometer_trend", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometer_trend1", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometermovement", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometer_max", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometer_min", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometer_avg", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometert", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barotrend", ($pressureunit == 'kPa' ? 0.001 : 1));
+		inTomb($weather, "barometer_trendt", ($pressureunit == 'kPa' ? 0.001 : 1));
 		$weather["barometer_units"] = $pressureunit;
 	}
 }
@@ -783,7 +785,7 @@ $E = (6.11 * pow(10 , (7.5 * $Tdc / (237.7 + $Tdc))));
 $wetbulbcalc = (((0.00066 * $P) * $Tc) + ((4098 * $E) / pow(($Tdc + 237.7) , 2) * $Tdc)) / ((0.00066 * $P) + (4098 * $E) / pow(($Tdc + 237.7) , 2));
 $wetbulbx =number_format($wetbulbcalc,1);
 // K-INDEX & SOLAR DATA FOR WEATHER34 HOMEWEATHERSTATION TEMPLATE RADIO HAMS REJOICE :-) //
-$str = file_get_contents('jsondata/kindex.txt');$json = array_reverse(json_decode($str,false));$kp =  $json[1][1];
+$str = file_get_contents('jsondata/ki.txt');$json = array_reverse(json_decode($str,false));$kp =  $json[1][1];
 $file = $_SERVER["SCRIPT_NAME"];$break = Explode('/', $file);$mod34file = $break[count($break) - 1];
 
 # Convert Start times for Pro and Nano SD, Other MBs unforunately don't provide this data
