@@ -37,25 +37,25 @@ $charttheme         = $theme;
 $copyYear = 2015;
 $curYear = date('Y');
 $copyrightcredit='&copy; weather34.com original CSS/SVG/PHP '.$copyYear . (($copyYear != $curYear) ? '-' . $curYear : 'Copyright');
-$indoorRefresh      = 120; // 2 minutes
-$advisoryRefresh    = 17; // 17 seconds
-$tempRefresh        = 10; // 10 secondss
-$skyRefresh         = 300; // 5 minutes 
-$windSpeedRefresh   = 5; // 5 seconds
-$baroRefresh        = 10; // 15 minutes
-$solarRefresh       = 10; // 15 minutes
-$windDirRefresh     = 5; // 5 seconds
-$moonRefresh    	= 1800; // 30 minutes 
-$rainRefresh        = 10; // 50 seconds 
-$p12Refresh         = 10; // 1 minutes        Position 12 refresh (if not webcam) 
-$p13Refresh         = 10; // 2 minutes        Last Postion refresh (if not webcam)
-$moonphaseRefresh   = 120; // 2 minutes
+$indoorRefresh      = 600; // 10 minutes
+$advisoryRefresh    = 60; // 60 seconds
+$tempRefresh        = 60; // 60 seconds
+$skyRefresh         = 600; // 10 minutes
+$windSpeedRefresh   = 04; // 4 seconds
+$baroRefresh        = 300; // 5 minutes
+$windDirRefresh     = 04; // 4 seconds
+$solarRefresh       = 600; // 10 minutes
+$moonRefresh        = 1800; // 30 minutes 
+$rainRefresh        = 60; // 60 seconds 
+$p12Refresh         = 600; // 10 minutes        Position 12 refresh (if not webcam) 
+$p13Refresh         = 600; // 10 minutes        Last Postion refresh (if not webcam)
+$moonphaseRefresh   = 600; // 10 minutes
 $eqRefresh          = 600; // 10 minutes 
 $forecastRefresh    = 900; // 15 minutes 
 $notificationcenterRefresh    = 300; // 5 minutes set refresh time for notification of earthquakes default 5 minutes
 $wuupdate           = 1800; // 30 minutes 
 $wfupdate           = 60; // weatherflow api 60 seconds
-$camRefresh		      = 60; // 1 minute refresh on camera popup
+$camRefresh         = 60; // 1 minute refresh on camera popup
 // Thresholds for warnings or notifications
 $notifyDistEQ       = 300; // miles if $windunit is mph otherwise km
 $notifyEQMag        = 5; // set this to minimum magnitude of earthquake for notifications, typically 5 or 6, or you can set to 12 to switch off if not required
@@ -64,7 +64,7 @@ $notifyHeatIndex    = 30; // degrees C, default is 30 celsius which is 86 degree
 $notifyWindchill    = 3; // degrees C, default is 10 celsius which is 50 degrees F
 $notifyFeelslike    = 3; // degrees C, default is 10 celsius which is 50 degrees F
 $notifyDewpointcold  = 3; // degrees C, default is 8 celsius 46.4 degrees F OR WHATEVER MAKES YOU FEEL COLDER
-$notifyRainRate     = 7; // millimeters, default is 10 which is 0.4 in"
+$notifyRainRate     = 7.62; // millimeters, default is 10 which is 0.4 in"
 $notifyDewPoint     = 21; // dewpoint comfortable zone alert 22 degrees C or 71.6 degrees F OR WHATEVER MAKES YOU FEEL UNCOMFORTABLY HOT
 $notifyFlooding     = 25.4; // dewpoint comfortable zone alert 22 degrees C or 71.6 degrees F OR WHATEVER MAKES YOU FEEL UNCOMFORTABLY HOT
 
@@ -79,7 +79,7 @@ $creditschart 		= "CanvasJs.com v2.3.1 GA (CC BY-NC 3.0) Non-Commercial-Version"
 $creditsURL         = ""; // for chart pages only
 $credits            = "Data Supplied via Weather Underground"; // for chart pages only
 $templateinfo       = ''; // template information page
-$templateversion    = 'WX-HC<maxblue>20</maxblue>-IHVN-1.0.0';
+$templateversion    = 'W34-HC-<maxblue>IMJD</maxblue>-3.0.0';
 $software    = 'WeeWX <span>Hardware</span> Users';$designedfor='<br>For WeeWX Users';$chartversion='(WUDATACHARTS)';$somethinggoeshere ='d4586dec-e7a2-47ae-99b6-25527b2563c9';$chartversionmysql  =  '(DATACHARTS WeeWX Database Version)';
 if (array_key_exists('theme', $_GET) && ($_GET['theme'] == 'dark' || $_GET['theme'] == 'light')) {
   SetCookie('theme', $_GET['theme'], time() + 15552000);
@@ -100,6 +100,7 @@ if (array_key_exists('units', $_GET) && ($_GET['units'] == 'default' || $_GET['u
   $units = $_GET['units'];
 }
 if ($units == 'uk') {
+  $cloudcoverunit   = '%';	
   $windunit         = 'mph';
   $tempunit         = 'C';
   $rainunit         = 'mm';
