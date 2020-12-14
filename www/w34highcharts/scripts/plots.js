@@ -467,6 +467,10 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                     type: 'month',
                     count: 6,
                     text: '6m'
+		}, {
+                    type: 'year',
+                    count: 1,
+                    text: '1yr'
                 }, {
                     type: 'all',
                     text: 'All'
@@ -490,6 +494,10 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	            type: 'month',
 	            count: 6,
 	            text: '6m'
+		}, {
+                    type: 'year',
+                    count: 1,
+                    text: '1yr'
 	        }, {
 	            type: 'all',
                     text: 'All'
