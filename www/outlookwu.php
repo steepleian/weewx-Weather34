@@ -12,7 +12,7 @@ include_once('settings.php');include('w34CombinedData.php');
 	//original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
 	
 //start the wu output
-$json='jsondata/wuforecast.txt';
+$json='jsondata/wu.txt';
 $weather34wuurl=file_get_contents($json);
 $parsed_weather34wujson = json_decode($weather34wuurl,false);
 $parsed_weather34wujson1 = json_decode($weather34wuurl,true);
