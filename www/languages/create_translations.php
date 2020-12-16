@@ -1,4 +1,4 @@
-<?php include(../settings1.php);
+<?php include('../settings1.php');
 $fn = fopen('lang.'.$defaultlanguage.'.php', "r") or die("Cannot read input file "."lang.".$defaultlanguage.".php");
 $rWrite = fopen('translations.js', 'w') or die("Cannot write output file ".'translations.js');
 fwrite( $rWrite, "var translations = {" . PHP_EOL);
