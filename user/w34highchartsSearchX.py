@@ -101,10 +101,18 @@ def roundInt(value, places):
     return value
 
 def _max(values):
-    return max([v for v in values if v is not None])
+    results = [v for v in values if v is not None]
+    if len(results) == 0:
+        return 0
+    else:
+        return max(results)
 
 def _min(values):
-    return min([v for v in values if v is not None])
+    results = [v for v in values if v is not None]
+    if len(results) == 0:
+        return 0
+    else:
+        return min(results)
 
 def get_ago(dt, d_years=0, d_months=0):
     """ Function to return date object holding date d_years and d_months ago.
