@@ -35,6 +35,7 @@ import os
 import re
 import sys
 import time
+import contextlib
 import weeutil.rsyncupload
 from distutils.version import StrictVersion
 try:
@@ -454,28 +455,26 @@ class ForecastData():
             logerr("Error Invalid Webservice Data: %s, %s, %s" % (url, time_interval, header))
             return
         loginf("Web Service: %s is installed" % (service,))
-        filename = os.path.join(self.html_root, "jsondata", service + ".txt")
         time.sleep(60) # delay to give time for network interfaces to be established
+        if isinstance(url, list):
+            url = ",".join(url)
+        filename = os.path.join(self.html_root, "jsondata", service + ".txt")
+        lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/jsondata", os.path.basename(filename)) 
+        if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
+            os.mkdir(os.path.dirname(lfilename), 0o777)
         while True:
             try:
-                if isinstance(url, list):
-                    url = ",".join(url)
-                response = urllib.urlopen(urllib.Request(url, None, {header[0]:":".join(header[1:])}))
-                page = response.read().decode('utf-8')
-                response.close()
+                with contextlib.closing(urllib.urlopen(urllib.Request(url, None, {header[0]:":".join(header[1:])}))) as response:
+                    if response.getcode() == 200:
+                        try:
+                            with open(lfilename, 'w+') as file_handle:
+                                file_handle.write(str(response.read().decode('utf-8')))
+                            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+                        except Exception as err:
+                            logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
             except Exception as err:
-                logerr("Failed getting web service data. URL: %s Header: %s, Error: %s" % (url, header, err))
-                time.sleep(int(time_interval))
-                continue
-            try:
-                lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/jsondata", os.path.basename(filename)) 
-                if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
-                    os.mkdir(os.path.dirname(lfilename), 0o777)
-                with open(lfilename, 'w+') as file_handle:
-                    file_handle.write(str(page))
-                do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
-            except Exception as err:
-                logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
+                logerr("Failed getting web service data thread terminated. URL: %s Header: %s, Error: %s" % (url, header, err))
+                return
             time.sleep(int(time_interval))
             
 class CloudCover():
@@ -538,6 +537,7 @@ class CloudCover():
                         min = 100
                         max = 250
                     pix = im.convert('L').load()
+                    im.close()
                     for y in range(ypos1,ypos2):
                         for x in range(xpos1,xpos2):
                             pixarray.append(pix[x,y])
@@ -547,12 +547,12 @@ class CloudCover():
                         self.cloud_cover_percent = 1
                     if self.cloud_cover_percent > 99:
                         self.cloud_cover_percent = 99
-                    im.close()
+                    pix = None 
                 time.sleep(time_interval)
         except Exception as e:
+            logdbg("CloudCover:calculate_cloud_cover " + str(e))
             if im != None:
                 im.close()
-            logdbg("CloudCover:calculate_cloud_cover " + str(e))
                
 class Webserver():
     def __init__(self, config_dict, webserver_addresses):
