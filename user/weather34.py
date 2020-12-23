@@ -34,6 +34,7 @@ import math
 import os
 import re
 import sys
+import ssl
 import time
 import contextlib
 import weeutil.rsyncupload
@@ -440,16 +441,28 @@ class ForecastData():
         settings_dict = self.config_dict.get('Weather34WebServices', {})
         if len(settings_dict) == 0:
             return
-        service_str = settings_dict.get("services")
-        if not service_str == None and len(service_str) > 0:
-            for service in service_str.split("."):
+        services_str = settings_dict.get("services")
+        if not services_str == None and len(services_str) > 0:
+            try:
+                thread = threading.Thread(target = self.monitor_webservices, args = (services_str, settings_dict))
+                thread.daemon = True
+                thread.start()
+            except Exception as err:
+                logerr("Failed to start monitor_webservices thread: Error: " + err)
+
+    def monitor_webservices(self, services_str, settings_dict):
+        self.webservices = services_str.split(".")
+        while True:
+            while self.webservices:
+                service = self.webservices.pop(0)
                 try:
                     thread = threading.Thread(target = self.get_website_data, args = (service, settings_dict.get(service + "_url"), settings_dict.get(service + "_interval", "3600"), settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")))
                     thread.daemon = True
                     thread.start()
                 except Exception as err:
                     logerr("Failed to start service: %s, Error: %s" % (service, err))
-                         
+            time.sleep(600)
+                     
     def get_website_data(self, service, url, time_interval, header):
         if url == None or time_interval == None or header == None:
             logerr("Error Invalid Webservice Data: %s, %s, %s" % (url, time_interval, header))
@@ -462,18 +475,19 @@ class ForecastData():
         lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/jsondata", os.path.basename(filename)) 
         if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
             os.mkdir(os.path.dirname(lfilename), 0o777)
+        ctx = ssl.create_default_context()
         while True:
             try:
-                with contextlib.closing(urllib.urlopen(urllib.Request(url, None, {header[0]:":".join(header[1:])}))) as response:
-                    if response.getcode() == 200:
-                        try:
-                            with open(lfilename, 'w+') as file_handle:
-                                file_handle.write(str(response.read().decode('utf-8')))
-                            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
-                        except Exception as err:
-                            logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
+                with contextlib.closing(urllib.urlopen(urllib.Request(url, None, {header[0]:":".join(header[1:])}), context=ctx)) as response:
+                    try:
+                        with open(lfilename, 'w+') as file_handle:
+                            file_handle.write(str(response.read().decode('utf-8')))
+                        do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+                    except Exception as err:
+                        logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
             except Exception as err:
                 logerr("Failed getting web service data thread terminated. URL: %s Header: %s, Error: %s" % (url, header, err))
+                self.webservices.append(service)
                 return
             time.sleep(int(time_interval))
             
