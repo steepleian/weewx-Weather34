@@ -452,8 +452,12 @@ class ForecastData():
 
     def monitor_webservices(self, services_str, settings_dict):
         self.webservices = services_str.split(".")
+        time_sleep = 60
         while True:
+            time.sleep(time_sleep)
             while self.webservices:
+                time.sleep(time_sleep)
+                time_sleep = 0
                 service = self.webservices.pop(0)
                 try:
                     thread = threading.Thread(target = self.get_website_data, args = (service, settings_dict.get(service + "_url"), settings_dict.get(service + "_interval", "3600"), settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")))
@@ -461,14 +465,13 @@ class ForecastData():
                     thread.start()
                 except Exception as err:
                     logerr("Failed to start service: %s, Error: %s" % (service, err))
-            time.sleep(600)
+            time_sleep = 600
                      
     def get_website_data(self, service, url, time_interval, header):
         if url == None or time_interval == None or header == None:
             logerr("Error Invalid Webservice Data: %s, %s, %s" % (url, time_interval, header))
             return
         loginf("Web Service: %s is installed" % (service,))
-        time.sleep(60) # delay to give time for network interfaces to be established
         if isinstance(url, list):
             url = ",".join(url)
         filename = os.path.join(self.html_root, "jsondata", service + ".txt")
