@@ -1,7 +1,7 @@
 # Weather34 skin for WeeWX
 Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **Please note, some functionality will be lost if you are not using WeeWX 4.1.1 and its default extended database.** It is therefore strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.1.1.
 
-Version W34-HC-IMJD-3.0.0
+Version W34-HC-IMJD-4.0.0
 
 Packaged for installation using its own unique installer and an online pre-installation settings form https://steepleian.github.io/weewx-Weather34
 
@@ -13,7 +13,7 @@ This version is designed explicitly to harness the powerful WeeWX database to ge
 
 This version is assembled as an install package and uses its own unique utility, w34_installer.py, to install. This greatly simplifies the installation process from that of previous versions. Depending on your own WeeWX setup, minor edits may be required to be made to weewx.conf and Weather34 skin.conf files. Please see the Weather34 skin Installation Guide for detailed instructions.
 
-# What's New in this Version W34-HC-IMJD-3.0.0
+# What's New in this Version W34-HC-IMJD-4.0.0
 
 **Please Note.** The appearance and features of this new version are identical to those of the previous version (W34-HC-IMJD-2.0.0). The new changes relate to moving some of the settings from the skin's PHP coding into its core Python Module, weather34.py. If you are currently using W34-HC-IMJD-2.0.0 and you are happy that you have a stable setup, it is not absolutely necessary to upgrade.
 
