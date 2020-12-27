@@ -538,7 +538,8 @@ class CloudCover():
                     alt = weewx.almanac.Almanac(time.time(), float(lat), float(lon)).sun.alt
                     pixarray = []
                     if alt > 5:
-                        im = Image.open(file1)
+                        f = open(file1, 'rb')
+                        im = Image.open(f)
                         xpos1 = 149
                         xpos2 = 155
                         ypos1 = 145
@@ -546,7 +547,8 @@ class CloudCover():
                         min = 80
                         max = 250
                     else:
-                        im = Image.open(file2)
+                        f = open(file2, 'rb')
+                        im = Image.open(f)
                         xpos1 = 148
                         xpos2 = 152
                         ypos1 = 148
@@ -554,7 +556,7 @@ class CloudCover():
                         min = 100
                         max = 250
                     pix = im.convert('L').load()
-                    im.close()
+                    f.close()
                     for y in range(ypos1,ypos2):
                         for x in range(xpos1,xpos2):
                             pixarray.append(pix[x,y])
