@@ -340,31 +340,31 @@
             '"# Select your prefered time interval in seconds for each service\\n"' + ' \r\n' +
              '{' + ' \r\n' +
             " 'aq_url':'https://api.waqi.info/feed/geo:"+lat.value+';'+lon.value+'/?token='+aq_apikey.value+"'"+','+ ' \r\n' +
-            "   'aq_interval':'3600'"+','+ ' \r\n' +
-            " 'aq_filename':'/var/www/html/weewx/weather34/jsondata/aqi.txt'"+','+ ' \r\n' +
-            " 'ds_url':'https://api.forecast.io/forecast/"+ds_apikey.value+'/'+lat.value+','+lon.value+'?lang='+lang.value+'&units'+'='+ds_units.value+"'"+','+ ' \r\n' +
-            "   'ds_interval':'3600'"+','+ ' \r\n' +
-            " 'ds_filename':'/var/www/html/weewx/weather34/jsondata/darksky.txt'"+','+ ' \r\n' +
-            " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode="+lat.value+','+lon.value+'&language='+lang.value+'&format=json&units='+wu_units.value+'&apiKey='+wu_apikey.value+"'"+','+ ' \r\n' +
-            "   'wu_interval':'3600'"+','+ ' \r\n' +
-            " 'wu_filename':'/var/www/html/weewx/weather34/jsondata/wuforecast.txt'"+','+ ' \r\n' +
-            " 'eq_url':'https://earthquake-report.com/feeds/recent-eq?json'"+','+ ' \r\n' +
-            "   'eq_interval':'3600'"+','+ ' \r\n' +
-            " 'eq_filename':'/var/www/html/weewx/weather34/jsondata/eqnotification.txt'"+','+ ' \r\n' +
-            " 'ki_url':'https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json'"+','+ ' \r\n' +
-            "   'ki_interval':'43200'"+','+ ' \r\n' +
-            " 'ki_filename':'/var/www/html/weewx/weather34/jsondata/kindex.txt'"+','+ ' \r\n' +
-            " 'me_url':'https://api.checkwx.com/metar/"+me_code.value+'/decoded'+"',"+ ' \r\n' +
-            "   'me_header':'X-API-Key:"+me_apikey.value+"'"+','+ ' \r\n' +
-            "   'me_interval':'3600'"+','+ ' \r\n' +
-            " 'me_filename':'/var/www/html/weewx/weather34/jsondata/metar34.txt'"+','+ ' \r\n' +
-            " 'pu_url':'https://www.purpleair.com/json?show="+pu_id.value+"'"+','+ ' \r\n' +
-            "   'pu_interval':'3600'"+','+ ' \r\n' +
-            " 'pu_filename':'/var/www/html/weewx/weather34/jsondata/purpleair.txt'"+','+ ' \r\n' +
-            " 'al_url':'http://"+al_ip.value+'/weewx/weather34/eualert.php?country='+al_country.value+'&region='+al_region.value+"'"+','+ ' \r\n' +
-            "   'al_interval':'3600'"+','+ ' \r\n' +
-            " 'al_filename':'/var/www/html/weewx/weather34/jsondata/meteoalarm.txt'"+','+ ' \r\n' +
-            "   'services':'"+txtServices.value+"'"+ ' \r\n' +
+	    " 'aq_interval':'3600'"+','+ ' \r\n' +
+	    
+	    " 'ds_url':'https://api.forecast.io/forecast/"+ds_apikey.value+'/'+lat.value+','+lon.value+'?lang='+lang.value+'&units'+'='+ds_units.value+"'"+','+ ' \r\n' +
+	    " 'ds_interval':'3600'"+','+ ' \r\n' +
+	    
+	    " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode="+lat.value+','+lon.value+'&language='+lang.value+'&format=json&units='+wu_units.value+'&apiKey='+wu_apikey.value+"'"+','+ ' \r\n' +
+	    " 'wu_interval':'3600'"+','+ ' \r\n' +
+	    
+	    " 'eq_url':'https://earthquake-report.com/feeds/recent-eq?json'"+','+ ' \r\n' +
+	    " 'eq_interval':'3600'"+','+ ' \r\n' +
+	    
+	    " 'ki_url':'https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json'"+','+ ' \r\n' +
+	    " 'ki_interval':'43200'"+','+ ' \r\n' +
+	    
+	    " 'me_url':'https://api.checkwx.com/metar/"+me_code.value+'/decoded'+"',"+ ' \r\n' +
+	    " 'me_header':'X-API-Key:"+me_apikey.value+"'"+','+ ' \r\n' +
+	    " 'me_interval':'3600'"+','+ ' \r\n' +
+	    
+	    " 'pu_url':'https://www.purpleair.com/json?show="+pu_id.value+"'"+','+ ' \r\n' +
+	    " 'pu_interval':'3600'"+','+ ' \r\n' +
+	     
+	    " 'al_url':'http://"+al_ip.value+'/weewx/weather34/eualert.php?country='+al_country.value+'&region='+al_region.value+"'"+','+ ' \r\n' +
+	    " 'al_interval':'3600'"+','+ ' \r\n' +
+	    
+            " 'services':'"+txtServices.value+"'"+ ' \r\n' +
             "}'''"+','+ ' \r\n' +
             '"config_entries4"'+":'''="+ ' \r\n' +
             "'Weather34CloudCover' :"+ ' \r\n' +
@@ -373,10 +373,8 @@
             "   'enable':'"+enable.value+"'"+','+ ' \r\n' +
             "   'db_field':'signal8'"+','+ ' \r\n' +
             "   'cc_interval':'300'"+','+ ' \r\n' +
-            " 'cc1_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat="+lat.value+'&lon='+lon.value+'&width=300&height=300&zoom=1.00&continent='+continent.value+"'"+','+ ' \r\n' +
-            "   'cc1_filename':'/tmp/sat1.png'"+','+ ' \r\n' +
-            " 'cc2_url':'https://api.sat24.com/crop?type=infraPolair&lat="+lat.value+'&lon='+lon.value+'&width=300&height=300&zoom=1.00&continent='+continent.value+"'"+','+ ' \r\n' +
-            "   'cc2_filename':'/tmp/sat2.png'"+','+ ' \r\n' +
+	    " 'cc1_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat="+lat.value+'&lon='+lon.value+'&width=300&height=300&zoom=1.00&continent='+continent.value+"'"+','+ ' \r\n' +
+	    " 'cc2_url':'https://api.sat24.com/crop?type=infraPolair&lat="+lat.value+'&lon='+lon.value+'&width=300&height=300&zoom=1.00&continent='+continent.value+"'"+','+ ' \r\n' +
             "}'''"+','+ ' \r\n' +
         '}'
 
