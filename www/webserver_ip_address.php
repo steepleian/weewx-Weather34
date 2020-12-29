@@ -1,5 +1,5 @@
 <?php 
-    $weewxfile = fopen("../weewxserverinfo.txt", "r");
+    $weewxfile = fopen("serverdata/weewxserverinfo.txt", "r");
     $weewxdata = fgets($weewxfile);
     fclose($weewxfile);
     if (strlen($weewxdata)){
