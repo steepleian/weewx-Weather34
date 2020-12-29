@@ -1082,7 +1082,19 @@ check unit(s)
             <option <?php if($usa=="false") echo "selected"; ?> >false</option>
             <option <?php if($usa=="true") echo "selected"; ?> >true</option>
         </select>
+	
+        <label name="ca"></label>
+        <div class="stationvalue">Are you in the Canada</div> <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M30 12 L16 24 2 12" />
+</svg>
+        <select id="ca" name="ca" class="choose1">
+            <option <?php if($ca=="false") echo "selected"; ?> >false</option>
+            <option <?php if($ca=="true") echo "selected"; ?> >true</option>
+        </select>
         <br/>
+
         <label name="scandinavia"></label>
         <div class="stationvalue">Are you in Scandinavia</div> <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
     <path d="M12 30 L24 16 12 2" />
