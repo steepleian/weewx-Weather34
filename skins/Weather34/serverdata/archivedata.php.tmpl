@@ -86,21 +86,21 @@
             
         #end if  
   
-        #set $mlsc = $month.lightning_strike_count.sum.format(add_label=False, $localize=False) 
-        #if $mlsc == "$month.lightning_strike_count.sum.format(add_label=False, $localize=False)" 
-           #set $mlsc = "N/A"
+        #set $mlsc = "N/A"
+        #if $varExists('month.lightning_strike_count')
+          #set $mlsc = $month.lightning_strike_count.sum.format(add_label=False, $localize=False)
         #end if
-        #set $ylsc = $year.lightning_strike_count.sum.format(add_label=False, $localize=False) 
-        #if $ylsc == "$year.lightning_strike_count.sum.format(add_label=False, $localize=False)" 
-           #set $ylsc = "N/A"
+        #set $ylsc = "N/A"
+        #if $varExists('year.lightning_strike_count')
+          #set $ylsc = $year.lightning_strike_count.sum.format(add_label=False, $localize=False)
         #end if
-        #set $dysc = $day.lightning_strike_count.sum.format(add_label=False, $localize=False) 
-        #if $dysc == "$day.lightning_strike_count.sum.format(add_label=False, $localize=False)" 
-           #set $dysc = "N/A"
+        #set $dysc = "N/A"
+        #if $varExists('day.lightning_strike_count')
+          #set $dysc = $day.lightning_strike_count.sum.format(add_label=False, $localize=False)
         #end if
-        #set $ldlt = $year.lightning_distance.lasttime
-        #if $ldlt == "$year.lightning_distance.lasttime" 
-           #set $ldlt = "N/A"
+        #set $ldlt = "N/A"
+        #if $varExists('year.lightning_distance.lasttime')
+           #set $ldlt = $year.lightning_distance.lasttime
         #end if
   
           #import time
