@@ -490,9 +490,11 @@ class ForecastData():
             p.join()
             p.close()
             do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
-            self.webservices.append(service)
         except:
             logerr("Failed to create webservice process: %s, Error: %s" % (service, err)) 
+        finally:
+            self.webservices.append(service)
+
         
 class CloudCover():
     def __init__(self, weewx_dict):
