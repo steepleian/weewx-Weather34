@@ -31,6 +31,7 @@ are not directly provided by weewx in a LOOP packet.
 #        necessary after the first invocation
 
 import math
+import gc
 import os
 import re
 import sys
@@ -38,9 +39,9 @@ import time
 import weeutil.rsyncupload
 from distutils.version import StrictVersion
 try:
-    import urllib2 as urllib
+     import urllib2 as urllib
 except ImportError:
-    import urllib.request as urllib
+     import urllib.request as urllib
 try:
     from PIL import Image
 except ImportError:
@@ -49,7 +50,6 @@ import functools
 import threading
 import socket
 import subprocess
-from multiprocessing import Process
 
 import weewx
 import weewx.almanac
@@ -378,7 +378,7 @@ def do_rsync_transfer(webserver_addresses, rpath, lpath, user):
              
 def get_website_data(url, header, lfilename):
     try:
-        response = urllib.urlopen(urllib.Request(url, None, {header[0]:":".join(header[1:])}))
+        response = urllib.urlopen(urllib.Request(url, None, header), timeout=5)
         try:
             with open(lfilename, 'w+') as file_handle:
                 file_handle.write(str(response.read().decode('utf-8')))
@@ -386,6 +386,9 @@ def get_website_data(url, header, lfilename):
             logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
     except Exception as err:
         logerr("Failed getting web service data. URL: %s Header: %s, Error: %s" % (url, header, err))
+    finally:
+        try: response.close()
+        except: pass
 
 class ZambrettiForecast():
     DEFAULT_FORECAST_BINDING = 'forecast_binding'
@@ -442,25 +445,25 @@ class ZambrettiForecast():
       
 class ForecastData():    
     def __init__(self, config_dict, webserver_addresses):
-        self.config_dict = config_dict
         self.html_root = config_dict['StdReport']['Weather34Report'].get('HTML_ROOT', '')
         self.remote_html_root = config_dict['Weather34RealTime'].get('HTML_ROOT', self.html_root)
         if len(self.remote_html_root) == 0:
             self.remote_html_root = self.html_root
         self.webserver_addresses = webserver_addresses
-        settings_dict = self.config_dict.get('Weather34WebServices', {})
+        user = config_dict['StdReport']['RSYNC'].get('user', None) 
+        settings_dict = config_dict.get('Weather34WebServices', {})
         if len(settings_dict) == 0:
             return
         services_str = settings_dict.get("services")
         if not services_str == None and len(services_str) > 0:
             try:
-                thread = threading.Thread(target = self.monitor_webservices, args = (services_str, settings_dict))
+                thread = threading.Thread(target = self.monitor_webservices, args = (services_str, settings_dict, user))
                 thread.daemon = True
                 thread.start()
             except Exception as err:
                 logerr("Failed to start monitor_webservices thread: Error: " + err)
 
-    def monitor_webservices(self, services_str, settings_dict):
+    def monitor_webservices(self, services_str, settings_dict, user):
         self.webservices = services_str.split(".")
         while True:
             time.sleep(60)
@@ -468,12 +471,13 @@ class ForecastData():
                 service = self.webservices.pop(0)
                 url = settings_dict.get(service + "_url")
                 header = settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
+                header = {header[0]:":".join(header[1:])}
                 try:
-                    threading.Timer(int(settings_dict.get(service + "_interval", "3600")), self.create_webservice_process, args = (service, url, header)).start()
+                    threading.Timer(int(settings_dict.get(service + "_interval", "3600")), self.create_webservice_process, args = (service, url, header, user)).start()
                 except Exception as err:
                     logerr("Failed to start service process: %s, Error: %s" % (service, err))
     
-    def create_webservice_process(self, service, url, header):
+    def create_webservice_process(self, service, url, header, user):
         try:
             if url == None or header == None:
                 logerr("Error Invalid Webservice Data: %s, %s" % (url, header))
@@ -485,16 +489,13 @@ class ForecastData():
             if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             loginf("Web Service: %s is running" % (service,))
-            p = Process(target = get_website_data, args = (url, header, lfilename))
-            p.start()
-            p.join()
-            p.close()
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            get_website_data(url, header, lfilename)
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), user)
         except:
             logerr("Failed to create webservice process: %s, Error: %s" % (service, err)) 
         finally:
+            gc.collect()
             self.webservices.append(service)
-
         
 class CloudCover():
     def __init__(self, weewx_dict):
@@ -572,8 +573,6 @@ class CloudCover():
                 time.sleep(time_interval)
         except Exception as e:
             logdbg("CloudCover:calculate_cloud_cover " + str(e))
-            if im != None:
-                im.close()
                
 class Webserver():
     def __init__(self, config_dict, webserver_addresses):
@@ -821,7 +820,7 @@ class Weather34RealTime(StdService):
                     loginf("Cache values not use since they are past the sell by date")	
             except Exception as e:
                 logerr(str(e))	
-        event.originalPacket = event.packet
+        #event.originalPacket = event.packet
         if self.cache_debug:
             logdbg("Event packet before: %s" % (event.packet,))
         # replace the values in the retained packet if they have a value other than None or the field is listed in excludeFields
