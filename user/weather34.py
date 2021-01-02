@@ -466,6 +466,7 @@ class ForecastData():
     def monitor_webservices(self, services_str, settings_dict, user):
         try:
             self.webservices = services_str.split(".")
+            first_time = True
             while True:
                 time.sleep(60)
                 while self.webservices:
@@ -473,7 +474,8 @@ class ForecastData():
                     url = settings_dict.get(service + "_url")
                     header = settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
                     header = {header[0]:":".join(header[1:])}
-                    threading.Timer(int(settings_dict.get(service + "_interval", "3600")), self.create_webservice_process, args = (service, url, header, user)).start()
+                    threading.Timer(60 if first_time else int(settings_dict.get(service + "_interval", "3600")), self.create_webservice_process, (service, url, header, user)).start()
+                first_time = False
         except Exception as err:
             logerr("Failed to start service process: %s, Error: %s" % (service, err))
     
