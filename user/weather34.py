@@ -378,7 +378,7 @@ def do_rsync_transfer(webserver_addresses, rpath, lpath, user):
              
 def get_website_data(url, header, lfilename):
     try:
-        response = urllib.urlopen(urllib.Request(url, None, header), timeout=5)
+        response = urllib.urlopen(urllib.Request(url, None, header), timeout=10)
         try:
             with open(lfilename, 'w+') as file_handle:
                 file_handle.write(str(response.read().decode('utf-8')))
