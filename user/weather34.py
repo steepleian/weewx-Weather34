@@ -464,18 +464,18 @@ class ForecastData():
                 logerr("Failed to start monitor_webservices thread: Error: " + err)
 
     def monitor_webservices(self, services_str, settings_dict, user):
-        self.webservices = services_str.split(".")
-        while True:
-            time.sleep(60)
-            while self.webservices:
-                service = self.webservices.pop(0)
-                url = settings_dict.get(service + "_url")
-                header = settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
-                header = {header[0]:":".join(header[1:])}
-                try:
+        try:
+            self.webservices = services_str.split(".")
+            while True:
+                time.sleep(60)
+                while self.webservices:
+                    service = self.webservices.pop(0)
+                    url = settings_dict.get(service + "_url")
+                    header = settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
+                    header = {header[0]:":".join(header[1:])}
                     threading.Timer(int(settings_dict.get(service + "_interval", "3600")), self.create_webservice_process, args = (service, url, header, user)).start()
-                except Exception as err:
-                    logerr("Failed to start service process: %s, Error: %s" % (service, err))
+        except Exception as err:
+            logerr("Failed to start service process: %s, Error: %s" % (service, err))
     
     def create_webservice_process(self, service, url, header, user):
         try:
