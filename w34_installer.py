@@ -91,6 +91,12 @@ class w34_installer:
                     else:
                         if not do_overwrite:
                             print ("Extract path exists and overwrite set to False")
+                            try:
+                                response = raw_input("Do you want to abort the install!!! (Yes/No) ").strip()
+                            except:
+                                response = input("Do you want to abort the install!!! (Yes/No) ").strip()
+                            if response.upper().startswith("Y"):
+                                return
                     print('Extracting all the files to ' + extract_path)
                     zip_file.extractall(extract_path)
                     print('Files extracted')
