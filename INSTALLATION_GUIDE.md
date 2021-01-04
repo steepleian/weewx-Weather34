@@ -1,6 +1,6 @@
 # Installation Guide
 
-Before you start it is a wise precaution to backup your databases, settings1.php and any customised files you wish to keep.
+The installer now defaults to overwrite mode, settings1.php will not be overwritten as it does not exist in the package. However, it is essential that any customisations you may have been made are backed up before running the install.
 
 This installation guide assumes that you are already reasonably familiar with WeeWX and that it is already installed on your computer along with a webserver, php and curl.
 
