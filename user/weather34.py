@@ -31,7 +31,6 @@ are not directly provided by weewx in a LOOP packet.
 #        necessary after the first invocation
 
 import math
-import gc
 import os
 import re
 import sys
@@ -496,7 +495,6 @@ class ForecastData():
         except:
             logerr("Failed to create webservice process: %s, Error: %s" % (service, err)) 
         finally:
-            gc.collect()
             self.webservices.append(service)
         
 class CloudCover():
