@@ -471,7 +471,7 @@ class ForecastData():
                         os.mkdir(os.path.dirname(lfilename), 0o777)
                     loginf("Web Service: %s is running" % (service,))
                     try:
-                        response = urllib.urlopen(urllib.Request(url, None, header), timeout = 10)
+                        response = urllib.urlopen(urllib.Request(url, None, header), timeout = 15)
                         try:
                             with open(lfilename, 'w+') as file_handle:
                                 file_handle.write(str(response.read().decode('utf-8')))
