@@ -49,7 +49,6 @@ import functools
 import threading
 import socket
 import subprocess
-from multiprocessing import Process
 
 import weewx
 import weewx.almanac
@@ -433,10 +432,10 @@ class ForecastData():
     def __init__(self, config_dict, webserver_addresses):
         self.settings_dict = config_dict.get('Weather34WebServices', {})
         if self.settings_dict == None or len(self.settings_dict) == 0:
-            raise Exception("ForecastData Not Enabled")
+            raise Exception("ForecastData section not found")
         services_str = self.settings_dict.get("services")
         if services_str == None or len(services_str) == 0:
-            raise Exception("ForecastData Not Enabled")
+            raise Exception("ForecastData No services found")
         self.services_dict = {} 
         for w in services_str.split("."):
             self.services_dict[w] = (int(self.settings_dict.get(w + "_interval", "3600")), int(time.time()/2))
@@ -447,44 +446,48 @@ class ForecastData():
         self.user = config_dict['StdReport']['RSYNC'].get('user', None) 
         self.webserver_addresses = webserver_addresses
 
-    def monitor_webservices(self, _event):
-        services = []
-        current_time = int(time.time())
-        for s in self.services_dict:
-            if self.services_dict[s][1] + self.services_dict[s][0] < current_time:
-                services.append(s) 
-                self.services_dict[s] = (self.services_dict[s][0], current_time)
-        while services:
-            service = services.pop(0)
-            url = self.settings_dict.get(service + "_url")
-            header = self.settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
-            header = {header[0]:":".join(header[1:])}
-            try:
-                if url == None or header == None:
-                    logerr("Error Invalid Webservice Data: %s, %s" % (url, header))
-                    return
-                if isinstance(url, list):
-                    url = ",".join(url)
-                filename = os.path.join(self.html_root, "jsondata", service + ".txt")
-                lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/jsondata", os.path.basename(filename)) 
-                if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
-                    os.mkdir(os.path.dirname(lfilename), 0o777)
-                loginf("Web Service: %s is running" % (service,))
+    def monitor_webservices(self):
+        while True:
+            services = []
+            current_time = int(time.time())
+            for s in self.services_dict:
+                if self.services_dict[s][1] + self.services_dict[s][0] < current_time:
+                    services.append(s) 
+                    self.services_dict[s] = (self.services_dict[s][0], current_time)
+            while services:
+                service = services.pop(0)
+                url = self.settings_dict.get(service + "_url")
+                header = self.settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
+                header = {header[0]:":".join(header[1:])}
                 try:
-                    response = urllib.urlopen(urllib.Request(url, None, header), timeout = 10)
+                    if url == None or header == None:
+                        logerr("Error Invalid Webservice Data: %s, %s" % (url, header))
+                        continue
+                    if isinstance(url, list):
+                        url = ",".join(url)
+                    filename = os.path.join(self.html_root, "jsondata", service + ".txt")
+                    lfilename = filename if len(self.webserver_addresses) == 0 else os.path.join("/tmp/weather34/jsondata", os.path.basename(filename)) 
+                    if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
+                        os.mkdir(os.path.dirname(lfilename), 0o777)
+                    loginf("Web Service: %s is running" % (service,))
                     try:
-                        with open(lfilename, 'w+') as file_handle:
-                            file_handle.write(str(response.read().decode('utf-8')))
+                        response = urllib.urlopen(urllib.Request(url, None, header), timeout = 10)
+                        try:
+                            with open(lfilename, 'w+') as file_handle:
+                                file_handle.write(str(response.read().decode('utf-8')))
+                        except Exception as err:
+                            logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
+                            continue
                     except Exception as err:
-                        logerr("Error writing web service file: %s, Error: %s" % (lfilename, err))
+                        logerr("Failed getting web service data. URL: %s Header: %s, Error: %s" % (url, header, err))
+                        continue
+                    finally:
+                        try: response.close()
+                        except: pass
+                    do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.user)
                 except Exception as err:
-                    logerr("Failed getting web service data. URL: %s Header: %s, Error: %s" % (url, header, err))
-                finally:
-                    try: response.close()
-                    except: pass
-                do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.user)
-            except Exception as err:
-                logerr("Failed to create webservice process: %s, Error: %s" % (service, err)) 
+                    logerr("Failed to run webservice: %s, Error: %s" % (service, err)) 
+            time.sleep(60)
 
 class CloudCover():
     def __init__(self, weewx_dict):
@@ -726,9 +729,14 @@ class Weather34RealTime(StdService):
             logdbg("Weather34Realtime: Cannot get webserver addresses at startup due to error " + str(e))
 
         try:
-            self.fc = ForecastData(config_dict, self.webserver_addresses)
+            fc = ForecastData(config_dict, self.webserver_addresses)
+            try:
+                thread = threading.Thread(target = fc.monitor_webservices)
+                thread.daemon = True
+                thread.start()
+            except Exception as err:
+                logerr("Failed to start monitor_webservices thread: Error: " + err)
         except Exception as e:
-            self.fc = None
             logerr(str(e))
         
         try:
@@ -794,8 +802,6 @@ class Weather34RealTime(StdService):
             do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata/', self.config_dict['StdReport']['RSYNC'].get('user', None))
         if self.cc != None:
             self.cc.update_cloud_cover(event)
-        if self.fc != None:
-            self.fc.monitor_webservices(event)
 
     def handle_new_loop(self, event):
         if self.cache_enable:
