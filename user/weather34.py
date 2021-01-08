@@ -647,8 +647,7 @@ class Webserver():
        
 class Weather34RealTime(StdService):
     """Service retains previous loop packet values updating any value that isn't None from new
-    packets. It then replaces the original packet with a new packet that contains all of the values; 
-    the original unmodified packet will be stored on the event in a property named 'originalPacket'."""
+    packets. It then replaces the original packet with a new packet that contains all of the values."""
 
     def __init__(self, engine, config_dict):
         super(Weather34RealTime, self).__init__(engine, config_dict)
@@ -735,16 +734,15 @@ class Weather34RealTime(StdService):
                 thread.daemon = True
                 thread.start()
             except Exception as err:
-                logerr("Failed to start monitor_webservices thread: Error: " + err)
+                logerr("Failed to start monitor_webservices thread. Error: " + err)
         except Exception as e:
-            logerr(str(e))
+            logerr("Forecast Not Installed " + str(e))
         
         try:
             self.cc = CloudCover(self.config_dict)
         except Exception as e:
             self.cc = None
-            loginf("CloudCover: not installed")
-            logdbg("CloudCover: due to error " + str(e))
+            loginf("CloudCover Not Installed due to " + str(e))
 
         try:
             self.chk_lightning_cnt = True if config_dict['Weather34RealTime'].get('chk_lightning_cnt') == 'True' else False; 
@@ -766,7 +764,7 @@ class Weather34RealTime(StdService):
             do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
         except Exception as e:
             loginf("Cannot write to weewxserverinfo.txt due to error " + str(e))
-        loginf("Check lightning Strike Count: " + str(self.chk_lightning_cnt))
+
         # setup caching
         self.cache_enable = False 
         self.cache_stale_time = 900
@@ -818,7 +816,6 @@ class Weather34RealTime(StdService):
                     loginf("Cache values not use since they are past the sell by date")	
             except Exception as e:
                 logerr(str(e))	
-        event.originalPacket = event.packet
         if self.cache_debug:
             logdbg("Event packet before: %s" % (event.packet,))
         # replace the values in the retained packet if they have a value other than None or the field is listed in excludeFields
