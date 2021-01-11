@@ -448,6 +448,7 @@ class ForecastData():
 
     def monitor_webservices(self):
         while True:
+            check_rsync = False
             services = []
             current_time = int(time.time())
             for s in self.services_dict:
@@ -484,9 +485,11 @@ class ForecastData():
                     finally:
                         try: response.close()
                         except: pass
-                    do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.user)
+                    check_rsync = True
                 except Exception as err:
                     logerr("Failed to run webservice: %s, Error: %s" % (service, err)) 
+            if check_rsync:
+                do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.user)
             time.sleep(60)
 
 class CloudCover():
