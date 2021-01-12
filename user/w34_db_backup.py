@@ -1,5 +1,6 @@
 # To use add the following to the end of weewx services user.w34_db_backup.W34_DB_Backup
 # Next setup the following variables below WEEWX_DB, BACKUP_DB, BACKUP_TIME or add the following section to weewx config 
+# CANNOT HAVE A BACKUP DATABASE FILENAME weewx.sdb.
 # [W34_DB_Backup]
 #    weewx_db = <Location of your active weewx database>
 #    backup_db = <Location of your backup database>
@@ -18,7 +19,7 @@ VERSION = "1.0"
 
 WEEWX_DB    = "/var/lib/weewx/weewx.sdb"
 BACKUP_DB   = "/media/pi/usb_drive/weewx_backup.sdb"
-BACKUP_TIME = "23:45"
+BACKUP_TIME = "23:55"
 
 try:
     import weeutil.logger
@@ -63,6 +64,9 @@ class W34_DB_Backup(StdService):
         loginf("weewx database " + self.weewx_db + " will be backup to " + self.backup_db)
         if self.weewx_db == self.backup_db: 
             logerr("Cannot have the same filename for both weewx_db and backup_db")
+            return
+        if os.path.basename(self.backup_db) == 'weewx.sdb': 
+            logerr("Cannot use a backup database filename weewx.sdb. !!!MAKE SURE THAT THE DATABASE FILENAMES ARE CORRECT!!!")
             return
         self.bind(weewx.NEW_ARCHIVE_RECORD, self.newArchiveRecord)
         loginf("Backup time is %s " % self.backup_time) 
