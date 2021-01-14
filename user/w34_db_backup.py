@@ -19,13 +19,14 @@ from weewx.wxengine import StdService
 
 VERSION = "1.0"
 
-DATABASES    = "/var/lib/weewx/weewx.sdb"
-BACKUPS      = "/media/pi/usb_drive/weewx_backup.sdb"
-BACKUP_TIMES = "23:59"
+DATABASES    = ["/var/lib/weewx/weewx.sdb"]
+BACKUPS      = ["/media/pi/usb_drive/weewx_backup.sdb"]
+BACKUP_TIMES = ["23:59"]
 
 try:
     import weeutil.logger
     import logging
+
     log = logging.getLogger(__name__)
 
     def logdbg(msg):
@@ -57,14 +58,14 @@ class W34_DB_Backup(StdService):
     def __init__(self, engine, config_dict):
         super(W34_DB_Backup, self).__init__(engine, config_dict)
         loginf("Version is %s" % VERSION) 
-        try: self.databases = config_dict['W34_DB_Backup'].get('databases', DATABASES.split(","))
-        except: self.databases = DATABASES.split(",")
+        try: self.databases = config_dict['W34_DB_Backup'].get('databases', DATABASES)
+        except: self.databases = DATABASES
         self.databases = [s.strip() for s in self.databases]
-        try: self.backups = config_dict['W34_DB_Backup'].get('backups', BACKUPS.split(","))
-        except: self.backups = BACKUPS.split(",")
+        try: self.backups = config_dict['W34_DB_Backup'].get('backups', BACKUPS)
+        except: self.backups = BACKUPS
         self.backups = [s.strip() for s in self.backups]
-        try: self.backup_times = config_dict['W34_DB_Backup'].get('backup_times', BACKUP_TIMES.split(","))
-        except: self.backup_times = BACKUP_TIMES.split(",") 
+        try: self.backup_times = config_dict['W34_DB_Backup'].get('backup_times', BACKUP_TIMES)
+        except: self.backup_times = BACKUP_TIMES 
         self.backup_times = [s.strip() for s in self.backup_times]
         if len(self.databases) != len(self.backups) or len(self.databases) != len(self.backup_times): 
             logerr("Number of databases does not match number of backups or number of backup times")
