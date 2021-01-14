@@ -1,12 +1,12 @@
 # To use add the following to the end of process_services user.w34_db_backup.W34_DB_Backup
 # Next setup the following variables below DATABASES, BACKUPS, BACKUP_TIMES or add the following section to weewx config 
 # CANNOT HAVE A BACKUP DATABASE FILENAME weewx.sdb weewx.frm, weewx.myi, weewx.myd.
-# If multiple databases are to be backup then databases and backups and backup_times are strings with comma between each filename.
+# If multiple databases are to be backup then databases and backups and backup_times are strings with comma between each entry.
 # The number of database filenames must match the number of backup filenames and backup times
 # [W34_DB_Backup]
 #    databases = <Location(s) of your active databases (can be a comma separated string)>
 #    backups = <Location(s) for your backups (can be a comma separated string)>
-#    backup_times = <Time(s) to run backup each day (can be a comma separated string)>
+#    backup_times = <Time(s) to run backup each day (can be a comma separated string) MUST BE A TIME THAT A WEEWX ARCHIVE EVENT HAPPEENS>
 
 import os
 import time
@@ -17,11 +17,11 @@ from datetime import datetime
 import weewx
 from weewx.wxengine import StdService
 
-VERSION = "1.0"
+VERSION = "2.0"
 
 DATABASES    = ["/var/lib/weewx/weewx.sdb"]
 BACKUPS      = ["/media/pi/usb_drive/weewx_backup.sdb"]
-BACKUP_TIMES = ["23:59"]
+BACKUP_TIMES = ["23:55"]
 
 try:
     import weeutil.logger
@@ -80,23 +80,30 @@ class W34_DB_Backup(StdService):
                 logerr("Cannot use a backup filename that is weewx.(sdr,myi,myd,frm). !!!MAKE SURE THAT THE FILENAMES ARE CORRECT!!!")
                 return
         self.bind(weewx.NEW_ARCHIVE_RECORD, self.newArchiveRecord)
-        self.backups_in_progress = 0 
+        self.run_backups = threading.Event()
+        t = threading.Thread(target = self.do_backup)
+        t.daemon = True
+        t.start() 
 
     def newArchiveRecord(self, _event):
-        if self.backups_in_progress <= 0:
-            current_time =  ":".join(str(datetime.now().time()).split(":", 2)[:2])
-            for i in range(len(self.backup_times)):
-                if current_time == self.backup_times[i]: 
-                    self.backups_in_progress += 1 
-                    threading.Timer(10, self.do_backup, args = (self.databases[i], self.backups[i])).start()
+        if not self.run_backups.is_set():
+            self.run_backups.set()
     
-    def do_backup(self, database, backup):
-        try:
-            loginf("Backup of database " + database + " to " + backup + " has started.")
-            subprocess.Popen("sudo cp -a " + database + " " + backup, shell=True).wait()
-            loginf("Backup of database " + database + " to " + backup + " has completed.")
-        except Exception as err:
-            logerr("Backup Error: " + str(err))
-        finally:
-            self.backups_in_progress -= 1
- 
+    def do_backup(self):
+        while True:
+            try:
+                self.run_backups.wait()
+                current_time =  ":".join(str(datetime.now().time()).split(":", 2)[:2])
+                time.sleep(10)
+                procs = []
+                for i in range(len(self.backup_times)):
+                    if current_time == self.backup_times[i]:
+                        loginf("Backup of database " + self.databases[i] + " to " + self.backups[i] + " has started.")
+                        procs.append((subprocess.Popen("sudo cp -a " + self.databases[i] + " " + self.backups[i], shell=True), i))
+                for p in procs:
+                    p[0].wait()
+                    loginf("Backup of database " + self.databases[p[1]] + " to " + self.backups[p[1]] + " has completed.")
+            except Exception as err:
+                logerr("Backup Error: " + str(err))
+            finally:
+                self.run_backups.clear() 
