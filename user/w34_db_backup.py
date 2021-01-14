@@ -59,10 +59,13 @@ class W34_DB_Backup(StdService):
         loginf("Version is %s" % VERSION) 
         try: self.databases = config_dict['W34_DB_Backup'].get('databases', DATABASES.split(","))
         except: self.databases = DATABASES.split(",")
+        [s.strip() for s in self.databases]
         try: self.backups = config_dict['W34_DB_Backup'].get('backups', BACKUPS.split(","))
         except: self.backups = BACKUPS.split(",")
+        [s.strip() for s in self.backups]
         try: self.backup_times = config_dict['W34_DB_Backup'].get('backup_times', BACKUP_TIMES.split(","))
         except: self.backup_times = BACKUP_TIMES.split(",") 
+        [s.strip() for s in self.backup_times]
         if len(self.databases) != len(self.backups) or len(self.databases) != len(self.backup_times): 
             logerr("Number of databases does not match number of backups or number of backup times")
             return
