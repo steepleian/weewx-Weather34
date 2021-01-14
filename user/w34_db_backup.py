@@ -93,10 +93,10 @@ class W34_DB_Backup(StdService):
     def do_backup(self, database, backup):
         try:
             loginf("Backup of database " + database + " to " + backup + " has started.")
-            subprocess.Popen("sudo cp -a " + database + " " + backup, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).wait()
+            subprocess.Popen("sudo cp -a " + database + " " + backup, shell=True).wait()
             loginf("Backup of database " + database + " to " + backup + " has completed.")
         except Exception as err:
-            logerr("Backup Error: " + err)
+            logerr("Backup Error: " + str(err))
         finally:
             self.backups_in_progress -= 1
  
