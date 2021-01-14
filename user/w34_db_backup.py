@@ -57,11 +57,11 @@ class W34_DB_Backup(StdService):
     def __init__(self, engine, config_dict):
         super(W34_DB_Backup, self).__init__(engine, config_dict)
         loginf("Version is %s" % VERSION) 
-        try: self.databases = config_dict['W34_DB_Backup'].get('databases', DATABASES).split(",")
+        try: self.databases = config_dict['W34_DB_Backup'].get('databases', DATABASES.split(","))
         except: self.databases = DATABASES.split(",")
-        try: self.backups = config_dict['W34_DB_Backup'].get('backups', BACKUPS).split(",")
+        try: self.backups = config_dict['W34_DB_Backup'].get('backups', BACKUPS.split(","))
         except: self.backups = BACKUPS.split(",")
-        try: self.backup_times = config_dict['W34_DB_Backup'].get('backup_times', BACKUP_TIMES).split(",")
+        try: self.backup_times = config_dict['W34_DB_Backup'].get('backup_times', BACKUP_TIMES.split(","))
         except: self.backup_times = BACKUP_TIMES.split(",") 
         if len(self.databases) != len(self.backups) or len(self.databases) != len(self.backup_times): 
             logerr("Number of databases does not match number of backups or number of backup times")
