@@ -71,19 +71,19 @@ class W34_DB_Backup(StdService):
             logerr("Number of databases does not match number of backups or number of backup times")
             return
         for i in range(len(self.databases)):
-            loginf("database " + self.databases[i] + " will be backup to " + self.backups[i] + " at time " + self.backup_times[i])
             if self.databases[i] == self.backups[i]: 
-                logerr("Cannot have the same filename for both database and backup")
+                logerr("Cannot have the same filename for both database " + self.databases[i] + " and backup" + self.backups[i])
                 return
             basename = os.path.basename(self.backups[i])
             if basename == 'weewx.sdb' or basename == 'weewx.myi' or basename == 'weewx.myd' or basename == 'weewx.frm': 
                 logerr("Cannot use a backup filename that is weewx.(sdr,myi,myd,frm). !!!MAKE SURE THAT THE FILENAMES ARE CORRECT!!!")
                 return
-        self.bind(weewx.NEW_ARCHIVE_RECORD, self.newArchiveRecord)
+            loginf("database " + self.databases[i] + " will be backup to " + self.backups[i] + " at time " + self.backup_times[i])
         self.run_backups = threading.Event()
         t = threading.Thread(target = self.do_backup)
         t.daemon = True
         t.start() 
+        self.bind(weewx.NEW_ARCHIVE_RECORD, self.newArchiveRecord)
 
     def newArchiveRecord(self, _event):
         if not self.run_backups.is_set():
@@ -99,11 +99,14 @@ class W34_DB_Backup(StdService):
                 for i in range(len(self.backup_times)):
                     if current_time == self.backup_times[i]:
                         loginf("Backup of database " + self.databases[i] + " to " + self.backups[i] + " has started.")
-                        procs.append((subprocess.Popen("sudo cp -a " + self.databases[i] + " " + self.backups[i], shell=True), i))
+                        procs.append((subprocess.Popen("sudo cp -a " + self.databases[i] + " " + self.backups[i], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT), i))
                 for p in procs:
-                    p[0].wait()
+                    out, err = p[0].communicate()
                     loginf("Backup of database " + self.databases[p[1]] + " to " + self.backups[p[1]] + " has completed.")
+                    logdbg("Standard Output = " + (out if out != None else "NO OUTPUT"))
+                    logdbg("Standard Error  = " + (err if err != None else "NO OUTPUT"))
             except Exception as err:
                 logerr("Backup Error: " + str(err))
             finally:
                 self.run_backups.clear() 
+
