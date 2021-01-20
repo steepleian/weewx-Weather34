@@ -21,7 +21,7 @@ VERSION = "2.0"
 
 DATABASES    = ["/var/lib/weewx/weewx.sdb"]
 BACKUPS      = ["/media/pi/usb_drive/weewx_backup.sdb"]
-BACKUP_TIMES = ["23:55"]
+BACKUP_TIMES = ["23:59"]
 
 try:
     import weeutil.logger
@@ -96,6 +96,7 @@ class W34_DB_Backup(StdService):
                 current_time =  ":".join(str(datetime.now().time()).split(":", 2)[:2])
                 time.sleep(10)
                 procs = []
+                procs1 = []
                 for i in range(len(self.backup_times)):
                     if current_time == self.backup_times[i]:
                         loginf("Backup of database " + self.databases[i] + " to " + self.backups[i] + " has started.")
@@ -104,6 +105,12 @@ class W34_DB_Backup(StdService):
                     out, err = p[0].communicate()
                     loginf("Backup of database " + self.databases[p[1]] + " to " + self.backups[p[1]] + " has completed.")
                     logdbg("Standard Output = " + (out if out != None else "NO OUTPUT"))
+                    logdbg("Standard Error  = " + (err if err != None else "NO OUTPUT"))
+                    if self.databases[p[1]].endswith(".sdb"):
+                        procs1.append((subprocess.Popen("echo 'pragma integrity_check' | sqlite3 " + self.backups[p[1]], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT), p[1]))
+                for p in procs1:
+                    out, err = p[0].communicate()
+                    loginf("Pragma Integity Check for backup database " + self.backups[p[1]] + " has completed with result " + (out if out != None else "NO OUTPUT"))
                     logdbg("Standard Error  = " + (err if err != None else "NO OUTPUT"))
             except Exception as err:
                 logerr("Backup Error: " + str(err))
