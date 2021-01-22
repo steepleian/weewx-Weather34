@@ -7,12 +7,13 @@ date_default_timezone_set($TZ);
 <script src="js/jquery.js"></script>
 <script>
  //update the charts,eq,forecast data and current conditions//
- // var refreshId;$(document).ready(function(){stationcron()});function stationcron(){$.ajax({cache:false,
- // success:function(a){$("#blank")
- // .html(a);<?php if ($wuupdate >0) {
-  //echo 'setTimeout(stationcron,' . 1000*$wuupdate.')';}?>},
- // contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
- // type:"GET",url:"weewxcron.php"})}; 
+  var refreshId;$(document).ready(function(){stationcron()});function stationcron(){$.ajax({cache:false,
+  success:function(a){$("#blank")
+  .html(a);<?php if ($wuupdate >0) {
+  echo 'setTimeout(stationcron,' . 1000*$wuupdate.')';}?>},
+  contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
+ // type:"GET",url:"weewxcron.php"
+})}; 
 
 //update the modules
 
