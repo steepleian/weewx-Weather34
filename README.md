@@ -25,6 +25,8 @@ The installer now defaults to overwrite mode, settings1.php will not be overwrit
 
 kPa has been introduced as a pressure unit for Canadian users.
 
+Finally this version sees the introduction of a 'set and forget' module for the automatic daily update of multiple database files. More details in the installation guide.
+
 # Demo
 
 A live example of Weather34 WeeWX skin can be seen at https://claydonsweather.org.uk
@@ -69,7 +71,7 @@ https://weather34.com/homeweatherstation/weather34timeline/weather34timeline.htm
 
 # Setup
 
-**If you are upgrading from a previous version of this skin, due to the significant changes, you must recreate your settings!.php file by running the full install process. Just copying your previous settings1.php will cause errors which are then difficult to resolve.**
+**If you are upgrading from a previous version of this skin, due to the significant changes, you must recreate your settings1.php file by running the full install process. Just copying your previous settings1.php will cause errors which are then more difficult to resolve.**
 
 Follow the instructions in the 'installation guide' (INSTALLATION_GUIDE.md) to install the template.
 Browse to http://your/path/to/weewx/weather34/easyW34skinSetup.php
