@@ -71,5 +71,27 @@ Once completed, make sure you save weewx.conf
 
 * You can now test that the template is working by opening it up in your browser. Initially you will see random demo data. Click on the menu button at the top-left corner and select settings. This will open up a web form in which you apply your own settings. The default password is '12345'. Please change this to your own unique password for your own protection. Pay particular attention to the location of the w34realtime.txt file being generated on a loop cycle by weeWX. The default location is “/[html_root]/weewx/w34weather/serverdata/w34realtime.txt” (for example /var/www/html/weewx/w34weather/serverdata/w34realtime.txt). IMPORTANT the unit codes that you select for the Weather Underground and DarkSky forecast APIs must be identical to those that you select in the pre-install settings process. Failure to do so will possibly produce some bizzare data.
 
+* Automatic database backup module. This module has not yet been integrated fully into the install process so you will need to make some changes to weewx.conf.
+
+To open your weewc.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line add
+
+			,user.w34_db_backup.W34_DB_Backup
+			
+Then at the end of the file add this stanza
+
+			[W34_DB_Backup]
+				
+				# database path(s) seperated by , rename this/these database(s) to match your own
+    				databases = /home/weewx/archive/weewx.sdb,/home/weewx/archive/another.sdb
+				
+				# backup path(s) comma seperated 
+    				backups = [your_backup_path]/weewx_backup.sdb,[your_backup_path]/home/pi/another_backup.sdb
+				
+				# set the daily time to backup comma seperated for multiple databases
+				# the time must be set an to archive time so it runs immediately after the archive interval processes are complete
+    				backup_times = 00:00,00:00
+				
+* Save and restart WeeWX
+
 * Any problems, please raise an Issue in this repository attaching a debug report (see here for details http://www.weewx.com/docs/utilities.htm#wee_debug_utility), your skin.conf files and a syslog tail report covering at least two archive cycles from startup.
 
