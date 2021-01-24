@@ -554,6 +554,7 @@ class CloudCover():
                         min = 100
                         max = 250
                     pix = im.convert('L').load()
+                    im.close()
                     f.close()
                     for y in range(ypos1,ypos2):
                         for x in range(xpos1,xpos2):
@@ -564,7 +565,6 @@ class CloudCover():
                         self.cloud_cover_percent = 1
                     if self.cloud_cover_percent > 99:
                         self.cloud_cover_percent = 99
-                    pix = None 
                 time.sleep(time_interval)
         except Exception as e:
             logdbg("CloudCover:calculate_cloud_cover " + str(e))
@@ -781,12 +781,6 @@ class Weather34RealTime(StdService):
                 self.cache_enable = True if config_dict['Weather34RealTime'].get('cache_enable') == 'True' else False; 
             if 'cache_stale_time' in config_dict['Weather34RealTime']:
                 self.cache_stale_time = int(config_dict['Weather34RealTime'].get('cache_stale_time')) 
-            if 'cache_directory' in config_dict['Weather34RealTime']:
-                path = config_dict['Weather34RealTime'].get('cache_directory') 
-                if os.path.isdir(path):
-                    self.cache_file = os.path.join(path, 'Weather34RealTimeRetainedLoopValues.txt')
-                else:
-                    logerr('Invalid cache_directory using default location tmp/weather34')	
             if 'exclude_fields' in config_dict['Weather34RealTime']:
                 self.excludeFields = set(weeutil.weeutil.option_as_list(config_dict['Weather34RealTime'].get('exclude_fields', [])))
                 logdbg("excluding fields: %s" % (self.excludeFields,))
