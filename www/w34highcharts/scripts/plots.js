@@ -1238,7 +1238,6 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    }
 	    options = create_chart_options(options, 'column', 'Monthly Rainfall', units.rain,[['Rainfall', 'column']], month_name);
 	    options.series[0].data = convert_rain(seriesData[0].rainplot.units, units.rain, month_data);
-	    options.plotOptions.column.pointWidth = 50;
 	    options.yAxis[0].title.text = "(" + units.rain + ")";
 	    options.yAxis[0].min = 0;
 	    options.yAxis[0].tickInterval = 1;
