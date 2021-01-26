@@ -102,5 +102,5 @@ $extraLinkColor = '';
 $extraLinkURL = '';
 $weewxserver_address = NULL;
 $weewxserver_port = NULL;
-$theme1 = 'dark';
+$theme1 = $theme;
 ?>
