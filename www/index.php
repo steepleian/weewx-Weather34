@@ -43,7 +43,9 @@ if (!empty($check)) {
         die();
     }
     $s1   = array_merge($s1d, $s1);
-    $code = '<?php' . "\n";
+    $line = '$theme = isset($theme) ? $theme : "dark";';
+    $line1 = '$theme1 = $theme;';
+    $code = '<?php' . "\n".$line."\n".$line1."\n";
     foreach ($s1 as $var => $value) {
         /// ${var} = "{value}";\n
         $code .= '$' . $var . ' = ' . var_export($value, true) . ";\n";
