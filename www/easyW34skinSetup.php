@@ -190,7 +190,7 @@ function showForm($error="LOGIN"){
 <?php
 $Password = $password;
 if (isset($_POST['submit_pwd'])){    $pass = isset($_POST['passwd']) ? $_POST['passwd'] : '';
-   if ($pass == $Password) {
+   if ($pass != $Password) {
       showForm("Dashboard Meteobridge EASY SETUP");
       exit();
    }
