@@ -102,6 +102,4 @@ $extraLinkColor = '';
 $extraLinkURL = '';
 $weewxserver_address = NULL;
 $weewxserver_port = NULL;
-$theme = (isset($theme) ? $theme : 'dark');
-$theme1 = $theme;
 ?>
