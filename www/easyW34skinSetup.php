@@ -84,7 +84,6 @@ $webcamurl   = "'. $_POST["webcamurl"]. '";
 $videoWeatherCamURL  = "'.$_POST["videoWeatherCamURL"].'";
 $email    = "'. $_POST["email"]. '";
 $twitter   = "'. $_POST["twitter"]. '";
-$theme1   = "'. $_POST["theme1"]. '";
 $since    = "'. $_POST["since"]. '";
 $weatherhardware   = "'.$_POST["weatherhardware"]. '";
 $davis   = "'.$_POST["davis"]. '";
@@ -191,7 +190,7 @@ function showForm($error="LOGIN"){
 <?php
 $Password = $password;
 if (isset($_POST['submit_pwd'])){    $pass = isset($_POST['passwd']) ? $_POST['passwd'] : '';
-   if ($pass != $Password) {
+   if ($pass == $Password) {
       showForm("Dashboard Meteobridge EASY SETUP");
       exit();
    }
@@ -900,56 +899,7 @@ double check again
   
   
 
-<!--##########################################################################################
-    #########                        Start of Theming Sidebar                        #########
-    ##########################################################################################-->
 
-   <div class="weatheroptionssidebar"><svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg> Here you can set (2 choices)the default theme dark or light option<br />
-   and set the default display unit
-
-   <div class="weatherbottominfo">
-<svg id="i-checkmark" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M2 20 L12 28 30 4" />
-</svg>
-
-check unit(s)
-</div>
-
-   </div>
-
-<!--##########################################################################################
-    #########                        Start of Theming Section                        #########
-    ##########################################################################################-->
-
-<div class="weatheroptions">
-    <div class="weathersectiontitle">
-    <svg id="i-settings" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M13 2 L13 6 11 7 8 4 4 8 7 11 6 13 2 13 2 19 6 19 7 21 4 24 8 28 11 25 13 26 13 30 19 30 19 26 21 25 24 28 28 24 25 21 26 19 30 19 30 13 26 13 25 11 28 8 24 4 21 7 19 6 19 2 Z" />
-        <circle cx="16" cy="16" r="4" />
-    </svg>
-    Theme Selection</div><br/>
-     <div class="stationvalue"> Default Theme Colour</div>
-        <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M30 12 L16 24 2 12" />
-</svg>
-
-        <label name="theme1"></label>
-        <select id="theme1" name="theme1" class="choose1">
-            <option><?php echo $theme1 ;?></option>
-            <option>dark</option>
-            <option>light</option>
-
-        </select>
-        <span style="color:#777;"> set: <svg id="i-info" viewBox="0 0 32 32" width="10" height="10" fill="#25292D" stroke="rgba(230, 232, 239, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.25%">
-     <path d="M16 14 L16 23 M16 8 L16 10" /><circle cx="16" cy="16" r="14" /></svg> dark, <svg id="i-info" viewBox="0 0 32 32" width="10" height="10" fill="rgba(144, 177, 42, 1.000)" stroke="rgba(230, 232, 239, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.25%">
-     <path d="M16 14 L16 23 M16 8 L16 10" /><circle cx="16" cy="16" r="14" /></svg> light</span>
-     </div>
-
-    <br/>
 <!--##########################################################################################
     #########                        Start of Notify Sidebar                         #########
     ##########################################################################################-->
@@ -2166,7 +2116,6 @@ Weatherflow Map Zoom</div>
 <br/>
   
 
-  
  
   
 <!--##########################################################################################
