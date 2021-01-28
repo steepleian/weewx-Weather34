@@ -83,10 +83,10 @@
 	$weather["maxuv"]              = $weewxapi[58];	
 	$weather["sunny"]              = $weewxapi[57];
 	$weather["lux"] 	       = number_format($weewxrt[45]/0.00809399477,0, '.', '');
-	$weather["maxtemptime"]        = date($timeFormatShort, $weewxapi[27]);
-	$weather["lowtemptime"]        = date($timeFormatShort, $weewxapi[29]);
-	$weather["maxwindtime"]        = date($timeFormatShort, $weewxapi[31]);
-	$weather["maxgusttime"]        = date($timeFormatShort, $weewxapi[33]);
+	$weather["maxtemptime"]        = $weewxapi[27];
+	$weather["lowtemptime"]        = $weewxapi[29];
+	$weather["maxwindtime"]        = $weewxapi[31];
+	$weather["maxgusttime"]        = $weewxapi[33];
 	$weather["cloudbase3"]         = $weewxapi[203]; 	
 	$weather["wind_run"]           = number_format($weather["wind_speed"]/24,3); //10 minute wind run
 	$weather["swversion"]	       = $weewxrt[38];
