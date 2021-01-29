@@ -126,7 +126,7 @@ orange1{color:rgba(255, 131, 47, 1.000);}
 				else if($magnitude[0]>=5){echo "<div class=mag6-8>",$magnitude[0],"";}
 				else if($magnitude[0]>=4){echo "<div class=mag4-5>",$magnitude[0],"";}
 				else if($magnitude[0]>=2){echo "<div class=mag1-3>",$magnitude[0],"";}	
-				else if($magnitude[0]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[0]<2){echo "<div class=mag1-3>",$magnitude[0],"";}		
 						
 				?>
 <div></div>
@@ -175,6 +175,11 @@ for ($i = 0; $i < 1; $i++) {
 	echo "<div class='time'><span>",$eventime[0] ,"</div></span>";
 	echo $eqtitle[0] ;
 	} 
+
+	else if ($magnitude[0]<2)  {
+	echo "<div class='time'><span>",$eventime[0] ,"</div></span>";
+	echo $eqtitle[0] ;
+	} 
 }
 
 ?><br>
@@ -208,7 +213,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[1]>=5){echo "<div class=mag6-8>",$magnitude[1],"";}
 				else if($magnitude[1]>=4){echo "<div class=mag4-5>",$magnitude[1],"";}
 				else if($magnitude[1]>=2){echo "<div class=mag1-3>",$magnitude[1],"";}	
-				else if($magnitude[1]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[1]<2){echo "<div class=mag1-3>",$magnitude[1],"";}		
 						
 				?>
 <div></div>
@@ -257,6 +262,11 @@ for ($i = 0; $i < 1; $i++) {
 	echo "<div class='time'><span>",$eventime[1] ,"</div></span>";
 	echo $eqtitle[1] ;
 	} 
+	
+        else if ($magnitude[1]<2)  {
+	echo "<div class='time'><span>",$eventime[1] ,"</div></span>";
+	echo $eqtitle[1] ;
+	} 
 }
 
 ?><br>
@@ -290,7 +300,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[2]>=5){echo "<div class=mag6-8>",$magnitude[2],"";}
 				else if($magnitude[2]>=4){echo "<div class=mag4-5>",$magnitude[2],"";}
 				else if($magnitude[2]>=2){echo "<div class=mag1-3>",$magnitude[2],"";}	
-				else if($magnitude[2]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[2]<2){echo "<div class=mag1-3>",$magnitude[2],"";}		
 						
 				?>
 <div></div>
@@ -339,6 +349,11 @@ for ($i = 0; $i < 1; $i++) {
 	echo "<div class='time'><span>",$eventime[2] ,"</div></span>";
 	echo $eqtitle[2] ;
 	} 
+	
+        else if ($magnitude[2]<2)  {
+	echo "<div class='time'><span>",$eventime[2] ,"</div></span>";
+	echo $eqtitle[2] ;
+	} 
 }
 
 ?><br>
@@ -372,7 +387,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[3]>=5){echo "<div class=mag6-8>",$magnitude[3],"";}
 				else if($magnitude[3]>=4){echo "<div class=mag4-5>",$magnitude[3],"";}
 				else if($magnitude[3]>=2){echo "<div class=mag1-3>",$magnitude[3],"";}	
-				else if($magnitude[3]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[3]<2){echo "<div class=mag1-3>",$magnitude[3],"";}		
 						
 				?>
 <div></div>
@@ -420,6 +435,11 @@ for ($i = 0; $i < 1; $i++) {
 	else if ($magnitude[3]>2)  {
 	echo "<div class='time'><span>",$eventime[3] ,"</div></span>";
 	echo $eqtitle[3] ;
+	}
+ 
+	else if ($magnitude[3]<2)  {
+	echo "<div class='time'><span>",$eventime[3] ,"</div></span>";
+	echo $eqtitle[3] ;
 	} 
 }
 
@@ -454,7 +474,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[4]>=5){echo "<div class=mag6-8>",$magnitude[4],"";}
 				else if($magnitude[4]>=4){echo "<div class=mag4-5>",$magnitude[4],"";}
 				else if($magnitude[4]>=2){echo "<div class=mag1-3>",$magnitude[4],"";}	
-				else if($magnitude[4]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[4]<2){echo "<div class=mag1-3>",$magnitude[4],"";}		
 						
 				?>
 <div></div>
@@ -502,6 +522,11 @@ for ($i = 0; $i < 1; $i++) {
 	else if ($magnitude[4]>2)  {
 	echo "<div class='time'><span>",$eventime[4] ,"</div></span>";
 	echo $eqtitle[4] ;
+	}
+ 
+	else if ($magnitude[4]<2)  {
+	echo "<div class='time'><span>",$eventime[4] ,"</div></span>";
+	echo $eqtitle[4] ;
 	} 
 }
 
@@ -536,7 +561,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[5]>=5){echo "<div class=mag6-8>",$magnitude[5],"";}
 				else if($magnitude[5]>=4){echo "<div class=mag4-5>",$magnitude[5],"";}
 				else if($magnitude[5]>=2){echo "<div class=mag1-3>",$magnitude[5],"";}	
-				else if($magnitude[5]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[5]<2){echo "<div class=mag1-3>",$magnitude[5],"";}		
 						
 				?>
 <div></div>
@@ -584,6 +609,11 @@ for ($i = 0; $i < 1; $i++) {
 	else if ($magnitude[5]>2)  {
 	echo "<div class='time'><span>",$eventime[5] ,"</div></span>";
 	echo $eqtitle[5] ;
+	}
+ 
+	else if ($magnitude[5]<2)  {
+	echo "<div class='time'><span>",$eventime[5] ,"</div></span>";
+	echo $eqtitle[5] ;
 	} 
 }
 
@@ -619,7 +649,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[6]>=5){echo "<div class=mag6-8>",$magnitude[6],"";}
 				else if($magnitude[6]>=4){echo "<div class=mag4-5>",$magnitude[6],"";}
 				else if($magnitude[6]>=2){echo "<div class=mag1-3>",$magnitude[6],"";}	
-				else if($magnitude[6]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[6]<2){echo "<div class=mag1-3>",$magnitude[6],"";}		
 						
 				?>
 <div></div>
@@ -667,6 +697,11 @@ for ($i = 0; $i < 1; $i++) {
 	else if ($magnitude[6]>2)  {
 	echo "<div class='time'><span>",$eventime[6] ,"</div></span>";
 	echo $eqtitle[6] ;
+	}
+ 
+	else if ($magnitude[6]<2)  {
+	echo "<div class='time'><span>",$eventime[6] ,"</div></span>";
+	echo $eqtitle[6] ;
 	} 
 }
 
@@ -701,7 +736,7 @@ else if ($windunit == 'mph') {
 				else if($magnitude[7]>=5){echo "<div class=mag6-8>",$magnitude[7],"";}
 				else if($magnitude[7]>=4){echo "<div class=mag4-5>",$magnitude[7],"";}
 				else if($magnitude[7]>=2){echo "<div class=mag1-3>",$magnitude[7],"";}	
-				else if($magnitude[7]<2){echo "<div class=mag1-3>N/A";}		
+				else if($magnitude[7]<2){echo "<div class=mag1-3>",$magnitude[7],"";}		
 						
 				?>
 <div></div>
@@ -747,6 +782,11 @@ for ($i = 0; $i < 1; $i++) {
 	} 
 	
 	else if ($magnitude[7]>2)  {
+	echo "<div class='time'><span>",$eventime[7] ,"</div></span>";
+	echo $eqtitle[7] ;
+	} 
+
+	else if ($magnitude[7]<2)  {
 	echo "<div class='time'><span>",$eventime[7] ,"</div></span>";
 	echo $eqtitle[7] ;
 	} 
