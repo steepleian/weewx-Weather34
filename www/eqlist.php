@@ -25,13 +25,14 @@ $time = array();
 $lati = array();
 $longi = array();
 $eventime = array();
-for ($i = 0; $i < 100; $i++) {
-	$magnitude[$i]=number_format($parsed_json{$i}{'magnitude'},1);
-	$eqtitle[$i]=$parsed_json{$i}['title'];
-	$depth[$i]=$parsed_json{$i}['depth'];
-	$time[$i]=$parsed_json{$i}['date_time'];
-	$lati[$i]=$parsed_json{$i}['latitude'];
-	$longi[$i]=$parsed_json{$i}['longitude'];
+for ($i = 0; $i < 50; $i++) {
+        $eqtitle[$i]=explode(" ", $parsed_json['rss']['channel']['item'][$i]['title'],3)[2];
+        $magnitude[$i]=number_format(explode(" ", $parsed_json['rss']['channel']['item'][$i]['emsc:magnitude'])[1],1);
+        $depth[$i]=$parsed_json['rss']['channel']['item'][$i]['depth'];
+        $time[$i]=$parsed_json['rss']['channel']['item'][$i]['emsc:time'];
+        $lati[$i]=$parsed_json['rss']['channel']['item'][$i]['geo:lat'];
+        $longi[$i]=$parsed_json['rss']['channel']['item'][$i]['geo:long'];
+
 	$eventime[$i]=date($timeFormatShort, strtotime($time[$i]) );
 	$eqdist[$i] = round(distance($lat, $lon, $lati[$i], $longi[$i])) ;
 	

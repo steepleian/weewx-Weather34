@@ -2,17 +2,15 @@
 
 //current eq
 date_default_timezone_set($TZ);
-//$json_string=file_get_contents('http://earthquake-report.com/feeds/recent-eq?json');
 $json_string=file_get_contents('jsondata/eq.txt');
 $parsed_json=json_decode($json_string,true);
-$magnitude1=$parsed_json{0}{'magnitude'};
+$eqtitle=explode(" ", $parsed_json['rss']['channel']['item'][0]['title'],3)[2];
+$magnitude1=explode(" ", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude'])[1];
 $magnitude=number_format($magnitude1,1);
-$title=$parsed_json{0}['title'];
-$eqtitle=$parsed_json{0}['location'];
-$depth=$parsed_json{0}['depth'];
-$time1=$parsed_json{0}['date_time'];
-$lati=$parsed_json{0}['latitude'];
-$longi=$parsed_json{0}['longitude'];
+$depth=$parsed_json['rss']['channel']['item'][0]['depth'];
+$time1=$parsed_json['rss']['channel']['item'][0]['emsc:time'];
+$lati=$parsed_json['rss']['channel']['item'][0]['geo:lat'];
+$longi=$parsed_json['rss']['channel']['item'][0]['geo:long'];
 $eventime=date( $dateFormat . " " . $timeFormatShort, strtotime("$time1") );
 $shorttime=date( $timeFormatShort, strtotime("$time1") );
 ?>
