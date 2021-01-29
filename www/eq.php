@@ -7,7 +7,7 @@ $parsed_json=json_decode($json_string,true);
 $eqtitle=explode(" ", $parsed_json['rss']['channel']['item'][0]['title'],3)[2];
 $magnitude1=explode(" ", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude'])[1];
 $magnitude=number_format($magnitude1,1);
-$depth=$parsed_json['rss']['channel']['item'][0]['depth'];
+$depth=$parsed_json['rss']['channel']['item'][0]['emsc:depth'];
 $time1=$parsed_json['rss']['channel']['item'][0]['emsc:time'];
 $lati=$parsed_json['rss']['channel']['item'][0]['geo:lat'];
 $longi=$parsed_json['rss']['channel']['item'][0]['geo:long'];
@@ -42,17 +42,17 @@ if ($magnitude <= 0) {
 	
 } else if ($magnitude <= 4.2) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday4-5>${magnitude}</div>	
-	<div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br>
+	<div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>depth:$depth km</depth><br>
 	Epicenter: <value><maxred>$eqdist</maxred>  <valueearthquake>from<br> $stationlocation</valueearthquake></value></div>";
 } else if ($magnitude <= 5) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday4-5>${magnitude}</div>	
 	
-	<div class='eqt'>&nbsp;&nbsp;Moderate</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br>
+	<div class='eqt'>&nbsp;&nbsp;Moderate</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>depth:$depth km</depth><br>
 	Epicenter: <value><maxred>$eqdist</maxred>  <valueearthquake>from<br> $stationlocation</valueearthquake></value></div>";
 } else if ($magnitude<= 6) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday6-8>${magnitude}</div>	
 	
-	<div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strong</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br>
+	<div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strong</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>depth:$depth km</depth><br>
 	<value><maxred>$eqdist</maxred> <valueearthquake>from<br> $stationlocation</valueearthquake></value></div>";
 } else if ($magnitude <= 10) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday9-10>${magnitude}</div>	
