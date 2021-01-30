@@ -539,9 +539,9 @@ class CloudCover():
             logdbg("CloudCover File 1 " + file1)
             logdbg("CloudCover File 2 " + file2)
             while True:
-                #logdbg("CloudCover url1 exit code " + str(os.system("wget -r -O " + "'" + file1 + "'" + " '" + url1 + "'")))
+                logdbg("CloudCover url1 exit code " + str(os.system("wget -r -O " + "'" + file1 + "'" + " '" + url1 + "'")))
                 os.chmod(file1, 0o666)
-                #logdbg("CloudCover url2 exit code " + str(os.system("wget -r -O " + "'" + file2 + "'" + " '" + url2 + "'")))
+                logdbg("CloudCover url2 exit code " + str(os.system("wget -r -O " + "'" + file2 + "'" + " '" + url2 + "'")))
                 os.chmod(file2, 0o666)
                 if os.stat(file1).st_size > 5000 and os.stat(file2).st_size > 5000:
                     alt = weewx.almanac.Almanac(time.time(), float(lat), float(lon)).sun.alt
