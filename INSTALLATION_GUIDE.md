@@ -12,16 +12,19 @@ If you are carrying out a fresh install of WeeWX, my own personal preference is 
 
 IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP7.3 modules on a Debian based distribution: -
 
-	sudo apt install php
-	sudo apt install php-cli php-fpm php-json php-sqlite3 php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath
-	sudo apt install libapache2-mod-php
-	sudo a2enmod php7.3
+	sudo apt install php7.4
+	sudo apt install php7.4-cli php7.4-fpm php7.4-json php7.4-sqlite3 php7.4-zip php7.4-gd  php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
+	sudo apt install libapache2-mod-php7.4
+	sudo a2enmod php7.4
 	sudo systemctl restart apache2
 
 * Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
 
-        sudo sudo apt install python2-ephem or sudo sudo apt install python3-ephem
+        sudo apt install python2-ephem or sudo sudo apt install python3-ephem
 
+* If you are going to use the optional enhancement to convert RSS XML feeds to json data for Web Services, the following Python library must be installed: -
+
+	sudo pip3 install xmltodict (if using Python3.x) or sudo pip install xmltodict (for users still using Python2.x)
 
 Once completed, make sure you save weewx.conf
 
@@ -75,7 +78,7 @@ Once completed, make sure you save weewx.conf
 
     Copy the w34_db_backup.py file into /home/weewx/bin/user (or /usr/share/weewx/user for a DEB install)
 
-    Open your weewx.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line     	 add:-
+    Open your weewx.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line add:-
 
 			,user.w34_db_backup.W34_DB_Backup
 			
