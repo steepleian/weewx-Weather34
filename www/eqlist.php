@@ -15,7 +15,6 @@ error_reporting(0);
 
 <?php //current eqlist
 date_default_timezone_set($TZ);
-//$json_string=file_get_contents('http://earthquake-report.com/feeds/recent-eq?json');
 $json_string=file_get_contents('jsondata/eq.txt');
 $parsed_json=json_decode($json_string,true);
 $magnitude = array();
@@ -173,7 +172,7 @@ orange1{color:rgba(255, 131, 47, 1.000);}
   <br>
   <br>
   <?php echo $info?>  
-<a href="http://earthquake-report.com" title="Earthquake-Report.com" target="_blank">Data © <?php echo date('Y');?> Earthquake-Report.com</a></span>
+<a href="http://www.emsc-csem.org" title="emsc-csem.org" target="_blank">Data © <?php echo date('Y');?> EMSC-CSEM</a></span>
 
   
   </article> 
