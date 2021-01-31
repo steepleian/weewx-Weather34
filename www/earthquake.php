@@ -2,29 +2,29 @@
 $software    = 'Cumulus <span>Software</span>';
 $designedfor    = '<br>For Cumulus';
 
-$magnitude=number_format(explode(" ", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude'])[1],1);
-$eqtitle=explode(" ", $parsed_json['rss']['channel']['item'][0]['title'],3)[2];
+$magnitude=number_format(explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude']))[1],1);
+$eqtitle=explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][0]['title']),3)[2];
 $time=$parsed_json['rss']['channel']['item'][0]['emsc:time'];
 $lati=$parsed_json['rss']['channel']['item'][0]['geo:lat'];
 $longi=$parsed_json['rss']['channel']['item'][0]['geo:long'];
 $eventime=date($timeFormatShort,strtotime("$time"));
 
-$magnitude1=number_format(explode(" ", $parsed_json['rss']['channel']['item'][1]['emsc:magnitude'])[1],1);
-$eqtitle1=explode(" ", $parsed_json['rss']['channel']['item'][1]['title'],3)[2];
+$magnitude1=number_format(explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][1]['emsc:magnitude']))[1],1);
+$eqtitle1=explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][1]['title']),3)[2];
 $time1=$parsed_json['rss']['channel']['item'][1]['emsc:time'];
 $lati1=$parsed_json['rss']['channel']['item'][1]['geo:lat'];
 $longi1=$parsed_json['rss']['channel']['item'][1]['geo:long'];
 $eventime1=date($timeFormatShort,strtotime("$time1"));
 
-$magnitude2=number_format(explode(" ", $parsed_json['rss']['channel']['item'][2]['emsc:magnitude'])[1],1);
-$eqtitle2=explode(" ", $parsed_json['rss']['channel']['item'][2]['title'],3)[2];
+$magnitude2=number_format(explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][2]['emsc:magnitude']))[1],1);
+$eqtitle2=explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][2]['title']),3)[2];
 $time2=$parsed_json['rss']['channel']['item'][2]['emsc:time'];
 $lati2=$parsed_json['rss']['channel']['item'][2]['geo:lat'];
 $long21=$parsed_json['rss']['channel']['item'][2]['geo:long'];
 $eventime2=date($timeFormatShort,strtotime("$time2"));
 
-$magnitude3=number_format(explode(" ", $parsed_json['rss']['channel']['item'][3]['emsc:magnitude'])[1],1);
-$eqtitle3=explode(" ", $parsed_json['rss']['channel']['item'][3]['title'],3)[2];
+$magnitude3=number_format(explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][3]['emsc:magnitude']))[1],1);
+$eqtitle3=explode(" ", str_replace("  ", "", $parsed_json['rss']['channel']['item'][3]['title']),3)[2];
 $time3=$parsed_json['rss']['channel']['item'][3]['emsc:time'];
 $lati3=$parsed_json['rss']['channel']['item'][3]['geo:lat'];
 $longi3=$parsed_json['rss']['channel']['item'][3]['geo:long'];
