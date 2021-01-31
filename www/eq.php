@@ -4,8 +4,8 @@
 date_default_timezone_set($TZ);
 $json_string=file_get_contents('jsondata/eq.txt');
 $parsed_json=json_decode($json_string,true);
-$eqtitle=explode(" ", $parsed_json['rss']['channel']['item'][0]['title'],3)[2];
-$magnitude1=explode(" ", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude'])[1];
+$eqtitle=explode(" ", str_replace("  ", " ", $parsed_json['rss']['channel']['item'][0]['title']),3)[2];
+$magnitude1=explode(" ", str_replace("  ", " ", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude']))[1];
 $magnitude=number_format($magnitude1,1);
 $depth=$parsed_json['rss']['channel']['item'][0]['emsc:depth'];
 $time1=$parsed_json['rss']['channel']['item'][0]['emsc:time'];
