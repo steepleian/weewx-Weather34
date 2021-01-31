@@ -143,10 +143,14 @@ orange1{color:rgba(255, 131, 47, 1.000);}
 
 // EQ Latest earthquake 
 	
-	if ($eqdist[$j]<1300)  {
+        if ($windunit == 'mph' && $eqdist[$j]<1300) {
 	echo "<div class='time'><orange1>*Regional</orange1> <span> ".$eventime[$j]."</div></span>";
 	echo $eqtitle[$j];
 	} 
+        else if ($windunit == 'km/h' && $eqdist[$j]<2100) {
+	echo "<div class='time'><orange1>*Regional</orange1> <span> ".$eventime[$j]."</div></span>";
+	echo $eqtitle[$j];
+        }
 	else {
 	echo "<div class='time'><span>",$eventime[$j] ,"</div></span>";
 	echo $eqtitle[$j] ;
@@ -155,10 +159,10 @@ orange1{color:rgba(255, 131, 47, 1.000);}
    echo "<br>";
 			
    if ($windunit == 'mph' && $eqdist[$j]<200) {
-		 echo round($eqdist[$j]  * 0.621371) ." Miles from<br> $stationlocation";
+		 echo "<orange>",round($eqdist[$j]  * 0.621371) ." </orange>Miles from<br> $stationlocation";
 	}
 	
-   else if ($windunit == 'km/h' && $eqdist[$j]<700) {
+   else if ($windunit == 'km/h' && $eqdist[$j]<320) {
 		 echo "<orange>",round($eqdist[$j]) ." </orange>Km from<br> $stationlocation";
 	}			
 
