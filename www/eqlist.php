@@ -129,13 +129,13 @@ orange1{color:rgba(255, 131, 47, 1.000);}
 				else {echo "<div class=mag1-3>",$magnitude[$j],"";}		
    echo '<span style="font-size:8px;">';
    if ($magnitude[$j] <= 4.2) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;&nbsp;Minor</div></span>";
+     echo "<div style='position:relative; top:10px;'>&nbsp;Minor</div></span>";
    } else if ($magnitude[$j] <= 5) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;&nbsp;Moderate</div></span>";
+     echo "<div style='position:relative; top:10px;'>&nbsp;Moderate</div></span>";
    } else if ($magnitude[$j] <= 6) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;&nbsp;Strong</div></span>";
+     echo "<div style='position:relative; top:10px;'>&nbsp;Strong</div></span>";
    } else if ($magnitude[$j] <= 10) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;&nbsp;Very Strong</div></span>";
+     echo "<div style='position:relative; top:10px;'>&nbsp;Very Strong</div></span>";
    }
    echo "<div></div>";
    echo '<div class="hitempy">';
