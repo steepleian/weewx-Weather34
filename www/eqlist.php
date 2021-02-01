@@ -121,22 +121,24 @@ orange1{color:rgba(255, 131, 47, 1.000);}
    for ($j = 0; $j < 11; $j++) { 
       echo "<article>"; 
       echo "<div class=actualt>&nbsp;&nbsp Recent Earthquake </div> ";       
-				if($magnitude[$j]>=7){echo "<div class=mag9-10>",$magnitude[$j],"";}
-				else if($magnitude[$j]>=5.8){echo "<div class=mag9-10>",$magnitude[$j],"";}
-				else if($magnitude[$j]>=5){echo "<div class=mag6-8>",$magnitude[$j],"";}
-				else if($magnitude[$j]>=4){echo "<div class=mag4-5>",$magnitude[$j],"";}
-				else if($magnitude[$j]>=2){echo "<div class=mag1-3>",$magnitude[$j],"";}	
-				else {echo "<div class=mag1-3>",$magnitude[$j],"";}		
-   echo '<span style="font-size:8px;">';
-   if ($magnitude[$j] <= 4.2) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;Minor</div></span>";
-   } else if ($magnitude[$j] <= 5) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;Moderate</div></span>";
-   } else if ($magnitude[$j] <= 6) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;Strong</div></span>";
-   } else if ($magnitude[$j] <= 10) {
-     echo "<div style='position:relative; top:10px;'>&nbsp;Very Strong</div></span>";
-   }
+				if($magnitude[$j]>=8.0){echo "<div class=mag11>",$magnitude[$j],"";
+                                echo "<div style='font-size:8px;position:relative; top:9px;'>&nbsp;Great</div>";
+                                }
+				else if($magnitude[$j]>=7.0){echo "<div class=mag9-10>",$magnitude[$j],"";
+                                echo "<div style='font-size:8px;position:relative; top:9px;'>&nbsp;Major</div>";
+                                }
+				else if($magnitude[$j]>=6.0){echo "<div class=mag9-10>",$magnitude[$j],"";
+                                echo "<div style='font-size:8px;position:relative; top:9px;'>&nbsp;Strong</div>";
+                                }
+				else if($magnitude[$j]>=5.0){echo "<div class=mag6-8>",$magnitude[$j],"";
+                                echo "<div style='font-size:8px;position:relative; top:9px;'>&nbsp;Moderate</div>";
+                                }
+				else if($magnitude[$j]>=4.0){echo "<div class=mag4-5>",$magnitude[$j],"";
+                                echo "<div style='font-size:8px;position:relative; top:9px;'>&nbsp;Light</div>";
+                                }
+				else {echo "<div class=mag1-3>",$magnitude[$j],"";
+                                echo "<div style='font-size:8px;position:relative; top:9px;'>&nbsp;Minor</div>";
+                                }
    echo "<div></div>";
    echo '<div class="hitempy">';
    echo "";
