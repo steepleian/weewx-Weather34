@@ -1,4 +1,6 @@
 <?php
+$theme = isset($theme) ? $theme : 'dark';
+$theme1 = $theme;
 $weatherflowID = '';
 $weatherflowoption = 'no';
 $weatherflowlightning = '';
