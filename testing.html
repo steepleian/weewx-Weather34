@@ -228,7 +228,18 @@
             <input type="text" id="txtAlregion" placeholder="Enter your Meteoalarm Region (European users only)" />
         </div>
         </div>
-        <div class="row">
+        
+	<div class="row">
+      <div class="col-25">
+            <label for="text">MetOffice Warnings UK Region</label>
+            </div>
+        <div class="col-75">
+
+            <input type="text" id="txtMAregion" placeholder="Enter your UK Region (UK users only)" />
+        </div>
+        </div>
+	
+	<div class="row">
       <div class="col-25">
             <label for="text">Active Web Services Code String (Example me.wu.eq.ki)</label>
             </div>
@@ -294,6 +305,7 @@
         const al_ip = document.getElementById('txtAlip');
         const al_country = document.getElementById('txtAlcountry');
         const al_region = document.getElementById('txtAlregion');
+	const ma_region = document.getElementById('txtMAregion');    
         const services = document.getElementById('txtServices');
         const enable = document.getElementById('selCloud');
 
@@ -316,6 +328,7 @@
             '"' + 'al_ip'+'"' + ':' +"'"  + al_ip.value +"'," + ' \r\n' +
             '"' + 'al_country'+'"' + ':' +"'"  + al_country.value +"'," + ' \r\n' +
             '"' + 'al_region'+'"' + ':' +"'"  + al_region.value +"'," + ' \r\n' +
+	    '"' + 'ma_region'+'"' + ':' +"'"  + ma_region.value +"'," + ' \r\n' +
             '"##'+'List of all user fields above to be replaced in strings below' +'",'+ ' \r\n' +'"sub_fields"'+':'+"'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
             '"config_entries3"'+':'+"'''="+ ' \r\n' +
             "'Weather34WebServices' "+':'+ ' \r\n' +
