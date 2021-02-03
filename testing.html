@@ -228,36 +228,7 @@
             <input type="text" id="txtAlregion" placeholder="Enter your Meteoalarm Region (European users only)" />
         </div>
         </div>
-        
-	<div class="row">
-      <div class="col-25">
-            <label for="text">MetOffice Warnings UK Region (UK Users Only)</label>
-            </div>
-        <div class="col-75">
-
-            <select id="txtMAregion">
-                <option selected value="">-- Choose UK Region --</option>
-                <option value="/os">Orkney & Shetland</option>
-                <option value="/he">Highlands & Eilean Siar</option>
-                <option value="/gr">Grampian</option>
-                <option value="/st">Strathclyde</option>
-                <option value="/ta">Central, Tayside & Fife</option>
-                <option value="/dg">S W Scotland, Lothian Borders</option>
-                <option value="/ni">Northern Ireland</option>
-                <option value="/wl">Wales</option>
-                <option value="/nw">North West England</option>
-                <option value="/ne">North East England</option>
-                <option value="/yh">Yorkshire & Humberside</option>
-                <option value="/wm">West Midlands</option>
-                <option value="/em">East Midlands</option>
-                <option value="/ee">East of England</option>
-                <option value="/sw">South West Emgland</option>
-                <option value="/se">London & South East</option>
-            </select>
-        </div>
-        </div>
-	
-	<div class="row">
+        <div class="row">
       <div class="col-25">
             <label for="text">Active Web Services Code String (Example me.wu.eq.ki)</label>
             </div>
@@ -323,7 +294,6 @@
         const al_ip = document.getElementById('txtAlip');
         const al_country = document.getElementById('txtAlcountry');
         const al_region = document.getElementById('txtAlregion');
-	const ma_region = document.getElementById('txtMAregion');    
         const services = document.getElementById('txtServices');
         const enable = document.getElementById('selCloud');
 
@@ -346,7 +316,6 @@
             '"' + 'al_ip'+'"' + ':' +"'"  + al_ip.value +"'," + ' \r\n' +
             '"' + 'al_country'+'"' + ':' +"'"  + al_country.value +"'," + ' \r\n' +
             '"' + 'al_region'+'"' + ':' +"'"  + al_region.value +"'," + ' \r\n' +
-	    '"' + 'ma_region'+'"' + ':' +"'"  + ma_region.value +"'," + ' \r\n' +
             '"##'+'List of all user fields above to be replaced in strings below' +'",'+ ' \r\n' +'"sub_fields"'+':'+"'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
             '"config_entries3"'+':'+"'''="+ ' \r\n' +
             "'Weather34WebServices' "+':'+ ' \r\n' +
@@ -395,10 +364,6 @@
 	     
 	    " 'al_url':'http://"+al_ip.value+'/weewx/weather34/eualert.php?country='+al_country.value+'&region='+al_region.value+"'"+','+ ' \r\n' +
 	    " 'al_interval':'3600'"+','+ ' \r\n' +
-	    
-	    " 'ma_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region"+ma_region.value+"'"+','+ ' \r\n' +
-	    " 'ma_interval':'3600'"+','+ ' \r\n' +
-	    " 'ma_xml_data':'False'"+','+' \r\n' +
 	    
             " 'services':'"+txtServices.value+"'"+ ' \r\n' +
             "}'''"+','+ ' \r\n' +
