@@ -3,7 +3,7 @@
 
 <?php
 
-      $json = 'jsondata/ma.txt'; 
+      $json = 'jsondata/uk.txt'; 
 $json = file_get_contents($json); 
 $parsed_json = json_decode($json, true);
 if(($parsed_json['rss']['channel']['item'][0]['description'])!==null){$description=$parsed_json['rss']['channel']['item'][0]['description'];}
