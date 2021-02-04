@@ -231,6 +231,20 @@
         
 	<div class="row">
       <div class="col-25">
+            <label for="text">Enable Cloud Cover (Currently only Geographical Europe)</label>
+            </div>
+        <div class="col-75">
+
+            <select id="selUkenable">
+                <option selected value="">-- Choose True or False --</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+        </div>
+	
+	<div class="row">
+      <div class="col-25">
             <label for="text">MetOffice Warnings UK Region (UK Users Only)</label>
             </div>
         <div class="col-75">
@@ -322,6 +336,7 @@
         const al_ip = document.getElementById('txtAlip');
         const al_country = document.getElementById('txtAlcountry');
         const al_region = document.getElementById('txtAlregion');
+	const enable_uk = document.getElementById('selUkenable');    
         const uk_region = document.getElementById('selUkregion');
 	const services = document.getElementById('txtServices');
         const enable = document.getElementById('selCloud');
@@ -395,6 +410,7 @@
 	    " 'al_url':'http://"+al_ip.value+'/weewx/weather34/eualert.php?country='+al_country.value+'&region='+al_region.value+"'"+','+ ' \r\n' +
 	    " 'al_interval':'3600'"+','+ ' \r\n' +
 	    
+	    "   'enable_uk':'"+enable_uk.value+"'"+','+ ' \r\n' +
 	    " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/"+uk_region.value+"'"+','+ ' \r\n' +
 	    " 'uk_interval':'3600'"+','+ ' \r\n' +
 	    " 'uk_xml_data':'False'"+','+' \r\n' +
