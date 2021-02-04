@@ -345,6 +345,7 @@
             '"' + 'al_ip'+'"' + ':' +"'"  + al_ip.value +"'," + ' \r\n' +
             '"' + 'al_country'+'"' + ':' +"'"  + al_country.value +"'," + ' \r\n' +
             '"' + 'al_region'+'"' + ':' +"'"  + al_region.value +"'," + ' \r\n' +
+	    '"' + 'ma_region'+'"' + ':' +"'"  + ma_region.value +"'," + ' \r\n' +
             '"##'+'List of all user fields above to be replaced in strings below' +'",'+ ' \r\n' +'"sub_fields"'+':'+"'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
             '"config_entries3"'+':'+"'''="+ ' \r\n' +
             "'Weather34WebServices' "+':'+ ' \r\n' +
@@ -394,10 +395,10 @@
 	    " 'al_url':'http://"+al_ip.value+'/weewx/weather34/eualert.php?country='+al_country.value+'&region='+al_region.value+"'"+','+ ' \r\n' +
 	    " 'al_interval':'3600'"+','+ ' \r\n' +
 	    
-	    " 'ma_url':'https://api.waqi.info/feed/geo:"+lat.value+';'+lon.value+'/?token='+al_region.value+"'"+','+ ' \r\n' +
+	    " 'ma_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region"+ma_region.value+"'"+','+ ' \r\n' +
 	    " 'ma_interval':'3600'"+','+ ' \r\n' +
-	    
-		    
+	    " 'ma_xml_data':'False'"+','+' \r\n' +
+	    	    
             " 'services':'"+txtServices.value+"'"+ ' \r\n' +
             "}'''"+','+ ' \r\n' +
             '"config_entries4"'+":'''="+ ' \r\n' +
