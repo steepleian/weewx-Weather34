@@ -231,7 +231,7 @@
         
 	<div class="row">
       <div class="col-25">
-            <label for="text">Enable Cloud Cover (Currently only Geographical Europe)</label>
+            <label for="text">Enable MetOffice Severe Weather Warnings (UK Users Only)</label>
             </div>
         <div class="col-75">
 
@@ -413,7 +413,7 @@
 	    "   'enable_uk':'"+enable_uk.value+"'"+','+ ' \r\n' +
 	    " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/"+uk_region.value+"'"+','+ ' \r\n' +
 	    " 'uk_interval':'3600'"+','+ ' \r\n' +
-	    " 'uk_xml_data':'False'"+','+' \r\n' +
+	    " 'uk_xml_data':'"+enable_uk.value+"'"+','+' \r\n' +
 	    	    
             " 'services':'"+txtServices.value+"'"+ ' \r\n' +
             "}'''"+','+ ' \r\n' +
