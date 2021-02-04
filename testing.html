@@ -237,22 +237,22 @@
 
             <select id="selUkregion">
                 <option selected value="">-- Choose UK Region --</option>
-                <option value="/os">Orkney & Shetland</option>
-                <option value="/he">Highlands & Eilean Siar</option>
-                <option value="/gr">Grampian</option>
-                <option value="/st">Strathclyde</option>
-                <option value="/ta">Central, Tayside & Fife</option>
-                <option value="/dg">S W Scotland, Lothian Borders</option>
-                <option value="/ni">Northern Ireland</option>
-                <option value="/wl">Wales</option>
-                <option value="/nw">North West England</option>
-                <option value="/ne">North East England</option>
-                <option value="/yh">Yorkshire & Humberside</option>
-                <option value="/wm">West Midlands</option>
-                <option value="/em">East Midlands</option>
-                <option value="/ee">East of England</option>
-                <option value="/sw">South West Emgland</option>
-                <option value="/se">London & South East</option>
+                <option value="os">Orkney & Shetland</option>
+                <option value="he">Highlands & Eilean Siar</option>
+                <option value="gr">Grampian</option>
+                <option value="st">Strathclyde</option>
+                <option value="ta">Central, Tayside & Fife</option>
+                <option value="dg">S W Scotland, Lothian Borders</option>
+                <option value="ni">Northern Ireland</option>
+                <option value="wl">Wales</option>
+                <option value="nw">North West England</option>
+                <option value="ne">North East England</option>
+                <option value="yh">Yorkshire & Humberside</option>
+                <option value="wm">West Midlands</option>
+                <option value="em">East Midlands</option>
+                <option value="ee">East of England</option>
+                <option value="sw">South West Emgland</option>
+                <option value="se">London & South East</option>
             </select>
         </div>
         
@@ -395,7 +395,7 @@
 	    " 'al_url':'http://"+al_ip.value+'/weewx/weather34/eualert.php?country='+al_country.value+'&region='+al_region.value+"'"+','+ ' \r\n' +
 	    " 'al_interval':'3600'"+','+ ' \r\n' +
 	    
-	    " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region+uk_region.value+"'"+','+ ' \r\n' +
+	    " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/"+uk_region.value+"'"+','+ ' \r\n' +
 	    " 'uk_interval':'3600'"+','+ ' \r\n' +
 	    " 'uk_xml_data':'False'"+','+' \r\n' +
 	    	    
