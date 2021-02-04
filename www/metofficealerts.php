@@ -52,7 +52,7 @@ a:active {
 
 
   echo '<div class="weather34darkbrowser" url="MetOffice Severe Weather Warnings for '.$stationlocation.'"></div><p style="color:orange">';
-      $json = 'jsondata/ma.txt'; 
+      $json = 'jsondata/uk.txt'; 
 $json = file_get_contents($json); 
 $parsed_json = json_decode($json, true);
 if(($parsed_json['rss']['channel']['item'][0]['description'])!==null){$datastream = "multi";}
