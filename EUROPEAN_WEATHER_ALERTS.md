@@ -2,8 +2,8 @@ This new function is only available for Geographical European users and is based
 
 Settings can be found in the web services section of the Weather34 settings page. To ascertain your own alerts location go to https://www.meteoalarm.eu and select your country and region from the map and make a note of the the URL that you arrive at. From this URL you will see your country and region codes.
 
-      For example, the URL for the UK London and South East region is https://www.meteoalarm.eu/en_UK/0/0/UK013-London%20&%20South%20East.html
-      From this URL the key piece of information is UK013. Splitting this into UK and 013, produces the country code and region code. The other two pieces of information required by the Weather34 settings page are Update Frequency and local network IP address of the device that is running the software. Include the port address if it is not the default 80. You will also need to select a webservice code string which includes which includes 'al'
+      For example, the URL for the Germany Dresden Region is https://www.meteoalarm.eu/en_UK/0/0/DE363-Stadt%20Dresden.html
+      From this URL the key piece of information is DE363. Splitting this into DE and 363, produces the country code and region code. The other two pieces of information required by the Weather34 settings page are Update Frequency and local network IP address of the device that is running the software. Include the port address if it is not the default 80. You will also need to select a webservice code string which includes which includes 'al'
       
 After clicking on save, restart WeeWX to prime the new service.
 
