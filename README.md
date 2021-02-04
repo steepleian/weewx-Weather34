@@ -33,6 +33,8 @@ Introduction of a 'set and forget' module for the automatic daily update of mult
 
 Optional enhancement to web services which converts RSS XML feeds into json data. Requires the Python xmltodict library to be installed.
 
+For UK users only. Option to select UK severe weather warning regions. This is an alternative to Meteoalarm which no longer supports UK. 
+
 # Demo
 
 A live example of Weather34 WeeWX skin can be seen at https://claydonsweather.org.uk
