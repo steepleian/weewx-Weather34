@@ -8,13 +8,13 @@ body{background:rgba(30, 31, 35, 1.000);}
   margin-left:10px;
   margin-right:10px;
    
-  width: 240px;
+  width: 210px;
 }
 
 .alert-row {
   display: flex;
   flex-direction: row;
-  height: 150px;
+  height: 130px;
   padding: 10px 0;
   background-color: lightgreen;
 }
