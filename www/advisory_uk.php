@@ -70,13 +70,13 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <?php
 ///METEOALARM
 if (strpos($alertlevel,'Yellow') !== false)
-  {echo '<spanelightning><alertvalue>Yellow Alert<br> '.$alerttype.'<alertadvisory><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertyellow.'</alertadvisory>
+  {echo '<spanelightning><alertvalue>Yellow Alert<br> '.$alerttype.'<alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertyellow.'</alertadvisory>
    </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'Orange') !== false)
-  {echo '<spanelightning><alertvalue>Amber Alert<br> '.$alerttype.'<alertadvisory><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertorange.'</alertadvisory>
+  {echo '<spanelightning><alertvalue>Amber Alert<br> '.$alerttype.'<alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertorange.'</alertadvisory>
   </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'Red') !== false)
-  {echo '<spanelightning>Red Alert<br> '.$alerttype.'<alertadvisory><alertvalue><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertred.'</alertadvisory>
+  {echo '<spanelightning>Red Alert<br> '.$alerttype.'<alertadvisory><alertvalue><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertred.'</alertadvisory>
   </spanelightning></div></div></div>';}
 
     //weather34 //forecast3wularge wu alerts storms 
@@ -178,7 +178,7 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
   {echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
   else if (strpos($alertlevel,'LightGreen') !== false)
-  {echo '<spanelightning>Red Alert<br> '.$alerttype.'<alertadvisory><alertvalue><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertgreen.'</alertadvisory>
+  {echo '<spanelightning>Red Alert<br> '.$alerttype.'<alertadvisory><alertvalue><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertgreen.'</alertadvisory>
   </spanelightning></div></div></div>';}  
  //WEATHER34 solar eclipse events and no alerts 
  else {echo '<spanelightning><alertvalue>'.$eclipse_default.'</spanelightning></div></div></div>';}   
