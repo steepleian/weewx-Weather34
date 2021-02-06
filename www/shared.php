@@ -334,16 +334,212 @@ $locationinfo='<svg id="i-location2" viewBox="0 0 32 32" width="12px" height="12
 <circle cx="16" cy="11" r="4" /><path d="M24 15 C21 22 16 30 16 30 16 30 11 22 8 15 5 8 10 2 16 2 22 2 27 8 24 15 Z" /></svg>';
 $meteorinfo2="<svg width='32px' height='32px' viewBox='0 0 16 16'><path fill='currentcolor' d='M0 0l14.527 13.615s.274.382-.081.764c-.355.382-.82.055-.82.055L0 0zm4.315 1.364l11.277 10.368s.274.382-.081.764c-.355.382-.82.055-.82.055L4.315 1.364zm-3.032 2.92l11.278 10.368s.273.382-.082.764c-.355.382-.819.054-.819.054L1.283 4.284zm6.679-1.747l7.88 7.244s.19.267-.058.534-.572.038-.572.038l-7.25-7.816zm-5.68 5.13l7.88 7.244s.19.266-.058.533-.572.038-.572.038l-7.25-7.815zm9.406-3.438l3.597 3.285s.094.125-.029.25c-.122.125-.283.018-.283.018L11.688 4.23zm-7.592 7.04l3.597 3.285s.095.125-.028.25-.283.018-.283.018l-3.286-3.553z'/></svg>";
 $eqalert2a='<svg width="12px" height="12px" viewBox="0 0 50 47"><path fill="#f8f8f8" stroke="#f8f8f8" stroke-width=".1" d="M21.6 2c7.8-1.2 16.4 2 21 8.5 4.6 6.2 5.6 14.8 2.8 22C41 44 26.4 50 15.4 44.3c-11-4.6-16.3-19-10.8-29.8C7.6 7.8 14.3 3 21.6 2m-2.2 3.6c-9.8 2.7-16.3 14-13 24 2.2 7.3 9 12.7 16.6 13.7 7.4.4 15-3.3 18.5-10 4.4-7.6 2.4-18-4.2-23.8-4.8-4-11.8-5.6-18-4z"/><path fill="#f8f8f8" stroke="#f8f8f8" stroke-width=".1" d="M20.5 8.7c6-1.6 13.4.4 17 5.8 4 5.5 4.3 13.6 0 19-2.7 4-7.6 6-12.3 6.6-7.8.3-15.2-6-16.4-13.8-1-7.6 4-15.7 11.7-17.5m-1.2 3.8c-4 1.8-6.7 5.7-7.2 10C10.7 31 20 39.2 28.5 36 36 34.4 40 24.8 36 18.2c-3-6-10.7-8.7-16.7-5.7z"/><path fill="#f8f8f8" stroke="#f8f8f8" stroke-width=".1" d="M20.4 15.5c6.3-3.6 15 2.4 14 9.6-.6 7.3-10.5 11.7-15.8 6.4-5-4.2-4.3-13 1.8-16z"/></svg>';	
-$newalert='<svg width="22pt" height="24pt" viewBox="0 0 460 478" id="weather34 orange alert notification" >
-<path fill="#ff8841" opacity="1.00" d=" M 171.06 10.38 C 171.29 10.41 171.76 10.48 171.99 10.52 C 225.57 103.02 279.13 195.53 332.76 288.00 C 225.25 288.00 117.74 288.00 10.24 288.00 C 63.88 195.48 117.50 102.94 171.06 10.38 M 151.00 68.81 C 151.06 89.55 150.88 110.30 151.09 131.04 C 153.46 162.21 156.21 193.36 158.53 224.54 C 167.07 224.61 175.62 224.57 184.17 224.57 C 186.64 193.06 189.30 161.57 191.75 130.07 C 191.86 109.67 191.76 89.26 191.80 68.86 C 189.52 66.56 187.24 64.27 184.94 62.00 C 175.89 62.00 166.85 62.00 157.81 62.00 C 155.52 64.25 153.25 66.52 151.00 68.81 M 155.47 231.04 C 153.23 233.34 150.93 235.60 148.68 237.90 C 148.67 248.30 148.67 258.70 148.68 269.10 C 150.92 271.38 153.21 273.62 155.42 275.94 C 166.01 276.08 176.60 275.96 187.20 276.00 C 189.48 273.74 191.75 271.48 194.00 269.19 C 194.00 258.73 194.00 248.27 194.00 237.81 C 191.75 235.52 189.48 233.26 187.20 231.00 C 176.62 231.02 166.05 230.95 155.47 231.04 Z" />
-<path fill="#ffffff" opacity="1.00" d=" M 151.00 68.81 C 153.25 66.52 155.52 64.25 157.81 62.00 C 166.85 62.00 175.89 62.00 184.94 62.00 C 187.24 64.27 189.52 66.56 191.80 68.86 C 191.76 89.26 191.86 109.67 191.75 130.07 C 189.30 161.57 186.64 193.06 184.17 224.57 C 175.62 224.57 167.07 224.61 158.53 224.54 C 156.21 193.36 153.46 162.21 151.09 131.04 C 150.88 110.30 151.06 89.55 151.00 68.81 Z" />
-<path fill="#ffffff" opacity="1.00" d=" M 155.47 231.04 C 166.05 230.95 176.62 231.02 187.20 231.00 C 189.48 233.26 191.75 235.52 194.00 237.81 C 194.00 248.27 194.00 258.73 194.00 269.19 C 191.75 271.48 189.48 273.74 187.20 276.00 C 176.60 275.96 166.01 276.08 155.42 275.94 C 153.21 273.62 150.92 271.38 148.68 269.10 C 148.67 258.70 148.67 248.30 148.68 237.90 C 150.93 235.60 153.23 233.34 155.47 231.04 Z" />
-</svg>';
-$newalertcold='<svg width="22pt" height="24pt" viewBox="0 0 460 478" id="weather34 cold alert notification" >
-<path fill="#3b9cac" opacity="1.00" d=" M 171.06 10.38 C 171.29 10.41 171.76 10.48 171.99 10.52 C 225.57 103.02 279.13 195.53 332.76 288.00 C 225.25 288.00 117.74 288.00 10.24 288.00 C 63.88 195.48 117.50 102.94 171.06 10.38 M 151.00 68.81 C 151.06 89.55 150.88 110.30 151.09 131.04 C 153.46 162.21 156.21 193.36 158.53 224.54 C 167.07 224.61 175.62 224.57 184.17 224.57 C 186.64 193.06 189.30 161.57 191.75 130.07 C 191.86 109.67 191.76 89.26 191.80 68.86 C 189.52 66.56 187.24 64.27 184.94 62.00 C 175.89 62.00 166.85 62.00 157.81 62.00 C 155.52 64.25 153.25 66.52 151.00 68.81 M 155.47 231.04 C 153.23 233.34 150.93 235.60 148.68 237.90 C 148.67 248.30 148.67 258.70 148.68 269.10 C 150.92 271.38 153.21 273.62 155.42 275.94 C 166.01 276.08 176.60 275.96 187.20 276.00 C 189.48 273.74 191.75 271.48 194.00 269.19 C 194.00 258.73 194.00 248.27 194.00 237.81 C 191.75 235.52 189.48 233.26 187.20 231.00 C 176.62 231.02 166.05 230.95 155.47 231.04 Z" />
-<path fill="#ffffff" opacity="1.00" d=" M 151.00 68.81 C 153.25 66.52 155.52 64.25 157.81 62.00 C 166.85 62.00 175.89 62.00 184.94 62.00 C 187.24 64.27 189.52 66.56 191.80 68.86 C 191.76 89.26 191.86 109.67 191.75 130.07 C 189.30 161.57 186.64 193.06 184.17 224.57 C 175.62 224.57 167.07 224.61 158.53 224.54 C 156.21 193.36 153.46 162.21 151.09 131.04 C 150.88 110.30 151.06 89.55 151.00 68.81 Z" />
-<path fill="#ffffff" opacity="1.00" d=" M 155.47 231.04 C 166.05 230.95 176.62 231.02 187.20 231.00 C 189.48 233.26 191.75 235.52 194.00 237.81 C 194.00 248.27 194.00 258.73 194.00 269.19 C 191.75 271.48 189.48 273.74 187.20 276.00 C 176.60 275.96 166.01 276.08 155.42 275.94 C 153.21 273.62 150.92 271.38 148.68 269.10 C 148.67 258.70 148.67 248.30 148.68 237.90 C 150.93 235.60 153.23 233.34 155.47 231.04 Z" />
-</svg>';
+$newalert='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg898"
+   sodipodi:docname="cold.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata904" />
+  <defs
+     id="defs902" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1120"
+     inkscape:window-height="719"
+     id="namedview900"
+     showgrid="false"
+     inkscape:zoom="14.981684"
+     inkscape:cx="17.888509"
+     inkscape:cy="14.731715"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg898" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>  <svg
+     width="9.4660034mm"
+     height="7.7955327mm"
+     viewBox="0 0 9.4660034 7.7955327"
+     version="1.1"
+     id="svg86"
+     inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+     sodipodi:docname="orangetriangle.svg">
+    <defs
+       id="defs80" />
+    <sodipodi:namedview
+       id="base"
+       pagecolor="#ffffff"
+       bordercolor="#666666"
+       borderopacity="1.0"
+       inkscape:pageopacity="0.0"
+       inkscape:pageshadow="2"
+       inkscape:zoom="0.35"
+       inkscape:cx="357.88851"
+       inkscape:cy="554.96343"
+       inkscape:document-units="mm"
+       inkscape:current-layer="layer1"
+       inkscape:document-rotation="0"
+       showgrid="false"
+       inkscape:window-width="1431"
+       inkscape:window-height="1055"
+       inkscape:window-x="128"
+       inkscape:window-y="0"
+       inkscape:window-maximized="0" />
+    <metadata
+       id="metadata83">
+      <rdf:RDF>
+        <cc:Work
+           rdf:about="">
+          <dc:format>image/svg+xml</dc:format>
+          <dc:type
+             rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+          <dc:title></dc:title>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
+    <g
+       inkscape:label="Layer 1"
+       inkscape:groupmode="layer"
+       id="layer1"
+       transform="translate(-11.141998,-1.3325924)">
+      <path
+         fill="#ff8841"
+         stroke="#000000"
+         stroke-miterlimit="10"
+         d="M 11.377083,8.9958335 15.875,1.5875001 20.372916,8.9958335 Z"
+         id="path4"
+         style="stroke-width:0.264583" />
+      <path
+         class="st1"
+         d="M 16.245416,7.8845835 H 15.478125 V 7.1437501 h 0.661458 c 0.05292,0 0.07938,0 0.105833,0.026458 0.02646,0.026458 0.02646,0.052917 0.02646,0.079375 z m -0.687916,-1.905 c 0,-0.1058334 -0.02646,-0.2116667 -0.02646,-0.3175 0,-0.1058334 -0.02646,-0.1852084 -0.02646,-0.2910417 V 4.1539585 h 0.740833 v 1.2170833 c 0,0.1058333 0,0.1852083 -0.02646,0.2910417 0,0.1058333 -0.02646,0.1852083 -0.02646,0.3175 l -0.07937,0.79375 h -0.47625 z"
+         id="path6"
+         style="fill:#2a2a2a;stroke-width:0.264583" />
+    </g>
+  </svg>
+  <path
+     style="fill:#3b9cad;stroke:#000000;stroke-width:0.0667482"
+     d="m 1.868948,28.41706 c 0,-0.07449 15.97425,-26.3341236 16.019561,-26.3341236 0.04531,0 16.019561,26.2596366 16.019561,26.3341236 0,0.01727 -7.208802,0.0314 -16.019561,0.0314 -8.8107585,0 -16.019561,-0.01413 -16.019561,-0.0314 z m 17.451313,-3.723181 c 0.01422,-0.04589 0.04433,-0.624475 0.06691,-1.285746 0.03391,-0.992858 0.02418,-1.225419 -0.05583,-1.334963 -0.09065,-0.124107 -0.189693,-0.133965 -1.537464,-0.153018 l -1.440575,-0.02037 v 1.438765 1.438764 h 1.470555 c 1.118158,0 1.476749,-0.01999 1.496405,-0.08344 z m -0.468705,-4.438753 c 0.02261,-0.17438 0.120329,-1.082989 0.217162,-2.019132 0.154427,-1.492914 0.179391,-2.06504 0.203146,-4.655685 l 0.02708,-2.953607 h -1.412451 -1.412451 l 0.03154,2.953607 c 0.03048,2.854622 0.130242,4.440513 0.419877,6.674817 l 0.0411,0.317054 h 0.921947 0.921947 z"
+     id="path1467" />
+</svg>
+';
+$newalertcold='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg898"
+   sodipodi:docname="cold.svg"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)">
+  <metadata
+     id="metadata904" />
+  <defs
+     id="defs902" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1120"
+     inkscape:window-height="719"
+     id="namedview900"
+     showgrid="false"
+     inkscape:zoom="14.981684"
+     inkscape:cx="17.888509"
+     inkscape:cy="14.731715"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg898" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>  <svg
+     width="9.4660034mm"
+     height="7.7955327mm"
+     viewBox="0 0 9.4660034 7.7955327"
+     version="1.1"
+     id="svg86"
+     inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+     sodipodi:docname="orangetriangle.svg">
+    <defs
+       id="defs80" />
+    <sodipodi:namedview
+       id="base"
+       pagecolor="#ffffff"
+       bordercolor="#666666"
+       borderopacity="1.0"
+       inkscape:pageopacity="0.0"
+       inkscape:pageshadow="2"
+       inkscape:zoom="0.35"
+       inkscape:cx="357.88851"
+       inkscape:cy="554.96343"
+       inkscape:document-units="mm"
+       inkscape:current-layer="layer1"
+       inkscape:document-rotation="0"
+       showgrid="false"
+       inkscape:window-width="1431"
+       inkscape:window-height="1055"
+       inkscape:window-x="128"
+       inkscape:window-y="0"
+       inkscape:window-maximized="0" />
+    <metadata
+       id="metadata83">
+      <rdf:RDF>
+        <cc:Work
+           rdf:about="">
+          <dc:format>image/svg+xml</dc:format>
+          <dc:type
+             rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+          <dc:title></dc:title>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
+    <g
+       inkscape:label="Layer 1"
+       inkscape:groupmode="layer"
+       id="layer1"
+       transform="translate(-11.141998,-1.3325924)">
+      <path
+         fill="#ff9900"
+         stroke="#000000"
+         stroke-miterlimit="10"
+         d="M 11.377083,8.9958335 15.875,1.5875001 20.372916,8.9958335 Z"
+         id="path4"
+         style="stroke-width:0.264583" />
+      <path
+         class="st1"
+         d="M 16.245416,7.8845835 H 15.478125 V 7.1437501 h 0.661458 c 0.05292,0 0.07938,0 0.105833,0.026458 0.02646,0.026458 0.02646,0.052917 0.02646,0.079375 z m -0.687916,-1.905 c 0,-0.1058334 -0.02646,-0.2116667 -0.02646,-0.3175 0,-0.1058334 -0.02646,-0.1852084 -0.02646,-0.2910417 V 4.1539585 h 0.740833 v 1.2170833 c 0,0.1058333 0,0.1852083 -0.02646,0.2910417 0,0.1058333 -0.02646,0.1852083 -0.02646,0.3175 l -0.07937,0.79375 h -0.47625 z"
+         id="path6"
+         style="fill:#2a2a2a;stroke-width:0.264583" />
+    </g>
+  </svg>
+  <path
+     style="fill:#3b9cad;stroke:#000000;stroke-width:0.0667482"
+     d="m 1.868948,28.41706 c 0,-0.07449 15.97425,-26.3341236 16.019561,-26.3341236 0.04531,0 16.019561,26.2596366 16.019561,26.3341236 0,0.01727 -7.208802,0.0314 -16.019561,0.0314 -8.8107585,0 -16.019561,-0.01413 -16.019561,-0.0314 z m 17.451313,-3.723181 c 0.01422,-0.04589 0.04433,-0.624475 0.06691,-1.285746 0.03391,-0.992858 0.02418,-1.225419 -0.05583,-1.334963 -0.09065,-0.124107 -0.189693,-0.133965 -1.537464,-0.153018 l -1.440575,-0.02037 v 1.438765 1.438764 h 1.470555 c 1.118158,0 1.476749,-0.01999 1.496405,-0.08344 z m -0.468705,-4.438753 c 0.02261,-0.17438 0.120329,-1.082989 0.217162,-2.019132 0.154427,-1.492914 0.179391,-2.06504 0.203146,-4.655685 l 0.02708,-2.953607 h -1.412451 -1.412451 l 0.03154,2.953607 c 0.03048,2.854622 0.130242,4.440513 0.419877,6.674817 l 0.0411,0.317054 h 0.921947 0.921947 z"
+     id="path1467" />
+</svg>
+';
 $newalertgreen='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -420,77 +616,11 @@ $newalertgreen='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
   </g>
 </svg>
 ';
-$newalertyellow='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="9.4660044mm"
-   height="7.7955327mm"
-   viewBox="0 0 9.4660044 7.7955327"
-   version="1.1"
-   id="svg48"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="yellowtriangle.svg">
-  <defs
-     id="defs42" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="370.56708"
-     inkscape:cy="554.96343"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:window-width="1431"
-     inkscape:window-height="1055"
-     inkscape:window-x="96"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata45">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-0.55866449,-1.332592)">
-    <g
-       id="g16"
-       transform="scale(0.26458333)">
-      <path
-         fill="#ffe923"
-         stroke="#000000"
-         stroke-miterlimit="10"
-         d="M 3,34 20,6 37,34 Z"
-         id="path12" />
-      <path
-         class="st1"
-         d="M 21.4,29.8 H 18.5 V 27 H 21 c 0.2,0 0.3,0 0.4,0.1 0.1,0.1 0.1,0.2 0.1,0.3 z m -2.6,-7.2 c 0,-0.4 -0.1,-0.8 -0.1,-1.2 0,-0.4 -0.1,-0.7 -0.1,-1.1 v -4.6 h 2.8 v 4.6 c 0,0.4 0,0.7 -0.1,1.1 0,0.4 -0.1,0.7 -0.1,1.2 l -0.3,3 h -1.8 z"
-         id="path14" />
-    </g>
-  </g>
-</svg>
-';
+$newalertyellow='<svg width="22pt" height="24pt" viewBox="0 0 460 478" id="weather34 cold alert notification" >
+<path outline="black" fill="yellow" opacity="1.00" d=" M 171.06 10.38 C 171.29 10.41 171.76 10.48 171.99 10.52 C 225.57 103.02 279.13 195.53 332.76 288.00 C 225.25 288.00 117.74 288.00 10.24 288.00 C 63.88 195.48 117.50 102.94 171.06 10.38 M 151.00 68.81 C 151.06 89.55 150.88 110.30 151.09 131.04 C 153.46 162.21 156.21 193.36 158.53 224.54 C 167.07 224.61 175.62 224.57 184.17 224.57 C 186.64 193.06 189.30 161.57 191.75 130.07 C 191.86 109.67 191.76 89.26 191.80 68.86 C 189.52 66.56 187.24 64.27 184.94 62.00 C 175.89 62.00 166.85 62.00 157.81 62.00 C 155.52 64.25 153.25 66.52 151.00 68.81 M 155.47 231.04 C 153.23 233.34 150.93 235.60 148.68 237.90 C 148.67 248.30 148.67 258.70 148.68 269.10 C 150.92 271.38 153.21 273.62 155.42 275.94 C 166.01 276.08 176.60 275.96 187.20 276.00 C 189.48 273.74 191.75 271.48 194.00 269.19 C 194.00 258.73 194.00 248.27 194.00 237.81 C 191.75 235.52 189.48 233.26 187.20 231.00 C 176.62 231.02 166.05 230.95 155.47 231.04 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 151.00 68.81 C 153.25 66.52 155.52 64.25 157.81 62.00 C 166.85 62.00 175.89 62.00 184.94 62.00 C 187.24 64.27 189.52 66.56 191.80 68.86 C 191.76 89.26 191.86 109.67 191.75 130.07 C 189.30 161.57 186.64 193.06 184.17 224.57 C 175.62 224.57 167.07 224.61 158.53 224.54 C 156.21 193.36 153.46 162.21 151.09 131.04 C 150.88 110.30 151.06 89.55 151.00 68.81 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 155.47 231.04 C 166.05 230.95 176.62 231.02 187.20 231.00 C 189.48 233.26 191.75 235.52 194.00 237.81 C 194.00 248.27 194.00 258.73 194.00 269.19 C 191.75 271.48 189.48 273.74 187.20 276.00 C 176.60 275.96 166.01 276.08 155.42 275.94 C 153.21 273.62 150.92 271.38 148.68 269.10 C 148.67 258.70 148.67 248.30 148.68 237.90 C 150.93 235.60 153.23 233.34 155.47 231.04 Z" />
+</svg>';
 $newalertorange='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -561,75 +691,11 @@ $newalertorange='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 </svg>
 
 ';
-$newalertred='<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="9.4660044mm"
-   height="7.7955327mm"
-   viewBox="0 0 9.4660044 7.7955327"
-   version="1.1"
-   id="svg112"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="redtriangle.svg">
-  <defs
-     id="defs106" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="317.88851"
-     inkscape:cy="554.96343"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:window-width="1431"
-     inkscape:window-height="1055"
-     inkscape:window-x="160"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
-  <metadata
-     id="metadata109">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-21.725331,-1.3325925)">
-    <path
-       fill="#cc0032"
-       stroke="#000000"
-       stroke-miterlimit="10"
-       d="M 21.960416,8.9958335 26.458333,1.5875001 30.95625,8.9958335 Z"
-       id="path8"
-       style="stroke-width:0.264583" />
-    <path
-       d="M 26.82875,7.8845835 H 26.061458 V 7.1437501 h 0.635 c 0.05292,0 0.07937,0 0.105833,0.026458 0.02646,0.026458 0.02646,0.052917 0.02646,0.079375 z m -0.687917,-1.905 c 0,-0.1058334 -0.02646,-0.2116667 -0.02646,-0.3175 0,-0.1058334 -0.02646,-0.1852084 -0.02646,-0.2910417 V 4.1539585 h 0.740833 v 1.2170833 c 0,0.1058333 0,0.1852083 -0.02646,0.2910417 0,0.1058333 -0.02646,0.1852083 -0.02646,0.3175 l -0.07937,0.79375 h -0.47625 z"
-       fill="#ffffff"
-       id="path10"
-       style="stroke-width:0.264583" />
-  </g>
-</svg>
-';
+$newalertred='<svg width="22pt" height="24pt" viewBox="0 0 460 478" id="weather34 cold alert notification" >
+<path fill="red" opacity="1.00" d=" M 171.06 10.38 C 171.29 10.41 171.76 10.48 171.99 10.52 C 225.57 103.02 279.13 195.53 332.76 288.00 C 225.25 288.00 117.74 288.00 10.24 288.00 C 63.88 195.48 117.50 102.94 171.06 10.38 M 151.00 68.81 C 151.06 89.55 150.88 110.30 151.09 131.04 C 153.46 162.21 156.21 193.36 158.53 224.54 C 167.07 224.61 175.62 224.57 184.17 224.57 C 186.64 193.06 189.30 161.57 191.75 130.07 C 191.86 109.67 191.76 89.26 191.80 68.86 C 189.52 66.56 187.24 64.27 184.94 62.00 C 175.89 62.00 166.85 62.00 157.81 62.00 C 155.52 64.25 153.25 66.52 151.00 68.81 M 155.47 231.04 C 153.23 233.34 150.93 235.60 148.68 237.90 C 148.67 248.30 148.67 258.70 148.68 269.10 C 150.92 271.38 153.21 273.62 155.42 275.94 C 166.01 276.08 176.60 275.96 187.20 276.00 C 189.48 273.74 191.75 271.48 194.00 269.19 C 194.00 258.73 194.00 248.27 194.00 237.81 C 191.75 235.52 189.48 233.26 187.20 231.00 C 176.62 231.02 166.05 230.95 155.47 231.04 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 151.00 68.81 C 153.25 66.52 155.52 64.25 157.81 62.00 C 166.85 62.00 175.89 62.00 184.94 62.00 C 187.24 64.27 189.52 66.56 191.80 68.86 C 191.76 89.26 191.86 109.67 191.75 130.07 C 189.30 161.57 186.64 193.06 184.17 224.57 C 175.62 224.57 167.07 224.61 158.53 224.54 C 156.21 193.36 153.46 162.21 151.09 131.04 C 150.88 110.30 151.06 89.55 151.00 68.81 Z" />
+<path fill="#ffffff" opacity="1.00" d=" M 155.47 231.04 C 166.05 230.95 176.62 231.02 187.20 231.00 C 189.48 233.26 191.75 235.52 194.00 237.81 C 194.00 248.27 194.00 258.73 194.00 269.19 C 191.75 271.48 189.48 273.74 187.20 276.00 C 176.60 275.96 166.01 276.08 155.42 275.94 C 153.21 273.62 150.92 271.38 148.68 269.10 C 148.67 258.70 148.67 248.30 148.68 237.90 C 150.93 235.60 153.23 233.34 155.47 231.04 Z" />
+</svg>';
 $airalertorange='<svg width="58pt" height="59pt" viewBox="0 0 460 478" id="weather34 orange alert notification" >
 <path fill="#ff8841" opacity="1.00" d=" M 171.06 10.38 C 171.29 10.41 171.76 10.48 171.99 10.52 C 225.57 103.02 279.13 195.53 332.76 288.00 C 225.25 288.00 117.74 288.00 10.24 288.00 C 63.88 195.48 117.50 102.94 171.06 10.38 M 151.00 68.81 C 151.06 89.55 150.88 110.30 151.09 131.04 C 153.46 162.21 156.21 193.36 158.53 224.54 C 167.07 224.61 175.62 224.57 184.17 224.57 C 186.64 193.06 189.30 161.57 191.75 130.07 C 191.86 109.67 191.76 89.26 191.80 68.86 C 189.52 66.56 187.24 64.27 184.94 62.00 C 175.89 62.00 166.85 62.00 157.81 62.00 C 155.52 64.25 153.25 66.52 151.00 68.81 M 155.47 231.04 C 153.23 233.34 150.93 235.60 148.68 237.90 C 148.67 248.30 148.67 258.70 148.68 269.10 C 150.92 271.38 153.21 273.62 155.42 275.94 C 166.01 276.08 176.60 275.96 187.20 276.00 C 189.48 273.74 191.75 271.48 194.00 269.19 C 194.00 258.73 194.00 248.27 194.00 237.81 C 191.75 235.52 189.48 233.26 187.20 231.00 C 176.62 231.02 166.05 230.95 155.47 231.04 Z" />
 <path fill="#ffffff" opacity="1.00" d=" M 151.00 68.81 C 153.25 66.52 155.52 64.25 157.81 62.00 C 166.85 62.00 175.89 62.00 184.94 62.00 C 187.24 64.27 189.52 66.56 191.80 68.86 C 191.76 89.26 191.86 109.67 191.75 130.07 C 189.30 161.57 186.64 193.06 184.17 224.57 C 175.62 224.57 167.07 224.61 158.53 224.54 C 156.21 193.36 153.46 162.21 151.09 131.04 C 150.88 110.30 151.06 89.55 151.00 68.81 Z" />
