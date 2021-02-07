@@ -6,7 +6,8 @@ body{background:rgba(30, 31, 35, 1.000);}
 
   img {
   margin-left:10px;
-  margin-right:10px; 
+  margin-right:10px;
+   
   width: 210px;
 }
 
@@ -15,11 +16,12 @@ body{background:rgba(30, 31, 35, 1.000);}
   flex-direction: row;
   height: 130px;
   padding: 10px 0;
+  background-color: lightgreen;
 }
 
 .alert-text-container {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,7 +45,10 @@ a:hover {
 /* selected link */
 a:active {
   color: blue;
-}  
+}
+  div.c {
+  text-transform: capitalize;
+}
 </style>
 <body>
 <?php
@@ -65,7 +70,10 @@ switch ($favcolor) {
   case "single":
     $description[0]=$parsed_json['rss']['channel']['item']['description'];
     $url[0]=$parsed_json['rss']['channel']['item']['guid']['#text'];
-    
+    $alidpos[0]=strpos($description[0],"alid");
+ 	$alidtext[0]=substr($description[0],$alidpos[0]);
+ 	$validpos[0]=strpos($description[0],"valid");
+ 	$description[0]=substr($description[0], 0, $validpos[0]);
     
        if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
 
@@ -102,7 +110,7 @@ switch ($favcolor) {
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[0]?>">
     <img src="<?php echo $warnimage?>">
     <div class="alert-text-container">
-        <div><?php echo $description[0] ?></br></br><?php echo $warntext ?></br></br><a href=<?php echo $url[0] ?> title="MetOffice UK Weather Warnings" target="_blank">More information</a></div>
+        <div>V<?php echo $alidtext[0] ?><div><?php echo $description[0] ?></br></br><?php echo $warntext ?></div>
         
     </div>
 </div>
@@ -112,7 +120,11 @@ switch ($favcolor) {
     for ($i = 0; $i <2; $i++)
 {$description[$i]=$parsed_json['rss']['channel']['item'][$i]['description'];
  $url[$i]=$parsed_json['rss']['channel']['item'][$i]['guid']['#text'];
-   
+ $alidpos[$i]=strpos($description[$i],"alid");
+ $alidtext[$i]=substr($description[$i],$alidpos[$i]);
+ $validpos[$i]=strpos($description[$i],"valid");
+ $description[$i]=substr($description[$i], 0, $validpos[$i]);
+
 
        
        if (strpos($description[$i], "Red") === 0) {$alertlevel[$i]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
@@ -147,7 +159,7 @@ switch ($favcolor) {
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[$i]?>">
     <img src="<?php echo $warnimage[$i]?>">
     <div class="alert-text-container">
-      <div><?php echo $description[$i] ?></br></br><?php echo $warntext ?></br></br><a href=<?php echo $url[$i] ?> title="MetOffice UK Weather Warnings" target="_blank">More information</a></div>
+      <div>V<?php echo $alidtext[$i] ?></br></br><?php echo $description[$i] ?></br></br><?php echo $warntext ?></br></br><a href=<?php echo $url[0] ?> title="MetOffice UK Weather Warnings" target="_blank">More information</a></div>
         
     
         
