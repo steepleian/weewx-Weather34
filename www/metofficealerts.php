@@ -6,8 +6,7 @@ body{background:rgba(30, 31, 35, 1.000);}
 
   img {
   margin-left:10px;
-  margin-right:10px;
-   
+  margin-right:10px; 
   width: 210px;
 }
 
@@ -16,12 +15,11 @@ body{background:rgba(30, 31, 35, 1.000);}
   flex-direction: row;
   height: 130px;
   padding: 10px 0;
-  background-color: lightgreen;
 }
 
 .alert-text-container {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,17 +27,17 @@ body{background:rgba(30, 31, 35, 1.000);}
 }
 /* unvisited link */
 a:link {
-  color: red;
+  color: blue;
 }
 
 /* visited link */
 a:visited {
-  color: lightgreen;
+  color: blue;
 }
 
 /* mouse over link */
 a:hover {
-  color: hotpink;
+  color: brown;
 }
 
 /* selected link */
@@ -66,10 +64,15 @@ switch ($favcolor) {
   
   case "single":
     $description[0]=$parsed_json['rss']['channel']['item']['description'];
+    $url[0]=$parsed_json['rss']['channel']['item']['guid']['#text'];
     
-       if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";}
-       else if (strpos($description[0], "Amber") === 0) {$alertlevel[0]="orange";}
-       else if (strpos($description[0], "Yellow") === 0) {$alertlevel[0]="yellow";}
+    
+       if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
+
+       else if (strpos($description[0], "Amber") === 0) {$alertlevel[0]="orange";$warntext="The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";}
+
+       else if (strpos($description[0], "Yellow") === 0) {$alertlevel[0]="yellow";$warntext="The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";}
+
     
        if($alertlevel[0]=='yellow' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImages/Wind_Yellow.jpg";}
        else if($alertlevel[0]=='orange' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImages/Wind_Orange.jpg";}
@@ -99,7 +102,7 @@ switch ($favcolor) {
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[0]?>">
     <img src="<?php echo $warnimage?>">
     <div class="alert-text-container">
-        <div><?php echo $description[0] ?></div>
+        <div><?php echo $description[0] ?></br></br><?php echo $warntext ?></br></br><a href=<?php echo $url[0] ?> title="MetOffice UK Weather Warnings" target="_blank">More information</a></div>
         
     </div>
 </div>
@@ -108,10 +111,16 @@ switch ($favcolor) {
   case "multi":
     for ($i = 0; $i <2; $i++)
 {$description[$i]=$parsed_json['rss']['channel']['item'][$i]['description'];
+ $url[$i]=$parsed_json['rss']['channel']['item'][$i]['guid']['#text'];
+   
+
        
-       if (strpos($description[$i], "Red") === 0) {$alertlevel[$i]="red";}
-       else if (strpos($description[$i], "Amber") === 0) {$alertlevel[$i]="orange";}
-       else if (strpos($description[$i], "Yellow") === 0) {$alertlevel[$i]="yellow";}
+       if (strpos($description[$i], "Red") === 0) {$alertlevel[$i]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
+
+       else if (strpos($description[$i], "Amber") === 0) {$alertlevel[$i]="orange";$warntext="The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";}
+
+       else if (strpos($description[$i], "Yellow") === 0) {$alertlevel[$i]="yellow";$warntext="The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";}
+
     
        if($alertlevel[$i]=='yellow' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImages/Wind_Yellow.jpg";}
        else if($alertlevel[$i]=='orange' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImages/Wind_Orange.jpg";}
@@ -138,7 +147,9 @@ switch ($favcolor) {
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[$i]?>">
     <img src="<?php echo $warnimage[$i]?>">
     <div class="alert-text-container">
-        <div><?php echo $description[$i] ?></div>
+      <div><?php echo $description[$i] ?></br></br><?php echo $warntext ?></br></br><a href=<?php echo $url[$i] ?> title="MetOffice UK Weather Warnings" target="_blank">More information</a></div>
+        
+    
         
     </div>
 </div>                           
@@ -149,7 +160,7 @@ switch ($favcolor) {
     <div class="alert-row" style="background-color:lightgreen">
     <img src="css/wrnImages/No Warnings_LightGreen.jpg">
     <div class="alert-text-container">
-        <div><?php echo "No warnings in force. No particular awareness required" ?></div>
+        <div><?php echo "No warnings in force." ?></br></br><?php echo "No particular awareness required" ?></div>
         
     </div>
 </div> 
@@ -159,7 +170,6 @@ switch ($favcolor) {
     //echo "Your favorite color is neither red, blue, nor green!";
 }
 ?>
-
 
 
 
