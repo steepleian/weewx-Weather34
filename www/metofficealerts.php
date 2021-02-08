@@ -110,7 +110,7 @@ switch ($favcolor) {
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[0]?>">
     <img src="<?php echo $warnimage?>">
     <div class="alert-text-container">
-        <div>V<?php echo $alidtext[0] ?></br></br><div><?php echo $description[0] ?></br></br><?php echo $warntext ?></div>
+        <div>V<?php echo $alidtext[0] ?></br></br><div><?php echo $description[0] ?></br></br><?php echo $warntext ?></br></br><a href=<?php echo $url[0] ?> title="MetOffice UK Weather Warnings" target="_blank">More information</a></div></div>
         
     </div>
 </div>
