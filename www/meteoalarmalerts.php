@@ -170,7 +170,7 @@ background:rgba(11, 12, 12, 0.4); background-repeat:no-repeat}body{color:#aaa;ov
 $alerttype = "Snow";
 }	
 
-                  $icon = $alerttype._.$alertlevel;
+                  $icon = $alerttype.'_'.$alertlevel;
                    $image = "<img src='css/wrnImages/$icon.jpg' width='200px'>";
                   
                    echo $image;
@@ -222,7 +222,7 @@ $alerttype = "Snow";
              if ($alerttype3 == "Snow/Ice") {
 $alerttype3 = "Snow";	
 }
-                  $icon = $alerttype3._.$alertlevel3;
+                  $icon = $alerttype3.'_'.$alertlevel3;
                   
                    echo "<img src='css/wrnImages/$icon.jpg' width='200px'>";
                    
@@ -282,7 +282,7 @@ $alerttype3 = "Snow";
                          if ($alerttype1 == "Snow/Ice") {
 $alerttype1 = "Snow";	
 }
-                  $icon = $alerttype1._.$alertlevel1;
+                  $icon = $alerttype1.'_'.$alertlevel1;
                    $image = "<img src='css/wrnImages/$icon.jpg' width='200px'>";
                   if ($alerttype1 == $description) {
                   $image = NULL;
@@ -338,7 +338,7 @@ $alerttype1 = "Snow";
              if ($alerttype4 == "Snow/Ice") {
 $alerttype4 = "Snow";	
 }
-                  $icon = $alerttype4._.$alertlevel4;
+                  $icon = $alerttype4.'_'.$alertlevel4;
                   $image = "<img src='css/wrnImages/$icon.jpg' width='200px'>";
                   if ($alerttype4 == $description3) {
                   $image = NULL;
