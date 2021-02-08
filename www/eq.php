@@ -36,32 +36,32 @@ else if($magnitude >= 1000){echo "<div class=tempconvertercirclegreen>".$eqdista
 <!-- EQ homeweather station earthquakes now with value values 27th July 2016--> 
 <?php
 // EQ Latest earthquake 
-if ($magnitude <= 3.9) {
+if ($magnitude < 4.0) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday1-3>${magnitude}</div>	
         <div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>Depth:";
         if ($weather["wind_units"] == 'mph') echo round($depth * 0.621371)."mi"; else echo "$depth km"; echo "</depth><br>
         Epicenter: <value><maxred>$eqdist</maxred>  <valueearthquake>From: $stationlocation</valueearthquake></value></div>";
-} else if ($magnitude <= 4.0) {
-    echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday1-3>${magnitude}</div>	
+} else if ($magnitude < 5.0) {
+    echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday4-5>${magnitude}</div>	
 	<div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Light</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>Depth:";
         if ($weather["wind_units"] == 'mph') echo round($depth * 0.621371)."mi"; else echo "$depth km"; echo "</depth><br>
 	Epicenter: <value><maxred>$eqdist</maxred>  <valueearthquake>From: $stationlocation</valueearthquake></value></div>";
-} else if ($magnitude <= 5.0) {
-    echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday4-5>${magnitude}</div>	
+} else if ($magnitude < 6.0) {
+    echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday6-8>${magnitude}</div>	
 	<div class='eqt'>&nbsp;&nbsp;Moderate</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>Depth:";
         if ($weather["wind_units"] == 'mph') echo round($depth * 0.621371)."mi"; else echo "$depth km"; echo "</depth><br>
 	Epicenter: <value><maxred>$eqdist</maxred>  <valueearthquake>From: $stationlocation</valueearthquake></value></div>";
-} else if ($magnitude <= 6.0) {
+} else if ($magnitude < 7.0) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday6-8>${magnitude}</div>	
 	<div class='eqt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strong</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>Depth:";
         if ($weather["wind_units"] == 'mph') echo round($depth * 0.621371)."mi"; else echo "$depth km"; echo "</depth><br>
 	Epicenter: <value><maxred>$eqdist</maxred> <valueearthquake>From: $stationlocation</valueearthquake></value></div>";
-} else if ($magnitude <= 7.0) {
+} else if ($magnitude < 8.0) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday9-10>${magnitude}</div>	
 	<div class='eqt'>&nbsp;&nbsp;Great</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>Depth:";
         if ($weather["wind_units"] == 'mph') echo round($depth * 0.621371)."mi"; else echo "$depth km"; echo "</depth><br>
 	Epicenter: <value><maxred>$eqdist</maxred></maxred> <valueearthquake>From: $stationlocation</valueearthquake></value></div>";
-} else if ($magnitude >= 8.0) {
+} else if ($magnitude > 8.0) {
     echo "<div class='eqcaution'>Magnitude</div><div class=eqtoday9-10>${magnitude}</div>	
 	<div class='eqt'>&nbsp;&nbsp;Major</div></div><div class=\"eqtext\"><value> $eqtitle <br><value>$eventime<br><depth>Depth:";
         if ($weather["wind_units"] == 'mph') echo round($depth * 0.621371)."mi"; else echo "$depth km"; echo "</depth><br>
