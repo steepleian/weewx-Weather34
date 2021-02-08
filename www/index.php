@@ -100,7 +100,8 @@ if ('serviceWorker' in navigator) {
 }
 </script>   
 </head>
-<body>
+
+<body <?php if($dotpointercursor=="true") {echo 'class="dotpointercursor"';} ?>>
 <!-- begin top layout for homeweatherstation template-->
 <div class="weather2-container">
 <div class="container weather34box-toparea">
