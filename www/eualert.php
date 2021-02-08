@@ -190,8 +190,9 @@ class Region {
 
     private function parseWarningsFromDescription($description_html) {
         
-        $description_dom = DOMDocument::loadHTML($description_html);
-
+        $description_dom = new DOMDocument();
+        $description_dom->loadHTML($description_html);
+        
         $rows = $description_dom->getElementsByTagName('tr');
         $tomorrows_row_index = $this->findTomorrowsRowIndex($rows);
 
@@ -203,7 +204,7 @@ class Region {
         for ($i = 0; $i < $rows->length; $i++) { 
             $row = $rows->item($i);
 
-            if ((sizeof($row->childNodes->length) === 1) && ($row->childNodes->item(0)->nodeName === 'th'))  {
+            if (($row->childNodes->length === 1) && ($row->childNodes->item(0)->nodeName === 'th'))  {
 
                 if (trim($row->childNodes->item(0)->textContent) === 'Tomorrow') {
                     $tomorrows_row_index = $i;
@@ -226,7 +227,7 @@ class Region {
 
         return $warnings;
     }
-
+	
     public function serialize() {
         foreach ($this->todaysWarnings as $warning) {
             $todaysWarnings[] = $warning->serialize();
