@@ -1259,9 +1259,10 @@ General template settings with options to choose which type of module to display
             <option><?php echo $position4 ;?></option>
             <option>temperatureyear.php</option>
             <option>davisconsoleoutlook.php</option>
-	        <option>advisory_uk.php</option>	
-            <option>advisory_eu.php</option>
-        </select>
+           <option>advisory.php</option>
+	   <option>advisory_uk.php</option>	
+          <option>advisory_eu.php</option>
+                     </select>
 
 
 
