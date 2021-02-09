@@ -1257,11 +1257,9 @@ General template settings with options to choose which type of module to display
         <label name="position4"></label>
         <select id="position4" name="position4" class="choose">
             <option><?php echo $position4 ;?></option>
-            <option>temperatureyear.php</option>
-            <option>davisconsoleoutlook.php</option>
-           <option>advisory.php</option>
-	   <option>advisory_uk.php</option>	
+           <option>advisory_rw.php</option>
           <option>advisory_eu.php</option>
+          <option>advisory_uk.php</option>
                      </select>
 
 
@@ -1397,6 +1395,9 @@ General template settings with options to choose which type of module to display
 
 
       <strong> <span style="color:rgba(86, 95, 103, 1.000);">options Top 4 positions</span></strong><br/>
+       <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_rw.php for Rest of World</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
+       <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_eu.php for European Union</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
+       <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_uk.php for United Kingdom</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
 
        <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> rainfallf-year-month.php</span> Totals <span style="color:rgba(24, 25, 27, 0.8)">YEARLY-MONTHLY</span> Rainfall<br/></span>
 
