@@ -67,7 +67,7 @@
 	$weather["temp_avg"]           = $weewxapi[123]; // last 60 minutes
 	$weather["wind_speed_avg"]     = $weewxrt[5]; //Console's Average Wind Speed
 	$weather["wind_direction"]     = number_format($weewxrt[7],0);
-	$weather["wind_direction_avg"] = number_format($weewxapi[46],0);
+	$weather["wind_direction_avg"] = (is_numeric($weewxapi[46]) ? number_format($weewxapi[46],0) : null);
 	$weather["wind_speed"]         = number_format($weewxrt[6]); // Instant Wind Speed
 	$weather["wind_gust_10min"]    = $weewxrt[40]; // Wind Speed Gust - Max speed of last 10 minutes
 	$weather["wind_gust_speed"]    = $weewxapi[40]; // 

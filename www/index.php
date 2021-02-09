@@ -100,7 +100,8 @@ if ('serviceWorker' in navigator) {
 }
 </script>   
 </head>
-<body>
+
+<body <?php if($dotpointercursor=="true") {echo 'class="dotpointercursor"';} ?>>
 <!-- begin top layout for homeweatherstation template-->
 <div class="weather2-container">
 <div class="container weather34box-toparea">
@@ -135,9 +136,9 @@ if ('serviceWorker' in navigator) {
 <?php if ($position6=='forecast3ds.php'){echo'<a alt="Dark Sky Forecast " title="Dark Sky Forecast " href="outlookds.php" data-lity>'. $chartinfo. " Daily Forecast </a>";}?>
 <?php if ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') {echo ' <a alt="weather underground forecast" title="weather underground forecast" href="outlookwu.php" data-lity>'. $chartinfo. " Daily F.cast </a>";}?>
 <?php if ($position6=='forecast3ds.php' || ($dshourly=='yes' && $apikey!= '11111111111111' && ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php'))) {echo '<a alt="Hourly Forecast" title="Hourly Forecast" href="forecastdshour.php" data-lity>&nbsp;'. $chartinfo. " Hourly F.cast</a>";}?></span>
-<?php if ($position6=='forecast3ds.php' || ($dshourly=='yes' && $apikey!= '11111111111111' && ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_rw.php'))) {echo '<a alt="Alerts" title="Alerts" href="darkskyalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
-<?php if ($position6=='forecast3ds.php' || ($dshourly=='yes' && $apikey!= '11111111111111' && ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_eu.php'))) {echo '<a alt="Meteoalarm" title="Meteoalarm" href="meteoalarmalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
-<?php if ($position6=='forecast3ds.php' || ($dshourly=='yes' && $apikey!= '11111111111111' && ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_uk.php'))) {echo '<a alt="MetOffice Warnings" title="MetOffice Warnings" href="metofficealerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
+<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_rw.php')) {echo '<a alt="Alerts" title="Alerts" href="darkskyalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
+<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_eu.php')) {echo '<a alt="Meteoalarm" title="Meteoalarm" href="meteoalarmalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
+<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_uk.php')) {echo '<a alt="MetOffice Warnings" title="MetOffice Warnings" href="metofficealerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
 
   
       </div>
