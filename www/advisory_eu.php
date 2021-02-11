@@ -49,14 +49,14 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <?php
 ///METEOALARM
 if (strpos($alertlevel,'Yellow') !== false)
-  {echo '<spanelightning><alertvalue>Yellow Alert<br> '.$alerttype.'<alertadvisory><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertyellow.'</alertadvisory>
-   </spanelightning></div></div></div>';}
+ {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}  
 else if (strpos($alertlevel,'Orange') !== false)
-  {echo '<spanelightning><alertvalue>Amber Alert<br> '.$alerttype.'<alertadvisory><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertorange.'</alertadvisory>
+  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertorange.'</alertadvisory><alertvalue>Amber Alert<br> '.$alerttype.'</alertvalue>
   </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'Red') !== false)
-  {echo '<spanelightning>Red Alert<br> '.$alerttype.'<alertadvisory><alertvalue><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertred.'</alertadvisory>
-  </spanelightning></div></div></div>';}  
+  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertred.'</alertadvisory><alertvalue>Red Alert<br> '.$alerttype.'</alertvalue>
+  </spanelightning></div></div></div>';}   
     //weather34 //forecast3wularge wu alerts storms 
 else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
