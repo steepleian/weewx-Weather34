@@ -8056,10 +8056,14 @@ spanelightning {
 }
 
 alertadvisory {
-  margin-left: -75px;
+  margin-left: -50px;
   position: absolute
 }
 
+alertadvisory2 {
+  margin-left: -75px;
+  position: absolute
+}
 valuewindunit {
   font-size: .55rem
 }
