@@ -190,11 +190,8 @@ body {
   clear: both;
   font-size: 14px;
   line-height: 1.42857143;
-  color: silver
-}
-
-body.dotpointercursor {
   cursor: url(mouse/weather34redcursor.png), n-resize;
+  color: silver
 }
 
 .menu {
@@ -5172,7 +5169,7 @@ smallrainunit {
   justify-content: center;
   border: 1px solid #38383c;
   border-radius: 2px;
-  font-size: .85em
+  font-size: .85em  
 }
 
 .barometerconverter,
@@ -8059,7 +8056,7 @@ spanelightning {
 }
 
 alertadvisory {
-  margin-left: 15px;
+  margin-left: -75px;
   position: absolute
 }
 
