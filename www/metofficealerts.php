@@ -8,7 +8,7 @@ body{background:rgba(30, 31, 35, 1.000);}
   margin-left:10px;
   margin-right:10px;
    
-  width: 210px;
+  width: 80px;
 }
 
 .alert-row {
@@ -82,27 +82,21 @@ switch ($favcolor) {
        else if (strpos($description[0], "Yellow") === 0) {$alertlevel[0]="yellow";$warntext="The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";}
 
     
-       if($alertlevel[0]=='yellow' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImages/Wind_Yellow.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImages/Wind_Orange.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImages/Wind_Red.jpg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImages/siy.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImages/sio.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImages/sir.jpg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImages/siy.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImages/sio.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImages/sir.jpg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImages/fy.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImages/fo.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImages/fr.jpg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "flood") !== false) {$alerttype='Flood';$warnimage="css/wrnImages/fly.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "flood") !== false) {$alerttype='Flood';$warnimage="css/wrnImages/flo.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "flood") !== false) {$alerttype='Flood';$warnimage="css/wrnImages/flr.jpg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "flooding") !== false) {$alerttype='Flood';$warnimage="css/wrnImages/fly.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "flooding") !== false) {$alerttype='Flood';$warnimage="css/wrnImages/flo.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "flooding") !== false) {$alerttype='Flood';$warnimage="css/wrnImages/flr.jpg";}
-       else if($alertlevel[0]=='yellow' && stros($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/ty.jpg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/to.jpg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/tr.jpg";}
+       if($alertlevel[0]=='yellow' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImagesuk/wy.jpg";}
+       else if($alertlevel[0]=='orange' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImagesuk/wo.jpg";}
+       else if($alertlevel[0]=='red' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/wrnImagesuk/wr.jpg";}
+       else if($alertlevel[0]=='yellow' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImagesuk/siy.jpg";}
+       else if($alertlevel[0]=='orange' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImagesuk/sio.jpg";}
+       else if($alertlevel[0]=='red' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImagesuk/sir.jpg";}
+       else if($alertlevel[0]=='yellow' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImagesuk/siy.jpg";}
+       else if($alertlevel[0]=='orange' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImagesuk/sio.jpg";}
+       else if($alertlevel[0]=='red' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/wrnImagesuk/sir.jpg";}
+       else if($alertlevel[0]=='yellow' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImagesuk/fy.jpg";}
+       else if($alertlevel[0]=='orange' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImagesuk/fo.jpg";}
+       else if($alertlevel[0]=='red' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImagesuk/fr.jpg";}
+       else if($alertlevel[0]=='yellow' && stros($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImagesuk/ty.jpg";}
+       else if($alertlevel[0]=='orange' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImagesuk/to.jpg";}
+       else if($alertlevel[0]=='red' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImagesuk/tr.jpg";}
 
   // echo $alerttype;
   // echo $warnimage 
@@ -134,27 +128,21 @@ switch ($favcolor) {
        else if (strpos($description[$i], "Yellow") === 0) {$alertlevel[$i]="yellow";$warntext="The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";}
 
     
-       if($alertlevel[$i]=='yellow' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImages/Wind_Yellow.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImages/Wind_Orange.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImages/Wind_Red.jpg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImages/siy.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImages/sio.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImages/sir.jpg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "ice") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImages/siy.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "ice") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImages/sio.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "ice") !== false) {$alerttyp[$i]='Snow/Ice';$warnimage[$i]="css/wrnImages/sir.jpg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImages/fy.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImages/fo.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImages/fr.jpg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "flood") !== false) {$alerttype[$i]='Flood';$warnimage[$i]="css/wrnImages/fly.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "flood") !== false) {$alerttype[$i]='Flood';$warnimage[$i]="css/wrnImages/flo.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "flood") !== false) {$alerttype[$i]='Flood';$warnimage[$i]="css/wrnImages/flr.jpg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "flooding") !== false) {$alerttype[$i]='Flood';$warnimage[$i]="css/wrnImages/fly.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "flooding") !== false) {$alerttype[$i]='Flood';$warnimage[$i]="css/wrnImages/flo.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "flooding") !== false) {$alerttype[$i]='Flood';$warnimage[$i]="css/wrnImages/flr.jpg";}
-       else if($alertlevel[$i]=='yellow' && stros($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/ty.jpg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/to.jpg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/tr.jpg";}
+       if($alertlevel[$i]=='yellow' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImagesuk/wy.jpg";}
+       else if($alertlevel[$i]=='orange' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImagesuk/wo.jpg";}
+       else if($alertlevel[$i]=='red' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/wrnImagesuk/wr.jpg";}
+       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImagesuk/siy.jpg";}
+       else if($alertlevel[$i]=='orange' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImagesuk/sio.jpg";}
+       else if($alertlevel[$i]=='red' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImagesuk/sir.jpg";}
+       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "ice") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImagesuk/siy.jpg";}
+       else if($alertlevel[$i]=='orange' && strpos($description[$i], "ice") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/wrnImagesuk/sio.jpg";}
+       else if($alertlevel[$i]=='red' && strpos($description[$i], "ice") !== false) {$alerttyp[$i]='Snow/Ice';$warnimage[$i]="css/wrnImagesuk/sir.jpg";}
+       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImagesuk/fy.jpg";}
+       else if($alertlevel[$i]=='orange' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImagesuk/fo.jpg";}
+       else if($alertlevel[$i]=='red' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImagesuk/fr.jpg";}
+       else if($alertlevel[$i]=='yellow' && stros($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImagesuk/ty.jpg";}
+       else if($alertlevel[$i]=='orange' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImagesuk/to.jpg";}
+       else if($alertlevel[$i]=='red' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImagesuk/tr.jpg";}
 ?>
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[$i]?>">
     <img src="<?php echo $warnimage[$i]?>">
@@ -170,7 +158,7 @@ switch ($favcolor) {
     break;
   case "none":?>
     <div class="alert-row" style="background-color:lightgreen">
-    <img src="css/wrnImages/No Warnings_LightGreen.jpg">
+    <img src="css/wrnImagesuk/nwlg.jpg">
     <div class="alert-text-container">
         <div><?php echo "No warnings in force." ?></br></br><?php echo "No particular awareness required" ?></div>
         
