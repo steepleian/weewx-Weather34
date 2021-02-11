@@ -118,7 +118,7 @@ orange1{color:rgba(255, 131, 47, 1.000);}
   
 <main class="grid">
 <?php 
-   for ($j = 0; $j < 11; $j++) { 
+   for ($j = 0; $j < 50; $j++) { 
       echo "<article>"; 
       echo "<div class=actualt>&nbsp;&nbsp Recent Earthquake </div> ";       
 				if($magnitude[$j]>=8.0){echo "<div class=mag11>",$magnitude[$j],"";
