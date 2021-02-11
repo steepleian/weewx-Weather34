@@ -8099,6 +8099,11 @@ spanelightning {
 }
 
 alertadvisory {
+  margin-left: -50px;
+  position: absolute
+}
+
+alertadvisory2 {
   margin-left: -75px;
   position: absolute
 }
