@@ -1695,6 +1695,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                    }, false)
                 }
             };
+	    options.plotOptions.series.turboThreshold = 0; //Need this to work around highcharts warning 12
 	    return options;
 	};
 	
