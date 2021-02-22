@@ -172,13 +172,13 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0}
    <div class="temperaturecontainer">
 	
              <?php
-	// Solar month
+	// Solar year max
 	if ($weather["solarymax"]>=1000)  {
 	echo "<div class='uvtoday9-10'>",$weather["solarymax"] . "</value>";}
 	else if ($weather["solarymax"]>=500)  {
 	echo "<div class='uvtoday6-8'>",$weather["solarymax"] . "</value>";}
-	else if ($weather["solarydmax"]>=300)  {
-	echo "<div class='uvtoday4-5'>",$weather["solarYmax"] . "</value>";} 		
+	else if ($weather["solarymax"]>=300)  {
+	echo "<div class='uvtoday4-5'>",$weather["solarymax"] . "</value>";} 		
 	else if ($weather["solarymax"]>=-0) {
 	echo "<div class='uvtoday1'>",$weather["solarymax"] . "</value>";}		
 	echo "<smalluvunit> W/m<sup>2</sup></smalluvunit>"
