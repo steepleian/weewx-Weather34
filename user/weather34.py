@@ -616,7 +616,7 @@ class Webserver():
                     logdbg("Webserver: webserver ip " + webserver_address)
                 recv_data = conn.recv(256)
                 if len(recv_data) > 0:
-                    thread = threading.Thread(target=self.execute_report, args=(recv_data.split(" "), conn, webserver_address))
+                    thread = threading.Thread(target=self.execute_report, args=(str(recv_data).split(" "), conn, webserver_address))
                     thread.daemon = True
                     thread.start()
                 else:
