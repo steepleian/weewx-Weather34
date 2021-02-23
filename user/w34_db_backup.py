@@ -110,7 +110,7 @@ class W34_DB_Backup(StdService):
                         procs1.append((subprocess.Popen("echo 'pragma integrity_check' | sqlite3 " + self.backups[p[1]], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT), p[1]))
                 for p in procs1:
                     out, err = p[0].communicate()
-                    loginf("Pragma Integity Check for backup database " + self.backups[p[1]] + " has completed with result " + (out if out != None else "NO OUTPUT"))
+                    loginf("Pragma Integity Check for backup database " + self.backups[p[1]] + " has completed with result " + (str(out) if out != None else "NO OUTPUT"))
                     logdbg("Standard Error  = " + (err if err != None else "NO OUTPUT"))
             except Exception as err:
                 logerr("Backup Error: " + str(err))
