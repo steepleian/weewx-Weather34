@@ -615,7 +615,7 @@ class Webserver():
                     self.webserver_addresses[webserver_address] = conn
                     logdbg("Webserver: webserver ip " + webserver_address)
                 recv_data = conn.recv(256)
-                if len(recv_data) > 0:
+                if recv_data:
                     thread = threading.Thread(target=self.execute_report, args=(str(recv_data).split(" "), conn, webserver_address))
                     thread.daemon = True
                     thread.start()
@@ -623,7 +623,7 @@ class Webserver():
                     conn.close();
             except Exception as e:
                 if not "time" in str(e):
-                    logdbg(e)
+                    logdbg("Webserver Error in listen_data_requests:" + str(e))
     
     def execute_report(self, args, conn, address):
         import weecfg
@@ -659,7 +659,7 @@ class Webserver():
                 logdbg("Webserver: Report complete")
                 do_file_transfer(args[4], os.path.join(html_root,args[2].split(".tmpl")[0]), conn, address, None, config_dict['StdReport']['RSYNC'].get('user',None))
         except Exception as e:
-            logerr("Webserver Error: " + str(e))
+            logerr("Webserver Error in execute_report: " + str(e))
        
 class Weather34RealTime(StdService):
     """Service retains previous loop packet values updating any value that isn't None from new
