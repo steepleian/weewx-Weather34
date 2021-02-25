@@ -126,7 +126,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0}
 	else if ($weather["solarydmax"]>=500)  {
 	echo "<div class='uvtoday6-8'>",$weather["solarydmax"] . "</value>";}
 	else if ($weather["solarydmax"]>=300)  {
-	echo "<div class='uvtoday4-5'>",$weather["solarymax"] . "</value>";} 		
+	echo "<div class='uvtoday4-5'>",$weather["solarydmax"] . "</value>";} 		
 	else if ($weather["solarydmax"]>=-0) {
 	echo "<div class='uvtoday1'>",$weather["solarydmax"] . "</value>";}		
 	echo "<smalluvunit> W/m<sup>2</sup></smalluvunit>"
