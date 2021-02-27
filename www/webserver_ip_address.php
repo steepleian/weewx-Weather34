@@ -14,7 +14,7 @@
           }else
             error_log("Cannot connect to weewx server at ".$weewxserver_address.":".$weewxserver_port);
       }catch(Exception $e){
-         error_log("Cannot connect to weewx server at ".$weewxserver_address.":".$weewxserver_port." ".$e);
+         error_log("Cannot connect to weewx server at ".$weewxserver_address.":".$weewxserver_port." ".$e->getMessage());
       }
     }
 ?> 
