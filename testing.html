@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="us">
+<!-- The page take the information inputted by the client and sends them a file called services.txt which is used in the -->
+<!-- installation of the Weather34 skin template on a WeeWX Personal Weather Station system. -->
+<!-- Original code written by Ian Millard -->
+<!-- Rewritten on Feburary 2021 by Steven Sheeley, reusing the file saving routine -->
+<!-- Whilst it was attempted to maintain the look and feel of the original, all -->
+<!-- html, css and javascript used in the new page is by Steven Sheeley -->
 
 <head>
     <meta charset="utf-8">
@@ -124,7 +130,10 @@
         <div class="Footer"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
         <div class="Map" id="mapid" style="cursor:crosshair;"></div>
         <div class="Map-Input">
-            <h4> Weather Station Location, Language and IP Address Section</h4>
+            <h4> Weather Station Location, Language and IP Address Section</h4><br />
+            <h5>Notice:</h5> When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to
+            the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.
+            If you choose to not allow tthat, you can still drag and scroll to your location and then click to do the same thing.
             <label for="text">Latitude</label><i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br
             />
             <input type="text" id="txtLat"><br />
