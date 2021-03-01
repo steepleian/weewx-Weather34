@@ -122,18 +122,15 @@
             </div>
             <div>This form is designed to create the required services.txt file for the WeeWX Weather34 skin. Fill out the form below with the pertinent information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text
                 input field is disabled. You may leave them empty if you do not have that service. If you want more information, there is a link you can visit for each one of them. If you have a API key or an ID for one of those services, click on the
-                Yes button and enter the required information. Each of the input also have more information available if you hover over the input field as well.<br /> Once you've completed the form click the download button. This will automatically send
-                you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you unzipped or cloned the Weather34 files to. Once this is
-                complete, you are ready to do the base installation of the Weather34 Skin.</div>
+                <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the input field as well.<br /> Once you've completed the form click the download button. This will automatically
+                send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you unzipped or cloned the Weather34 files to. Once this
+                is complete, you are ready to do the base installation of the Weather34 Skin. <b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
             <div style="text-align: center">No data is retained on this server after the process is complete.</div>
         </div>
         <div class="Footer"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
         <div class="Map" id="mapid" style="cursor:crosshair;"></div>
         <div class="Map-Input">
-            <h4> Weather Station Location, Language and IP Address Section</h4><br />
-            <h5>Notice:</h5> When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to
-            the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.
-            If you choose to not allow tthat, you can still drag and scroll to your location and then click to do the same thing.
+            <h4> Weather Station Location, Language and IP Address Section</h4>
             <label for="text">Latitude</label><i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br
             />
             <input type="text" id="txtLat"><br />
