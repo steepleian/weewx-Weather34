@@ -85,21 +85,21 @@
             #set $bodyTheme = "dark"
             
         #end if  
-  
+
         #set $mlsc = "N/A"
-        #if $varExists('month.lightning_strike_count')
-          #set $mlsc = $month.lightning_strike_count.sum.format(add_label=False, $localize=False)
+        #if $varExists('month.lightning_strike_count') and $month.lightning_strike_count.sum is not None 
+          #set $mlsc = $month.lightning_strike_count.sum.format(add_label=False, $localize=False) 
         #end if
         #set $ylsc = "N/A"
-        #if $varExists('year.lightning_strike_count')
-          #set $ylsc = $year.lightning_strike_count.sum.format(add_label=False, $localize=False)
+        #if $varExists('year.lightning_strike_count') and $year.lightning_strike_count.sum is not None 
+          #set $ylsc = $year.lightning_strike_count.sum.format(add_label=False, $localize=False) 
         #end if
         #set $dysc = "N/A"
-        #if $varExists('day.lightning_strike_count')
-          #set $dysc = $day.lightning_strike_count.sum.format(add_label=False, $localize=False)
+        #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None 
+          #set $dysc = $day.lightning_strike_count.sum.format(add_label=False, $localize=False) 
         #end if
         #set $ldlt = "N/A"
-        #if $varExists('year.lightning_distance.lasttime')
+        #if $varExists('year.lightning_distance.lasttime') and $year.lightning_distance.lasttime is not None  
            #set $ldlt = $year.lightning_distance.lasttime
         #end if
   
@@ -113,12 +113,11 @@ $weewxapi[18] = "$span($hour_delta=1).barometer.avg.format(add_label=False, $loc
 $weewxapi[19] = "$month.rain.sum.format(add_label=False, $localize=False)";
 $weewxapi[20] = "$rainyear.rain.sum.format(add_label=False, $localize=False)";
 $weewxapi[21] = "$yesterday.rain.sum.format(add_label=False, $localize=False)";
-$weewxapi[24] = "$current.windchill.format(add_label=False, $localize=False)";
 $weewxapi[25] = "$span($hour_delta=1).outTemp.max.format(add_label=False, $localize=False)";
 $weewxapi[26] = "$day.outTemp.max.format(add_label=False, $localize=False)";
-$weewxapi[27] = "$day.outTemp.maxtime.format(format_string="%H:%M")";
+$weewxapi[27] = "$day.outTemp.maxtime.format(format_string="%Y%m%d%H%M%S")";
 $weewxapi[28] = "$day.outTemp.min.format(add_label=False, $localize=False)";  
-$weewxapi[29] = "$day.outTemp.mintime.format(format_string="%H:%M")";
+$weewxapi[29] = "$day.outTemp.mintime.format(format_string="%Y%m%d%H%M%S")";
 $weewxapi[30] = "$day.windSpeed.max.format(add_label=False, $localize=False)";
 $weewxapi[31] = "$day.windSpeed.maxtime.format(format_string="%H:%M")";    
 $weewxapi[32] = "$day.windGust.max.format(add_label=False, $localize=False)";
@@ -130,7 +129,7 @@ $weewxapi[37] = "$day.barometer.mintime.format(format_string="%H:%M")";
 ## $daymaxintemp = "$day.inTemp.max.format(add_label=False, $localize=False)";
 ## $dayminintemp = "$day.inTemp.min.format(add_label=False, $localize=False)"; 
 $weewxapi[40] = "$current.windGust.format(add_label=False, $localize=False)";
-$weewxapi[41] = "$current.heatindex.format(add_label=False, $localize=False)";//$weewxapi[41] = "--";
+$weewxapi[41] = "--";
 $weewxapi[44] = "$span($hour_delta=24).rain.sum.format(add_label=False, $localize=False)";
 $weewxapi[46] = "$span($time_delta=600).windDir.avg.format(add_label=False, $localize=False)";
 $weewxapi[47] = "$span($hour_delta=1).rain.sum.format(add_label=False, $localize=False)";
@@ -262,8 +261,7 @@ $weewxapi[200] = "$current.windrun.format(add_label=False, $localize=False)";
 $weewxapi[201] = "$span($time_delta=3600).windGust.max.format(add_label=False, $localize=False)";
 $weewxapi[202] = "$span($hour_delta=3).rain.sum.format(add_label=False, $localize=False)";
 $weewxapi[203] = "$current.cloudbase.format(add_label=False, $localize=False)";
-$weewxapi[204] = "$current.signal8.format("%.0f")";
-$weewxapi[205] = "$current.appTemp.format(add_label=False, $localize=False)";
+$weewxapi[204] = "$current.rxCheckPercent.format("%.0f")";
 $startcivil = "$almanac(horizon=-6).sun(use_center=1).rise.raw";
 $endcivil = "$almanac(horizon=-6).sun(use_center=1).set.raw";
 $rain_year_start = "$rainyear.start.format(format_string="%b -")";
