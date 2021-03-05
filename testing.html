@@ -256,8 +256,8 @@
             <br />
             <div class="control">
                 Enable MetOffice Severe Weather Warnings (UK Users Only)?
-                <label class="radio"><input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" value="1" />Yes</label>
-                <label class="radio"><input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" value="0" checked />No</label> (This is for UK users only, it does not work for any other Countries/Continents)
+                <label class="radio"><input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" value="True" />Yes</label>
+                <label class="radio"><input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" value="False" checked />No</label> (This is for UK users only, it does not work for any other Countries/Continents)
             </div>
             <select id="selUkregion" disabled="true"><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your region."></i>>
                 <option selected value="">--- Please choose ---</option>
@@ -438,7 +438,6 @@
                 const al_country = document.getElementById('selAlcountry');
                 const al_region = document.getElementById('txtAlregion');
                 const enable_uk = $('input:radio[name="raUkenable"]:checked').val();
-                alert($('input[name=raUkenable]:checked').val());
                 const uk_region = document.getElementById('selUkregion');
                 const enable = $('input:radio[name="selCloud"]:checked').val();
                 const continent = document.getElementById('selContinent');
@@ -464,6 +463,7 @@
                     '"' + 'al_ip' + '"' + ':' + "'" + al_ip.value + "'," + ' \r\n' +
                     '"' + 'al_country' + '"' + ':' + "'" + al_country.value + "'," + ' \r\n' +
                     '"' + 'al_region' + '"' + ':' + "'" + al_region.value + "'," + ' \r\n' +
+                    '"' + 'enable_uk' + '"' + ':' + "'" + enable_uk.value + "'," + ' \r\n' +
                     '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
                     '"config_entries3"' + ':' + "'''=" + ' \r\n' +
                     "'Weather34WebServices' " + ':' + ' \r\n' +
