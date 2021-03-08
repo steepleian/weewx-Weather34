@@ -4,13 +4,15 @@
 
 This installation guide assumes that you are already reasonably familiar with WeeWX and that it is already installed on your computer along with a webserver, php and curl.
 
-If you have not already done so, you must update your WeeWX installation to version 4.1.1 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.1.1/Python2.7 or Python3.x. 
+If you have not already done so, you must update your WeeWX installation to version 4.1.1 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.1.1/Python2.7 or Python3.x.
+
+Update your WeeWX database to the new wview_extended.schema. Follow the directions in the section *Adding a new type to the database* (https://www.weewx.com/docs/customizing.htm#add_archive_type), except skip step #1 and in step #2, specify *schemas.wview_extended.schema* as the schema. 
 
 If you are carrying out a fresh install of WeeWX, my own personal preference is to use the setup.py method (http://www.weewx.com/docs/setup.htm). However, this increases the chances of requiring more path edits in the configuration files. Alternatively use one of the dedicated packaged installs (http://weewx.com/docs/debian.htm, http://weewx.com/docs/redhat.htm, http://weewx.com/docs/suse.htm or http://weewx.com/docs/macos.htm).
 
 * Please familiarise yourself with the location of your WeeWX system files inhttp://weewx.com/docs/cluding your bin/user folder, skins folder and weewx.conf file. If you are unsure where to find these, please refer to the installation processes here: - http://www.weewx.com/docs/setup.htm which shows various WeeWX installation scenarios.
 
-IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP7.3 modules on a Debian based distribution: -
+IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP7.4 modules on a Debian based distribution: -
 
 	sudo apt install php7.4
 	sudo apt install php7.4-cli php7.4-fpm php7.4-json php7.4-sqlite3 php7.4-zip php7.4-gd  php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
@@ -20,7 +22,7 @@ IMPORTANT. Installing PHP; please make sure you install all the PHP modules appr
 
 * Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
 
-        sudo apt install python2-ephem or sudo sudo apt install python3-ephem
+        sudo apt install python2-ephem or sudo apt install python3-ephem
 
 * If you are going to use the optional enhancement to convert RSS XML feeds to json data for Web Services, the following Python library must be installed (this is required if you are going to use the RSS XML earthquake data and/or the UK MetOffice Severe Weather Warning RSS XML streams): -
 
