@@ -1,7 +1,7 @@
 # Weather34 skin for WeeWX
 Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **This version of the template requires either the extended database schema introduced with WeeWX 4.0.0 or one that has been manually extended to included fields for lightning data.** It is strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.4.0 or later.
 
-Version W34-HC-IMJD-4.1.0
+Version W34-HC-IMJD-4.1.2
 
 Packaged for installation using its own unique installer and an online pre-installation settings form https://steepleian.github.io/weewx-Weather34
 
