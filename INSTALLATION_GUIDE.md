@@ -6,7 +6,7 @@ This installation guide assumes that you are already reasonably familiar with We
 
 If you have not already done so, you must update your WeeWX installation to version 4.1.1 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.1.1/Python2.7 or Python3.x.
 
-Update your WeeWX data base to the new wview_extended.schema. Follow the directions in the section *Adding a new type to the database* (https://www.weewx.com/docs/customizing.htm#add_archive_type), except skip step #1 and in step #2, specify *schemas.wview_extended.schema* as the schema. 
+Update your WeeWX database to the new wview_extended.schema. Follow the directions in the section *Adding a new type to the database* (https://www.weewx.com/docs/customizing.htm#add_archive_type), except skip step #1 and in step #2, specify *schemas.wview_extended.schema* as the schema. 
 
 If you are carrying out a fresh install of WeeWX, my own personal preference is to use the setup.py method (http://www.weewx.com/docs/setup.htm). However, this increases the chances of requiring more path edits in the configuration files. Alternatively use one of the dedicated packaged installs (http://weewx.com/docs/debian.htm, http://weewx.com/docs/redhat.htm, http://weewx.com/docs/suse.htm or http://weewx.com/docs/macos.htm).
 
