@@ -455,16 +455,16 @@ metricsblue {
 	echo "<div class='windtoday'>",$weather["winddmax"] . "</value>";}
 
 	//ms
-	if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=16.66)  {
-	echo "<div class='windtoday60'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=11.11)  {
-	echo "<div class='windtoday40'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=8.33)  {
-	echo "<div class='windtoday30'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=2.77)  {
-	echo "<div class='windtoday10'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["windydmax"] . "</value>";}
+	if ($weather["wind_units"]=='m/s' && $weather["winddmax"]>=16.66)  {
+	echo "<div class='windtoday60'>",$weather["winddmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["winddmax"]>=11.11)  {
+	echo "<div class='windtoday40'>",$weather["winddmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["winddmax"]>=8.33)  {
+	echo "<div class='windtoday30'>",$weather["winddmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["winddmax"]>=2.77)  {
+	echo "<div class='windtoday10'>",$weather["winddmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["winddmax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["winddmax"] . "</value>";}
 	echo "<smalluvunit>".$weather["wind_units"]."</smalluvunit>";
 
 ?>
@@ -512,16 +512,16 @@ Max Recorded <blue><?php echo $weather["winddmaxtime"];?></blue></div>
 	echo "<div class='windtoday'>",$weather["windydmax"] . "</value>";}
 	
 	//kts
-	if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=32.40)  {
-	echo "<div class='windtoday60'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=21.60)  {
-	echo "<div class='windtoday40'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=16.20)  {
-	echo "<div class='windtoday30'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=5.40)  {
-	echo "<div class='windtoday10'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["winddmax"] . "</value>";}
+	if ($weather["wind_units"]=='kn' && $weather["windydmax"]>=32.40)  {
+	echo "<div class='windtoday60'>",$weather["windydmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windydmax"]>=21.60)  {
+	echo "<div class='windtoday40'>",$weather["windydmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windydmax"]>=16.20)  {
+	echo "<div class='windtoday30'>",$weather["windydmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windydmax"]>=5.40)  {
+	echo "<div class='windtoday10'>",$weather["windydmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windydmax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windydmax"] . "</value>";}
 
 	//ms
 	if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=16.66)  {
@@ -582,28 +582,28 @@ Max Recorded <br><blue><?php echo $weather["windydmaxtime"];?></blue></div>
 	echo "<div class='windtoday'>",$weather["windmmax"] . "</value>";}
 
 	//kts
-	if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=32.40)  {
-	echo "<div class='windtoday60'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=21.60)  {
-	echo "<div class='windtoday40'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=16.20)  {
-	echo "<div class='windtoday30'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=5.40)  {
-	echo "<div class='windtoday10'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["winddmax"] . "</value>";}
+	if ($weather["wind_units"]=='kn' && $weather["windmmax"]>=32.40)  {
+	echo "<div class='windtoday60'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windmmax"]>=21.60)  {
+	echo "<div class='windtoday40'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windmmax"]>=16.20)  {
+	echo "<div class='windtoday30'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windmmax"]>=5.40)  {
+	echo "<div class='windtoday10'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windmmax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windmmax"] . "</value>";}
 
 	//ms
-	if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=16.66)  {
-	echo "<div class='windtoday60'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=11.11)  {
-	echo "<div class='windtoday40'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=8.33)  {
-	echo "<div class='windtoday30'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=2.77)  {
-	echo "<div class='windtoday10'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["windydmax"] . "</value>";}
+	if ($weather["wind_units"]=='m/s' && $weather["windmmax"]>=16.66)  {
+	echo "<div class='windtoday60'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windmmax"]>=11.11)  {
+	echo "<div class='windtoday40'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windmmax"]>=8.33)  {
+	echo "<div class='windtoday30'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windmmax"]>=2.77)  {
+	echo "<div class='windtoday10'>",$weather["windmmax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windmmax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windmmax"] . "</value>";}
 	echo "<smalluvunit>".$weather["wind_units"]."</smalluvunit>";
 
 ?>
@@ -651,28 +651,28 @@ Max Recorded <br><blue><?php echo $weather["windmmaxtime"];?></blue></div>
 	echo "<div class='windtoday'>",$weather["windymax"] . "</value>";}
 
 	//kts
-	if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=32.40)  {
-	echo "<div class='windtoday60'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=21.60)  {
-	echo "<div class='windtoday40'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=16.20)  {
-	echo "<div class='windtoday30'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=5.40)  {
-	echo "<div class='windtoday10'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["winddmax"] . "</value>";}
+	if ($weather["wind_units"]=='kn' && $weather["windymax"]>=32.40)  {
+	echo "<div class='windtoday60'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windymax"]>=21.60)  {
+	echo "<div class='windtoday40'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windymax"]>=16.20)  {
+	echo "<div class='windtoday30'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windymax"]>=5.40)  {
+	echo "<div class='windtoday10'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windymax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windymax"] . "</value>";}
 
 	//ms
-	if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=16.66)  {
-	echo "<div class='windtoday60'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=11.11)  {
-	echo "<div class='windtoday40'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=8.33)  {
-	echo "<div class='windtoday30'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=2.77)  {
-	echo "<div class='windtoday10'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["windydmax"] . "</value>";}
+	if ($weather["wind_units"]=='m/s' && $weather["windymax"]>=16.66)  {
+	echo "<div class='windtoday60'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windymax"]>=11.11)  {
+	echo "<div class='windtoday40'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windymax"]>=8.33)  {
+	echo "<div class='windtoday30'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windymax"]>=2.77)  {
+	echo "<div class='windtoday10'>",$weather["windymax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windymax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windymax"] . "</value>";}
 	echo "<smalluvunit>".$weather["wind_units"]."</smalluvunit>";
 
 ?>
@@ -697,7 +697,7 @@ Max Recorded <br><blue><?php echo $weather["windymaxtime"];?></blue></div>
    <div class=actualt>Max All-Time</div>
    <?php
 	// wind year km/h
-	if ($weather["wind_units"]=='km/h' && $weather["windymax"]>=60)  {
+	if ($weather["wind_units"]=='km/h' && $weather["windamax"]>=60)  {
 	echo "<div class='windtoday60'>",$weather["windamax"] . "</value>";}
 	else if ($weather["wind_units"]=='km/h' && $weather["windamax"]>=40)  {
 	echo "<div class='windtoday40'>",$weather["windamax"] . "</value>";}
@@ -721,28 +721,28 @@ Max Recorded <br><blue><?php echo $weather["windymaxtime"];?></blue></div>
 	echo "<div class='windtoday'>",$weather["windamax"] . "</value>";}
 
 	//kts
-	if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=32.40)  {
-	echo "<div class='windtoday60'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=21.60)  {
-	echo "<div class='windtoday40'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=16.20)  {
-	echo "<div class='windtoday30'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=5.40)  {
-	echo "<div class='windtoday10'>",$weather["winddmax"] . "</value>";}
-	else if ($weather["wind_units"]=='kn' && $weather["winddmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["winddmax"] . "</value>";}
+	if ($weather["wind_units"]=='kn' && $weather["windamax"]>=32.40)  {
+	echo "<div class='windtoday60'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windamax"]>=21.60)  {
+	echo "<div class='windtoday40'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windamax"]>=16.20)  {
+	echo "<div class='windtoday30'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windamax"]>=5.40)  {
+	echo "<div class='windtoday10'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='kn' && $weather["windamax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windamax"] . "</value>";}
 
 	//ms
-	if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=16.66)  {
-	echo "<div class='windtoday60'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=11.11)  {
-	echo "<div class='windtoday40'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=8.33)  {
-	echo "<div class='windtoday30'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=2.77)  {
-	echo "<div class='windtoday10'>",$weather["windydmax"] . "</value>";}
-	else if ($weather["wind_units"]=='m/s' && $weather["windydmax"]>=-0) {
-	echo "<div class='windtoday'>",$weather["windydmax"] . "</value>";}
+	if ($weather["wind_units"]=='m/s' && $weather["windamax"]>=16.66)  {
+	echo "<div class='windtoday60'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windamax"]>=11.11)  {
+	echo "<div class='windtoday40'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windamax"]>=8.33)  {
+	echo "<div class='windtoday30'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windamax"]>=2.77)  {
+	echo "<div class='windtoday10'>",$weather["windamax"] . "</value>";}
+	else if ($weather["wind_units"]=='m/s' && $weather["windamax"]>=-0) {
+	echo "<div class='windtoday'>",$weather["windamax"] . "</value>";}
 	echo "<smalluvunit>".$weather["wind_units"]."</smalluvunit>";
 
 ?>
