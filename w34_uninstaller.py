@@ -1,3 +1,4 @@
+from configobj import ConfigObj
 import distutils.file_util
 import traceback
 import shutil
@@ -28,7 +29,6 @@ class w34_uninstaller:
             if response != "YES":
                 sys.exit(0)
             conf_files = {}
-            from configobj import ConfigObj
             if conf_file == None:
                 file_count = 1
                 files = [f for f in os.listdir('.') if os.path.isfile(f) and f.endswith(".conf")]
