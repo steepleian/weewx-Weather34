@@ -73,7 +73,7 @@ if ($aqiweather["aqi"] >300){echo "<topdaqi9>",$aqiweather["aqi"] ; $aqiweather[
 ?></div>  
 </div></smalluvunit>
 <a alt="DAQI air quality info" title="DAQI air quality info" href="aqipopup.php" data-lity>
-<div class="yearwordbig"><?php echo AQI?></div>
+<div class="yearwordbig"><?php echo "AQI" ?></div>
 <?php //small title AQI
 
  if ($aqiweather["aqi"]>100){echo '<div class="minword">AQI';}

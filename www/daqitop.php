@@ -26,7 +26,7 @@ $aqiweather["pm25"]       =   round($pm25,0);
 </div></smalluvunit>
 <!--<a alt="Air Quality Information" title="Air Quality Information" href="aqipopup.php" data-lity > -->
 <a alt="DAQI air quality info" title="DAQI air quality info" href="aqipopup.php" data-lity>
-<div class="yearwordbig"><?php echo DAQI?></div>
+<div class="yearwordbig"><?php echo "DAQI"?></div>
 <?php //small title PM2.5
 
  if ($aqiweather["pm25"]>48){echo '<div class="minword">PM<sub>2.5</sub>';}
