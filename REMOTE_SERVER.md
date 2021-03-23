@@ -12,3 +12,7 @@ In the weewx.conf file the webserver_address needs to be the ip address of the w
 **Open a Port**
 
 Port 25252 needs to be open on the weewx machine and all the remote webserver machine(s) and any network device between these machines.
+
+**Further Reading**
+
+An excellent online guide by User Chris Alemany can be found at https://www.chrisalemany.ca/2021/02/24/installing-the-weather34-skin-on-weewx-with-remote-web-server-2021-edition/

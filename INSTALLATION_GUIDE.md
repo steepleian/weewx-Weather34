@@ -102,3 +102,4 @@ Once completed, make sure you save weewx.conf
 
 * Any problems, please raise an Issue in this repository attaching a debug report (see here for details http://www.weewx.com/docs/utilities.htm#wee_debug_utility), your skin.conf files and a syslog tail report covering at least two archive cycles from startup.
 
+* There is further guide of how to install weewx_Weather34 on a remote server here: - https://github.com/steepleian/weewx-Weather34/blob/main/REMOTE_SERVER.md and an excellent online guide by User Chris Alemany at https://www.chrisalemany.ca/2021/02/24/installing-the-weather34-skin-on-weewx-with-remote-web-server-2021-edition/
