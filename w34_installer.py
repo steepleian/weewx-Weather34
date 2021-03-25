@@ -54,7 +54,7 @@ class w34_installer:
                 response = raw_input("!!! THIS INSTALL IS USING PYTHON VERSION " + ver + " IS THIS CORRECT? (Yes/No) ").strip()
             except:
                 response = input("!!! THIS INSTALL IS USING PYTHON VERSION " + ver + " IS THIS CORRECT? (Yes/No)").strip()
-            if response.upper().startswith("N"):
+            if not response.upper().startswith("Y"):
                 print("User terminated install due to Python Version " + ver) 
                 sys.exit(1);
             print ("Install will continue with Python Version " + ver + "\n")
