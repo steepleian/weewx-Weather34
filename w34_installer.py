@@ -60,13 +60,13 @@ class w34_installer:
             print ("Install will continue with Python Version " + ver + "\n")
             try:
                 import ephem
-                print("FOUND PYTHON EPHEM INSTALLED") 
+                print("FOUND PYTHON EPHEM VERSION " + ephem.__version__ + " INSTALLED") 
             except:
                 print("!!!NO VALID PYTHON EPHEM FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
                 sys.exit(1)
             try:
                 import xmltodict
-                print("FOUND PYTHON XMLTODICT INSTALLED\n") 
+                print("FOUND PYTHON XMLTODICT VERSION " + xmltodict.__version__ + " INSTALLED\n") 
             except:
                 print("!!!NO VALID PYTHON XMLTODICT FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
                 sys.exit(1)
