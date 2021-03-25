@@ -29,12 +29,12 @@ class w34_installer:
     def find_replace(self, d, k, v, do_overwrite, append = False, delete = False):
         found = k in d
         if found:
-            if do_overwrite:
+            if do_overwrite or v not in d[k]:
                 if delete:
                     del d[k]
                 elif append:
                     if not v in d[k]:
-                        d[k] = d[k] + ", " + v
+                        d[k] += ", " + v
                 else:
                     d[k] = eval(v)
             else:
@@ -57,7 +57,20 @@ class w34_installer:
             if response.upper().startswith("N"):
                 print("User terminated install due to Python Version " + ver) 
                 sys.exit(1);
-            print ("\nInstall will continue with Python Version " + ver)
+            print ("Install will continue with Python Version " + ver + "\n")
+            try:
+                import ephem
+                print("FOUND PYTHON EPHEM INSTALLED") 
+            except:
+                print("!!!NO VALID PYTHON EPHEM FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
+                sys.exit(1)
+            try:
+                import xmltodict
+                print("FOUND PYTHON XMLTODICT INSTALLED\n") 
+            except:
+                print("!!!NO VALID PYTHON XMLTODICT FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
+                sys.exit(1)
+            print("List of found conf files to install with") 
             from configobj import ConfigObj
             if conf_file == None:
                 file_count = 1
