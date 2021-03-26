@@ -60,17 +60,22 @@ class w34_installer:
             print ("Install will continue with Python Version " + ver + "\n")
             try:
                 import ephem
-                print("FOUND PYTHON EPHEM VERSION " + ephem.__version__ + " INSTALLED") 
+                print("PYTHON EPHEM VERSION " + ephem.__version__ + " INSTALLED") 
             except:
                 print("!!!NO VALID PYTHON EPHEM FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
                 sys.exit(1)
             try:
                 import xmltodict
-                print("FOUND PYTHON XMLTODICT VERSION " + xmltodict.__version__ + " INSTALLED\n") 
+                print("PYTHON XMLTODICT VERSION " + xmltodict.__version__ + " INSTALLED\n") 
             except:
                 print("!!!NO VALID PYTHON XMLTODICT FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
                 sys.exit(1)
-            print("List of found conf files to install with") 
+            try:
+                php = os.system('php --version')
+                print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED")
+            except:
+                print("!!!PHP NOT INSTALLED!!!")
+            print("\nList of found conf files to install with") 
             from configobj import ConfigObj
             if conf_file == None:
                 file_count = 1
