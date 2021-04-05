@@ -207,7 +207,10 @@ html {
 body {
   background: #fff;
   clear: both;
- cursor: url(mouse/weather34bluecursor.png), n-resize;
+}
+
+body.dotpointercursor {
+  cursor: url(mouse/weather34bluecursor.png), n-resize
 }
 
 #navigation {
