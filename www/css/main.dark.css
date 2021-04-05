@@ -192,11 +192,9 @@ body {
   line-height: 1.42857143;
   color: silver
 }
-
 body.dotpointercursor {
   cursor: url(mouse/weather34redcursor.png), n-resize;
 }
-
 .menu {
   width: 220px;
   margin: 0;
@@ -5172,7 +5170,7 @@ smallrainunit {
   justify-content: center;
   border: 1px solid #38383c;
   border-radius: 2px;
-  font-size: .85em
+  font-size: .85em  
 }
 
 .barometerconverter,
@@ -7098,7 +7096,7 @@ rainratetextheading {
   border-left: 0;
   box-shadow: inset 4px 0 0 0 #e26870;
   border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px
   font-weight: 400
 }
 
