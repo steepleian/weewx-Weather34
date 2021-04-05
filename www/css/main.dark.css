@@ -190,10 +190,8 @@ body {
   clear: both;
   font-size: 14px;
   line-height: 1.42857143;
-  color: silver
-}
-body.dotpointercursor {
-  cursor: url(mouse/weather34redcursor.png), n-resize;
+  color: silver;
+  cursor:default
 }
 .menu {
   width: 220px;
