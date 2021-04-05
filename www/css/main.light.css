@@ -207,10 +207,7 @@ html {
 body {
   background: #fff;
   clear: both;
-}
-
-body.dotpointercursor {
-  cursor: url(mouse/weather34bluecursor.png), n-resize
+ cursor: url(mouse/weather34bluecursor.png), n-resize;
 }
 
 #navigation {
@@ -8098,11 +8095,11 @@ spanelightning {
   width: 120px;
   position: absolute;
   font-weight: 400;
-  left: 75px
+  left: 50px
 }
 
 alertadvisory {
-  margin-left: -75px;
+  margin-left: -50px;
   position: absolute
 }
 
@@ -9485,59 +9482,20 @@ weather34menumarkerlight {
   z-index: -1;
 }
 
-.lity-close {
-  z-index: 9994;
-  width: 100px;
-  height: 65px;
-  position: absolute;
-  float: left;
-  margin-left: 20px;
-  top: 18px;
-  -webkit-appearance: none;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  padding: 0;
-  color: rgba(86, 95, 103, 0);
-  font-style: normal;
-  font-size: 35px;
-  font-family: Arial;
-  line-height: 35px;
-  border: 0;
-  background: none;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none
-}
-
-.lity-close::-moz-focus-inner {
-  border: 0;
-  padding: 0
-}
-
-.lity-close:hover,
-.lity-close:focus,
-.lity-close:active,
-.lity-close:visited {
-  text-decoration: none;
-  text-align: center;
-  padding: 0;
-  color: rgba(86, 95, 103, 0);
-  font-style: normal;
-  font-size: 35px;
-  font-family: Arial;
-  line-height: 35px;
-  border: 0;
-  background: none;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none
-}
-
-.lity-close:active {
-  color: rgba(86, 95, 103, 0);
-}
-
+.lity.lity-closed{opacity:0}
+.lity *{-webkit-box-sizing:border-box;box-sizing:border-box}
+.lity-wrap{z-index:9990;position:fixed;top:0;right:0;bottom:0;left:0;margin:0 auto;outline:0!important;text-align:center}
+.lity-wrap:before{content:"";display:inline-block;height:100%;margin-right:-.25em;vertical-align:middle}
+.lity-loader{z-index:9991;position:absolute;top:50%;width:100%;margin-top:-.8em;color:#fff;opacity:0;text-align:center;font-family:headingtext;font-size:14px}
+.lity-loading .lity-loader{opacity:1}
+.lity-container{z-index:9992;display:inline-block;position:relative;max-width:98%;max-height:98%;margin:0 auto;outline:0!important;text-align:left;vertical-align:middle;white-space:normal}
+.lity-content{z-index:9993;width:100%;max-width:820px;-webkit-transform:scale(1);transform:scale(1)}
+.lity-closed .lity-content,.lity-loading .lity-content{-webkit-transform:scale(.8);transform:scale(.8)}
+.lity-content:after{z-index:-1;content:"";display:block;position:absolute;top:0;right:0;bottom:0;left:0;width:auto;height:auto}
+.lity-close{z-index:9994;-webkit-appearance:none;position:absolute;top:-30px;width:20px;float:right;right:1%;padding:0;color:#fff;border:0;background:0;outline:0;-webkit-box-shadow:none;box-shadow:none;text-align:center;text-decoration:none;font-family:headingtext;font-size:20px;font-style:normal;line-height:20px;cursor:pointer;background:#d05f2d;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;margin-top:38px}
+.lity-close::-moz-focus-inner{padding:0;border:0}
+.lity-close:active,.lity-close:focus,.lity-close:hover,.lity-close:visited{padding:0;color:#fff;border:0;background:0;outline:0;-webkit-box-shadow:none;box-shadow:none;text-align:center;text-decoration:none;font-family:headingtext;font-size:25px;font-style:normal;line-height:25px;background:#3d8b96;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px}
+.lity-close:active{color:#565f67}
 .lity-image img {
   max-width: 100%;
   display: block;
