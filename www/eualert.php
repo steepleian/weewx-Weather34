@@ -1,5 +1,5 @@
 <?php header('content-type: application/json; charset=utf-8');
-
+error_reporting(0);
 # Adapted for weewx-Weather34 by David Marshall and Ian Millard
 # https://github.com/steepleian/weewx-Weather34
 # Based on original work by Wayne D Grant

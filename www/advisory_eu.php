@@ -1,6 +1,6 @@
  <?php //original weather34 script original css/svg/php by weather34 2015-2019 // 
 include('w34CombinedData.php');include('settings1.php');date_default_timezone_set($TZ);
-$json_string = file_get_contents("jsondata/ma.txt");
+$json_string = file_get_contents("jsondata/al.txt");
 $parsed_json = json_decode($json_string);
 $alerttype = $parsed_json->{'warnings'}->{"regions"}[0]->{"today"}[0]->{"awareness"}->{"awareness_type"}->{"description"};
 $alertlevel = $parsed_json->{'warnings'}->{"regions"}[0]->{"today"}[0]->{"awareness"}->{"awareness_level"}->{"colour"};
