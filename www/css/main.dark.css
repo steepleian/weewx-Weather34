@@ -190,9 +190,9 @@ body {
   clear: both;
   font-size: 14px;
   line-height: 1.42857143;
-  color: silver;
-  cursor:default
+  color: silver
 }
+
 .menu {
   width: 220px;
   margin: 0;
@@ -4101,7 +4101,6 @@ thunder {
 }
 
 .darkskyiconcurrent {
-  postion: relative;
   position: relative;
   margin-top: 10px;
   margin-bottom: -5px;
@@ -5168,7 +5167,7 @@ smallrainunit {
   justify-content: center;
   border: 1px solid #38383c;
   border-radius: 2px;
-  font-size: .85em  
+  font-size: .85em
 }
 
 .barometerconverter,
@@ -6270,7 +6269,7 @@ moonsetcolor {
 .sunbelowweather34 {
   border-width: 6px 3px 0;
   border-color: rgba(74, 99, 111, .8) transparent transparent;
-  webkit-transform: rotate(360deg)
+  -webkit-transform: rotate(360deg)
 }
 
 .weather34beaufort1-3,
@@ -6568,7 +6567,7 @@ rainu {
 #weather34rainwater {
   background-color: rgba(0, 154, 171, .6);
   border: 0;
-  webkit-border-radius: 0 0 2px 2px;
+  -webkit-border-radius: 0 0 2px 2px;
   -moz-border-radius: 0 0 2px 2px;
   -o-border-radius: 0 0 2px 2px;
   -ms-border-radius: 0 0 2px 2px;
@@ -7094,7 +7093,7 @@ rainratetextheading {
   border-left: 0;
   box-shadow: inset 4px 0 0 0 #e26870;
   border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px
+  border-bottom-right-radius: 2px;
   font-weight: 400
 }
 
