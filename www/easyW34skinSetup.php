@@ -127,7 +127,6 @@ $extraLinkColor = "'. $_POST["extraLinkColor"]. '";
 $extraLinkURL = "'. $_POST["extraLinkURL"]. '";
 $darkskyunit = "'. $_POST["darkskyunit"]. '";
 $wuapiunit = "'. $_POST["wuapiunit"]. '";
-$dotpointercursor = '. $_POST["dotpointercursor"]. ';
 ?>';
 
 $fn = FOPEN('languages/lang.'.$defaultlanguage.'.php', 'r') or die("Cannot read input file ".'languages/lang.'.$defaultlanguage.'.php');
@@ -256,45 +255,6 @@ Welcome you have logged into the WeeWX WEATHER34 Skin setup screen <?php echo da
 
    </div>
    <br/>
-
-<!--##########################################################################################
-    #########                   Start of Style Customization Sidebar                 #########
-    ##########################################################################################-->
-
-    <div class="weatheroptionssidebar">
-<?php echo $iicon;?>  Setup the Styles
-
-<div class="weatherbottominfo">
-Choose your style</div>
-</div>
-
-<!--##########################################################################################
-    #########                   Start of Style Customization Section                 #########
-    ##########################################################################################-->
-
-    <div class="weatheroptions">
-<div class="weathersectiontitle">
-Style Customization</div>
-
-
-<br/>
-      <div class="stationvalue">
-      Use dot pointer for mouse cursor</div>
-      <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="#F05E40" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M30 12 L16 24 2 12" />
-</svg>
-
-       <label name="dotpointercursor"></label>
-        <select id="dotpointercursor" name="dotpointercursor" class="choose1">
-            <option <?php if($dotpointercursor=="false") echo "selected"; ?> >false</option>
-            <option <?php if($dotpointercursor=="true") echo "selected"; ?> >true</option>
-        </select>
-        <br/>
-
-  </div>
-  <br/>
 
 <!--##########################################################################################
     #########                        Start of Language Sidebar                       #########

@@ -105,5 +105,4 @@ $extraLinkURL = '';
 $weewxserver_address = NULL;
 $weewxserver_port = NULL;
 $ca = false;
-$dotpointercursor = true;
 ?>
