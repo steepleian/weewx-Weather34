@@ -18,6 +18,7 @@ include('settings1.php');error_reporting(0);
 ###########################################################################
 
 $TZconf = $TZ;// PLEASE LEAVE it is fixed 
+$UTC_offset = timezone_offset_get(timezone_open($TZ), new DateTime()) / 3600; // DO NOT CHANGE
 $api2= 'xxx'; // optional Weather Underground api key developer key '1234567890'
 $rise_zenith = 90+ 40/60; // try 50/60 or something/60 until it matches correctly to your sunrise .this allows you to fine tune the sunrise
 $set_zenith = 90+ 36/60;  // try 50/60 or something/60 until it matches correctly to your sunset .this allows you to fine tune the sunset

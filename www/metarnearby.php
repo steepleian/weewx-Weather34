@@ -359,7 +359,7 @@ echo "Metar :" .$metar34raw."";?>
 <div class="hitemp">
 <?php //update timestamp
 date_default_timezone_set($tz);$date = $metar34time;$date=str_replace('@', ' ', $date);
-$date=str_replace('Z', ' ', $date);$date1 = strtotime($date) + 60*60*$UTC;echo date('D jS F H:i a ',$date1);
+$date=str_replace('Z', ' ', $date);$date1 = strtotime($date) + 60*60*$UTC_offset;echo date('D jS F H:i ',$date1);
 ?> </div></div>
 
   </article> 

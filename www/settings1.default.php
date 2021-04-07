@@ -8,7 +8,6 @@ $weatherflowmapzoom = '';
 $id = 'IYOURWUKWY';
 $purpleairhardware = 'yes';
 $TZ = 'Europe/London';
-$UTC = '1';
 $lon = -0.00;
 $lat = 50.00;
 $darkskyunit = 'uk2';
