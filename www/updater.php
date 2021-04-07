@@ -87,7 +87,7 @@ var refreshId;$(document).ready(function(){currentfore()});function currentfore(
 <?php if ($position1=="weather34clock.php"){?>
 <script>
 var clockID;
-var yourTimeZoneFrom=<?php echo $UTC?>;
+var yourTimeZoneFrom=<?php echo $UTC_offset?>;
 var d=new Date();
 var weekdays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];

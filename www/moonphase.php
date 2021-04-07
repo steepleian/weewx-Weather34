@@ -17,10 +17,10 @@ header('Content-type: text/html; charset=utf-8');?>
 		//date_default_timezone_set($TZ);
         $result = date_sun_info( time(), $lat, $lon );	
 		// homeweatherstation sun hours graphic beta August 8th 2016//
-		$sunr=date_sunrise(time(), SUNFUNCS_RET_STRING, $lat,$lon, $rise_zenith, $UTC);
-		$suns=date_sunset(time(), SUNFUNCS_RET_STRING, $lat,$lon, $set_zenith, $UTC);
-		$sunr1=date_sunrise(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat,$lon, $rise_zenith, $UTC);
-		$suns1=date_sunset(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat,$lon, $set_zenith, $UTC);		
+		$sunr=date_sunrise(time(), SUNFUNCS_RET_STRING, $lat,$lon, $rise_zenith, $UTC_offset);
+		$suns=date_sunset(time(), SUNFUNCS_RET_STRING, $lat,$lon, $set_zenith, $UTC_offset);
+		$sunr1=date_sunrise(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat,$lon, $rise_zenith, $UTC_offset);
+		$suns1=date_sunset(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat,$lon, $set_zenith, $UTC_offset);		
 		$suns2 =date( 'G.i', $result['sunset'] );
 		$sunr2 =date( 'G.i', $result['sunrise']  );
 		$sunrisehour =date( 'G', $result['sunrise'] );

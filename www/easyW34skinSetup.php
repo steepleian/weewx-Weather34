@@ -35,7 +35,6 @@ $weatherflowlightning = "'. $_POST["wfli"]. '";
 $weatherflowmapzoom   = "'. $_POST["weatherflowmapzoom"]. '";
 $purpleairhardware   = "'. $_POST["purpleairhardware"]. '";
 $TZ = "'. $_POST["TZ"]. '";
-$UTC = "'. $_POST["UTC"]. '";
 $lon = '. $_POST["lon"]. ';
 $lat = '. $_POST["lat"]. ';
 $stationlocation = "'. $_POST["stationlocation"]. '";
@@ -630,13 +629,11 @@ Station Names</div><br/>
     #########                        Start of Location Info Section                  #########
     ##########################################################################################-->
 
-   <div class="weatheroptionssidebar">Here is the area where you set your Lat/Lon with timezone + UTC offset , for timezone you can check
+   <div class="weatheroptionssidebar">Here is the area where you set your Lat/Lon with timezone, for timezone you can check
    <a href="http://php.net/manual/en/timezones.php" title="http://php.net/manual/en/timezones.php" target="_blank"> the official php timezone documented page</a>
    <br/><br/>
 
 <strong>Lat</strong> 54.00000  <strong>Lon</strong> -22.00000<br/><br/>
-
-<strong>UTC</strong> offset use single number  like -2,-4,1,2,3,4 etc <br/>do not use -01,0-04,01 ,02,03, 04 etc <br/>
 
    </div>
 
@@ -660,14 +657,6 @@ Location Information
 
 
  <input name="TZ" type="text" id="TZ" value="<?php echo $TZ ;?>" class="choose">
-
-
- <div class="stationvalue">UTC Offset</div>
-   <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-
-<input name="UTC" type="text" id="UTC" value="<?php echo $UTC ;?>" class="choose">
 
 
 
