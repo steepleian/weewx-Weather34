@@ -207,6 +207,7 @@ html {
 body {
   background: #fff;
   clear: both;
+  cursor: default
 }
 
 #navigation {
@@ -6127,7 +6128,7 @@ moonsetcolor {
 .sunbelowweather34 {
   border-width: 6px 3px 0;
   border-color: rgba(74, 99, 111, .8) transparent transparent;
-  -webkit-transform: rotate(360deg)
+  webkit-transform: rotate(360deg)
 }
 
 .heatcircle {
@@ -6549,7 +6550,7 @@ rainu {
 #weather34rainwater {
   background-color: rgba(0, 154, 171, .6);
   border: 0;
-  -webkit-border-radius: 0 0 2px 2px;
+  webkit-border-radius: 0 0 2px 2px;
   -moz-border-radius: 0 0 2px 2px;
   -o-border-radius: 0 0 2px 2px;
   -ms-border-radius: 0 0 2px 2px;
@@ -8084,6 +8085,7 @@ valuewindunit {
 alertvalue {
   font-size: .75rem;
   margin-top: 10px
+  margin-left: -10px;  
 }
 
 spanefreezing,
@@ -8098,7 +8100,7 @@ spanelightning {
 }
 
 alertadvisory {
-  margin-left: -70px;
+  margin-left: -50px;
   position: absolute
 }
 
