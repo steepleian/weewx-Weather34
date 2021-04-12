@@ -142,7 +142,7 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
    
    //weather34 wu alerts rain  
    else if ($wuskyrain1>0 && $position6=="forecast3wularge.php")
-  {echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain Showers</blue> This Week </alertvalue>
+  {echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}
     else if ($wuskyrain2>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}
@@ -156,7 +156,7 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
    </spanelightning></div></div></div>';}   
     //forecast3 wu rain
     else if ($wuskyrain1>0 && $position6=="forecast3wu.php")
-  {echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain Showers</blue> This Week </alertvalue>
+  {echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}
     else if ($wuskyrain2>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}
@@ -170,10 +170,10 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
    </spanelightning></div></div></div>';}  
   //weather34 darksky alerts rain,snow  
   else if ($darkskydayIcon=='snow' && $position6=="forecast3ds.php")
-  {echo '<spanelightning>'.$snowalert.'<alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Snow Showers</blue> This Week </alertvalue>
+  {echo '<spanelightning>'.$snowalert.'<alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Snow</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}   
     else if ($darkskydayIcon=='rain' && $position6=="forecast3ds.php")
-  {echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Snow Showers</blue> This Week </alertvalue>
+  {echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Snow</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}
   else if (strpos($alertlevel,'LightGreen') !== false)
   {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertgreen.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
