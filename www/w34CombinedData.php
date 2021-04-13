@@ -49,7 +49,8 @@
 	$weather["dewpoint"]           = number_format($weewxrt[4],1);
 	$weather["rain_today"]         = $weewxrt[9];
 	$weather["rain_lasthour"]      = $weewxapi[47];
-        $weather["rain_last3hours"]    = $weewxapi[202];
+	$weather["rain_last3hours"]    = $weewxapi[202];
+	$weather["rain_yesterday"]     = $weewxapi[21];
 	$weather["rain_month"]         = $weewxapi[19];
 	$weather["rain_year"]          = $weewxapi[20];
 	$weather["rain_24hrs"]         = $weewxapi[44];
@@ -552,11 +553,12 @@ if ($rainunit != $weather["rain_units"]) {
 		inTomm($weather, "rain_year");
 		inTomm($weather, "rainydmax");
 		inTomm($weather, "rain_lasthour");
-                inTomm($weather, "rain_last3hours");
+        inTomm($weather, "rain_last3hours");
+		inTomm($weather, "rain_yesterday");
 		inTomm($weather, "rainymax");		
 		inTomm($weather, "rainmmax");
 		inTomm($weather, "rain_24hrs");	
-                inTomm($weather, "rain_alltime");
+        inTomm($weather, "rain_alltime");
 		$weather["rain_units"] = $rainunit;
 	}
 	else if ($rainunit == "in") {
@@ -566,11 +568,12 @@ if ($rainunit != $weather["rain_units"]) {
 		mmToin($weather, "rain_year");
 		mmToin($weather, "rainydmax");
 		mmToin($weather, "rain_lasthour");
-                mmToin($weather, "rain_last3hours");
+        mmToin($weather, "rain_last3hours");
+		mmToin($weather, "rain_yesterday");
 		mmToin($weather, "rainymax");		
 		mmToin($weather, "rainmmax");
 		mmToin($weather, "rain_24hrs");
-                mmToin($weather, "rain_alltime");
+        mmToin($weather, "rain_alltime");
 		$weather["rain_units"] = $rainunit;
 	}
 }
