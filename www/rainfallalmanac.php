@@ -374,11 +374,11 @@ elseif($weather["rain_units"] =='in'){ echo number_format($weather["rain_today"]
  <article>
         <div class=actualt>Rainfall Yesterday</div>
     <?php // rain yesterday
-echo "<div class='rainfalltoday1'>",$weather["rainydmax"] . "</value>";echo "<smalluvunit>".$weather["rain_units"]."</smalluvunit>"?>
+echo "<div class='rainfalltoday1'>",$weather["rain_yesterday"] . "</value>";echo "<smalluvunit>".$weather["rain_units"]."</smalluvunit>"?>
 <div class='w34convertrain'>
 <?php //convert rain
-if($weather["rain_units"] =='mm'){ echo number_format($weather["rainydmax"]*0.0393701,2)."<smalluvunit>in</smalluvunit>";}
-elseif($weather["rain_units"] =='in'){ echo number_format($weather["rainydmax"]*25.400013716,2)."<smalluvunit>mm</smalluvunit>";}
+if($weather["rain_units"] =='mm'){ echo number_format($weather["rain_yesterday"]*0.0393701,2)."<smalluvunit>in</smalluvunit>";}
+elseif($weather["rain_units"] =='in'){ echo number_format($weather["rain_yesterday"]*25.400013716,2)."<smalluvunit>mm</smalluvunit>";}
 ?>
 <div></div>
 
