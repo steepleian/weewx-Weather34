@@ -627,8 +627,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
         }
 
 	function setTempSmall(options) {
-	    options.chart.marginBottom = 0;
-	    options.yAxis[0].height = "100";
+	    options.chart.marginBottom = 20;
+	    options.yAxis[0].height = "70";
 	    $("#"+plot_div).css("height", 100);
 	    return options
 	};
