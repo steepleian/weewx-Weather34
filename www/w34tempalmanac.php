@@ -880,7 +880,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0}
  </main>
 <main class="grid1">
   <articlegraph> 
-  <iframe  src="w34highcharts/dark-charts.html?chart='tempsmallplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0" scrolling="no" width="100%" height="110px"></iframe>
+  <iframe  src="w34highcharts/dark-charts.html?chart='tempsmallplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
    
   </articlegraph> 
   
