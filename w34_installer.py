@@ -53,10 +53,10 @@ class w34_installer:
             try:
                 response = raw_input("!!! THIS INSTALL IS USING PYTHON VERSION " + ver + " IS THIS CORRECT? (Yes/No) ").strip()
             except:
-                response = input("!!! THIS INSTALL IS USING PYTHON VERSION " + ver + " IS THIS CORRECT? (Yes/No)").strip()
+                response = input("!!! THIS INSTALL IS USING PYTHON VERSION " + ver + " IS THIS CORRECT? (Yes/No) ").strip()
             if not response.upper().startswith("Y"):
                 print("User terminated install due to Python Version " + ver) 
-                sys.exit(1);
+                sys.exit(1)
             print ("Install will continue with Python Version " + ver + "\n")
             try:
                 import ephem
@@ -75,23 +75,44 @@ class w34_installer:
                 print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED")
             except:
                 print("!!!PHP NOT INSTALLED!!!")
-            print("\nList of found conf files to install with") 
             from configobj import ConfigObj
             if conf_file == None:
                 file_count = 1
                 files = [f for f in os.listdir('.') if os.path.isfile(f) and f.endswith(".conf")]
                 for f in files:
-                    conf_files[file_count] = f
-                    print(str(file_count) + " -> " + f)
-                    file_count += 1
-                response = 0
-                while response == 0 or response > len(conf_files):
-                    try:
-                        response = int(raw_input("Enter the NUMBER of the installer config file ").strip())
-                    except:
-                        response = int(input("Enter the NUMBER of the installer config file ").strip())
-                conf_file = conf_files[response]
-            print("Installer Config file " + conf_file + " was chosen.")
+                    with open(f) as infile:
+                        try:
+                            d = eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", ""))
+                            if os.path.isdir(list(d["copy_paths"].split(","))[0]):
+                                conf_files[file_count] = f   
+                                file_count += 1   
+                        except Exception as e:
+                            pass
+                if len(conf_files) == 1:
+                    conf_file = conf_files[1]
+                else:
+                    if file_count > 1:
+                        print("\nList of found w34_installer conf files to install that have existing weewx paths") 
+                        for f in range(len(conf_files)):
+                            print(str(f+1) + " -> " + conf_files[f+1])
+                        response = 0
+                        while response == 0 or response > len(conf_files):
+                            try:
+                                response = int(raw_input("Enter the NUMBER of the installer config file ").strip())
+                            except:
+                                response = int(input("Enter the NUMBER of the installer config file ").strip())
+                        conf_file = conf_files[response]
+                    else:
+                        print("!!! NO VALID W34_INSTALLER CONFIG FILE NOT FOUND. INSTALL ABORTED!!!")
+                        sys.exit(1)
+            print("w34_installer Config file " + conf_file + " was chosen.")
+            try:
+                response = raw_input("IS THIS CORRECT? (Yes/No) ").strip()
+            except:
+                response = input("IS THIS CORRECT? (Yes/No) ").strip()
+            if not response.upper().startswith("Y"):
+                print("User terminated") 
+                sys.exit(1)
             with open(conf_file) as infile:
                 d = eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", ""))
             with open("services.txt") as infile:
