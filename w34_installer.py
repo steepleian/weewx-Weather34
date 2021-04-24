@@ -103,7 +103,7 @@ class w34_installer:
                                 response = int(input("Enter the NUMBER of the installer config file ").strip())
                         conf_file = conf_files[response]
                     else:
-                        print("!!! NO VALID W34_INSTALLER CONFIG FILE NOT FOUND. INSTALL ABORTED!!!")
+                        print("!!! NO VALID W34_INSTALLER CONFIG FILE FOUND. INSTALL ABORTED!!!")
                         sys.exit(1)
             print("w34_installer Config file " + conf_file + " was chosen.")
             try:
