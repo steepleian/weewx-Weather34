@@ -33,17 +33,32 @@ class w34_uninstaller:
                 file_count = 1
                 files = [f for f in os.listdir('.') if os.path.isfile(f) and f.endswith(".conf")]
                 for f in files:
-                    conf_files[file_count] = f
-                    print(str(file_count) + " -> " + f)
-                    file_count += 1
-                response = 0
-                while response == 0 or response > len(conf_files):
-                    try:
-                        response = int(raw_input("Enter the NUMBER of the config file that the w34_installer used? ").strip())
-                    except:
-                        response = int(input("Enter the NUMBER of the config file that the w34_installer used? ").strip())
-                conf_file = conf_files[response]
-            print("Installer Config file " + conf_file + " was chosen.")
+                    with open(f) as infile:
+                        try:
+                            d = eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", ""))
+                            if os.path.isdir(list(d["copy_paths"].split(","))[0]):
+                                conf_files[file_count] = f   
+                                file_count += 1   
+                        except Exception as e:
+                            pass
+                if len(conf_files) == 1:
+                    conf_file = conf_files[1]
+                else:
+                    if file_count > 1:
+                        print("\nList of found w34_uninstaller conf files to uninstall that have existing weewx paths") 
+                        for f in range(len(conf_files)):
+                            print(str(f+1) + " -> " + conf_files[f+1])
+                        response = 0
+                        while response == 0 or response > len(conf_files):
+                            try:
+                                response = int(raw_input("Enter the NUMBER of the uninstaller config file ").strip())
+                            except:
+                                response = int(input("Enter the NUMBER of the uninstaller config file ").strip())
+                        conf_file = conf_files[response]
+                    else:
+                        print("!!! NO VALID W34_INSTALLER CONFIG FILE. UNINSTALL ABORTED!!!")
+                        sys.exit(1)
+            print("Uninstaller Config file " + conf_file + " was chosen.")
             with open(conf_file) as infile:
                 d = eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", ""))
             copy_list = list(d["copy_paths"].split(","))
