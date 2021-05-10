@@ -8040,9 +8040,7 @@ valueearthquake {
 
 alertvalue {
   font-size: .75rem;
-  margin-left: -10px;
   margin-top: 10px
-  
 }
 
 spanefreezing,
@@ -8057,7 +8055,7 @@ spanelightning {
 }
 
 alertadvisory {
-  margin-left: -55px;
+  margin-left: -50px;
   position: absolute
 }
 
@@ -9355,7 +9353,7 @@ weather34menumarkerlight {
   width: 100%;
   max-width: 820px;
   height: 0;
-  padding-top: 56.25%;
+  padding-top: 66.66%;
   overflow: auto;
   pointer-events: auto;
   -webkit-transform: translateZ(0);
