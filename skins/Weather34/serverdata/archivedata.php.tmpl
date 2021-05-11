@@ -88,15 +88,15 @@
 
         #set $mlsc = "N/A"
         #if $varExists('month.lightning_strike_count') and $month.lightning_strike_count.sum is not None 
-          #set $mlsc = $month.lightning_strike_count.sum.format(add_label=False, $localize=False) 
+          #set $mlsc = $month.lightning_strike_count.sum
         #end if
         #set $ylsc = "N/A"
         #if $varExists('year.lightning_strike_count') and $year.lightning_strike_count.sum is not None 
-          #set $ylsc = $year.lightning_strike_count.sum.format(add_label=False, $localize=False) 
+          #set $ylsc = $year.lightning_strike_count.sum
         #end if
         #set $dysc = "N/A"
         #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None 
-          #set $dysc = $day.lightning_strike_count.sum.format(add_label=False, $localize=False) 
+          #set $dysc = $day.lightning_strike_count.sum
         #end if
         #set $ldlt = "N/A"
         #if $varExists('year.lightning_distance.lasttime') and $year.lightning_distance.lasttime is not None  
