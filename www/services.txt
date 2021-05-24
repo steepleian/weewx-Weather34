@@ -1,0 +1,76 @@
+{ 
+"##Start of user fields", 
+"lat":'51.93979', 
+"lon":'-0.986966', 
+"lang":'en', 
+"continent":'eu', 
+"aq_apikey":'', 
+"ds_apikey":'aef5619cc72559ae65fcd0e6efa76091', 
+"ds_units":'uk2', 
+"wu_apikey":'f29501f88fb143149501f88fb17314f3', 
+"wu_units":'h', 
+"me_apikey":'f424a1993c522b414ec656ebaf', 
+"me_code":'EGTK', 
+"pu_id":'', 
+"al_ip":'192.168.1.234', 
+"al_country":'', 
+"al_region":'', 
+"##List of all user fields above to be replaced in strings below", 
+"sub_fields":'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region', 
+"config_entries3":'''= 
+'Weather34WebServices' : 
+"# Air quality, your own latitude, longitude, token and interval in seconds are required\n" 
+"# Dark Sky, your own latitude, longitude, API key, language, units and interval in seconds required\n" 
+"# DarkSky Units key us = US Units, ca = METRIC Units, si = METRICWX Units, uk2 = UK(metric with mph) Units\n" 
+"# Example https://api.forecast.io/forecast/yourtokenhere/51.94,-0.987?lang=en&units=uk2\n" 
+"# Weather Underground, your own latitude, longitude, API key, language, units and interval in seconds required\n" 
+"# Weather Underground Units key e = US, m = METRIC, s = SI(with m/s Scandinavia), h = UK(with mph)\n" 
+"# Example https://api.weather.com/v3/wx/forecast/daily/5day?geocode=51.94,-0.987&language=en&format=json&units=h&apiKey=yourapikeyhere\n" 
+"# Earthquake reports interval in seconds required\n" 
+"# K-Index reports interval in seconds required\n" 
+"# Metar reports airport code, API Key and interval in seconds required\n" 
+"# Example https://api.checkwx.com/metar/EGTK/decoded\n" 
+"# Example X-API-Key:yourapikeyhere\n" 
+"# Purpleair reports device ID and interval in seconds required\n" 
+"# Example https://www.purpleair.com/json?show=38365\n" 
+"# Meteoalrm European weather warnings country code, region code and interval in seconds required\n" 
+"# Example http://192.168.1.232/weewx/weather34/eualert.php?country=UK&region=013\n" 
+"# Select the services you require by creating a string of the services above\n" 
+"# Example services = ds.me.eq.ki.wu.aq.al.ah.ao.aa.pu\n" 
+"# Select your preferred time interval in seconds for each service\n" 
+{ 
+ 'aq_url':'https://api.waqi.info/feed/geo:51.93979;-0.986966/?token=', 
+ 'aq_interval':'3600', 
+ 'ds_url':'https://api.forecast.io/forecast/aef5619cc72559ae65fcd0e6efa76091/51.93979,-0.986966?lang=en&units=uk2', 
+ 'ds_interval':'3600', 
+ 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode=51.93979,-0.986966&language=en&format=json&units=h&apiKey=f29501f88fb143149501f88fb17314f3', 
+ 'wu_interval':'3600', 
+ 'eq_url':'https://www.emsc-csem.org/service/rss/rss.php?typ=emsc', 
+ 'eq_interval':'3600', 
+ 'eq_xml_data':'False', 
+ 'ki_url':'https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json', 
+ 'ki_interval':'43200', 
+ 'me_url':'https://api.checkwx.com/metar/EGTK/decoded', 
+ 'me_header':'X-API-Key:f424a1993c522b414ec656ebaf', 
+ 'me_interval':'3600', 
+ 'pu_url':'https://www.purpleair.com/json?show=', 
+ 'pu_interval':'3600', 
+ 'al_url':'http://192.168.1.234/weewx/weather34/eualert.php?country=&region=', 
+ 'al_interval':'3600', 
+ 'enable_uk':'undefined', 
+ 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/se', 
+ 'uk_interval':'3600', 
+ 'uk_xml_data':'undefined', 
+ 'services':'ds.wu.eq.ki.me.uk' 
+}''', 
+"config_entries4":'''= 
+'Weather34CloudCover' : 
+"# Apply your own latitude and longitude and continent to the URLs in this section\n" 
+{ 
+   'enable':'False', 
+   'db_field':'signal8', 
+   'cc_interval':'300', 
+   'cc1_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat=51.93979&lon=-0.986966&width=300&height=300&zoom=1.00&continent=eu', 
+   'cc2_url':'https://api.sat24.com/crop?type=infraPolair&lat=51.93979&lon=-0.986966&width=300&height=300&zoom=1.00&continent=eu', 
+}''', 
+}

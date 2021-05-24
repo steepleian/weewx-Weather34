@@ -1,10 +1,13 @@
-<?php  include('shared.php');include('common.php');include('airqualitydata.php');  
+<?php  include('shared.php');include('common.php');include('serverdata/airqualitydata.php');
+error_reporting(-1);
 $aqiweather["pm_units"] = "μg/㎥";
-$aqiweather["pm10"]       =   round($pm10,0);
-$aqiweather["pm25"]       =   round($pm25,0);
+$aqiweather["pm10"]       =   round($pm10now,0);
+$aqiweather["pm25"]       =   round($pm25now,0);
 
 //$aqiweather["pm25"]       =   "45";
 //$aqiweather["pm10"]       =   "35";
+
+
 ?>
 <div class="topmin">
   
@@ -25,8 +28,8 @@ $aqiweather["pm25"]       =   round($pm25,0);
   
 </div></smalluvunit>
 <!--<a alt="Air Quality Information" title="Air Quality Information" href="aqipopup.php" data-lity > -->
-<a alt="DAQI air quality info" title="DAQI air quality info" href="aqipopup.php" data-lity>
-<div class="yearwordbig"><?php echo "DAQI"?></div>
+<a alt="DAQI air quality info" title="DAQI air quality info" href="pop_aqinfo.php" data-lity>
+<div class="yearwordbig"><?php echo "DAQI" ?></div>
 <?php //small title PM2.5
 
  if ($aqiweather["pm25"]>48){echo '<div class="minword">PM<sub>2.5</sub>';}

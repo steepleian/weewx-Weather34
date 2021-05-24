@@ -13,7 +13,10 @@ $metar34time       = $parsed_json->{'data'}[0]->{'observed'};
 $metar34raw       = $parsed_json->{'data'}[0]->{'raw_text'};
 $metar34stationid       = $parsed_json->{'data'}[0]->{'icao'};
 $metar34stationname       = $parsed_json->{'data'}[0]->{'station'}->{'name'};
-//$metar34stationname       = $airport1;	
+
+$metar34lat = $parsed_json->{'data'}[0]->{'station'}->{'geometry'}->{'coordinates'}[1];
+$metat34lon = $parsed_json->{'data'}[0]->{'station'}->{'geometry'}->{'coordinates'}[0];
+$airport1dist = round(distance($lat, $lon, $metar34lat, $metat34lon));
 $metar34pressurehg       = $parsed_json->{'data'}[0]->{'barometer'}->{'hg'};	
 $metar34pressuremb       = $parsed_json->{'data'}[0]->{'barometer'}->{'mb'};
 $metar34conditions         = $parsed_json->{'data'}[0]->{'conditions'}[0]->{'code'};

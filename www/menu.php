@@ -297,10 +297,10 @@ if (!empty($webcamurl) && $webcamurl != ' ' && $webcamurl != 'Null' && $webcamur
       <?php
 } ?>
       <li><!--contact info-->
-        <a href="bio.php" data-lity title="Weather Station Owner Contact Card Info"><weather34menumarkerorange></weather34menumarkerorange> Contact Card</a>
+        <a href="pop_bio.php" data-lity title="Weather Station Owner Contact Card Info"><weather34menumarkerorange></weather34menumarkerorange> Contact Card</a>
       </li>
       <li><!--hardware info-->
-        <a href="stationinfo.php" data-lity title="Hardware Weather Station Hardware Info"><weather34menumarkerred></weather34menumarkerred> Hardware Info</a>
+        <a href="pop_stationinfo.php" data-lity title="Hardware Weather Station Hardware Info"><weather34menumarkerred></weather34menumarkerred> Hardware Info</a>
       </li>
       <?php if (!empty($extraLinkTitle) && !empty($extraLinkURL) && !empty($extraLinkColor))
 { ?>

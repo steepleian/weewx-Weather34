@@ -1,3 +1,11 @@
+@supports (-moz-appearance:none) {
+selector { property:value; }
+}
+/* Chrome version 29 and above */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+selector{ property:value; }
+}
 #beaker:after,
 #beaker:before,
 #raintoday:after,
@@ -8557,7 +8565,7 @@ topbarmetric {
   height: 140px;
   padding: 0;
   background: 0;
-  border: 1px solid rgba(153, 155, 156, .1);
+  border: 0px solid rgba(153, 155, 156, .1);
   color: silver
 }
 
@@ -8640,7 +8648,7 @@ wulargetemplohome uvspan {
 wulargetempdesc {
   margin-top: 5px;
   float: left;
-  font-size: 11px
+  font-size: 11px  
 }
 
 .wulargehomeicons {
@@ -9354,7 +9362,7 @@ weather34menumarkerlight {
   max-width: 820px;
   height: 0;
   padding-top: 66.66%;
-  overflow: auto;
+  overflow: hidden;
   pointer-events: auto;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -9386,4 +9394,13 @@ weather34menumarkerlight {
 
 .lity-hide {
   display: none
+}
+body {
+    margin:0;
+    padding:0;
+    overflow-y: hidden;
+
+}
+body:hover {
+    overflow-y: auto;
 }

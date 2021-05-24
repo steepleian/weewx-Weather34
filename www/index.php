@@ -101,7 +101,16 @@ if ('serviceWorker' in navigator) {
 </script>   
 </head>
 
-<body>
+<body <?php if($dotpointercursor=="true") {echo 'class="dotpointercursor"';} ?>>
+  
+  
+  
+  
+  
+
+ 
+  
+  
 <!-- begin top layout for homeweatherstation template-->
 <div class="weather2-container">
 <div class="container weather34box-toparea">
@@ -117,10 +126,11 @@ if ('serviceWorker' in navigator) {
   <div class="weather34box alert"><div class="title"><?php echo $info;?> <?php echo $position4title ;?> </div><div class="value"><div id="position4"></div></div></div>
 </div></div></div></div>
 <!--end position section for homeweatherstation template-->
+
 <!--begin outside/station data section for homeweatherstation template-->
 <!--begin outside/station data section for homeweatherstation template-->
 <div class="weather-container"><div class="weather-item"><div class="chartforecast">
-<span class="yearpopup">  <a alt="almanac temperature" title="almanac temperature" href="w34tempalmanac.php" data-lity > <?php echo $chartinfo?> Almanac </a></span>
+<span class="yearpopup">  <a alt="almanac temperature" title="almanac temperature" href="pop_tempalmanac2.php" data-lity > <?php echo $chartinfo?> Almanac </a></span>
 <span class="yearpopup">  <a alt="yearly temperature" title="yearly temperature" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='temperatureplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Yearly</a></span>
 <a alt="yearly Feels" title="yearly Feels" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='tempderivedplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity > <?php echo '| Feels';?> </a></span>
 <a alt="yearly humidity" title="yearly humidity" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='humidityplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity > <?php echo '| Hum';?> </a></span>  
@@ -133,12 +143,24 @@ if ('serviceWorker' in navigator) {
   <!--forecast for homeweatherstation template-->
 <div class="weather-item"><div class="chartforecast">
 <span class="yearpopup">
-<?php if ($position6=='forecast3ds.php'){echo'<a alt="Dark Sky Forecast " title="Dark Sky Forecast " href="outlookds.php" data-lity>'. $chartinfo. " Daily Forecast </a>";}?>
-<?php if ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') {echo ' <a alt="weather underground forecast" title="weather underground forecast" href="outlookwu.php" data-lity>'. $chartinfo. " Daily F.cast </a>";}?>
-<?php if ($position6=='forecast3ds.php' || ($dshourly=='yes' && $apikey!= '11111111111111' && ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php'))) {echo '<a alt="Hourly Forecast" title="Hourly Forecast" href="forecastdshour.php" data-lity>&nbsp;'. $chartinfo. " Hourly F.cast</a>";}?></span>
+<?php if ($position6=='forecast3ds.php'){echo'<a alt="darksky weather forecast " title="darksky weather forecast " href="outlookds.php" data-lity>'. $chartinfo. " Daily Forecast </a>";}?>
+<?php if ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') {echo ' <a alt="wu weather forecast" title="weather underground forecast" href="pop_outlookwu.php" data-lity>'. $chartinfo. " Daily F.cast </a>";}?>
+<?php if ($position6=='forecast3aw.php' || $position6=='forecast3awlarge.php') {echo ' <a alt="aeris weather forecast" title="aeris weather forecast" href="pop_aeris_daynight.php" data-lity>'. $chartinfo. " Daily F.cast </a>";echo '<a alt="Hourly Forecast" title="Hourly Forecast" href="pop_aeris_hourly.php" data-lity>&nbsp;'. $chartinfo. " Hourly F.cast</a>";}?>
+<?php if ($position6=='forecast3ds.php' || ($dshourly=='yes' && $apikey!= '11111111111111' && ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php'))) {echo '<a alt="Hourly Forecast" title="Hourly Forecast" href="pop_aeris_hourly.php" data-lity>&nbsp;'. $chartinfo. " Hourly F.cast</a>";}?></span>
 <?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_rw.php')) {echo '<a alt="Alerts" title="Alerts" href="darkskyalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
-<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_eu.php')) {echo '<a alt="Meteoalarm" title="Meteoalarm" href="meteoalarmalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
-<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_uk.php')) {echo '<a alt="MetOffice Warnings" title="MetOffice Warnings" href="metofficealerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
+<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_eu.php')) {echo '<a alt="Europe Alerts" title="Europe Alerts" href="pop_europealerts.php"  data-lity>&nbsp;'. $chartinfo. " European Alerts</a>";}?></span>
+<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_uk.php')) {echo '<a alt="MetOffice Warnings" title="MetOffice Warnings" href="pop_metofficealerts.php"  data-lity>&nbsp;'. $chartinfo. " UK Alerts</a>";}?></span>
+<?php if ($position6=='forecast3ds.php' || ($position6=='forecast3wu.php' || $position6=='forecast3wularge.php') && ($position4=='advisory_au.php')) {echo '<a alt="BOM warnings" title="BOM Warnings" href="pop_bom_alerts.php"  data-lity>&nbsp;'. $chartinfo. " Australian BOM Alerts</a>";}?></span>
+<?php if ($position6=='forecast3awlarge.php' && $position4=='advisory_rw.php') {echo '<a alt="Alerts" title="Alerts" href="darkskyalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
+<?php if ($position6=='forecast3awlarge.php' && $position4=='advisory_eu.php') {echo '<a alt="Europe Alerts" title="Europe Alerts" href="pop_europealerts.php"  data-lity>&nbsp;'. $chartinfo. " European Alerts</a>";}?></span>
+<?php if ($position6=='forecast3awlarge.php' && $position4=='advisory_uk.php') {echo '<a alt="MetOffice Warnings" title="MetOffice Warnings" href="pop_metofficealerts.php"  data-lity>&nbsp;'. $chartinfo. " UK Alerts</a>";}?></span>
+<?php if ($position6=='forecast3awlarge.php' && $position4=='advisory_au.php') {echo '<a alt="BOM warnings" title="BOM Warnings" href="pop_bom_alerts.php"  data-lity>&nbsp;'. $chartinfo. " Australian BOM Alerts</a>";}?></span>
+<?php if ($position6=='forecast3aw.php' && $position4=='advisory_rw.php') {echo '<a alt="Alerts" title="Alerts" href="darkskyalerts.php"  data-lity>&nbsp;'. $chartinfo. " Alerts</a>";}?></span>
+<?php if ($position6=='forecast3aw.php' && $position4=='advisory_eu.php') {echo '<a alt="Europe Alerts" title="Europe Alerts" href="pop_europealerts.php"  data-lity>&nbsp;'. $chartinfo. " European Alerts</a>";}?></span>
+<?php if ($position6=='forecast3aw.php' && $position4=='advisory_uk.php') {echo '<a alt="MetOffice Warnings" title="MetOffice Warnings" href="pop_metofficealerts.php"  data-lity>&nbsp;'. $chartinfo. " UK Alerts</a>";}?></span>
+<?php if ($position6=='forecast3aw.php' && $position4=='advisory_au.php') {echo '<a alt="BOM warnings" title="BOM Warnings" href="pop_bom_alerts.php"  data-lity>&nbsp;'. $chartinfo. " Australian BOM Alerts</a>";}?></span>
+
+<span class="monthpopup"><a href="pop_europealerts.php" title="Europe" alt="European" data-lity><?php echo $chartinfo?> Europe</a></span>
 
   
       </div>
@@ -148,9 +170,9 @@ if ('serviceWorker' in navigator) {
   <!--currentsky for homeweatherstation template-->
   <div class="weather-item"><div class="chartforecast">
          <!-- HOURLY & Outlook for homeweather station-->
-  <span class="yearpopup"> <a alt="nearby metar station" title="nearby metar station" href="metarnearby.php" data-lity><?php echo $chartinfo?> <?php echo 'Nearby Metar';?> <?php if(filesize('jsondata/me.txt')<160){echo "(<ored>Offline</ored>)";}else echo "" ?></a></span>
-  <span class="monthpopup"><a href="windyradar.php" title="Windy.com Radar" alt="Windy.com Radar" data-lity><?php echo $chartinfo?> Radar</a></span>
-  <span class="monthpopup"><a href="windywind.php" title="Windy.com Wind Map" alt="Windy.com Wind Map" data-lity><?php echo $chartinfo?> Wind Map</a></span>
+  <span class="yearpopup"> <a alt="nearby metar station" title="nearby metar station" href="pop_metarnearby.php" data-lity><?php echo $chartinfo?> <?php echo 'Nearby Metar';?> <?php if(filesize('jsondata/me.txt')<160){echo "(<ored>Offline</ored>)";}else echo "" ?></a></span>
+  <span class="monthpopup"><a href="pop_windyradar.php" title="Windy.com Radar" alt="Windy.com Radar" data-lity><?php echo $chartinfo?> Radar</a></span>
+  <span class="monthpopup"><a href="pop_windywind.php" title="Windy.com Wind Map" alt="Windy.com Wind Map" data-lity><?php echo $chartinfo?> Wind Map</a></span>
   <span class="todaypopup"><a alt="cloud cover" title="cloud cover" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='cloudcoverplot'&span='weekly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Cloud Cover</a></span>
 
   
@@ -160,7 +182,7 @@ if ('serviceWorker' in navigator) {
  <!--windspeed for homeweatherstation template-->
 <?php if ($weather["wind_units"]=='kts'){$weather["wind_units"]="kn";} ?>
 <div class="weather-container"><div class="weather-item"><div class="chartforecast">
-<span class="yearpopup">  <a alt="windspeed almanac" title="windspeed almanac" href="w34windalmanac.php" data-lity ><?php echo $chartinfo?> Almanac </a></span>
+<span class="yearpopup">  <a alt="windspeed almanac" title="windspeed almanac" href="pop_windalmanac.php" data-lity ><?php echo $chartinfo?> Almanac </a></span>
 <span class="yearpopup">  <a alt="yearly windspeed" title="yearly windspeed" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='windplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Yearly</a></span>
 <!--<span class="monthpopup"> <a alt="monthly windspeed" title="monthly windspeed"href="<?php echo $chartsource ;?>/monthlywindspeedgust.php" data-lity><?php echo $menucharticonpage?> <?php echo strftime(" %b") ;?> </a></span>-->
 <span class="todaypopup"> <a alt="weekly windspeed" title="weekly windspeed" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='windallplot'&span='weekly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Weekly</a></span>
@@ -171,7 +193,7 @@ if ('serviceWorker' in navigator) {
          <div id="windspeed"></div></div>
        <!--barometer for homeweatherstation template-->
   <div class="weather-item"><div class="chartforecast" >
-  <span class="yearpopup">  <a alt="barometer almanac" title="barometer almanac" href="w34barometeralmanac.php" data-lity ><?php echo $chartinfo?> Almanac</a></span>
+  <span class="yearpopup">  <a alt="barometer almanac" title="barometer almanac" href="pop_barometeralmanac.php" data-lity ><?php echo $chartinfo?> Almanac</a></span>
 <span class="yearpopup">  <a alt="yearly barometer" title="yearly barometer" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='barometerplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Yearly </a></span>
 <span class="todaypopup"> <a alt="weekly barometer" title="weekly barometer" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='barometerplot'&span='weekly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Weekly </a></span>
       </div>
@@ -182,8 +204,8 @@ if ('serviceWorker' in navigator) {
 <?php if ($purpleairhardware=='yes'){echo''?>
   <span class="yearpopup">
 <a alt="moonphase" title="moonphase" href=mooninfo.php data-lity><?php echo $chartinfo?> <?php echo $lang['Moon'],"Info";}?></a></span>  
-<span class="yearpopup"><a alt="meteor showers" title="meteor showers" href="meteorshowers.php" data-lity><?php echo $meteorinfo;?> &nbsp;<?php if ($meteor_default=='No Meteor') {echo "Meteor Showers";} else {	echo $meteor_default;}?></a></span>
-<span class="yearpopup"><a alt="aurora information" title="aurora information" href=aurora.php data-lity><?php echo $info;?> Aurora <?php if ($kp>=5) {echo '<oorange>Active</oorange>';}else {echo "";}?></a></span>
+<span class="yearpopup"><a alt="meteor showers" title="meteor showers" href="pop_meteorshowers.php" data-lity><?php echo $meteorinfo;?> &nbsp;<?php if ($meteor_default=='No Meteor') {echo "Meteor Showers";} else {	echo $meteor_default;}?></a></span>
+<span class="yearpopup"><a alt="aurora information" title="aurora information" href=pop_aurora.php data-lity><?php echo $info;?> Aurora <?php if ($kp>=5) {echo '<oorange>Active</oorange>';}else {echo "";}?></a></span>
 
 
 </div>
@@ -191,7 +213,7 @@ if ('serviceWorker' in navigator) {
   <div id="moonphase"></div> </div></div></div>
  <!--rainfall for homeweatherstation template-->
 <div class="weather-container"><div class="weather-item"><div class="chartforecast" >
-<span class="yearpopup">  <a alt="almanac rainfall" title="almanac rainfall" href="w34rainfallalmanac.php" data-lity ><?php echo $chartinfo?> Almanac </a></span>
+<span class="yearpopup">  <a alt="almanac rainfall" title="almanac rainfall" href="pop_rainfallalmanac.php" data-lity ><?php echo $chartinfo?> Almanac </a></span>
 <span class="yearpopup">  <a alt="yearly rainfall" title="yearly rainfall" href="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='rainplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" data-lity ><?php echo $menucharticonpage?> Yearly </a></span>
 <span class="todaypopup"> <a alt="monthly rainfall" title="monthly
 rainfall" href="<?php echo $chartsource;?>/<?php echo
@@ -209,29 +231,30 @@ data-lity ><?php echo $menucharticonpage?> Monthly </a></span>
   <div class="weather-item"><div class="chartforecast" >
   <span class="yearpopup">
 <?php if ($position12=='webcamsmall.php' OR $position12=='indoortemperature.php' OR $position12=='moonphase.php'){echo'<span class="yearpopup"><a alt="Webcam " title="Webcam " href="cam.php" data-lity>'. $webcamicon. ' Live Webcam </a></span>
-  <span class="yearpopup"> <a alt="Indoor Guide" title="Indoor Guide" href="homeindoor.php" data-lity>'. $chartinfo. ' Indoor Guide </a></span>
-  <span class="yearpopup"> <a alt="Moon Info" title="Moon Info" href="mooninfo.php" data-lity>'. $chartinfo. ' Moon Info </a></span>';}
+  <span class="yearpopup"> <a alt="Indoor Guide" title="Indoor Guide" href="pop_homeindoor.php" data-lity>'. $chartinfo. ' Indoor Guide </a></span>
+  <span class="yearpopup"> <a alt="Moon Info" title="Moon Info" href="pop_mooninfo.php" data-lity>'. $chartinfo. ' Moon Info </a></span>';}
 if ($position12=='airqualitymodule.php') {echo ' <span class="yearpopup"><a alt="air quality information" title="air quality information" href="purpleair.php" data-lity>'. $chartinfo. " Air Quality | Cloudbase </a></span>";}
-if ($position12=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindex.php" data-lity>'. $chartinfo. " UV Guide  </a></span>";} 
-if ($position12=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Almanac" title="UV Almanac" href="w34uvalmanac.php" data-lity>&nbsp;'. $chartinfo. " UV Almanac </a></span>";}
-if ($position12=='weather34uvsolar.php') {echo '<span class="yearpopup"> <a alt="Solar Almanac" title="Solar Almanac" href="w34solaralmanac.php" data-lity>'. $chartinfo. " Solar Almanac </a></span>";}
+if ($position12=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="pop_uvindex.php" data-lity>'. $chartinfo. " UV Guide  </a></span>";} 
+if ($position12=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Almanac" title="UV Almanac" href="pop_uvalmanac.php" data-lity>&nbsp;'. $chartinfo. " UV Almanac </a></span>";}
+if ($position12=='weather34uvsolar.php') {echo '<span class="yearpopup"> <a alt="Solar Almanac" title="Solar Almanac" href="pop_solaralmanac.php" data-lity>'. $chartinfo. " Solar Almanac </a></span>";}
 if ($position12=='solaruvds.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindexds.php" data-lity>'. $chartinfo. " UV Guide </a></span>";}
-if ($position12=='solaruvds.php') {echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="w34solaralmanac.php" data-lity>'. $chartinfo. " Solar Almanac </a></span>";}
+if ($position12=='solaruvds.php') {echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="pop_solaralmanac.php" data-lity>'. $chartinfo. " Solar Almanac </a></span>";}
 if ($position12=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindexwu.php" data-lity>'. $chartinfo. " UV Guide </a></span>";}
-if ($position12=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="w34solaralmanac.php" data-lity>'. $chartinfo. " Solar Almanac </a></span>";}
+if ($position12=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="wpop_solaralmanac.php" data-lity>'. $chartinfo. " Solar Almanac </a></span>";}
 if ($position12=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="Solar Chart" title="Solar Chart" href="<?php echo $chartsource ;?>/todaysolar.php" data-lity>&nbsp;'. $menucharticonpage. " Solar chart </a></span>";}
-if ($position12=='eq.php') {echo ' <span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="eqlist.php" data-lity>'. $chartinfo. " Worldwide Earthquakes </a></span>";}?>
+if ($position12=='eq.php') {echo ' <span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="pop_eqlist.php" data-lity>'. $chartinfo. " Worldwide Earthquakes </a></span>";}
+if ($position12=='eq_uk.php') {echo ' <span class="yearpopup" scrolling="no"><a alt="Earthquakes UK" title="Earthquakes UK" href="pop_eqlist_uk.php" data-lity>'. $chartinfo. " UK Earthquakes </a></span>";}?>
 </div><span class='moduletitle'><a alt="Position12 Switcher" title="Position12 Switcher" href="updatesection.php?pos=position12"><img src="img/lightningalert.svg" width="10" height="10" align="right"/></a><?php echo $position12title?></span></span><div id="solar"></div></div>
  <!--position last module for homeweatherstation template-->
   <div class="weather-item"><div class="chartforecast" >
   <span class="yearpopup">
 <?php if ($positionlastmodule=='webcamsmall.php' OR $positionlastmodule=='indoortemperature.php' OR $positionlastmodule=='moonphase.php'){
-if(!(empty($webcamurl)&&empty($videoWeatherCamURL))) { echo'<span class="yearpopup"><a alt="Webcam " title="Webcam " href="cam.php" data-lity>'. $webcamicon. ' Live Webcam </a></span>';}
-echo'  <span class="yearpopup"> <a alt="Indoor Guide" title="Indoor Guide" href="homeindoor.php" data-lity>'. $chartinfo. ' Indoor Guide </a></span>
-  <span class="yearpopup"> <a alt="Moon Info" title="Moon Info" href="mooninfo.php" data-lity>'. $chartinfo. ' Moon Info </a></span>';}
+if(!(empty($webcamurl)&&empty($videoWeatherCamURL))) { echo'<span class="yearpopup"><a alt="Webcam " title="Webcam " href="pop_cam.php" data-lity>'. $webcamicon. ' Live Webcam </a></span>';}
+echo'  <span class="yearpopup"> <a alt="Indoor Guide" title="Indoor Guide" href="pop_homeindoor.php" data-lity>'. $chartinfo. ' Indoor Guide </a></span>
+  <span class="yearpopup"> <a alt="Moon Info" title="Moon Info" href="pop_mooninfo.php" data-lity>'. $chartinfo. ' Moon Info </a></span>';}
 if ($positionlastmodule=='airqualitymodule.php') {echo ' <span class="yearpopup"><a alt="air quality" title="air quality" href="aqipopup.php" data-lity>'. $chartinfo. " Air Quality | Cloudbase </a></span>";}
-if ($positionlastmodule=='purpleairqualitymodule.php') {echo ' <span class="yearpopup"><a alt="air quality" title="air quality" href="purpleair.php" data-lity>'. $chartinfo. " Air Quality | Cloudbase </a></span>";}
-if ($positionlastmodule=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindex.php" data-lity>'. $chartinfo. " UV Guide  </a></span>";}
+if ($positionlastmodule=='purpleairqualitymodule.php' or $positionlastmodule=='ew_airqualitymodule.php') {echo ' <span class="yearpopup"><a alt="air quality" title="air quality" href="pop_airqualityinfo.php" data-lity>'. $chartinfo. " Air Quality | Cloudbase </a></span>";}
+if ($positionlastmodule=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="pop_uvindex.php" data-lity>'. $chartinfo. " UV Guide  </a></span>";}
 if ($positionlastmodule=='weather34uvsolar.php') {echo ' <span class="yearpopup"><a alt="UV Alamanac" title="UV Alamanac" href="w34uvalmanac.php" data-lity>&nbsp;'. $chartinfo. " UV Alamanac </a></span>";}
 if ($positionlastmodule=='weather34uvsolar.php') {echo '<span class="yearpopup"> <a alt="Solar Alamanac" title="Solar Alamanac" href="w34solaralmanac.php" data-lity>'. $chartinfo. " Solar Alamanac </a></span>";}
 if ($positionlastmodule=='solaruvds.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindexds.php" data-lity>'. $chartinfo. " UV Guide </a></span>";}
@@ -239,8 +262,8 @@ if ($positionlastmodule=='solaruvds.php') {echo ' <span class="yearpopup"><a alt
 if ($positionlastmodule=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindexwu.php" data-lity>'. $chartinfo. " UV Guide </a></span>";}
 if ($positionlastmodule=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="Solar Alamanac" title="Solar Alamanac" href="w34solaralmanac.php" data-lity>'. $chartinfo. " Solar Alamanac </a></span>";}
 if ($positionlastmodule=='solaruvwu.php') {echo ' <span class="yearpopup"><a alt="Solar Chart" title="Solar Chart" href="<?php echo $chartsource ;?>/todaysolar.php" data-lity>&nbsp;' .$menucharticonpage. " Solar chart </a></span>";}
-if ($positionlastmodule=='eq.php') {echo ' <span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="eqlist.php" data-lity>'. $chartinfo. " Worldwide Earthquakes </a></span>";}
-if ($positionlastmodule=='airqualitymodule.php') {echo '<span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="eqlist.php" data-lity>'. $chartinfo. " Worldwide Earthquakes </a></span>";}
+if ($positionlastmodule=='eq.php') {echo ' <span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="pop_eqlist.php" data-lity>'. $chartinfo. " Worldwide Earthquakes </a></span>";}
+if ($positionlastmodule=='eq_uk.php') {echo ' <span class="yearpopup"><a alt="Earthquakes UK" title="Earthquakes UK" href="pop_eqlist_uk.php" data-lity>'. $chartinfo. " UK Earthquakes </a></span>";}
 if ($positionlastmodule=='purpleairqualitymodule.php') {echo '<span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="eqlist.php" data-lity>'. $chartinfo. " Worldwide Earthquakes </a></span>";}?>
 </div><span class='moduletitle'><?php echo $positionlastmoduletitle?></span></span><div id="dldata"></div>
 </div></div>

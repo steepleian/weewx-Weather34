@@ -1,5 +1,7 @@
 <body>
-<?php  include('shared.php');include('common.php');include('airqualitydata.php');
+<?php  include('shared.php');include('common.php');include('serverdata/airqualitydata.php');
+$pm25 = $pm2_5_24_ecowitt;
+$pm25now = $pm2_5_now_ecowitt;
 // PURPLE AIR additional conversion script included by Andrew Billits 24 April 2018
 function pm25_to_aqi($pm25){
 	if ($pm25 > 500.5) {
@@ -72,8 +74,8 @@ if ($aqiweather["aqi"] >300){echo "<topdaqi9>",$aqiweather["aqi"] ; $aqiweather[
 
 ?></div>  
 </div></smalluvunit>
-<a alt="DAQI air quality info" title="DAQI air quality info" href="aqipopup.php" data-lity>
-<div class="yearwordbig"><?php echo "AQI" ?></div>
+<a alt="AQI air quality info" title="AQI air quality info" href="pop_aqinfo.php" data-lity>
+<div class="yearwordbig"><?php echo "AQI"?></div>
 <?php //small title AQI
 
  if ($aqiweather["aqi"]>100){echo '<div class="minword">AQI';}

@@ -170,7 +170,7 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
    </spanelightning></div></div></div>';}  
   
   else if (strpos($alertlevel,'LightGreen') !== false)
-  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertgreen.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
+  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$newalertwhite.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
   </spanelightning></div></div></div>';}  
  //WEATHER34 solar eclipse events and no alerts 
  else {echo '<spanelightning><alertvalue>'.$eclipse_default.'</spanelightning></div></div></div>';}   
