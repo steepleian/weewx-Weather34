@@ -28,6 +28,7 @@ body {
   border-radius: 4px;
   background: hsla(233, 12%, 13%, 0.5);
   background-color: white;
+  color: black;
 }
 .grid > article img {
   max-width: 100%;
@@ -41,11 +42,27 @@ body {
   vertical-align: top;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: teal;
+  background: 0;
   font-family: Arial, Helvetica, sans-serif;
   padding: 1px 3px 1px 3px;
-  width: 8rem;
-  font-size: 0.8rem;
+  width: max-content;
+  font-size: 0.9rem;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  top: -2px;
+  display: flex;
+}
+.grid > article actualtn {
+  vertical-align: top;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1px 3px 1px 3px;
+  width: max-content;
+  font-size: 0.9rem;
   color: white;
   align-items: center;
   justify-content: center;
