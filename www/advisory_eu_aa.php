@@ -1,6 +1,6 @@
  <?php //original weather34 script original css/svg/php by weather34 2015-2019 // 
 include('w34CombinedData.php');include('settings1.php');date_default_timezone_set($TZ);
-$json_string = file_get_contents("jsondata/eu.txt");
+$json_string = file_get_contents("jsondata/aa.txt");
 $parsed_json = json_decode($json_string, true);
 $name[0] = $parsed_json['response'][0]['details']['name'];
 $type[0] = explode(" ",$name[0]);
@@ -51,16 +51,16 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <?php
 ///METEOALARM
 if (strpos($alertlevel,'MN') !== false)
- {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_europealerts.php" data-lity>'.$newalertlightyellow.'</alertadvisory2><alertvalue>Alert<br> '.$alerttype.'</alertvalue>
+ {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_aerisalerts.php" data-lity>'.$newalertlightyellow.'</alertadvisory2><alertvalue>Alert<br> '.$alerttype.'</alertvalue>
    </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'MD') !== false)
- {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_europealerts.php" data-lity>'.$newalertyellow.'</alertadvisory2><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+ {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_aerisalerts.php" data-lity>'.$newalertyellow.'</alertadvisory2><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
    </spanelightning></div></div></div>';}  
 else if (strpos($alertlevel,'SV') !== false)
-  {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_europealerts.php" data-lity>'.$newalertorange.'</alertadvisory2><alertvalue>Orange Alert<br> '.$alerttype.'</alertvalue>
+  {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_aerisalerts.php" data-lity>'.$newalertorange.'</alertadvisory2><alertvalue>Orange Alert<br> '.$alerttype.'</alertvalue>
   </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'EX') !== false)
-  {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_europealerts.php" data-lity>'.$newalertred.'</alertadvisory2><alertvalue>Red Alert<br> '.$alerttype.'</alertvalue>
+  {echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_aerisalerts.php" data-lity>'.$newalertred.'</alertadvisory2><alertvalue>Red Alert<br> '.$alerttype.'</alertvalue>
   </spanelightning></div></div></div>';} 
 //weather34 //forecast3wularge wu alerts storms 
 else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertadvisory>'.$newalert.'</alertadvisory><alertvalue>Expect<orange> Thunder</orange> This Week</alertvalue> 
@@ -154,8 +154,8 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
     else if ($wuskyrain7>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertadvisory>'.$newalertcold.'</alertadvisory><alertvalue> Expect <blue>Rain</blue> This Week </alertvalue>
    </spanelightning></div></div></div>';}  
   
-  else if ($alertlevel === "")
-  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_europealerts.php" data-lity>'.$newalertwhite.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
+  else if (strpos($alertlevel,'LightGreen') !== false)
+  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="meteoalarmalerts.php" data-lity>'.$newalertgreen.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
   </spanelightning></div></div></div>';}  
  //WEATHER34 solar eclipse events and no alerts 
  else {echo '<spanelightning><alertvalue>'.$eclipse_default.'</spanelightning></div></div></div>';}   

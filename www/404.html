@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>HOMEWEATHERSTATION 404</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+		body {
+  pointer-events: none;
+  cursor: default;
+  background: #eee;
+  font-family: Helvetica,Arial, sans-serif;
+  font-weight:600;
+}
+.container { 
+
+margin:0 auto;
+text-align:center;
+
+}
+
+.circles {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  height: 300px;
+  width: 300px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  line-height: 100px;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+  font-size: 1em;
+  z-index: 3;
+  -webkit-animation: fade .5s ease-in-out;
+          animation: fade .5s ease-in-out;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+.circlesttext {
+  position: absolute;
+  top: 40%;
+  line-height: 30px;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+  font-size: 1.4em;
+  font-weight:600;
+  
+  
+}
+.one, .two {
+  position: absolute;
+  line-height: initial;
+  top: 30%;
+  left: calc(50%);
+  height: 300px;
+  width: 300px;
+  background: #9ABA2F;
+  -webkit-transform: translate(-50%, -50%) rotate(20deg);
+          transform: translate(-50%, -50%) rotate(20deg);
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: slide-one .5s;
+          animation: slide-one .5s;
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.one .text, .two .text {
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 70px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+  -webkit-animation-delay: .1s;
+          animation-delay: .1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.two {
+  z-index: 1;
+  left: calc(50%);
+  background: -webkit-radial-gradient(center ellipse,RGBA(0, 164, 180, 1.00) 0%, RGBA(0, 164, 180, 1.00) 100%);
+  background: radial-gradient(ellipse at center, RGBA(0, 164, 180, 1.00) 0%, RGBA(0, 164, 180, 1.00) 100%);
+  -webkit-transform: translate(-50%, -50%) rotate(-20deg);
+          transform: translate(-50%, -50%) rotate(-20deg);
+  opacity: 0;
+  -webkit-animation: slide-two .5s;
+          animation: slide-two .5s;
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.two .text {
+  left: calc(50% + 60px);
+  top:200px;
+}
+
+@-webkit-keyframes slide-one {
+  100% {
+    opacity: 1;
+    left: calc(50% - 75px);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes slide-one {
+  100% {
+    opacity: 1;
+    left: calc(50% - 75px);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+@-webkit-keyframes slide-two {
+  100% {
+    opacity: 1;
+    left: calc(50% + 75px);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+@keyframes slide-two {
+  100% {
+    opacity: 1;
+    left: calc(50% + 75px);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+@-webkit-keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+
+  
+</head>
+
+<body>
+<div class="container">
+  <div class='circles'>
+ <div class='circlesttext'> HERE AT THIS HOME WEATHER STATION</div>
+</div>
+<div class='one'>
+  <div class='text'>
+   Ooops
+    <br>
+    Something
+  </div>
+</div>
+<div class='two'>
+  <div class='text'>
+    Went
+    <br>
+    Missing
+  </div>
+</div>
+</div>  
+
+   
+
+</body>
+</html>
