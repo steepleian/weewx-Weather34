@@ -13,59 +13,81 @@ header('Content-type: text/html; charset=UTF-8');
 	# 	Code simplified by ktrue - 30-Mar-2019
 	####################################################################################################
 if ($windunit=='kts'){$windunit="kn";}
-$jsonfile="jsondata/wu.txt";if(!file_exists($jsonfile)) {return;}
+$jsonfile="jsondata/ad.txt";if(!file_exists($jsonfile)) {return;}
 ?>
-<div class="updatedtime1"><?php $forecastime=filemtime('jsondata/wu.txt');$forecasturl = file_get_contents("jsondata/wu.txt");if(filesize('jsondata/wu.txt')<1){echo "".$offline. "";}else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
+<div class="updatedtime1"><?php $forecastime=filemtime('jsondata/ad.txt');
+$forecasturl = file_get_contents("jsondata/ad.txt");
+if(filesize('jsondata/ad.txt')<1){echo "".$offline. "";}
+else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
 <div class="darkskyforecasthome" ><div class="darkskydiv">
-<?php //begin wu stuff 
-$forecasturl=file_get_contents($jsonfile);$parsed_forecastjson = json_decode($forecasturl,false);$wucount = 0;
-for ($k=0;$k<=4;$k++) {if(empty($parsed_forecastjson->{'daypart'}[0]->{'iconCode'}[$k])) { continue; }if($wucount > 3) {break; }
-	 $forecastdayIcon=$parsed_forecastjson->{'daypart'}[0]->{'iconCode'}[$k];$forecastdayTime = $parsed_forecastjson->{'daypart'}[0]->{'daypartName'}[$k];	
-	 $forecastdayTempHigh = $parsed_forecastjson->{'daypart'}[0]->{'temperature'}[$k];$forecastdayTempLow = $parsed_forecastjson->{'daypart'}[0]->{'temperatureWindChill'}[$k];	 
-	 $forecastdayWindGust = $parsed_forecastjson->{'daypart'}[0]->{'windSpeed'}[$k];$forecastdayWinddir = $parsed_forecastjson->{'daypart'}[0]->{'windDirection'}[$k];
-	 $forecastdayWinddircardinal = $parsed_forecastjson->{'daypart'}[0]->{'windDirectionCardinal'}[$k]; $forecastdayacumm = $parsed_forecastjson->{'daypart'}[0]->{'snowRange'}[$k];
-	 $forecastdayPrecipType = $parsed_forecastjson->{'daypart'}[0]->{'precipType'}[$k];$forecastdayprecipIntensity = $parsed_forecastjson->{'daypart'}[0]->{'qpf'}[$k];
-	 $forecastdayPrecipProb = $parsed_forecastjson->{'daypart'}[0]->{'precipChance'}[$k];$forecastdayUV = $parsed_forecastjson->{'daypart'}[0]->{'uvIndex'}[$k];
-	 $forecastdayUVdesc = $parsed_forecastjson->{'daypart'}[0]->{'uvDescription'}[$k];$forecastdaysnow = $parsed_forecastjson->{'daypart'}[0]->{'qpfSnow'}[$k];
-	 $forecastdaysummary = $parsed_forecastjson->{'daypart'}[0]->{'narrative'}[$k];$forecastdaynight = $parsed_forecastjson->{'daypart'}[0]->{'dayOrNight'}[$k];	 
-	 $forecastdesc = $parsed_forecastjson->{'daypart'}[0]->{'wxPhraseShort'}[$k];$forecastthunder = $parsed_forecastjson->{'daypart'}[0]->{'thunderIndex'}[$k];	 
-	//wu convert temps-rain-wind
+<?php //begin ad stuff 
+$forecasturl=file_get_contents($jsonfile);
+$parsed_forecastjson = json_decode($forecasturl,true);
+$wucount = 0;
+for ($k=0;$k<=2;$k++) 
+{
+     $pngicon = explode(".", ($parsed_forecastjson['response'][0]['periods'][$k]['icon']));
+	 $forecastdayIcon = $pngicon[0];
+     $Time[$k] = date("H", $parsed_forecastjson['response'][0]['periods'][$k]['timestamp']);
+     if($Time[0] ==="07"){$forecastdayTime[0] = "Today"; $forecastdayTime[1] = "Tonight"; $forecastdayTime[2] = "Tomorrow";}
+	 else if($Time[0] ==="19"){$forecastdayTime[0] = "Tonight"; $forecastdayTime[1] = "Tomorrow"; $forecastdayTime[2] = "Tomorrow Night";}
+     $forecastdayTempHigh = $parsed_forecastjson['response'][0]['periods'][$k]['maxTempC'];
+     $forecastdayTempLow = $parsed_forecastjson['response'][0]['periods'][$k]['minTempC'];
+     if($forecastdayTempHigh ===null){$forecastdayTempHigh = $forecastdayTempLow;}
+     $forecastdayWindGust = $parsed_forecastjson['response'][0]['periods'][$k]['windSpeedKPH'];
+     //$forecastdayWinddir = $parsed_forecastjson->{'daypart'}[0]->{'windDirection'}[$k];
+	 $forecastdayWinddircardinal = $parsed_forecastjson['response'][0]['periods'][$k]['windDir']; 
+     //$forecastdayacumm = $parsed_forecastjson->{'daypart'}[0]->{'snowRange'}[$k];
+	 //$forecastdayPrecipType = $parsed_forecastjson->{'daypart'}[0]->{'precipType'}[$k];
+     $forecastdayprecipIntensity = $parsed_forecastjson['response'][0]['periods'][$k]['precipMM'];
+	 $forecastdayPrecipProb = $parsed_forecastjson['response'][0]['periods'][$k]['pop'];
+     $forecastdayUV = $parsed_forecastjson['response'][0]['periods'][$k]['uvi'];
+	 //$forecastdayUVdesc = $parsed_forecastjson->{'daypart'}[0]->{'uvDescription'}[$k];
+     //$forecastdaysnow = $parsed_forecastjson->{'daypart'}[0]->{'qpfSnow'}[$k];
+	 $forecastdaysummary = $parsed_forecastjson['response'][0]['periods'][$k]['weatherPrimary'];
+     $daynight = $parsed_forecastjson['response'][0]['periods'][$k]['isDay'];
+     if ($daynight !== false)
+    {
+        $forecastdaynight = "D";
+    }
+    else $forecastdaynight = "N";
 	//metric to F
-	if ($tempunit=='F' && $wuapiunit=='m' ){$forecastdayTempHigh=($forecastdayTempHigh*9/5)+32;}
-	// metric to F UK
-	if ($tempunit=='F' && $wuapiunit=='h' ){$forecastdayTempHigh=($forecastdayTempHigh*9/5)+32;}
-	// ms non metric to c Scandinavia 
-	if ($tempunit=='F' && $wuapiunit=='s'){$forecastdayTempHigh=($forecastdayTempHigh*9/5)+32;}
-	// non metric to c US
-	if ($tempunit=='C' && $wuapiunit=='e' ){$forecastdayTempHigh=($forecastdayTempHigh-32)/1.8;}
-	//wind
-	// mph to kmh US
-	if ($windunit=='km/h' && $wuapiunit=='e' ){$forecastdayWindGust=(number_format($forecastdayWindGust,1)*1.60934);}
-	// mph to kmh UK
-	if ($windunit=='km/h' && $wuapiunit=='h' ){$forecastdayWindGust=(number_format($forecastdayWindGust,1)*1.60934);}
-	//mph to ms US
-	if ($windunit=='m/s' && $wuapiunit=='e' ){$forecastdayWindGust=(number_format($forecastdayWindGust,1)*0.44704);}
-	//mph to ms uk
-	if ($windunit=='m/s' && $wuapiunit=='h' ){$forecastdayWindGust=(number_format($forecastdayWindGust,1)*0.44704);}
-	//kmh to ms
-	if ($windunit=='m/s' && $wuapiunit=='m' ){$forecastdayWindGust=(number_format($forecastdayWindGust,1)*0.277778);}
-	//kmh to mph
-	if ($windunit=='mph' && $wuapiunit=='m' ){$forecastdayWindGust=(number_format($forecastdayWindGust,1)*0.621371);}	
-	//rain inches to mm
-	if ($rainunit=='mm' && $wuapiunit=='e' ){$forecastdayprecipIntensity=$forecastdayprecipIntensity*25.4;}
-	//rain mm to inches scandinavia
-	if ($rainunit=='in' && $wuapiunit=='s' ){$forecastdayprecipIntensity=$forecastdayprecipIntensity*0.0393701;}
-	//rain mm to inches uk
-	if ($rainunit=='in' && $wuapiunit=='h' ){$forecastdayprecipIntensity=$forecastdayprecipIntensity*0.0393701;}
-	//rain mm to inches metric
-	if ($rainunit=='in' && $wuapiunit=='m' ){$forecastdayprecipIntensity=$forecastdayprecipIntensity*0.0393701;}
-	//convert lightning index shorter phrases
+	//aw convert temps-rain
+    //metric to F
+    if ($tempunit == 'F')
+    {
+        $forecastdayTempHigh = round(($forecastdayTempHigh * 9 / 5) + 32, 0);
+    }
+
+    //heatindex
+    if ($tempunit == 'F')
+    {
+        $wuskyheatindex = ($wuskyheatindex * 9 / 5) + 32;
+    }
+
+    //rain inches to mm
+    if ($rainunit == 'in')
+    {
+        $forecastdayprecipIntensity = $forecastdayprecipIntensity * 0.0393701;
+    }
+
+    //kmh to ms
+    if ($windunit == 'm/s')
+    {
+        $forecastdayWindGust = round((number_format($forecastdayWindGust, 1) * 0.277778) , 0);
+        $forecastdayWindSpeed = round((number_format($forecastdayWindSpeed, 1) * 0.277778) , 0);
+    }
+    //kmh to mph
+    if ($windunit == 'mph')
+    {
+        $forecastdayWindGust = round((number_format($forecastdayWindGust, 1) * 0.621371) , 0);
+        $forecastdayWindSpeed = round((number_format($forecastdayWindSpeed, 1) * 0.621371) , 0);
+    }	//convert lightning index shorter phrases
 	if ( $forecastthunder==0 ){$forecastthunder='';}else if ( $forecastthunder==1 ){$forecastthunder=$lightningalert4.' Thunder Risk';}else if ( $forecastthunder==2 ){$forecastthunder=$lightningalert4.' Thunder';}else if ( $forecastthunder>=3 ){$forecastthunder=$lightningalert4.' Severe Tstorm';}	
 	//icon + day
-	echo '<div class="darkskyforecastinghome">';echo '<div class="darkskyweekdayhome">'.$forecastdayTime.'</div><div class=darkskyhomeicons>';
-	if ($forecastdaynight=='D'){echo '<img src="css/wuicons/'.$forecastdayIcon.'.svg" width="40px" height="35px" ></img>';}
-	if ($forecastdaynight=='N'){echo '<img src="css/wuicons/nt_'.$forecastdayIcon.'.svg" width="40px" height="35px"></img>';}	
-	echo '</div><div class=darkskytempdesc>'.$forecastdesc.'</div>';
+	echo '<div class="darkskyforecastinghome">';echo '<div class="darkskyweekdayhome">'.$forecastdayTime[$k].'</div><div class=darkskyhomeicons>';
+	echo '<img src="css/aerisicons/'.$forecastdayIcon.'.svg" width="40px" height="35px"  ></img>';	
+	echo '</div><div class="darkskytempdesc"}>'.$forecastdaysummary.'</div>';
 	//temp non metric
 	if($tempunit=='F' && $forecastdayTempHigh<44.6){echo '<darkskytemphihome><bluet>'.number_format($forecastdayTempHigh,0).'°</bluet></darkskytemphihome>';}
 	else if($tempunit=='F' && $forecastdayTempHigh>104){echo '<darkskytemphihome><purplet>'.number_format($forecastdayTempHigh,0).'°</purplet></darkskytemphihome>';}
