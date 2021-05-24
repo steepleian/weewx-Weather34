@@ -6,7 +6,6 @@
  * License: www.highcharts.com/license
  */
         // Load the fonts
-
 Highcharts.createElement('link', {
             href: 'https://fonts.googleapis.com/css?family=Unica+One',
             rel: 'stylesheet',
@@ -17,7 +16,7 @@ Highcharts.theme = {
             colors: ['rgba(255, 124, 57, 0.8)', '#1ABECE', '#f45b5b', '#7798BF', '#aaeeee', '#ff0066',
                 '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
             chart: {
-                backgroundColor: '#fff',
+                backgroundColor: 'rgba(40, 45, 52,.4)',
                 style: {
                     fontFamily: '\'arial\', sans-serif'
                 },
@@ -25,14 +24,14 @@ Highcharts.theme = {
             },
             title: {
                 style: {
-                    color: '#000',
+                    color: '#ccc',
                     textTransform: 'none',
                     fontSize: '18px'
                 }
             },
             subtitle: {
                 style: {
-                    color: 'rgba(40, 45, 52,.4)',
+                    color: '#ccc',
                     textTransform: 'none'
                 }
             },
@@ -42,12 +41,12 @@ Highcharts.theme = {
             	color: '#009bab',
             	dashStyle: 'shortdash'
         	},
-              	//gridLineDashStyle: 'shortdot',
+              //gridLineDashStyle: 'shortdot',
               	//gridLineWidth: 1, 
               	//gridLineColor: 'RGBA(64, 65, 66, 0.8)',
                 labels: {
                     style: {
-                        color: '#000'
+                        color: '#ccc'
                     }
                 },
                 lineColor: '#707073',
@@ -55,11 +54,12 @@ Highcharts.theme = {
                 tickColor: '#707073',
                 title: {
                     style: {
-                        color: '#000)'
+                        color: '#ccc'
 
                     }
                 }
             },
+          		
             yAxis: {
                 crosshair: {
             	width: 1,
@@ -71,7 +71,7 @@ Highcharts.theme = {
               	gridLineColor: 'RGBA(64, 65, 66, 0.8)',
                 labels: {
                     style: {
-                        color: '#000)'
+                        color: '#ccc'
                     }
                 },
                 lineColor: '#707073',
@@ -80,23 +80,23 @@ Highcharts.theme = {
                 tickWidth: 1,
                 title: {
                     style: {
-                        color: '#000'
+                        color: '#ccc'
                     }
                 }
             },
             tooltip: {
-                backgroundColor: 'RGBA(255, 255, 255, 0.8)',
+                backgroundColor: 'rgba(37, 41, 45, 0.65)',
                 style: {
-                    color: '#000'
+                    color: '#F0F0F0'
                 }
             },
             plotOptions: {
                 series: {
                     dataLabels: {
-                        color: '#000'
+                        color: '#ccc'
                     },
                     marker: {
-                        lineColor: '#fff'
+                        lineColor: '#333'
                     }
                 },
                 boxplot: {
@@ -111,7 +111,7 @@ Highcharts.theme = {
             },
             legend: {
                 itemStyle: {
-                    color: '#000'
+                    color: '#ccc'
                 },
                 itemHoverStyle: {
                     color: '#FFF'
@@ -127,7 +127,7 @@ Highcharts.theme = {
             },
             labels: {
                 style: {
-                    color: '#000'
+                    color: '#ccc'
                 }
             },
 
@@ -142,46 +142,96 @@ Highcharts.theme = {
 
             exporting: {
         	buttons: {
-            
-            
-                           toggle: {
-                                align: 'left',
-                                x:10,
-                                y: 0,
-                                height: 18,
-                                theme: {
-                                    'stroke-width': 1,
-                                    style:{color: '#000003'},
-                                    r: 8,
-                                    states: {
-                                       hover: {
-                                           fill: '#000003',
-                                           style:{color: '#FFFFFF'},
-                                       },
-                                       select: {
-                                           fill: '#000003',
-                                           style:{color: '#FFFFFF'},
-                                       }
-                                    }
-                                }
+            redButton: {
+              symbol: 'circle',  
+              symbolFill: '#EC6D6B',
+              symbolStroke: '#EC6D6B',
+              symbolStrokeWidth: 0,
+ 			  align: 'left',
+              x: 10,
+              
+              theme: {
+                        states: {
+                            hover: {
+                                stroke: 'rgba(40, 45, 52,.4)',
+                              	fill: 'transparent'
+                            },
+                            select: {
+                                stroke: 'rgba(40, 45, 52,.4)',
+                              	fill: 'transparent'
                             }
-                     }
-                },			
-          	navigation: {
-                buttonOptions: {
-                    symbolStroke: 'transparent',
-                    align: 'right',
-                    x: -10,
-                    theme: {
-                        fill: 'transparent',
-                  		states: {
+                        }    
+                    },
+                            
+            },
+            yellowButton: {
+              symbol: 'circle',
+              symbolFill: '#FDBC40',
+              symbolStroke: '#FDBC40',
+              symbolStrokeWidth: 0,
+              align: 'left',
+              x: 30,
+              
+              backgroundColor: null,
+              theme: {
+                        states: {
                             hover: {
                                 fill: 'transparent'
                             },
                             select: {
                                 fill: 'transparent'
                             }
-                }}}
+                        }    
+                    },
+            },
+              greenButton: {
+                 symbol: 'circle',
+                symbolFill: '#33C84A',
+                symbolStroke: '#33C84A',
+                symbolStrokeWidth: 0,
+                align: 'left',
+              	x: 50,
+                
+                width: 24,
+                backgroundColor: null,
+                theme: {
+                        fill: 'transparent',
+                  		states: {
+                            hover: { fill: 'transparent' },
+                            select: { fill: 'transparent' }
+                        }    
+                    }
+                 },
+                          toggle: {
+                                x:0,
+                                y: 0,
+                                height: 18,
+                                theme: {
+                                    'stroke-width': 1,
+                                    style:{color: '#FFFFFF'},
+                                    r: 8,
+                                    states: {
+                                       hover: {
+                                           fill: '#FFFFFF',
+                                           style:{color: '#000003'},
+                                       },
+                                       select: {
+                                           fill: '#FFFFFF',
+                                           style:{color: '#000003'},
+                                       }
+                                    }
+                                }
+                            }
+                      }
+                },			
+          	navigation: {
+                buttonOptions: {
+                    symbolStroke: '#DDDDDD',
+                  
+                    theme: {
+                        fill: 'transparent'
+                    }
+                }
             },
 
             // scroll charts
@@ -205,7 +255,7 @@ Highcharts.theme = {
                             fill: '#000003',
                             stroke: '#000000',
                             style: {
-                                color: 'white'
+                                color: '#CCCCCC'
                             }
                         },
                         disabled: {
@@ -215,16 +265,15 @@ Highcharts.theme = {
                                 color: 'white'
                             }
                         }
-
                     }
                 },
                 inputBoxBorderColor: '#505053',
                 inputStyle: {
                     backgroundColor: '#333',
-                    color: '#000000'
+                    color: 'silver'
                 },
                 labelStyle: {
-                    color: '#000000'
+                    color: 'silver'
                 }
             },
 
@@ -237,7 +286,7 @@ Highcharts.theme = {
                 outlineColor: '#CCC',
                 maskFill: 'rgba(255,255,255,0.1)',
                 series: {
-                    color: '#CCC',
+                    color: '#7798BF',
                     lineColor: '#A6C7ED'
                 },
                 xAxis: {
@@ -264,7 +313,5 @@ Highcharts.theme = {
             textColor: '#C0C0C0',
             contrastTextColor: '#F0F0F3',
             maskColor: 'rgba(255,255,255,0.3)'
-        };
-
-        // Apply the theme
+};
 Highcharts.setOptions(Highcharts.theme);

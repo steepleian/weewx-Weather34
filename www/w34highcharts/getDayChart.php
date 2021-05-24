@@ -14,7 +14,7 @@
         }
         @socket_close($socket);
       }catch(Exception $e){
-        error_log($e->getMessage());
+        error_log($e);
         shell_exec(escapeshellcmd($cmd));
       }
     }
@@ -43,7 +43,7 @@
             $weewxserver_address = NULL;
           }
         }catch(Exception $e){
-          error_log($e->getMessage());
+          error_log($e);
           $weewxserver_port = NULL;
           $weewxserver_address = NULL;
         }
@@ -72,7 +72,7 @@
             else
               shell_exec(escapeshellcmd($cmd));
           }catch(Exception $e){
-            error_log($e->getMessage());
+            error_log($e);
             shell_exec(escapeshellcmd($cmd));
           }
         }
@@ -87,3 +87,4 @@
       }
     }
 ?> 
+
