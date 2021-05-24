@@ -19,3 +19,4 @@ else  echo "<topblue1>".$weather["rain_year"]  ;echo "<smallwindunit>".$weather[
 </div></smallwindunit>
 <div class="maxword"><?php echo date('Y')?></div></div>
 <div class="maxtimedate">Total</div> 
+
