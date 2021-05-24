@@ -286,7 +286,16 @@ $weather["humidity_ydmin"]=number_format($weewxapi[169],0);
 $originalDate759=$weewxapi[170];
 $humydmintime=date('H:i',strtotime($originalDate759));
 $weather["humidity_ydmintime"]=$humydmintime;
-
+//hum alltime max
+$weather["humidity_amax"]=number_format($weewxapi[206],0);
+$originalDate758=$weewxapi[207];
+$humamaxtime=date('jS M Y',strtotime($originalDate758));
+$weather["humidity_amaxtime"]=$humamaxtime;      
+//hum alltime min
+$weather["humidity_amin"]=number_format($weewxapi[208],0);
+$originalDate759=$weewxapi[209];
+$humamintime=date('jS M Y',strtotime($originalDate759));
+$weather["humidity_amintime"]=$humamintime;
 
 		
 	
@@ -402,7 +411,9 @@ $weather["humidity_ydmintime"]=$humydmintime;
 	$solaroriginalDate4 = $weewxapi[112];
     $solarymaxtime = date('jS M H:i', strtotime($solaroriginalDate4));	
 	$solaroriginalDate6 = $weewxapi[106];
-    $solardmaxtime = date('H:i', strtotime($solaroriginalDate6));	
+    $solardmaxtime = date('H:i', strtotime($solaroriginalDate6));
+    $solaroriginalDate7 = $weewxapi[213];
+    $solaramaxtime = date('jS M Y', strtotime($solaroriginalDate7));  
 	
 	$weather["solarydmax"]		    = number_format($weewxapi[107],0, '.', ''); //temp max yesterday
 	$weather["solarydmaxtime"]		= $solarydmaxtime; //seconds	
@@ -412,7 +423,8 @@ $weather["humidity_ydmintime"]=$humydmintime;
 	$weather["solarymaxtime"]		= $solarymaxtime; //seconds	
 	$weather["solardmax"]		    = number_format($weewxapi[105],0, '.', ''); //temp max today
 	$weather["solardmaxtime"]		= $solardmaxtime; //seconds	
-	
+	$weather["solaramax"]		    = number_format($weewxapi[212],0, '.', ''); //temp max today
+	$weather["solaramaxtime"]		= $solaramaxtime; //seconds
 	
 	
 	//alamanac uv	
@@ -423,7 +435,9 @@ $weather["humidity_ydmintime"]=$humydmintime;
 	$uvoriginalDate4 = $weewxapi[119];
     $uvymaxtime = date('jS M H:i', strtotime($uvoriginalDate4));	
 	$uvoriginalDate6 = $weewxapi[113];
-    $uvdmaxtime = date('H:i', strtotime($uvoriginalDate6));	
+    $uvdmaxtime = date('H:i', strtotime($uvoriginalDate6));
+    $uvoriginalDate7 = $weewxapi[211];
+    $uvamaxtime = date('jS M Y', strtotime($uvoriginalDate7));  
 	
 	$weather["uvydmax"]		    = number_format($weewxapi[114],1); //temp max yesterday
 	$weather["uvydmaxtime"]		= $uvydmaxtime; //seconds	
@@ -432,7 +446,9 @@ $weather["humidity_ydmintime"]=$humydmintime;
 	$weather["uvymax"]		    = number_format($weewxapi[118],1); //temp max year
 	$weather["uvymaxtime"]		= $uvymaxtime; //seconds	
 	$weather["uvdmax"]		    = number_format($weewxapi[58],1); //temp max today
-	$weather["uvdmaxtime"]		= $uvdmaxtime; //seconds	
+	$weather["uvdmaxtime"]		= $uvdmaxtime; //seconds
+    $weather["uvamax"]		    = number_format($weewxapi[210],1); //temp max alltime
+	$weather["uvamaxtime"]		= $uvamaxtime; //seconds  
 	
 		
 	//trends will update 15 minutes after a reboot or power failure
