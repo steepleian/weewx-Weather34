@@ -1,7 +1,7 @@
 # Weather34 skin for WeeWX
 Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **This version of the template requires either the extended database schema introduced with WeeWX 4.0.0 or one that has been manually extended to included fields for lightning data.** It is strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.4.0 or later.
 
-Version W34-HC-IMJD-4.1.3
+Version W34-HC-IMJD-4.2.0
 
 Packaged for installation using its own unique installer and an online pre-installation settings form https://steepleian.github.io/weewx-Weather34
 
@@ -11,9 +11,9 @@ This version requires WeeWX version 4.1.1 or later software. WeeWX is available 
 
 This version is designed explicitly to harness the powerful WeeWX database to generate the weather data charts and statistical data. It was originally built on the current MB-UB40-IHVN which is now maintained by Lightmaster (Meteobridge-Weather34-Template). Although we maintain a similar look and feel with MB-UB40-IHVN,the weewx-Weather34 now has many unique features.
 
-This version is assembled as an install package and uses its own unique utility, w34_installer.py, to install. This greatly simplifies the installation process from that of previous versions. Depending on your own WeeWX setup, minor edits may be required to be made to weewx.conf and Weather34 skin.conf files. Please see the Weather34 skin Installation Guide for detailed instructions.
+This version is assembled as an install package and uses its own unique installer and un-installer utilities. This greatly simplifies the installation process from that of previous versions. Depending on your own WeeWX setup, minor edits may be required to be made to weewx.conf and Weather34 skin.conf files. Please see the Weather34 skin Installation Guide for detailed instructions.
 
-# What's New in this Version W34-HC-IMJD-4.1.3
+# What's New in this Version W34-HC-IMJD-4.2.0
 
 **Please Note.** The appearance and features of this new version are identical to those of the previous version (W34-HC-IMJD-3.0.0). The new changes relate to moving some of the settings from the skin's PHP coding into its core Python Module, weather34.py. If you are currently using W34-HC-IMJD-3.0.0 and you are happy that you have a stable setup, it is not absolutely necessary to upgrade.
 
