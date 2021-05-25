@@ -129,27 +129,27 @@ html {
 }
 /* unvisited link */
 a:link {
-  color: black;
+  color: white;
 }
 
 /* visited link */
 a:visited {
-  color: black;
+  color: white;
 }
 
 /* mouse over link */
 a:hover {
-  color: black;
+  color: white;
 }
 
 /* selected link */
 a:active {
-  color: black;
+  color: white;
 }
 .LegendText2 {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 11px;
-  color: black;
+  color: white;
   font-weight: normal;
 }
 
