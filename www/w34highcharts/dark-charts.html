@@ -21,14 +21,14 @@
             window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {vars[key.replace(/%27/g,"")] = value.replace(/%27/g,"");});
             document.title = vars['chart'] + " chart";
             if(vars['chart'] != 'windroseplot'){
-                $("#plot_div").css("height", 440);
+                $("#plot_div").css("height", 520);
                 (function(vars){new plot_js({temp:vars['temp'], pressure:vars['pressure'], wind:vars['wind'], rain:vars['rain']}, vars['chart'], vars['span'], "plot_div");}(vars));
             }else{
                 $("#plot_div").css("display", "none");
                 $("#plot_div1").css("display","inline-block");
                 $("#plot_div2").css("display","inline-block");
-                $("#plot_div1").css("height", 440);
-                $("#plot_div2").css("height", 440);
+                $("#plot_div1").css("height", 520);
+                $("#plot_div2").css("height", 520);
                 (function(vars){new plot_js({temp:vars['temp'], pressure:vars['pressure'], wind:vars['wind'], rain:vars['rain']}, vars['chart'], vars['span'], "plot_div1");}(vars));
                 vars['chart'] = 'windrosegustplot';
                 (function(vars){new plot_js({temp:vars['temp'], pressure:vars['pressure'], wind:vars['wind'], rain:vars['rain']}, vars['chart'], vars['span'], "plot_div2");}(vars));
