@@ -206,7 +206,7 @@ if ($forecastnight[$k] == 'N')
 }
 
 //summary of icon
-echo '<div class=greydesc>' . $wuskydesc[$k] . '</div><br>';
+echo '<div class=greydesc>' . $forecastdesc[$k] . '</div><br>';
 //humidity night
 if ($forecastnight[$k] == 'N')
 {
