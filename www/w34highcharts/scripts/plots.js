@@ -252,7 +252,6 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                         greenButton:   {y: (plot_div=='plot_div2'?-100:0),},
                         toggle: {
                             text: 'Select',
-			    x: -30,
                             menuItems:[]
                         }
                     }
@@ -626,13 +625,19 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                 tcolors.push([convert_temp("C", temp_units, tempcolors[i][0]), tempcolors[i][1]]);
             return tcolors;
         }
-
-	function setTempSmall(options) {
-	    options.chart.marginBottom = 0;
-	    options.yAxis[0].height = "100";
-	    $("#"+plot_div).css("height", 100);
-	    return options
+	
+  		function setTempSmall(options) {
+	    	options.chart.marginBottom = 20;
+	    	options.yAxis[0].height = "180";
+	    	$("#"+plot_div).css("height", 210);
+	    	return options
 	};
+  
+  
+  
+  
+  
+  
 	
 	function create_temperature_chart(options, span, seriesData, units){
 	    if (do_radial && span[0] == "yearly"){
@@ -908,8 +913,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	
 	function setBarSmall(obj) {
 	    obj.chart.marginBottom = 20;
-	    obj.yAxis[0].height = "160";
-	    $("#"+plot_div).css("height", 190);
+	    obj.yAxis[0].height = "260";
+	    $("#"+plot_div).css("height", 290);
 	    return obj
 	};
 	
@@ -958,8 +963,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
         }
 	function setWindSmall(options) {
 	    options.chart.marginBottom = 20;
-	    options.yAxis[0].height = "160";
-	    $("#"+plot_div).css("height", 190);
+	    options.yAxis[0].height = "295";
+	    $("#"+plot_div).css("height", 325);
 	    return options;
 	};
 	
@@ -1191,8 +1196,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	
 	function setRainSmall(options) {
 	    options.chart.marginBottom = 20;
-	    options.yAxis[0].height = "170";
-	    $("#"+plot_div).css("height", 200);
+	    options.yAxis[0].height = "295";
+	    $("#"+plot_div).css("height", 325);
 	    return options;
 	};
 	
@@ -1346,8 +1351,9 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	};
 	
 	function setRadSmall(options) {
-	    options.yAxis[0].height = "160";
-	    $("#"+plot_div).css("height", 190);
+	    options.chart.marginBottom = 20;
+        options.yAxis[0].height = "255";
+	    $("#"+plot_div).css("height", 285);
 	    return options;
 	};
 	
@@ -1453,8 +1459,9 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	};
 	
 	function setUvSmall(options) {
-	    options.yAxis[0].height = "160";
-	    $("#"+plot_div).css("height", 190);
+        options.chart.marginBottom = 20;
+	    options.yAxis[0].height = "255";
+	    $("#"+plot_div).css("height", 285);
 	    return options
 	};
 	
@@ -1696,7 +1703,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                    }, false)
                 }
             };
-	    options.plotOptions.series.turboThreshold = 0; //Need this to work around highcharts warning 12
+            options.plotOptions.series.turboThreshold = 0; //Need this to work around highcharts warning 12
 	    return options;
 	};
 	
