@@ -683,7 +683,10 @@ class Weather34RealTime(StdService):
         weewx_file_transfer = config_dict['Weather34RealTime'].get('weewx_file_transfer', '')
         weewxserver_ip = config_dict['Weather34RealTime'].get('weewxserver_address', '')
         if len(weewxserver_ip) == 0:
-            weewxserver_ip = socket.gethostbyname(socket.gethostname())
+            try:
+                weewxserver_ip = socket.gethostbyname(socket.gethostname())
+            except:
+                logerr("Gethostbyname failed for " + socket.gethostname())
         try:
             if weewxserver_ip.startswith('127.'):
                 weewxserver_ip = subprocess.check_output(['hostname', '-s', '-I']).split(b" ")[0].decode()
