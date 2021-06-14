@@ -856,7 +856,6 @@ class Weather34RealTime(StdService):
             self.write_data(data)
         except Exception as e:
             logdbg("w34rt: Exception while handling data: %s" % e)
-            weeutil.weeutil.log_traceback('crt: **** ')
             raise
 
     def write_data(self, data):
