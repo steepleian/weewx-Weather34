@@ -5786,7 +5786,7 @@ topyellow2 {
 }
 
 .minwordl {
-  margin-left: 43px
+  margin-left: 30px
 }
 
 .maxtimedate,
@@ -7214,7 +7214,7 @@ wfstriketoday {
 
 .wflaststrike {
   margin-left: 55px;
-  margin-top: 40px;
+  margin-top: 33px;
   font-size: .55rem;
   width: 200px
 }
@@ -7237,7 +7237,7 @@ wfstriketoday {
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  margin-left: 133px;
+  margin-left: 120px;
   top: -5px
 }
 
@@ -9371,7 +9371,7 @@ weather34menumarkerlight {
   justify-content: center;
   text-align: center;
   margin: 0 auto;
-  margin-left: 0px
+  margin-left: 0px;
 }
 
 .lity-iframe-container iframe {
@@ -9389,7 +9389,7 @@ weather34menumarkerlight {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 0 auto
+  margin: 0 auto;
 }
 
 .lity-hide {
@@ -9403,4 +9403,23 @@ body {
 }
 body:hover {
     overflow-y: auto;
+}
+.lightningicon {
+  position: absolute;
+  display: inline;
+  right: -95px;
+  margin-top: 25px;
+}
+.maxtimedate,
+.mintimedatex {
+  position: absolute;
+  margin-top: 61px;
+  font-size: .54rem;
+  z-index: 1;
+  color: silver;
+  width: 50px
+}
+
+.mintimedatex {
+  margin-left: 17px
 }
