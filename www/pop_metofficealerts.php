@@ -74,7 +74,7 @@ switch ($favcolor) {
 <?php
     break;
   case "multi":
-    $cnt = count($parsed_json['rss']['channel']['item']);echo $cnt;
+    $cnt = count($parsed_json['rss']['channel']['item']);
     for ($i = 0; $i <$cnt; $i++)
 {$description[$i]=$parsed_json['rss']['channel']['item'][$i]['description'];
  $url[$i]="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#";
