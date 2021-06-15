@@ -112,7 +112,7 @@ switch ($favcolor) {
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[$i]?>">
     <img src="<?php echo $warnimage[$i]?>"style="width:70px">
     <div class="alert-text-container">
-      <div><?php echo $cnt; echo $alidtext[$i] ?></br></br><?php echo $description[$i] ?></br></br><?php echo $warntext ?></a></div>
+      <div><?php echo $alidtext[$i] ?></br></br><?php echo $description[$i] ?></br></br><?php echo $warntext ?></a></div>
         
     
         
