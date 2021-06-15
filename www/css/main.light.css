@@ -5665,7 +5665,7 @@ topyellow2 {
 }
 
 .minwordl {
-  margin-left: 43px
+  margin-left: 30px
 }
 
 .maxword {
@@ -7211,7 +7211,7 @@ wfstriketoday {
 .wflaststrike {
   position: absolute;
   margin-left: 55px;
-  margin-top: 40px;
+  margin-top: 33px;
   font-size: .55rem;
   width: 200px
 }
@@ -7237,7 +7237,7 @@ wfstriketoday {
   justify-content: center;
   border-radius: 3px;
   position: absolute;
-  margin-left: 133px;
+  margin-left: 120px;
   top: -5px;
   background: #d05f2d
 }
@@ -9540,4 +9540,23 @@ weather34menumarkerlight {
 
 .lity-hide {
   display: none
+}
+.lightningicon {
+  position: absolute;
+  display: inline;
+  right: -95px;
+  margin-top: 25px;
+}
+.maxtimedate,
+.mintimedatex {
+  position: absolute;
+  margin-top: 61px;
+  font-size: .54rem;
+  z-index: 1;
+  color: #2d3a4b;;
+  width: 50px
+}
+
+.mintimedatex {
+  margin-left: 17px
 }
