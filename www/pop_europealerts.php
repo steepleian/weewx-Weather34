@@ -65,7 +65,7 @@ echo "Alert Level Red. The weather is very dangerous. Exceptionally intense mete
             $expires[$i] =
                 date("l F Y H:i", strtotime($parsed_json['response'][$i]['timestamps']['expiresISO']));
             ?><p><main class="grid2"><articlegraph2 class="alert-row" style="font-size:11px;background-color:<?php echo $background[$i]; ?>"><img src="<?php echo $warnimage[$i]; ?>"style="width:75px"><?php
-echo $alertlevel[$i];echo $alerttype[$i][1] . "</br></br>";
+echo $alertlevel[$i];echo $alerttype[$i][0] . "</br></br>";
 echo "From " . $begins[$i] . " until " . $expires[$i] . "</br></br>";
 echo $bodyFull[$i] . "</br></br>";
 ?></articlegraph2>
