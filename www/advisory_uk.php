@@ -22,6 +22,7 @@ else if (($parsed_json['rss']['channel']['item']['description']) !== null){$desc
        else if(strpos($description, "snow") !== false) {$alerttype='Snow/Ice';}
        else if(strpos($description, "ice") !== false) {$alerttype='Snow/Ice';}
        else if(strpos($description, "fog") !== false) {$alerttype='Fog';}
+       else if(strpos($description, "rain") !== false) {$alerttype='Rain';}
        else if(strpos($description, "thunder") !== false) {$alerttype='Thunderstorms';}
        else if(strpos($alertlevel, "LightGreen") !== false) {$alerttype='No Alert';}
        
@@ -67,15 +68,61 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <div class="eqcirclehomeregional"><div class="eqtexthomeregional">
 <?php
 ///MetOffice
-if (strpos($alertlevel,'Yellow') !== false)
- {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$newalertyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
-   </spanelightning></div></div></div>';}  
-else if (strpos($alertlevel,'Orange') !== false)
-  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$newalertorange.'</alertadvisory><alertvalue>Amber Alert<br> '.$alerttype.'</alertvalue>
-  </spanelightning></div></div></div>';}
-else if (strpos($alertlevel,'Red') !== false)
-  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$newalertred.'</alertadvisory><alertvalue>Red Alert<br> '.$alerttype.'</alertvalue>
-  </spanelightning></div></div></div>';} 
+if ($alertlevel=='Yellow' && strpos($description, "thunder") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$thunderyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Orange' && strpos($description, "thunder") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$thunderorange.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Red' && strpos($description, "thunder") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$thunderred.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Yellow' && strpos($description, "wind") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$windyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Orange' && strpos($description, "wind") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$windorange.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Red' && strpos($description, "wind") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$windred.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Yellow' && strpos($description, "snow") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$snowyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Orange' && strpos($description, "snow") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$snoworange.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Red' && strpos($description, "snow") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$snowred.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Yellow' && strpos($description, "ice") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$iceyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Orange' && strpos($description, "ice") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$iceorange.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Red' && strpos($description, "ice") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$icered.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Yellow' && strpos($description, "fog") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$fogyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Orange' && strpos($description, "fog") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$fogorange.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Red' && strpos($description, "fog") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$fogred.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Yellow' && strpos($description, "rain") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$rainyellow.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Orange' && strpos($description, "rain") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$rainorange.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+else if ($alertlevel=='Red' && strpos($description, "rain") !== false)
+{echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_metofficealerts.php" data-lity>'.$rainred.'</alertadvisory><alertvalue>Yellow Alert<br> '.$alerttype.'</alertvalue>
+   </spanelightning></div></div></div>';}
+
 
     //weather34 //forecast3wularge wu alerts storms 
 else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertadvisory>'.$newalert.'</alertadvisory><alertvalue>Expect<orange> Thunder</orange> This Week</alertvalue> 
