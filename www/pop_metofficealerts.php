@@ -27,6 +27,10 @@ if(($parsed_json['rss']['channel']['item'][0]['description'])!==null){$datastrea
 else if (($parsed_json['rss']['channel']['item']['description']) !== null){$datastream = "single";}
 else $datastream = "none";
 $favcolor = $datastream;
+if (date('I', time())) {
+    $offset = 100;
+} else 
+    $offset = 0;
 
 switch ($favcolor) {
   
@@ -36,6 +40,10 @@ switch ($favcolor) {
     $alidpos[0]=strpos($description[0],"alid");
  	$alidtext[0]="V".substr($description[0],$alidpos[0]);
  	$validpos[0]=strpos($description[0],"valid");
+    $datestring = explode(" ", $alidtext[0]);;
+    $from = $datestring[2]+$offset;
+    $to = $datestring[7]+$offset;
+    $fromto = "Valid from 0"."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
  	$description[0]=substr($description[0], 0, $validpos[0]);
     
        if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
@@ -69,7 +77,7 @@ switch ($favcolor) {
                              <div class="alert-row" style="background-color:<?php echo $alertlevel[0]?>">
     <img src="<?php echo $warnimage?>" style="width:70px; height:70px">
     <div class="alert-text-container">
-        <div><?php echo $alidtext[0] ?></br></br><div><?php echo $description[0] ?></br></br><?php echo $warntext ?></a></div></div>
+        <div><?php echo $fromto ?></br></br><div><?php echo $description[0] ?></br></br><?php echo $warntext ?></a></div></div>
         
 </div>    
 </div>
@@ -84,6 +92,11 @@ switch ($favcolor) {
  $alidpos[$i]=strpos($description[$i],"alid");
  $alidtext[$i]="V".substr($description[$i],$alidpos[$i]);
  $validpos[$i]=strpos($description[$i],"valid");
+ $datestring = explode(" ", $alidtext[$i]);;
+ $from = $datestring[2]+$offset;
+ $to = $datestring[7]+$offset;
+ $fromto[$i] = "Valid from 0"."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
+
  $description[$i]=substr($description[$i], 0, $validpos[$i]);
 
 
