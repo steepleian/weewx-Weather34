@@ -165,12 +165,22 @@ if ($extralinks == 'yes')
             </li>
           <?php
     } ?>
-          <?php if ($linkNOAA == 'yes' && !empty($linkCWOPID))
+          <?php if (($linkNOAA == 'yes') && (!empty($linkCWOPID) && (empty($linkNOAAID))))
     { ?>
             <li>
               <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on NOAA Meso West" target="_blank">
                 <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
                 <?php echo $linkCWOPID; ?> on NOAA
+              </a>
+            </li>
+          <?php
+    } ?>
+         <?php if ($linkNOAA == 'yes' && !empty($linkNOAAID))
+    { ?>
+            <li>
+              <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkNOAAID; ?>" title="<?php echo $linkNOAAID; ?> on NOAA Meso West" target="_blank">
+                <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
+                <?php echo $linkNOAAID; ?> on NOAA
               </a>
             </li>
           <?php
@@ -185,12 +195,22 @@ if ($extralinks == 'yes')
             </li>
           <?php
     } ?>
-          <?php if ($linkMesoWest == 'yes' && !empty($linkCWOPID))
+          <?php if (($linkMesoWest == 'yes') && (!empty($linkCWOPID) && (empty($linkMesoWestID))))
     { ?>
             <li>
               <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on Meso West" target="_blank">
                 <img class="menuimg" src="img/mesowest.svg" alt=""/>
                 <?php echo $linkCWOPID; ?> on Meso West
+              </a>
+            </li>
+          <?php
+    } ?>
+          <?php if ($linkMesoWest == 'yes' && !empty($linkMesoWestID))
+    { ?>
+            <li>
+              <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkMesoWestID; ?>" title="<?php echo $linkMesoWestID; ?> on Meso West" target="_blank">
+                <img class="menuimg" src="img/mesowest.svg" alt=""/>
+                <?php echo $linkMesoWestID; ?> on Meso West
               </a>
             </li>
           <?php
@@ -411,3 +431,4 @@ if (!empty($webcamurl) && $webcamurl != ' ' && $webcamurl != 'Null' && $webcamur
     </ul>
   </div>
 </div>
+

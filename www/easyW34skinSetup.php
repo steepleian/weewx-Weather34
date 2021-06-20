@@ -109,8 +109,10 @@ $id = "'. $_POST["id"]. '";
 $linkCWOPID = "'. $_POST["linkCWOPID"]. '";
 $linkFindUID = "'. $_POST["linkFindUID"]. '";
 $linkNOAA = "'. $_POST["linkNOAA"]. '";
+$linkNOAAID = "'. $_POST["linkNOAAID"]. '";
 $linkMADIS = "'. $_POST["linkMADIS"]. '";
 $linkMesoWest = "'. $_POST["linkMesoWest"]. '";
+$linkMesoWestID = "'. $_POST["linkMesoWestID"]. '";
 $linkWeatherCloudID = "'. $_POST["linkWeatherCloudID"]. '";
 $linkWindyID = "'. $_POST["linkWindyID"]. '";
 $linkAWEKASID = "'. $_POST["linkAWEKASID"]. '";
@@ -1772,6 +1774,13 @@ General template settings with options to choose which type of module to display
         <option><?php echo ($linkNOAA=='no'||empty($linkNOAA)?'yes':'no');?></option>
     </select>
     <br/>
+    <!-- NOAA Custom ID -->
+    <div class="stationvalue">Custom NOAA ID&nbsp;&nbsp;</div>
+    <?php echo $rightchevron;?>
+    <label name="linkNOAAID"></label>
+    <input name="linkNOAAID" type="text" id="linkNOAAID" value="<?php echo $linkNOAAID;?>" class="choose">
+    <span style="color:#777;">(<red><b>Leave blank unless different from CWOP ID</b></red>)</span>
+    <br/>
     <!-- MADIS Link -->
     <div class="stationvalue">Display MADIS Link</div>
     <?php echo $rightchevron.$downchevron;?>
@@ -1790,14 +1799,21 @@ General template settings with options to choose which type of module to display
         <option><?php echo ($linkMesoWest=='no'||empty($linkMesoWest)?'yes':'no');?></option>
     </select>
     <br/>
-    <!-- MesoWest Link -->
+    <!-- MesoWest Custom ID -->
+    <div class="stationvalue">Custom MesoWest ID&nbsp;&nbsp;</div>
+    <?php echo $rightchevron;?>
+    <label name="linkMesoWestID"></label>
+    <input name="linkMesoWestID" type="text" id="linkMesoWestID" value="<?php echo $linkMesoWestID;?>" class="choose">
+    <span style="color:#777;">(<red><b>Leave blank unless different from CWOP ID</b></red>)</span>
+    <br/>
+    <!-- WeatherCloud Link -->
     <div class="stationvalue">Display WeatherCloud Link</div>
     <?php echo $rightchevron;?>
     <label name="linkWeatherCloudID"></label>
     <input name="linkWeatherCloudID" type="text" id="linkWeatherCloudID" value="<?php echo $linkWeatherCloudID;?>" class="choose">
     <span style="color:#777;">(<orange><b>d0123456789</b></orange>)</span>
     <br/>
-    <!-- MesoWest Link -->
+    <!-- Windy.com Link -->
     <div class="stationvalue">Display Windy.com Link</div>
     <?php echo $rightchevron;?>
     <label name="linkWindyID"></label>
@@ -2144,3 +2160,4 @@ Weatherflow Map Zoom</div>
 
  
 </form>
+
