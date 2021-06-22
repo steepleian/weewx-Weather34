@@ -463,8 +463,8 @@ class ForecastData():
                 url = self.settings_dict.get(service + "_url")
                 try: service_xml = self.settings_dict.get(service + "_xml_data", False)
                 except: service_xml = False
-                header = self.settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3").split(":")
-                header = {header[0]:":".join(header[1:])}
+                header = self.settings_dict.get(service + "_header", "User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/534.3")
+                header = {hdr[0:hdr.index(":")].strip():hdr[hdr.index(":")+1:].strip() for hdr in header.split("|")}
                 try:
                     if url == None or header == None:
                         logerr("Error Invalid Webservice Data: %s, %s" % (url, header))
