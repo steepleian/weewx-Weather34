@@ -41,9 +41,9 @@ switch ($favcolor) {
  	$alidtext[0]="V".substr($description[0],$alidpos[0]);
  	$validpos[0]=strpos($description[0],"valid");
     $datestring = explode(" ", $alidtext[0]);;
-    $from = $datestring[2]+$offset;
-    $to = $datestring[7]+$offset;
-    $fromto = "Valid from 0"."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." to "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
+    $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT);
+    $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT);
+    $fromto = "Valid from "."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." to "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
  	$description[0]=substr($description[0], 0, $validpos[0]);
     
        if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
@@ -93,9 +93,9 @@ switch ($favcolor) {
  $alidtext[$i]="V".substr($description[$i],$alidpos[$i]);
  $validpos[$i]=strpos($description[$i],"valid");
  $datestring = explode(" ", $alidtext[$i]);;
- $from = $datestring[2]+$offset;
- $to = $datestring[7]+$offset;
- $fromto[$i] = "Valid from 0"."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
+ $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT);
+ $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT);
+ $fromto[$i] = "Valid from "."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
 
  $description[$i]=substr($description[$i], 0, $validpos[$i]);
 
