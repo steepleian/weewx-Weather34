@@ -40,9 +40,9 @@ switch ($favcolor) {
     $alidpos[0]=strpos($description[0],"alid");
  	$alidtext[0]="V".substr($description[0],$alidpos[0]);
  	$validpos[0]=strpos($description[0],"valid");
-    $datestring = explode(" ", $alidtext[0]);;
-    $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT);
-    $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT);
+    $datestring = explode(" ", $alidtext[0]);
+    $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT)."hr";
+    $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT)."hr";
     $fromto = "Valid from "."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." to "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
  	$description[0]=substr($description[0], 0, $validpos[0]);
     
@@ -92,9 +92,9 @@ switch ($favcolor) {
  $alidpos[$i]=strpos($description[$i],"alid");
  $alidtext[$i]="V".substr($description[$i],$alidpos[$i]);
  $validpos[$i]=strpos($description[$i],"valid");
- $datestring = explode(" ", $alidtext[$i]);;
- $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT);
- $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT);
+ $datestring = explode(" ", $alidtext[$i]);
+ $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT)."hr";
+ $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT)."hr";
  $fromto[$i] = "Valid from "."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
 
  $description[$i]=substr($description[$i], 0, $validpos[$i]);
