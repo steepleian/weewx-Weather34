@@ -123,9 +123,9 @@ switch ($favcolor) {
        else if($alertlevel[$i]=='yellow' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImagesuk/icon-warning-lightning-yellow.svg";}
        else if($alertlevel[$i]=='orange' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Orange.svg";}
        else if($alertlevel[$i]=='red' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Red.svg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "rain") !== false) {$alerttype='Rain';$warnimage="css/ukwrnImages/icon-warning-rain-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "rain") !== false) {$alerttype='Rain';$warnimage="css/ukwrnImages/icon-warning-rain-orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "rain") !== false) {$alerttype='Rain';$warnimage="css/ukwrnImages/icon-warning-rain-red.svg";}
+       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "rain") !== false) {$alerttype[$i]='Rain';$warnimage[$i]="css/ukwrnImages/icon-warning-rain-yellow.svg";}
+       else if($alertlevel[$i]=='orange' && strpos($description[$i], "rain") !== false) {$alerttype[$i]='Rain';$warnimage[$i]="css/ukwrnImages/icon-warning-rain-orange.svg";}
+       else if($alertlevel[$i]=='red' && strpos($description[$i], "rain") !== false) {$alerttype[$i]='Rain';$warnimage[$i]="css/ukwrnImages/icon-warning-rain-red.svg";}
 
 ?>
 <main class="grid_MET"><articlegraph_MET class="alert-row-narrow" style="font-size:11px; background-color:<?php echo $alertlevel[$i]?>">
