@@ -252,6 +252,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                         greenButton:   {y: (plot_div=='plot_div2'?-100:0),},
                         toggle: {
                             text: 'Select',
+			       x: -30,
                             menuItems:[]
                         }
                     }
@@ -1309,10 +1310,9 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    }
 	    options = create_chart_options(options, 'column', 'Monthly Lightning Strikes',null,[['Lightning Strikes', 'column']], month_name);
 	    options.series[0].data = month_data;
-	    options.plotOptions.column.pointWidth = 50;
+	    options.plotOptions.column.pointWidth = 10;
 	    options.yAxis[0].title.text = "Strikes";
 	    options.yAxis[0].min = 0;
-	    options.yAxis[0].tickInterval = 1;
 	    options.yAxis[0].allowDecimals = false;
 	    options.xAxis[0].minTickInterval =0;
 	    options.xAxis[0].type ='category';
