@@ -138,6 +138,8 @@ if ($weather["moonphase"]==0) {$weather["moonphase"]='New Moon';}else if ($weath
 	$weather["lightningday"]       = $weewxapi[76];
 	$weather["lightningmonth"]     = $weewxapi[74];
 	$weather["lightningyear"]      = $weewxapi[75];
+	$weather["lightningyesterday"] = $weewxapi[79];
+        $weather["lightningalltime"]   = $weewxapi[78];
 	
 	$originalDate = $weewxapi[83];
     $tempydmaxtime = date("H:i", strtotime($originalDate));
