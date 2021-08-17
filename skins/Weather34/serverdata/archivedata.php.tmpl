@@ -98,6 +98,14 @@
         #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None 
           #set $dysc = $day.lightning_strike_count.sum 
         #end if
+	#set $atsc = "N/A"
+        #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None
+          #set $atsc = $alltime.lightning_strike_count.sum
+        #end if
+        #set $ysc = "N/A"
+        #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None
+          #set $ysc = $yesterday.lightning_strike_count.sum
+        #end if
         #set $ldlt = "N/A"
         #if $varExists('year.lightning_distance.lasttime') and $year.lightning_distance.lasttime is not None  
            #set $ldlt = $year.lightning_distance.lasttime
@@ -163,8 +171,8 @@ $weewxapi[74] = "$mlsc";
 $weewxapi[75] = "$ylsc";	
 $weewxapi[76] = "$day.lightning_strike_count.sum"; //"$dysc";	
 $weewxapi[77] = "$ldlt";
-$weewxapi[78] = "N/A";	
-$weewxapi[79] = "N/A";
+$weewxapi[78] = "$atsc";
+$weewxapi[79] = "$ysc";
 $weewxapi[80] = "$day.radiation.max.format(add_label=False, $localize=False)";
 $weewxapi[81] = "$stationuptime";
 $weewxapi[82] = "$yesterday.outTemp.max.format(add_label=False, $localize=False)";
