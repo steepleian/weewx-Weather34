@@ -37,6 +37,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    barsmallplot: [addYearOptions, setBarSmall, create_barometer_chart],
 	    windsmallplot: [addYearOptions, setWindSmall, create_wind_chart],
 	    rainsmallplot: [addYearOptions, setRainSmall, create_rain_chart],
+	    strikesmallplot: [addYearOptions, setStrikeSmall, create_strike_chart],
 	    uvplot: [addWeekOptions, create_uv_chart],
 	    cloudcoverplot: [addWeekOptions, create_cloudcover_chart]
 	};
@@ -59,6 +60,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    rainplot: [addYearOptions, create_rain_chart],
 	    rainmonthplot: [create_rain_month_chart],
 	    rainsmallplot: [addYearOptions, setRainSmall, create_rain_chart],
+	    strikesmallplot: [addYearOptions, setStrikeSmall, create_strike_chart],
 	    lightningplot: [addYearOptions, create_lightning_chart],
 	    lightningmonthplot: [create_lightning_month_chart],
 	    luminosityplot: [addYearOptions, create_luminosity_chart],
@@ -76,6 +78,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    barsmallplot: [post_create_small_chart],
 	    windsmallplot: [post_create_small_chart],
 	    rainsmallplot: [post_create_small_chart],
+	    strikesmallplot: [post_create_small_chart],
 	    rainmonthplot: [remove_range_selector],
 	    lightningmonthplot: [remove_range_selector],
 	    radsmallplot: [post_create_small_chart],
@@ -106,6 +109,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    rainplot: [['bar_rain_week.json'],['year.json']],
 	    rainmonthplot: [['year.json'],['year.json']],
 	    rainsmallplot: [['bar_rain_week.json'],['year.json']],
+	    strikesmallplot: [['bar_rain_week.json'],['year.json']],
 	    lightningplot: [['bar_rain_week.json'],['year.json']],
 	    lightningmonthplot: [['year.json'],['year.json']],
 	    luminosityplot: [['solar_week.json'],['year.json']],
@@ -181,7 +185,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                     events: {
                          load: function(event){             // Hack to make radial charts display correctly the first time when they are not full of data
                             if (enable_radial_charts_reload && this.options.chart.polar && event.target.series[0].data.length > 10 && plot_type != 'windroseplot' && plot_type != 'windrosegustplot')
-                               setTimeout(polar_chart_hack,0);
+                               setTimeout(polar_chart_hack,100);
                          }
                     },
 	        },
@@ -212,7 +216,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	                },
                     },
 	            series: {states: {hover: {halo: {size: 0,}}}, 
-                            turboThreshold:100,
+                            turboThreshold:5000,
 	            },
 	            scatter: {
 	                marker: {
@@ -252,7 +256,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                         greenButton:   {y: (plot_div=='plot_div2'?-100:0),},
                         toggle: {
                             text: 'Select',
-			       x: -30,
+                            x: -30,
                             menuItems:[]
                         }
                     }
@@ -468,10 +472,10 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                     type: 'month',
                     count: 6,
                     text: '6m'
-		}, {
-                    type: 'year',
-                    count: 1,
-                    text: '1yr'
+	        }, {
+	            type: 'year',
+	            count: 1,
+	            text: '1yr'
                 }, {
                     type: 'all',
                     text: 'All'
@@ -495,10 +499,10 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	            type: 'month',
 	            count: 6,
 	            text: '6m'
-		}, {
-                    type: 'year',
-                    count: 1,
-                    text: '1yr'
+	        }, {
+	            type: 'year',
+	            count: 1,
+	            text: '1yr'
 	        }, {
 	            type: 'all',
                     text: 'All'
@@ -551,7 +555,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	function getTranslation(term){
 	    if (typeof translations == 'undefined') return term;
 	    if (translations.hasOwnProperty(term)) return translations[term];
-            if (translations.hasOwnProperty(term.replace(' ', ''))) return translations[term.replace(' ', '')];
+	    if (translations.hasOwnProperty(term.replace(' ', ''))) return translations[term.replace(' ', '')];
 	    var parts = term.split(/([" ", "/", "&"])/);
 	    var translation = "";
 	    for (var i = 0; i < parts.length; i++)
@@ -626,19 +630,13 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                 tcolors.push([convert_temp("C", temp_units, tempcolors[i][0]), tempcolors[i][1]]);
             return tcolors;
         }
-	
-  		function setTempSmall(options) {
-	    	options.chart.marginBottom = 20;
-	    	options.yAxis[0].height = "180";
-	    	$("#"+plot_div).css("height", 210);
-	    	return options
+
+	function setTempSmall(options) {
+	    options.chart.marginBottom = 20;
+	    options.yAxis[0].height = "70";
+	    $("#"+plot_div).css("height", 100);
+	    return options
 	};
-  
-  
-  
-  
-  
-  
 	
 	function create_temperature_chart(options, span, seriesData, units){
 	    if (do_radial && span[0] == "yearly"){
@@ -679,7 +677,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	        return do_radial_chart(options, dataMinMax, 'columnrange', ['Temperature'], convert_tempcolors(units.temp));
 	    }
 	    else if (span[0] == "yearly"){
-	        options = create_chart_options(options, 'columnrange', 'Indoor Temperature Humidity Ranges & Averages', '\xB0' + units.temp, [['Temperature Range', 'columnrange'],['Average Temperature','spline'],['Humidity Range', 'columnrange', 1,,, {valueSuffix: '%'}],['Humidity', 'spline', 1,,,{valueSuffix: '%'}]]);
+	        options = create_chart_options(options, 'columnrange', 'Greenhouse Temperature Humidity Ranges & Averages', '\xB0' + units.temp, [['Temperature Range', 'columnrange'],['Average Temperature','spline'],['Humidity Range', 'columnrange', 1,,, {valueSuffix: '%'}],['Humidity', 'spline', 1,,,{valueSuffix: '%'}]]);
 	        options.series[0].data = convert_temp(seriesData[0].temperatureplot.units, units.temp, reinflate_time(seriesData[0].temperatureplot.inTempminmax));
 	        options.series[1].data = convert_temp(seriesData[0].temperatureplot.units, units.temp, reinflate_time(seriesData[0].temperatureplot.inTempaverage))
 	        options.series[2].data = reinflate_time(seriesData[0].humidityplot.inHumidityminmax);
@@ -687,9 +685,9 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    }
 	    else if (span[0] == "weekly"){ 
 	        if (compare_dates)
-	            options = create_chart_options(options, 'spline', 'Indoor Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}], ['Temperature', 'spline',,,,,1],['Humidity','spline', 1,,, {valueSuffix: '%'},1]]);
+	            options = create_chart_options(options, 'spline', 'Greenhouse Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}], ['Temperature', 'spline',,,,,1],['Humidity','spline', 1,,, {valueSuffix: '%'},1]]);
 	        else
-	            options = create_chart_options(options, 'spline', 'Indoor Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}]]);
+	            options = create_chart_options(options, 'spline', 'Greenhouse Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}]]);
 	        options.series[0].data = convert_temp(seriesData[0].temperatureplot.units, units.temp, reinflate_time(seriesData[0].temperatureplot.inTemp));
 	        options.series[1].data = reinflate_time(seriesData[0].humidityplot.inHumidity);
 	        if (compare_dates){
@@ -900,7 +898,6 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    options.yAxis.min = 0;
 	    options.yAxis.max = 100;
 	    options.yAxis[0].minorTickInterval = 5;
-	    options.yAxis[0].tickInterval = 25;
 	    options.yAxis[0].title.text = "(" + seriesData[0].humidityplot.units + ")";
 	    return options;
 	};
@@ -914,8 +911,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	
 	function setBarSmall(obj) {
 	    obj.chart.marginBottom = 20;
-	    obj.yAxis[0].height = "260";
-	    $("#"+plot_div).css("height", 290);
+	    obj.yAxis[0].height = "160";
+	    $("#"+plot_div).css("height", 190);
 	    return obj
 	};
 	
@@ -964,8 +961,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
         }
 	function setWindSmall(options) {
 	    options.chart.marginBottom = 20;
-	    options.yAxis[0].height = "295";
-	    $("#"+plot_div).css("height", 325);
+	    options.yAxis[0].height = "160";
+	    $("#"+plot_div).css("height", 190);
 	    return options;
 	};
 	
@@ -1018,7 +1015,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    wd = reinflate_time(seriesData[0].winddirplot.windDir);
 	    ws = convert_wind(seriesData[0].windplot.units, units.wind, reinflate_time(seriesData[0].windplot.windGust));
 	    for (var i = j = 0; i < ws.length; i+=10, j++){
-	       wb[j]  = [ws[i][0], ws[i][1] > 0 || !hide_zero_wind_barb ? convert_wind(units.wind, "mph", ws[i][1])*0.44704 : null, wd[i][1]];
+	       wb[j]  = [ws[i][0], ws[i][1] > 0 || !hide_zero_wind_barb ? convert_wind(units.wind, "mph", ws[i][1])*0.44704 : null, wd[i][1]]; 
 	       wb1[j] = [ws[i][0], ws[i][1], wd[i][1]]; }
 	    options.plotOptions.series.turboThreshold = 0; //Need this to work around highcharts bug with wind barb 
 	    options.series[0].data = wb;
@@ -1031,8 +1028,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    options.rangeSelector.selected = 1;
 	    options.yAxis[0].title.text = "(" + units.wind + ")";
             options.tooltip.formatter = function(){if (this.points[1] == undefined) tooltip = '<span style="font-size: 10px">' + Highcharts.dateFormat('%e %B %Y %H:%M',new Date(this.points[0].x)) + '</span><br/>' + '<span style="color: ' + this.points[0].series.color+'">' + getTranslation("WindBarb") + ": " + 0 + " " + units.wind + " (" + getTranslation('Calm') + ')</span><br/>';
-                                                   else {spd = this.points[1].y;bn = this.points[0].series.beaufortName[Math.round(Math.pow(Math.pow((convert_wind(units.wind, "mph", spd)/1.8702),0.33),2))];tooltip = '<span style="font-size: 10px">' + Highcharts.dateFormat('%e %B %Y %H:%M',new Date(this.points[0].x)) + '</span><br/>' + '<span style="color: ' + this.points[1].series.color+'">' + getTranslation("WindBarb") + ": " + spd + " " + units.wind + " (" + getTranslation(bn) + ')</span><br/><span style="color: '+ this.points[0].series.color + '">' + getTranslation("Wind Direction") + ": " + (this.points[0].point.options.direction == null ? getTranslation("Calm") : this.points[0].point.options.direction + '\xB0') + '</span><br/>';}
-						   return tooltip;};
+                                                else {spd = this.points[1].y;bn = this.points[0].series.beaufortName[Math.round(Math.pow(Math.pow((convert_wind(units.wind, "mph", spd)/1.8702),0.33),2))];tooltip = '<span style="font-size: 10px">' + Highcharts.dateFormat('%e %B %Y %H:%M',new Date(this.points[0].x)) + '</span><br/>' + '<span style="color: ' + this.points[1].series.color+'">' + getTranslation("WindBarb") + ": " + spd + " " + units.wind + " (" + getTranslation(bn) + ')</span><br/><span style="color: '+ this.points[0].series.color + '">' + getTranslation("Wind Direction") + ": " + (this.points[0].point.options.direction == null ? getTranslation("Calm") : this.points[0].point.options.direction + '\xB0') + '</span><br/>';}
+                                                  return tooltip;};
 	    return options;
 	};
 	
@@ -1197,8 +1194,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	
 	function setRainSmall(options) {
 	    options.chart.marginBottom = 20;
-	    options.yAxis[0].height = "295";
-	    $("#"+plot_div).css("height", 325);
+	    options.yAxis[0].height = "170";
+	    $("#"+plot_div).css("height", 200);
 	    return options;
 	};
 	
@@ -1252,6 +1249,23 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    options.xAxis[0].minTickInterval =0;
 	    options.xAxis[0].type ='category';
 	    options.xAxis[0].labels = {formatter: function (){return month_name[this.value]}};
+	    return options;
+	};
+	
+	function setStrikeSmall(options) {
+	    options.chart.marginBottom = 20;
+	    options.yAxis[0].height = "170";
+	    $("#"+plot_div).css("height", 200);
+	    return options;
+	};
+
+	function create_strike_chart(options, span, seriesData, units){
+	    options = create_chart_options(options, 'column', 'Strikes Count', null, [['Strikes Count', 'column']]);
+	    options.series[0].data = remove_zero_dps(reinflate_time(seriesData[0].lightningplot.strikeCount));
+	    options.yAxis[0].min = 0;
+	    options.yAxis[0].title.text = "Strikes";
+	    options.yAxis[0].allowDecimals = false;
+	    options.xAxis[0].minTickInterval =0;
 	    return options;
 	};
 	
@@ -1351,9 +1365,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	};
 	
 	function setRadSmall(options) {
-	    options.chart.marginBottom = 20;
-        options.yAxis[0].height = "255";
-	    $("#"+plot_div).css("height", 285);
+	    options.yAxis[0].height = "160";
+	    $("#"+plot_div).css("height", 190);
 	    return options;
 	};
 	
@@ -1459,9 +1472,8 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	};
 	
 	function setUvSmall(options) {
-        options.chart.marginBottom = 20;
-	    options.yAxis[0].height = "255";
-	    $("#"+plot_div).css("height", 285);
+	    options.yAxis[0].height = "160";
+	    $("#"+plot_div).css("height", 190);
 	    return options
 	};
 	
@@ -1703,7 +1715,6 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                    }, false)
                 }
             };
-            options.plotOptions.series.turboThreshold = 0; //Need this to work around highcharts warning 12
 	    return options;
 	};
 	
