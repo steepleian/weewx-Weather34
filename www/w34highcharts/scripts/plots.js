@@ -185,7 +185,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                     events: {
                          load: function(event){             // Hack to make radial charts display correctly the first time when they are not full of data
                             if (enable_radial_charts_reload && this.options.chart.polar && event.target.series[0].data.length > 10 && plot_type != 'windroseplot' && plot_type != 'windrosegustplot')
-                               setTimeout(polar_chart_hack,100);
+                               setTimeout(polar_chart_hack,0);
                          }
                     },
 	        },
@@ -677,7 +677,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	        return do_radial_chart(options, dataMinMax, 'columnrange', ['Temperature'], convert_tempcolors(units.temp));
 	    }
 	    else if (span[0] == "yearly"){
-	        options = create_chart_options(options, 'columnrange', 'Greenhouse Temperature Humidity Ranges & Averages', '\xB0' + units.temp, [['Temperature Range', 'columnrange'],['Average Temperature','spline'],['Humidity Range', 'columnrange', 1,,, {valueSuffix: '%'}],['Humidity', 'spline', 1,,,{valueSuffix: '%'}]]);
+	        options = create_chart_options(options, 'columnrange', 'Indoor Temperature Humidity Ranges & Averages', '\xB0' + units.temp, [['Temperature Range', 'columnrange'],['Average Temperature','spline'],['Humidity Range', 'columnrange', 1,,, {valueSuffix: '%'}],['Humidity', 'spline', 1,,,{valueSuffix: '%'}]]);
 	        options.series[0].data = convert_temp(seriesData[0].temperatureplot.units, units.temp, reinflate_time(seriesData[0].temperatureplot.inTempminmax));
 	        options.series[1].data = convert_temp(seriesData[0].temperatureplot.units, units.temp, reinflate_time(seriesData[0].temperatureplot.inTempaverage))
 	        options.series[2].data = reinflate_time(seriesData[0].humidityplot.inHumidityminmax);
@@ -685,9 +685,9 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	    }
 	    else if (span[0] == "weekly"){ 
 	        if (compare_dates)
-	            options = create_chart_options(options, 'spline', 'Greenhouse Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}], ['Temperature', 'spline',,,,,1],['Humidity','spline', 1,,, {valueSuffix: '%'},1]]);
+	            options = create_chart_options(options, 'spline', 'Indoor Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}], ['Temperature', 'spline',,,,,1],['Humidity','spline', 1,,, {valueSuffix: '%'},1]]);
 	        else
-	            options = create_chart_options(options, 'spline', 'Greenhouse Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}]]);
+	            options = create_chart_options(options, 'spline', 'Indoor Temperature Humidity', '\xB0' + units.temp, [['Temperature', 'spline'],['Humidity','spline', 1,,, {valueSuffix: '%'}]]);
 	        options.series[0].data = convert_temp(seriesData[0].temperatureplot.units, units.temp, reinflate_time(seriesData[0].temperatureplot.inTemp));
 	        options.series[1].data = reinflate_time(seriesData[0].humidityplot.inHumidity);
 	        if (compare_dates){
