@@ -344,15 +344,16 @@ metricsblue {
 <iframe  src="w34highcharts/dark-charts.html?chart='strikesmallplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0" scrolling="no" width="100%"  height="225px"></iframe>
     </articlegraph>
 
-        <articlegraph style="height:30px">
-    <div class="lotemp">
-    <?php echo $info?>
-<a href="https://canvasjs.com" title="https://canvasjs.com" target="_blank" style="font-size:8px;"> Charts rendered and compiled using <?php echo $creditschart ;?> </a></span>
-    </div>
-    <div class="lotemp">
-    <?php echo $info?> <a href="https://weather34.com" title="weather34.com" target="_blank" style="font-size:8px;">CSS/SVG/PHP scripts were developed by weather34.com    for use in the weather34 template &copy; 2015-<?php echo date('Y');?>
-    </a></div>
-
-    </articlegraph>
-
+<articlegraph style="height:30px">  
+  <div class="lotemp">
+  <?php echo $info?> 
+<a href="https://highcharts.com" title="https://highcharts.com" target="_blank" style="font-size:8px;"> Charts rendered and compiled using Highcharts </a></span>
+  </div>   
+    
+  <div class="lotemp">
+  <?php echo $info?> Adapted by Jerry for the WeeWX Weather34 template from the original CSS/SVG/PHP scripts by weather34.com &copy; 2015-<?php echo date('Y');?>
+  </a></div>
+   
+  </articlegraph> 
+  
 </main>
