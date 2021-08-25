@@ -35,6 +35,8 @@ Optional enhancement to web services which converts RSS XML feeds into json data
 
 For UK users only. Option to select UK severe weather warning regions. This is an alternative to Meteoalarm which is currently not supporting The UK (temporarily?). 
 
+Please note that the cloud cover feature in the current conditions module is function only for European users at the moment. Settings for other continents are included ready for future availability.
+
 # Demo
 
 A live example of Weather34 WeeWX skin can be seen at https://claydonsweather.org.uk
