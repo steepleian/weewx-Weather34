@@ -166,35 +166,46 @@ if ($extralinks == 'yes')
           <?php
     } ?>
           <?php if ($linkNOAA == 'yes' && !empty($linkCWOPID))
-    { ?>
-            <li>
-              <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on NOAA Meso West" target="_blank">
-                <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
-                <?php echo $linkCWOPID; ?> on NOAA
-              </a>
-            </li>
-          <?php
-    } ?>
-          <?php if ($linkMADIS == 'yes' && !empty($linkCWOPID))
-    { ?>
-            <li>
-              <a href="https://madis-data.ncep.noaa.gov/MadisSurface/?CenterLAT=<?php echo $lat; ?>&CenterLON=<?php echo $lon; ?>&Zoom=11.00&StationID=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on MADIS Map" target="_blank">
-                <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
-                <?php echo $linkCWOPID; ?> on NOAA MADIS Map
-              </a>
-            </li>
-          <?php
-    } ?>
-          <?php if ($linkMesoWest == 'yes' && !empty($linkCWOPID))
-    { ?>
-            <li>
-              <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on Meso West" target="_blank">
-                <img class="menuimg" src="img/mesowest.svg" alt=""/>
-                <?php echo $linkCWOPID; ?> on Meso West
-              </a>
-            </li>
-          <?php
-    } ?>
+{ ?>
+        <li>
+          <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on NOAA Meso West" target="_blank">
+            <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
+            <?php echo $linkCWOPID; ?> on NOAA
+          </a>
+        </li>
+      <?php
+} ?>
+     <?php if ($linkNOAA == 'custom' && !empty($linkNOAAID))
+{ ?>
+        <li>
+          <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkNOAAID; ?>" title="<?php echo $linkNOAAID; ?> on NOAA Meso West" target="_blank">
+            <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
+            <?php echo $linkNOAAID; ?> on NOAA
+          </a>
+        </li>
+      <?php
+} ?>
+---
+      <?php if ($linkMesoWest == 'yes' && !empty($linkCWOPID))
+{ ?>
+        <li>
+          <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on Meso West" target="_blank">
+            <img class="menuimg" src="img/mesowest.svg" alt=""/>
+            <?php echo $linkCWOPID; ?> on Meso West
+          </a>
+        </li>
+      <?php
+} ?>
+      <?php if ($linkMesoWest == 'custom' && !empty(linkMesoWestID))
+{ ?>
+        <li>
+          <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkMesoWestID; ?>" title="<?php echo $linkMesoWestID; ?> on Meso West" target="_blank">
+            <img class="menuimg" src="img/mesowest.svg" alt=""/>
+            <?php echo $linkMesoWestID; ?> on Meso West
+          </a>
+        </li>
+      <?php
+} ?>
           <?php if (!empty($linkWeatherCloudID))
     { ?>
             <li>
