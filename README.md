@@ -7,6 +7,8 @@ Packaged for installation using its own unique installer and an online pre-insta
 
 This repository contains the WeeWX version of Brian Underdown's Weather34 website template set. Brian's main website is https://weather34.com/homeweatherstation/index.html In January, 2019, Brian asked others to take over the distribution/maintainence of his design whilst he concentrated on development only for MB NanoSD, called Weather34 MB-SMART. This WeeWX version of the template is actively developed by Ian Millard and Jerry Dietrich.
 
+The repository contains a main and development branch. To maintain integrity of the main branch, all pull request must be made via the development branch. 
+
 This version requires WeeWX version 4.1.1 or later software. WeeWX is available at http://weewx.com. It is PHP 8 compatible.
 
 This version is designed explicitly to harness the powerful WeeWX database to generate the weather data charts and statistical data. It was originally built on the current MB-UB40-IHVN which is now maintained by Lightmaster (Meteobridge-Weather34-Template). Although we maintain a similar look and feel with MB-UB40-IHVN,the weewx-Weather34 now has many unique features.
