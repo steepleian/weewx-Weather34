@@ -8,7 +8,7 @@
       </div>
       <div class="weather34toolbar__center">
         <button class="weather34btn weather34btn--primary">
-          <weather34toptitle><?php echo $stationName; ?>&nbsp; Home Weather Station</weather34toptitle>
+          <weather34toptitle><?php echo $stationName; ?></weather34toptitle>
         </button>
       </div>
       <div class="weather34toolbar__right">
