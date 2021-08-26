@@ -29,10 +29,6 @@ $_POST["showDate"] = "false";
 IF (ISSET($_POST["Submit"])) {
 
 $string = '<?php
-$weatherflowID = "'. $_POST["wfid"]. '";
-$weatherflowoption   = "'. $_POST["weatherflowoption"]. '";
-$weatherflowlightning = "'. $_POST["wfli"]. '";
-$weatherflowmapzoom   = "'. $_POST["weatherflowmapzoom"]. '";
 $purpleairhardware   = "'. $_POST["purpleairhardware"]. '";
 $TZ = "'. $_POST["TZ"]. '";
 $lon = '. $_POST["lon"]. ';
@@ -1908,98 +1904,6 @@ General template settings with options to choose which type of module to display
     </div>
     <br/>
 
-<!--##########################################################################################
-    #########                        Start of WeatherFlow Sidebar                    #########
-    ##########################################################################################-->
-
-    <div class="weatheroptionssidebar">
-        <span style="color:rgba(236, 87, 27, 1);"><strong>Only</strong> select yes if your <strong>WeatherFlow Station</strong> is not directly connected to your <strong>MB</strong>.</span>
-    </div>
-
-<!--##########################################################################################
-    #########                        Start of WeatherFlow Section                    #########
-    ##########################################################################################-->
-
-    <div class="weatheroptions">
-   <div class="weathersectiontitle"><img src="img/wflogo.svg" width="200px"/></div> <br/>
-
-
-<div class="stationvalue">Do you have Weatherflow Station</div> <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M30 12 L16 24 2 12" />
-</svg>
-
-   <label name="weatherflowoption"></label>
-        <select id="weatherflowoption" name="weatherflowoption" class="choose1" >
-            <option><?php echo $weatherflowoption ;?></option>
-            <option>yes</option>
-            <option>no</option>
-            </select>
-            <br/>
-            <span style="color:#777;"><strong> Select <span style="color:rgba(24, 25, 27, 0.8);">Yes</span> or <span style="color:rgba(86, 95, 103, 1.000);">No</span></strong><br/>
-
-  <br/>
-        <strong> <span style="color:rgba(236, 87, 27, 1.000);">*important</span> only select yes if your weatherflow hardware is not connected directly to meteobridge and want to use weatherflow hardware alongside existing hardware connected to meteobridge..this option uses weatherflow API data for UV,SOLAR and lightning only </strong></span><br/>
-
-
-
-     <div class="stationvalue"> Weather-Flow STATION ID</div>
-    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-
-    <input name="wfid" type="text" id="wfid" value="<?php echo $weatherflowID ;?>" class="choose">
-
-
-
-
-
-    <br/> <svg id="i-info" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M16 14 L16 23 M16 8 L16 10" />
-    <circle cx="16" cy="16" r="14" />
-</svg> <span style="color:#777;">enter your <strong>WeatherFlow </strong> station id example <strong><span style="color:rgba(86, 95, 103, 1.000);"> 1200</strong></span></span>
-
-    <br/>
-        <div class="stationvalue"> Weather-Flow Lightning module </div>
-    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-
-    <input name="wfli" type="text" id="wfli" value="<?php echo $weatherflowlightning ;?>" class="choose">
-
-
-
-
-
-    <br/> <svg id="i-info" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M16 14 L16 23 M16 8 L16 10" />
-    <circle cx="16" cy="16" r="14" />
-</svg> <span style="color:#777;">(option works when available weatherflow is connected to meteobridge) select yes if you wish to display lightning module </span></span>
-
-<br/>
-
-<div class="stationvalue">
-Weatherflow Map Zoom</div>
- <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="#F05E40" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-    <path d="M12 30 L24 16 12 2" />
-</svg>
-    <label name="weatherflowmapzoom"></label>
-        <select id="weatherflowmapzoom" name="weatherflowmapzoom" value="<?php echo $weatherflowmapzoom ;?>" class="choose1" >
-          <option><?php echo $weatherflowmapzoom ;?></option>
-            <option>5</option>
-            <option>6</option>
-             <option>7</option>
-             <option>8</option>
-             <option>9</option>
-             <option>10</option>
-             <option>11</option>
-            </select>
-
-<br/> <?php echo $iicon;?> <span style="color:#777;"><green>Select Map Zoom level</green> 5-11</span>
-
-</div>
-    <br/>
 
 <!--##########################################################################################
     #########                        Start of Temp Module Section                    #########
