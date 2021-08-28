@@ -160,20 +160,17 @@
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
             <div>
-                Do you have a DarkSky API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your DarkSky Key."></i>
-                <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" />Yes</label>
-                <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" checked />No</label><br /> Note: Only for existing DarkSky API Key holders, DarkSky is no longer accepting new API account requests.
+                Do you have an AerisWeather API ID Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather ID Key."></i>
+                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableDSK()" />Yes</label>
+                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableDSK()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
             </div>
-            <input type="text" id="txtDskey" disabled="true" /><br />
-            <label for="text">DarkSky Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
-            <select id="selDsunits" disabled="true" disabled="true">
-                <option selected value="">-- Please Choose Your Units--</option>
-                <option value="us">US</option>
-                <option value="si">SI Metric</option>
-                <option value="ca">Canada</option>
-                <option value="uk2">UK (Metric with mph and miles)</option>
-                <option value="auto">auto</option>
-            </select><br />
+            <input type="text" id="txtAwid" disabled="true" /><br />
+            <div>
+                Do you have an AerisWeather API Secret Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather Secret Key."></i>
+                <label class="radio"><input type="radio" name="Awsechkd" id="Awsechkd" onclick="EnableDisableDSK()" />Yes</label>
+                <label class="radio"><input type="radio" name="Awsechkd" id="Awsechkd" onclick="EnableDisableDSK()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
+            </div>
+            <input type="text" id="txtAwse" disabled="true" /><br />
         </div>
         <div class="Line-One">
             <div class="control">
