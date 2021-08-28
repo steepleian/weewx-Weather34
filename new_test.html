@@ -161,14 +161,14 @@
             <input type="text" id="txtAqkey" disabled="true" /><br />
             <div>
                 Do you have an AerisWeather API ID Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather ID Key."></i>
-                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableDSK()" />Yes</label>
-                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableDSK()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
+                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableAWI()" />Yes</label>
+                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableAWI()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
             </div>
             <input type="text" id="txtAwid" disabled="true" /><br />
             <div>
                 Do you have an AerisWeather API Secret Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather Secret Key."></i>
-                <label class="radio"><input type="radio" name="Awsechkd" id="Awsechkd" onclick="EnableDisableDSK()" />Yes</label>
-                <label class="radio"><input type="radio" name="Awsechkd" id="Awsechkd" onclick="EnableDisableDSK()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
+                <label class="radio"><input type="radio" name="Awsechkd" id="Awsechkd" onclick="EnableDisableAWS()" />Yes</label>
+                <label class="radio"><input type="radio" name="Awsechkd" id="Awsechkd" onclick="EnableDisableAWS()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
             </div>
             <input type="text" id="txtAwse" disabled="true" /><br />
         </div>
@@ -350,17 +350,19 @@
             }
         </script>
         <script type="text/javascript">
-            function EnableDisableDSK() {
-                var DsKeychkd = document.getElementById("Dskeychkd");
-                var txtDskey = document.getElementById("txtDskey");
-                var selDsunits = document.getElementById("selDsunits");
-                txtDskey.disabled = DsKeychkd.checked ? false : true;
-                selDsunits.disabled = DsKeychkd.checked ? false : true;
-                if (!DsKeychkd.disabled) {
-                    DsKeychkd.focus();
+            function EnableDisableAWI() {
+                var Awidchkd = document.getElementById("Awidchkd");
+                var txtAwid = document.getElementById("txtAwid");
+		    
+                var Awsechkd = document.getElementById("Awsechkd");
+		var txtAwse = document.getElementById("txtAwse");    
+                txtAwid.disabled = Awidchkd.checked ? false : true;
+                txtAwse.disabled = Awsechkd.checked ? false : true;
+                if (!Awidchkd.disabled) {
+                    Awidchkd.focus();
                 }
             }
-        </script>
+        </script>    
         <script type="text/javascript">
             function EnableDisableWUK() {
                 var WuKeychkd = document.getElementById("Wukeychkd");
