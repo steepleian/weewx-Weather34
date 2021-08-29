@@ -274,8 +274,7 @@ if ($positionlastmodule=='purpleairqualitymodule.php') {echo '<span class="yearp
 <div class=weatherfooter-container><div class=weatherfooter-item> 
 <div class=hardwarelogo1>
 <a href="http://weewx.com" alt="http://weewx.com" title="http://weewx.com">
-  <?php
-if ($livedataFormat== "WeeWX-W34"){echo '<img src="img/icon-weewx.svg" alt="WeeWX" title="WeeWX"  width="150px" height="55px" ><div class=hardwarelogo1text></div>';}
+  <?php echo '<img src="img/icon-weewx.svg" alt="WeeWX" title="WeeWX"  width="150px" height="55px" ><div class=hardwarelogo1text></div>';
 ?></a> </div>
 <div class=hardwarelogo2 ><?php
 if ($weatherhardware== "Davis Vantage Vue"){echo '<img src="img/designedfordavisvue.svg" alt="Davis Instruments-Meteobridge" title="Davis Instruments-Meteobridge"  width="160px" height="65px" >';}
