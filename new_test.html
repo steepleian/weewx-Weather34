@@ -159,8 +159,7 @@
                     rel="noopener noreferrer">AQI API Info</a>
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
-            
-	  <div>
+            <div>
                 Do you have a DarkSky API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your DarkSky Key."></i>
                 <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" />Yes</label>
                 <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" checked />No</label><br /> Note: Only for existing DarkSky API Key holders, DarkSky is no longer accepting new API account requests.
@@ -175,8 +174,8 @@
                 <option value="uk2">UK (Metric with mph and miles)</option>
                 <option value="auto">auto</option>
             </select><br />
-        </div> 
-          <div class="Line-One">
+        </div>
+        <div class="Line-One">
             <div class="control">
                 Do you have a Weather Underground Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Weather Underground Key."></i>
                 <label class="radio"><input type="radio" name="Wukeychkd" id="Wukeychkd" onclick="EnableDisableWUK()" />Yes</label>
@@ -300,8 +299,7 @@
             <br />
             <div style="background-color: #ffffff; padding: 6px;border-radius: 4px;border: 2px solid #ccc;text-align: center;">
                 <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Real Time Air Quality Index (AQI)
-                <input type="checkbox" name="checkbox[]" id="ckah" value="ah" disabled checked title="This is a required service" /> AerisWeather hourly forecast
-		<input type="checkbox" name="checkbox[]" id="ckad" value="ad" disabled checked title="This is a required service" /> AerisWeather daily forecast
+                <input type="checkbox" name="checkbox[]" id="ckds" value="ds" /> DarkSky Forecast
                 <input type="checkbox" name="checkbox[]" id="ckwu" value="wu" disabled checked title="This is a required service" /> Weather Underground Forecast
                 <input type="checkbox" name="checkbox[]" id="ckeq" value="eq" disabled checked title="This is a required service" /> Earthquake Notification
                 <input type="checkbox" name="checkbox[]" id="ckki" value="ki" disabled checked title="This is a required service" /> Geomagnetic Storms
@@ -354,19 +352,17 @@
             }
         </script>
         <script type="text/javascript">
-            function EnableDisableAWI() {
-                var Awidchkd = document.getElementById("Awidchkd");
-                var txtAwid = document.getElementById("txtAwid");
-		    
-                var Awsechkd = document.getElementById("Awsechkd");
-		var txtAwse = document.getElementById("txtAwse");    
-                txtAwid.disabled = Awidchkd.checked ? false : true;
-                txtAwse.disabled = Awsechkd.checked ? false : true;
-                if (!Awidchkd.disabled) {
-                    Awidchkd.focus();
+            function EnableDisableDSK() {
+                var DsKeychkd = document.getElementById("Dskeychkd");
+                var txtDskey = document.getElementById("txtDskey");
+                var selDsunits = document.getElementById("selDsunits");
+                txtDskey.disabled = DsKeychkd.checked ? false : true;
+                selDsunits.disabled = DsKeychkd.checked ? false : true;
+                if (!DsKeychkd.disabled) {
+                    DsKeychkd.focus();
                 }
             }
-        </script>    
+        </script>
         <script type="text/javascript">
             function EnableDisableWUK() {
                 var WuKeychkd = document.getElementById("Wukeychkd");
@@ -432,8 +428,8 @@
                 const lang = document.getElementById('selLang');
                 const al_ip = document.getElementById('txtAlip');
                 const aq_apikey = document.getElementById('txtAqkey');
-                const aw_idkey = document.getElementById('txtAwid');
-                const aw_sekey = document.getElementById('txtAwse');
+                const ds_apikey = document.getElementById('txtDskey');
+                const ds_units = document.getElementById('selDsunits');
                 const wu_apikey = document.getElementById('txtWukey');
                 const wu_units = document.getElementById('selWuunits');
                 const me_apikey = document.getElementById('txtMekey');
