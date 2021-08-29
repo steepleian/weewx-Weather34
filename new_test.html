@@ -159,15 +159,15 @@
                     rel="noopener noreferrer">AQI API Info</a>
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
-            <div>
-                Do you have an AerisWeather API ID and Secret Keys?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather ID Key."></i>
+            
+	  <div class="control">
+                Do you have AerisWeather API ID and Secret Keys?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather ID Key."></i>
                 <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableAWI()" />Yes</label>
-                <label class="radio"><input type="radio" name="Awidchkd" id="Awidchkd" onclick="EnableDisableAWI()" checked />No</label><br /> Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info</a>
+                <label class="radio"><input type="radio" name="Awidchkd" id="MeKeychkd" onclick="EnableDisableAWI()" checked />No</label> (Learn more at <a href="https://www.aerisweather.com/develop/api/" target="_blank" rel="noopener noreferrer">AW API Info.</a>)
             </div>
             <input type="text" id="txtAwid" disabled="true" /><br />
-            
-            <input type="text" id="txtAwse" disabled="true" /><br />
-          </div>
+            <label for="text">Enter AerisWeather API Secret Key here</a>)</label><i class="fa fa-question-circle"</i>
+            <input type="text" id="txtAwse" disabled="true" /><br />  
           <div class="Line-One">
             <div class="control">
                 Do you have a Weather Underground Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Weather Underground Key."></i>
