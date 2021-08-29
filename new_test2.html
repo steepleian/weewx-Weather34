@@ -160,14 +160,20 @@
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
             <div>
-                Do you have AerisWeather API ID and Secret Keys?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather ID Key."></i>
+                Do you have a DarkSky API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your DarkSky Key."></i>
                 <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" />Yes</label>
                 <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" checked />No</label><br /> Note: Only for existing DarkSky API Key holders, DarkSky is no longer accepting new API account requests.
             </div>
-            <input type="text" id="txtAwid" disabled="true" /><br />
-            <label for="text">Enter your AerisWeather Secret Key. (Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa fa-question-circle"
-                title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter the ICAO Code."></i>
-            <input type="text" id="txtAwse" disabled="true" /><br />
+            <input type="text" id="txtDskey" disabled="true" /><br />
+            <label for="text">DarkSky Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
+            <select id="selDsunits" disabled="true" disabled="true">
+                <option selected value="">-- Please Choose Your Units--</option>
+                <option value="us">US</option>
+                <option value="si">SI Metric</option>
+                <option value="ca">Canada</option>
+                <option value="uk2">UK (Metric with mph and miles)</option>
+                <option value="auto">auto</option>
+            </select><br />
         </div>
         <div class="Line-One">
             <div class="control">
@@ -482,10 +488,8 @@
                     '{' + ' \r\n' +
                     " 'aq_url':'https://api.waqi.info/feed/geo:" + lat.value + ';' + lon.value + '/?token=' + aq_apikey.value + "'" + ',' + ' \r\n' +
                     " 'aq_interval':'3600'" + ',' + ' \r\n' +
-                    " 'ah_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=1hr&limit=24&client_id=' + aw_idkey.value + '&client_secret' + '=' + aw_sekey.value + "'" + ',' + ' \r\n' +
-                    " 'ah_interval':'3600'" + ',' + ' \r\n' +
-		    " 'ad_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=daynight&limit=16&client_id=' + aw_idkey.value + '&client_secret' + '=' + aw_sekey.value + "'" + ',' + ' \r\n' +
-                    " 'ad_interval':'3600'" + ',' + ' \r\n' +
+                    " 'ds_url':'https://api.forecast.io/forecast/" + ds_apikey.value + '/' + lat.value + ',' + lon.value + '?lang=' + lang.value + '&units' + '=' + ds_units.value + "'" + ',' + ' \r\n' +
+                    " 'ds_interval':'3600'" + ',' + ' \r\n' +
                     " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode=" + lat.value + ',' + lon.value + '&language=' + lang.value + '&format=json&units=' + wu_units.value + '&apiKey=' + wu_apikey.value + "'" + ',' + ' \r\n' +
                     " 'wu_interval':'3600'" + ',' + ' \r\n' +
                     " 'eq_url':'https://www.emsc-csem.org/service/rss/rss.php?typ=emsc'" + ',' + ' \r\n' +
