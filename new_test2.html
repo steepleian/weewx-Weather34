@@ -186,6 +186,14 @@
                 title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter the ICAO Code."></i>
             <input type="text" id="txtMecode" disabled="true" /><br />
             <div class="control">
+                Do you have a CheckWX Key for METAR data?&nbsp;<i class="fa fa-question-circle" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your METAR Key."></i>
+                <label class="radio"><input type="radio" name="MeKeychkd" id="MeKeychkd" onclick="EnableDisableMEK()" />Yes</label>
+                <label class="radio"><input type="radio" name="MeKeychkd" id="MeKeychkd" onclick="EnableDisableMEK()" checked />No</label> (Details can be found <a href="https://www.checkwxapi.com/documentation" target="_blank" rel="noopener noreferrer">here.</a>)
+            </div>
+            <input type="text" id="txtMekey" disabled="true" /><br />
+            <label for="text">Enter the ICAO code for the METAR capable airport nearest you. (Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa fa-question-circle"
+                title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter the ICAO Code."></i>
+            <input type="text" id="txtMecode" disabled="true" /><br /><div class="control">
                 Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your PurpleAir ID."></i>
                 <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" />Yes</label>
                 <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No</label> (Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
