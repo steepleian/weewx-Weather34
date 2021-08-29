@@ -160,14 +160,14 @@
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
             <div>
-                Do you have a CheckWX Key for METAR data?&nbsp;<i class="fa fa-question-circle" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your METAR Key."></i>
-                <label class="radio"><input type="radio" name="MeKeychkd" id="MeKeychkd" onclick="EnableDisableMEK()" />Yes</label>
-                <label class="radio"><input type="radio" name="MeKeychkd" id="MeKeychkd" onclick="EnableDisableMEK()" checked />No</label> (Details can be found <a href="https://www.checkwxapi.com/documentation" target="_blank" rel="noopener noreferrer">here.</a>)
+                Do you have AerisWeather ID and Secret Keys for API data?&nbsp;<i class="fa fa-question-circle" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your METAR Key."></i>
+                <label class="radio"><input type="radio" name="AwKeychkd" id="AwKeychkd" onclick="EnableDisableAWK()" />Yes</label>
+                <label class="radio"><input type="radio" name="MeKeychkd" id="MeKeychkd" onclick="EnableDisableAWK()" checked />No</label> (Details can be found <a href="https://www.checkwxapi.com/documentation" target="_blank" rel="noopener noreferrer">here.</a>)
             </div>
-            <input type="text" id="txtMekey" disabled="true" /><br />
-            <label for="text">Enter the ICAO code for the METAR capable airport nearest you. (Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa fa-question-circle"
+            <input type="text" id="txtAwid" disabled="true" /><br />
+            <label for="text">Enter AerisWeather Secret Key. (Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa fa-question-circle"
                 title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter the ICAO Code."></i>
-            <input type="text" id="txtMecode" disabled="true" /><br /><br />
+            <input type="text" id="txtAwse" disabled="true" /><br /><br />
         </div>
         <div class="Line-One">
             <div class="control">
