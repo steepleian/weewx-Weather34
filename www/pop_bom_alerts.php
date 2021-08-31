@@ -6,11 +6,11 @@
 <body>
   <?php if($theme==="dark"){$text1="silver";$url="cyan";}
 else if($theme==="light"){$text1="black";$url="blue";}
-$forecastime = filemtime ('jsondata/ns.txt');?> 
+$forecastime = filemtime ('jsondata/au.txt');?> 
 <?php
 
 
-        $json = 'jsondata/ns.txt'; 
+        $json = 'jsondata/au.txt'; 
 $json = file_get_contents($json); 
 $parsed_json = json_decode($json, true);
 //$cnt=count($parsed_json['rss']['channel']['item']); echo $cnt;
