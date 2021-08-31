@@ -3,7 +3,7 @@
 
 <?php
 
-$json = 'jsondata/ns.txt'; 
+$json = 'jsondata/au.txt'; 
 $json = file_get_contents($json); 
 $parsed_json = json_decode($json, true);
 if(($parsed_json['rss']['channel']['item'][0]['title'])!==null){$alertlevel="Yellow";}
