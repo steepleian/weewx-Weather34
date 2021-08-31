@@ -256,7 +256,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
                         greenButton:   {y: (plot_div=='plot_div2'?-100:0),},
                         toggle: {
                             text: 'Select',
-                            x: -30,
+                            x: -10,
                             menuItems:[]
                         }
                     }
