@@ -8,13 +8,17 @@ uppercase{ text-transform:capitalize;}
 //original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
 include('metar34get.php');include('serverdata/archivedata.php');
 error_reporting(0);
-//$weather["cloudbase3"] = round((anyToC($weather["temp"]) - anyToC($weather["dewpoint"])) * 1000 /2.4444) ;
+$json_string             = file_get_contents("jsondata/me.txt");
+$parsed_json             = json_decode($json_string, true);
+if ($windunit =='mph' ||  $windunit =='kts'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['feet'];}
+else if ($windunit =='km/h' ||  $windunit =='m/s'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['meters'];} 
+
+
 $result = date_sun_info(time(), $lat, $lon);$sunr=date_sunrise(time(), SUNFUNCS_RET_STRING, $lat, $lon, $rise_zenith, $UTC_offset);$suns=date_sunset(time(), SUNFUNCS_RET_STRING, $lat, $lon, $set_zenith, $UTC_offset);
 $sunr1=date_sunrise(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat, $lon, $rise_zenith, $UTC_offset);$suns1=date_sunset(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat, $lon, $set_zenith, $UTC_offset);
 $tw=date_sunrise(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat, $lon, 96, $UTC_offset);$twe=date_sunset(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat, $lon, 96, $UTC_offset);
 $suns2 =date('G.i', $result['sunset']);$sunr2 =date('G.i', $result['sunrise']);$suns3 =date('G.i', $result['sunset']);$sunr3 =date('G.i', $result['sunrise']);$sunrisehour =date('G', $result['sunrise']);
 $sunsethour =date('G', $result['sunset']);$twighlight_begin =date('G:i', $result['civil_twilight_begin']);$twighlight_end =date('G:i', $result['civil_twilight_end']);$now =date('G.i');
-if ($windunit=='kts'){$windunit="kn";}
 
 ?>
 <div class="updatedtimecurrent">
@@ -24,10 +28,10 @@ else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
 <?php //cloudbase-weather34
 $cloudcoverunit = '%';
 
-if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]*3.281>=1999){echo "<div class=cloudconvertercircle2000>Clouds<tyellow> ".round($weather["cloudbase3"]*3.281,0)."</tyellow><smalltempunit2> ft</tblue><smalltempunit2>" ;}
-else if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]*3.281<1999){echo "<div class=cloudconvertercircle>Clouds<tblue> ".round($weather["cloudbase3"]*3.281,0)."</tblue><smalltempunit2> ft</tblue><smalltempunit2>" ;}
-else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]>=609){echo "<div class=cloudconvertercircle2000>Clouds<tyellow> ".round($weather["cloudbase3"],0)."</tyellow><smalltempunit2> m</tblue><smalltempunit2>" ;}
-else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]<609){echo "<div class=cloudconvertercircle>Clouds<tblue> ".round($weather["cloudbase3"],0)."</tblue><smalltempunit2> m</tblue><smalltempunit2>" ;}
+if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]>=1999){echo "<div class=cloudconvertercircle2000>Clouds<tyellow> ".$weather["cloudbase3"]."</tyellow><smalltempunit2> ft</tblue><smalltempunit2>" ;}
+else if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]<1999){echo "<div class=cloudconvertercircle>Clouds<tblue> ".$weather["cloudbase3"]."</tblue><smalltempunit2> ft</tblue><smalltempunit2>" ;}
+else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]>=609){echo "<div class=cloudconvertercircle2000>Clouds<tyellow> ".$weather["cloudbase3"]."</tyellow><smalltempunit2> m</tblue><smalltempunit2>" ;}
+else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]<609){echo "<div class=cloudconvertercircle>Clouds<tblue> ".$weather["cloudbase3"]."</tblue><smalltempunit2> m</tblue><smalltempunit2>" ;}
 ?></div></div>
 <div class="darkskyiconcurrent"><span1>
 <?php 
