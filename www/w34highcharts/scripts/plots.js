@@ -127,7 +127,7 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
 	var barcolors = [[28.0,"#3369e7"],[28.25,"#3b9cac"],[28.5,"#00a4b4"],[28.75,"#00a4b4"],[29.0,"#88b04b"],[29.25,"#e6a141"],[29.5,"#ff7c39"],[29.75,"#efa80f"],[30.0,"#d05f2d"],[30.25,"#d86858"],[30.5,"#fd7641"],[30.75,"#de2c52"],[31,"#de2c52"]];
 	var windcolors = [[0,"#3369e7"],[2.5,"#3b9cac"],[5,"#00a4b4"],[7.5,"#00a4b4"],[10,"#88b04b"],[12.5,"#e6a141"],[15,"#ff7c39"],[17.5,"#efa80f"],[20,"#d05f2d"],[22.5,"#d86858"],[25,"#fd7641"],[27.5,"#de2c52"],[30,"#de2c52"]];
 	var aqcolors = [[50,"#90b12a"],[100,"#ba923a"],[150,"#ff7c39"],[200,"#ff7c39"],[300,"#916392"],[400,"#d05041"]];
-	var plotsnoswitch = ['rainmonthplot','lightningmonthplot','windroseplot','windrosegustplot','bartempwindplot','windbarbplot'];
+	var plotsnoswitch = ['rainmonthplot','lightningmonthplot','windroseplot','windrosegustplot','bartempwindplot','windbarbplot','strikesmallplot'];
 	var radialplots = ['tempallplot','dewpointplot','temperatureplot','indoorplot','humidityplot','barometerplot','tempderivedplot','apparentplot','windplot','airqualityplot','cloudcoverplot'];
 	var compareplots = ['dewpointplot','temperatureplot','tempallplot','indoorplot','humidityplot','barometerplot','tempderivedplot','apparentplot','windplot','lightningplot','luminosityplot','radiationplot','uvplot','airqualityplot','cloudcoverplot'];
 	var monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
