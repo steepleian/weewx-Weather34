@@ -12,12 +12,12 @@ If you are carrying out a fresh install of WeeWX, my own personal preference is 
 
 * Please familiarise yourself with the location of your WeeWX system files inhttp://weewx.com/docs/cluding your bin/user folder, skins folder and weewx.conf file. If you are unsure where to find these, please refer to the installation processes here: - http://www.weewx.com/docs/setup.htm which shows various WeeWX installation scenarios.
 
-IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP7.4 modules on a Debian based distribution: -
+IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP8.0 modules on a Debian based distribution: -
 
-	sudo apt install php7.4
-	sudo apt install php7.4-cli php7.4-fpm php7.4-json php7.4-sqlite3 php7.4-zip php7.4-gd  php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
-	sudo apt install libapache2-mod-php7.4
-	sudo a2enmod php7.4
+	sudo apt install php8.0
+	sudo apt install php8.0-cli php8.0-fpm php8.0-sqlite3 php8.0-zip php8.0-gd  php8.0-mbstring php8.0-curl php8.0-xml php8.0-bcmath
+	sudo apt install libapache2-mod-php8.0
+	sudo a2enmod php8.0
 	sudo systemctl restart apache2
 
 * Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
