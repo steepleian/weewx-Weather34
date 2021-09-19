@@ -128,6 +128,7 @@
                 complete, you are ready to do the base installation of the Weather34 Skin. <br /><br /><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
             <div style="text-align: center">Notice: You can hover over the <i class="fa fa-question-circle"></i> on each entery below for additional information.</div>
             <div style="text-align: center">No data is retained on this server after the process is complete.</div>
+            <div style="text-align: center"><br />Note: We have replaced the use of the DarkSky API on the Weather34 skin with AerisWeather as DarkSky is no longer accepting new API account requests.</div>
         </div>
         <div class="Footer"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
         <div class="Map" id="mapid" style="cursor:crosshair;"></div>
@@ -163,7 +164,7 @@
             <div>
                 Do you have a AerisWeather API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather Key."></i>
                 <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" />Yes</label>
-                <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" checked />No</label><br /> Note: We have replaced the use of the DarkSky API on the Weather34 skin with AerisWeather as DarkSky is no longer accepting new API account requests.
+                <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" checked />No</label><br />
             </div>
             <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Key."></i><br />
             <input type="text" id="txtAWkey" disabled="true" /><br />
