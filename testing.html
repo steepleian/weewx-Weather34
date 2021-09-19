@@ -156,17 +156,18 @@
             <div>
                 Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-                <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank"
+                <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/data-platform/token/#/" target="_blank"
                     rel="noopener noreferrer">AQI API Info</a>
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
             <div>
-                Do you have a DarkSky API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your DarkSky Key."></i>
-                <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" />Yes</label>
-                <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" checked />No</label><br /> Note: Only for existing DarkSky API Key holders, DarkSky is no longer accepting new API account requests.
+                Do you have a AerisWeather API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AerisWeather Key."></i>
+                <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" />Yes</label>
+                <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" checked />No</label><br /> Note: We have replaced the use of the DarkSky API on the Weather34 skin with AerisWeather as DarkSky is no longer accepting new API account requests.
             </div>
-            <input type="text" id="txtDskey" disabled="true" /><br />
-            <label for="text">DarkSky Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
+            <input type="text" id="txtAWkey" disabled="true" /><br />
+            <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
+            
             <select id="selDsunits" disabled="true" disabled="true">
                 <option selected value="">-- Please Choose Your Units--</option>
                 <option value="us">US</option>
@@ -353,14 +354,14 @@
             }
         </script>
         <script type="text/javascript">
-            function EnableDisableDSK() {
-                var DsKeychkd = document.getElementById("Dskeychkd");
-                var txtDskey = document.getElementById("txtDskey");
+            function EnableDisableAW() {
+                var AWkeychkd = document.getElementById("AWkeychkd");
+                var txtAWkey = document.getElementById("txtAWkey");
                 var selDsunits = document.getElementById("selDsunits");
-                txtDskey.disabled = DsKeychkd.checked ? false : true;
-                selDsunits.disabled = DsKeychkd.checked ? false : true;
-                if (!DsKeychkd.disabled) {
-                    DsKeychkd.focus();
+                txtAWkey.disabled = AWkeychkd.checked ? false : true;
+                selDsunits.disabled = AWkeychkd.checked ? false : true;
+                if (!AWkeychkd.disabled) {
+                    AWkeychkd.focus();
                 }
             }
         </script>
@@ -429,7 +430,7 @@
                 const lang = document.getElementById('selLang');
                 const al_ip = document.getElementById('txtAlip');
                 const aq_apikey = document.getElementById('txtAqkey');
-                const ds_apikey = document.getElementById('txtDskey');
+                const ds_apikey = document.getElementById('txtAWkey');
                 const ds_units = document.getElementById('selDsunits');
                 const wu_apikey = document.getElementById('txtWukey');
                 const wu_units = document.getElementById('selWuunits');
