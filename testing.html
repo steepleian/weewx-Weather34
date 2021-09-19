@@ -166,9 +166,9 @@
                 <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" />Yes</label>
                 <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" checked />No</label><br />
             </div>
-            <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Key."></i><br />
+            <label for="text">AerisWeather API Key</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Key."></i><br />
             <input type="text" id="txtAWkey" disabled="true" /><br />
-            <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Secret."></i><br />
+            <label for="text">AerisWeather API Secret</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Secret."></i><br />
             <input type="text" id="txtAWSecret" disabled="true" />
         </div>
         <div class="Line-One">
@@ -424,8 +424,8 @@
                 const lang = document.getElementById('selLang');
                 const al_ip = document.getElementById('txtAlip');
                 const aq_apikey = document.getElementById('txtAqkey');
-                const ds_apikey = document.getElementById('txtAWkey');
-                const ds_units = document.getElementById('selDsunits');
+                const aw_apikey = document.getElementById('txtAWkey');
+                const aw_secret = document.getElementById('txtAWsecret');
                 const wu_apikey = document.getElementById('txtWukey');
                 const wu_units = document.getElementById('selWuunits');
                 const me_apikey = document.getElementById('txtMekey');
@@ -449,8 +449,8 @@
                     '"' + 'lang' + '"' + ':' + "'" + lang.value + "'," + ' \r\n' +
                     '"' + 'continent' + '"' + ':' + "'" + continent.value + "'," + ' \r\n' +
                     '"' + 'aq_apikey' + '"' + ':' + "'" + aq_apikey.value + "'," + ' \r\n' +
-                    '"' + 'ds_apikey' + '"' + ':' + "'" + ds_apikey.value + "'," + ' \r\n' +
-                    '"' + 'ds_units' + '"' + ':' + "'" + ds_units.value + "'," + ' \r\n' +
+                    '"' + 'aw_apikey' + '"' + ':' + "'" + aw_apikey.value + "'," + ' \r\n' +
+                    '"' + 'aw_secret' + '"' + ':' + "'" + aw_secret.value + "'," + ' \r\n' +
                     '"' + 'wu_apikey' + '"' + ':' + "'" + wu_apikey.value + "'," + ' \r\n' +
                     '"' + 'wu_units' + '"' + ':' + "'" + wu_units.value + "'," + ' \r\n' +
                     '"' + 'me_apikey' + '"' + ':' + "'" + me_apikey.value + "'," + ' \r\n' +
