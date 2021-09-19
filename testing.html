@@ -154,9 +154,9 @@
             <input type="text" id="txtAlip" />
             <h4>Weather Service API Key Entry Section</h4>
             <div>
-                Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
+                Do you have a AQI API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-                <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/data-platform/token/#/" target="_blank"
+                <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI API Key, you can learn more at <a href="https://aqicn.org/api/" target="_blank"
                     rel="noopener noreferrer">AQI API Info</a>
             </div>
             <input type="text" id="txtAqkey" disabled="true" /><br />
@@ -165,17 +165,10 @@
                 <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" />Yes</label>
                 <label class="radio"><input type="radio" name="AWkeychkd" id="AWkeychkd" onclick="EnableDisableAW()" checked />No</label><br /> Note: We have replaced the use of the DarkSky API on the Weather34 skin with AerisWeather as DarkSky is no longer accepting new API account requests.
             </div>
+            <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Key."></i><br />
             <input type="text" id="txtAWkey" disabled="true" /><br />
-            <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
-            
-            <select id="selDsunits" disabled="true" disabled="true">
-                <option selected value="">-- Please Choose Your Units--</option>
-                <option value="us">US</option>
-                <option value="si">SI Metric</option>
-                <option value="ca">Canada</option>
-                <option value="uk2">UK (Metric with mph and miles)</option>
-                <option value="auto">auto</option>
-            </select><br />
+            <label for="text"></label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AW Secret."></i><br />
+            <input type="text" id="txtAWSecret" disabled="true" />
         </div>
         <div class="Line-One">
             <div class="control">
@@ -357,9 +350,9 @@
             function EnableDisableAW() {
                 var AWkeychkd = document.getElementById("AWkeychkd");
                 var txtAWkey = document.getElementById("txtAWkey");
-                var selDsunits = document.getElementById("selDsunits");
+                var selDsunits = document.getElementById("txtAWSecret");
                 txtAWkey.disabled = AWkeychkd.checked ? false : true;
-                selDsunits.disabled = AWkeychkd.checked ? false : true;
+                txtAWSecret.disabled = AWkeychkd.checked ? false : true;
                 if (!AWkeychkd.disabled) {
                     AWkeychkd.focus();
                 }
