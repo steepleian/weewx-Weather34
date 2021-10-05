@@ -1,6 +1,7 @@
 <?php
-//original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
-include ('w34CombinedData.php');include ('settings1.php');
+//original claydons weather script original css/svg/php by claydons weather 2021 clearly marked as original by claydons weather//
+include ('w34CombinedData.php');
+include ('settings1.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,171 +9,251 @@ include ('w34CombinedData.php');include ('settings1.php');
   
   <title>MetOffice Alerts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--<link href="css/popup.light.css?version=<?php echo filemtime('css/popup.light.css'); ?>" rel="stylesheet prefetch">//-->
+
 <link href="css/popup.<?php echo $theme; ?>.css?version=<?php echo filemtime('css/popup.' . $theme . '.css'); ?>" rel="stylesheet prefetch">
 
 <body>
-<?php 
-$forecastime = filemtime ('jsondata/uk.txt');?>
+<?php
+$forecastime = filemtime('jsondata/uk.txt'); ?>
 <div class="weather34darkbrowser" style="color:<?php echo $text1 ?>;" url="Weather Alerts for <?php echo $stationName ?>
-                                         <?php echo '&nbsp;';echo "Risk Level Updated &nbsp;".date( $timeFormatShort, $forecastime);?>"></div>  
+                                         <?php echo '&nbsp;';
+echo "Risk Level Updated &nbsp;" . date($timeFormatShort, $forecastime); ?>"></div>  
  
 <?php
-
-
-        $json = 'jsondata/uk.txt'; 
-$json = file_get_contents($json); 
+$json = 'jsondata/uk.txt';
+$json = file_get_contents($json);
 $parsed_json = json_decode($json, true);
-if(($parsed_json['rss']['channel']['item'][0]['description'])!==null){$datastream = "multi";}
-else if (($parsed_json['rss']['channel']['item']['description']) !== null){$datastream = "single";}
+if (($parsed_json['rss']['channel']['item'][0]['description']) !== null)
+{
+    $data = "multi";
+    $datastream = "multi";
+}
+else if (($parsed_json['rss']['channel']['item']['description']) !== null)
+{
+    $data = "single";
+    $datastream = "multi";
+}
 else $datastream = "none";
 $favcolor = $datastream;
-if (date('I', time())) {
-    $offset = 100;
-} else 
-    $offset = 0;
 
-switch ($favcolor) {
-  
-  case "single":
-    $description[0]=$parsed_json['rss']['channel']['item']['description'];
-    $url[0]="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#";
-    $alidpos[0]=strpos($description[0],"alid");
- 	$alidtext[0]="V".substr($description[0],$alidpos[0]);
- 	$validpos[0]=strpos($description[0],"valid");
-    $datestring = explode(" ", $alidtext[0]);
-    $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT)."hr";
-    $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT)."hr";
-    $fromto = "Valid from "."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." to "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
- 	$description[0]=substr($description[0], 0, $validpos[0]);
-    
-       if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
+switch ($favcolor)
+{
 
-       else if (strpos($description[0], "Amber") === 0) {$alertlevel[0]="orange";$warntext="The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";}
+    case "multi":
+        if ($data === "single")
+        {
+            $cnt = 1;
+        }
+        else if ($data === "multi")
+        {
+            $cnt = count($parsed_json['rss']['channel']['item']);
+        }
+        for ($i = 0;$i < $cnt;$i++)
+        {
+            if ($data === "single")
+            {
+                $description[$i] = $parsed_json['rss']['channel']['item']['description'];
+            }
+            else if ($data === "multi")
+            {
+                $description[$i] = $parsed_json['rss']['channel']['item'][$i]['description'];
+            }
+            $url[$i] = "https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#";
+            $validpos = strpos($description[$i], "valid");
+            $validtext = substr($description[$i], $validpos);
+            $datestring = explode(" ", $validtext);
+            $hourFrom = substr($datestring[2], 0, 2);
+            $hourTo = substr($datestring[7], 0, 2);
+            $minFrom = substr($datestring[2], 2, 2);
+            $minTo = substr($datestring[7], 2, 2);
+            $dayFrom = substr($datestring[4], 0, 2);
+            $dayTo = substr($datestring[9], 0, 2);
+            $monthFrom = substr($datestring[5], 0, 3);
+            $monthTo = substr($datestring[10], 0, 3);
+            $fromTime = $hourFrom . ":" . $minFrom . " " . $dayFrom . " " . $monthFrom . " " . date("Y");
+            $toTime = $hourTo . ":" . $minTo . " " . $dayTo . " " . $monthTo . " " . date("Y");
+            $fromTimeStamp = strtotime($fromTime);
+            $toTimeStamp = strtotime($toTime);
 
-       else if (strpos($description[0], "Yellow") === 0) {$alertlevel[0]="yellow";$warntext="The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";}
+            $from = date_create($fromTime, new DateTimeZone("GMT"))->setTimezone(new DateTimeZone("Europe/London"))
+                ->format("H:i l j F");
+            $to = date_create($toTime, new DateTimeZone("GMT"))->setTimezone(new DateTimeZone("Europe/London"))
+                ->format("H:i l j F");
 
-    
-       if($alertlevel[0]=='yellow' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/ukwrnImages/icon-warning-wind-yellow.svg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/ukwrnImages/icon-warning-wind-orange.svg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "wind") !== false) {$alerttype='Wind';$warnimage="css/ukwrnImages/icon-warning-wind-red.svg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/ukwrnImages/icon-warning-snow-yellow.svg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/ukwrnImages/icon-warning-snow-orange.svg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "snow") !== false) {$alerttype='Snow/Ice';$warnimage="css/ukwrnImages/icon-warning-snow-red.svg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/ukwrnImages/icon-warning-ice-yellow.svg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/ukwrnImages/icon-warning-ice-orange.svg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "ice") !== false) {$alerttype='Snow/Ice';$warnimage="css/ukwrnImages/icon-warning-ice-red.svg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/ukwrnImages/icon-warning-flood-yellow.svg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/ukwrnImages/icon-warning-flood-orange.svg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/ukwrnImages/icon-warning-flood-red.svg";}
-       else if($alertlevel[0]=='yellow' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/ukwrnImages/icon-warning-lightning-yellow.svg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/ukwrnImages/icon-warning-lightning-yellow.svg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/ukwrnImages/icon-warning-lightning-yellow.svg";}
-	   else if($alertlevel[0]=='yellow' && strpos($description[0], "rain") !== false) {$alerttype='Rain';$warnimage="css/ukwrnImages/icon-warning-rain-yellow.svg";}
-       else if($alertlevel[0]=='orange' && strpos($description[0], "rain") !== false) {$alerttype='Rain';$warnimage="css/ukwrnImages/icon-warning-rain-orange.svg";}
-       else if($alertlevel[0]=='red' && strpos($description[0], "rain") !== false) {$alerttype='Rain';$warnimage="css/ukwrnImages/icon-warning-rain-red.svg";}
+            $fromto[$i] = "Valid from " . "$from" . " to " . "$to" . " ";
+
+            $description[$i] = substr($description[$i], 0, ($validpos - 1)) . ".";
+
+            if (strpos($description[$i], "Red") === 0)
+            {
+                $alertlevel[$i] = "red";
+                $warntext = "The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";
+            }
+
+            else if (strpos($description[$i], "Amber") === 0)
+            {
+                $alertlevel[$i] = "orange";
+                $warntext = "The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";
+            }
+
+            else if (strpos($description[$i], "Yellow") === 0)
+            {
+                $alertlevel[$i] = "yellow";
+                $warntext = "The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";
+            }
+
+            if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "wind") !== false)
+            {
+                $alerttype[$i] = 'Wind';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-wind-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "wind") !== false)
+            {
+                $alerttype[$i] = 'Wind';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-wind-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "wind") !== false)
+            {
+                $alerttype[$i] = 'Wind';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-wind-red.svg";
+            }
+            else if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "snow") !== false)
+            {
+                $alerttype[$i] = 'Snow/Ice';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-snow-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "snow") !== false)
+            {
+                $alerttype[$i] = 'Snow/Ice';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-snow-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "snow") !== false)
+            {
+                $alerttype[$i] = 'Snow/Ice';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-snow-red.svg";
+            }
+            else if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "ice") !== false)
+            {
+                $alerttype[$i] = 'Snow/Ice';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-ice-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "ice") !== false)
+            {
+                $alerttype[$i] = 'Snow/Ice';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-ice-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "ice") !== false)
+            {
+                $alerttyp[$i] = 'Snow/Ice';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-ice-red.svg";
+            }
+            else if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "fog") !== false)
+            {
+                $alerttype[$i] = 'Fog';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-flood-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "fog") !== false)
+            {
+                $alerttype[$i] = 'Fog';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-flood-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "fog") !== false)
+            {
+                $alerttype[$i] = 'Fog';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-flood-red.svg";
+            }
+            else if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "thunderstorm") !== false)
+            {
+                $alerttype[$i] = 'Thunderstorms';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-lightning-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "thunderstorm") !== false)
+            {
+                $alerttype[$i] = 'Thunderstorms';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-lightning-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "thunderstorm") !== false)
+            {
+                $alerttype[$i] = 'Thunderstorms';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-lightning-red.svg";
+            }
+            else if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "rain") !== false)
+            {
+                $alerttype[$i] = 'Rain';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-rain-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "rain") !== false)
+            {
+                $alerttype[$i] = 'Rain';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-rain-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "rain") !== false)
+            {
+                $alerttype[$i] = 'Rain';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-rain-red.svg";
+            }
+            else if ($alertlevel[$i] == 'yellow' && strpos($description[$i], "heat") !== false)
+            {
+                $alerttype[$i] = 'Extreme Heat';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-heat-yellow.svg";
+            }
+            else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "heat") !== false)
+            {
+                $alerttype[$i] = 'Extreme Heat';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-heat-orange.svg";
+            }
+            else if ($alertlevel[$i] == 'red' && strpos($description[$i], "heat") !== false)
+            {
+                $alerttype[$i] = 'Extreme Heat';
+                $warnimage[$i] = "css/wrnImagesuk/icon-warning-heat-red.svg";
+            }
 
 ?>
-  <main class="grid_MET"><articlegraph_MET class="alert-row-narrow" style="font-size:11px; background-color:<?php echo $alertlevel[0]?>">
-                             <div class="alert-row" style="background-color:<?php echo $alertlevel[0]?>">
-    <img src="<?php echo $warnimage?>" style="width:70px; height:70px">
+<main class="grid_MET"><articlegraph_MET class="alert-row-narrow" style="font-size:11px; background-color:<?php echo $alertlevel[$i] ?>">
+                            <div class="alert-row" style="background-color:<?php echo $alertlevel[$i] ?>">
+    <img src="<?php echo $warnimage[$i] ?>"style="width:70px; height:70px;">
     <div class="alert-text-container">
-        <div><?php echo $fromto ?></br></br><div><?php echo $description[0] ?></br></br><?php echo $warntext ?></a></div></div>
-        
-</div>    
-</div>
-</articlegraph_MET>
-<?php
-    break;
-  case "multi":
-    $cnt = count($parsed_json['rss']['channel']['item']);
-    for ($i = 0; $i <$cnt; $i++)
-{$description[$i]=$parsed_json['rss']['channel']['item'][$i]['description'];
- $url[$i]="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#";
- $alidpos[$i]=strpos($description[$i],"alid");
- $alidtext[$i]="V".substr($description[$i],$alidpos[$i]);
- $validpos[$i]=strpos($description[$i],"valid");
- $datestring = explode(" ", $alidtext[$i]);
- $from = str_pad(($datestring[2]+$offset),4,"0", STR_PAD_LEFT)."hr";
- $to = str_pad(($datestring[7]+$offset),4,"0", STR_PAD_LEFT)."hr";
- $fromto[$i] = "Valid from "."$from"." "."$datestring[3]"." "."$datestring[4]"." "."$datestring[5]"." "."$to"." "."$datestring[8]"." "."$datestring[9]"." "."$datestring[10]"." ";
-
- $description[$i]=substr($description[$i], 0, $validpos[$i]);
-
-
-       
-       if (strpos($description[$i], "Red") === 0) {$alertlevel[$i]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
-
-       else if (strpos($description[$i], "Amber") === 0) {$alertlevel[$i]="orange";$warntext="The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";}
-
-       else if (strpos($description[$i], "Yellow") === 0) {$alertlevel[$i]="yellow";$warntext="The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";}
-
-    
-       if($alertlevel[$i]=='yellow' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/ukwrnImages/icon-warning-wind-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/ukwrnImages/icon-warning-wind-orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "wind") !== false) {$alerttype[$i]='Wind';$warnimage[$i]="css/ukwrnImages/icon-warning-wind-red.svg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/ukwrnImages/icon-warning-snow-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/ukwrnImages/icon-warning-snow-orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "snow") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/ukwrnImages/icon-warning-snow-red.svg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "ice") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/ukwrnImages/icon-warning-ice-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "ice") !== false) {$alerttype[$i]='Snow/Ice';$warnimage[$i]="css/ukwrnImages/icon-warning-ice-orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "ice") !== false) {$alerttyp[$i]='Snow/Ice';$warnimage[$i]="css/ukwrnImages/icon-warning-ice-red.svg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/ukwrnImages/icon-warning-flood-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/ukwrnImages/icon-warning-flood-orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/ukwrnImages/icon-warning-flood-red.svg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImagesuk/icon-warning-lightning-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Red.svg";}
-       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "rain") !== false) {$alerttype[$i]='Rain';$warnimage[$i]="css/ukwrnImages/icon-warning-rain-yellow.svg";}
-       else if($alertlevel[$i]=='orange' && strpos($description[$i], "rain") !== false) {$alerttype[$i]='Rain';$warnimage[$i]="css/ukwrnImages/icon-warning-rain-orange.svg";}
-       else if($alertlevel[$i]=='red' && strpos($description[$i], "rain") !== false) {$alerttype[$i]='Rain';$warnimage[$i]="css/ukwrnImages/icon-warning-rain-red.svg";}
-
-?>
-<main class="grid_MET"><articlegraph_MET class="alert-row-narrow" style="font-size:11px; background-color:<?php echo $alertlevel[$i]?>">
-                            <div class="alert-row" style="background-color:<?php echo $alertlevel[$i]?>">
-    <img src="<?php echo $warnimage[$i]?>"style="width:70px; height:70px;">
-    <div class="alert-text-container">
-      <div><?php echo $alidtext[$i] ?></br></br><?php echo $description[$i] ?></br></br><?php echo $warntext ?></a></div>
+      <div><?php echo $fromto[$i] ?></br></br><?php echo $description[$i] ?></br></br><?php echo $warntext ?></a></div>
         
     
         
     </div>
 </div>
 </articlegraph_MET>
-<?php 
-    }
-    break;
-  case "none":?>
+<?php
+        }
+        break;
+    case "none": ?>
     
-<p><main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:white; font-size:11px;"><img src="css/euicons/Noalert.svg" style="width:75px"><?php
-echo "There are no weather alerts in force for this location at the present time. The weather alerts used by this website are provided by The UK Metoffice An explanation of the severity of the alerts can be found in the Glossary below.";
+<p><main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:white; font-size:11px;"><img src="css/wrnImagesuk/icon-warning-generic-white.svg" style="width:75px; height:75px;"><?php
+        echo "There are no weather alerts in force for this location at the present time. The weather alerts used by this website are provided by The UK Metoffice An explanation of the severity of the alerts can be found in the Glossary below.";
 ?></articlegraph3>
     <main class="grid1"><articlegraph class="alert-row-narrow" style="background-color:teal; font-size:14px;color:white;height:20px"><?php
-echo "<b>Glossary</b>";
+        echo "<b>Glossary</b>";
 ?></articlegraph>
 
     
       
-    <main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:yellow; font-size:11px;"><img src="css/euicons/yellow_triangle.svg" style="width:75px"><?php
-echo "Alert Level Yellow. The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";
+    <main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:yellow; font-size:11px;"><img src="css/wrnImagesuk/icon-warning-generic-yellow.svg" style="width:75px; height:75px;"><?php
+        echo "Alert Level Yellow. The weather is potentially dangerous. The weather phenomena that have been forecast are not unusual, but be attentive if you intend to practice activities exposed to meteorological risks. Keep informed about the expected meteorological conditions and do not take any avoidable risk.";
 ?></articlegraph3>
     
-    <main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:orange; font-size:11px;"><img src="css/euicons/orange_triangle.svg" style="width:75px"><?php
-echo "Alert Level Amber. The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";
+    <main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:orange; font-size:11px;"><img src="css/wrnImagesuk/icon-warning-generic-orange.svg" style="width:75px; height:75px;"><?php
+        echo "Alert Level Amber. The weather is dangerous. Unusual meteorological phenomena have been forecast. Damage and casualties are likely to happen. Be very vigilant and keep regularly informed about the detailed expected meteorological conditions. Be aware of the risks that might be unavoidable. Follow any advice given by your authorities.";
 ?></articlegraph3>
       
-    <main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:red; font-size:11px;"><img src="css/euicons/red_triangle.svg" style="width:75px"><?php
-echo "Alert Level Red. The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";
+    <main class="grid3"><articlegraph3 class="alert-row-narrow" style="background-color:red; font-size:11px;"><img src="css/wrnImagesuk/icon-warning-generic-red.svg" style="width:75px; height:75px;"><?php
+        echo "Alert Level Red. The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";
 ?></articlegraph3>
-<?php                          
-    break;  
-  
-}
+<?php
+        break;
+
+    }
 ?>
 <main class="grid_FT">
 <articlegraph_FT style="height:15px">  
   <div class="lotemp">
-   <?php echo $info?> CSS/SVG/PHP scripts by steepleian at claydonsweather.org.uk &copy; 2021-<?php echo date('Y');?>  -  <a href="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#" title="MetOffice" target="_blank">Data © <?php echo date('Y'); ?>UK MetOffice</a></span>
+   <?php echo $info ?> CSS/SVG/PHP scripts by claydonsweather.org.uk &copy; 2021-<?php echo date('Y'); ?>  -  <a href="https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings#" title="MetOffice" target="_blank">Data © <?php echo date('Y'); ?>UK MetOffice</a></span>
   </div>   
     
      
@@ -183,8 +264,4 @@ echo "Alert Level Red. The weather is very dangerous. Exceptionally intense mete
 
 
 </body>
-</html>  
-  
-
-<script type="text/javascript">(function(){if(typeof EzConsentCallback==="function"){var c=a("ezCMPCookieConsent");var g={necessary:0,preferences:0,statistics:0,marketing:0};if(c!==""){var e=c.split("|");for(var d=0;d<e.length;d++){var b=e[d].split("=");if(b.length!==2){break}var f=b[1]=="1"?true:false;switch(b[0]){case"1":g.necessary=f;break;case"2":g.preferences=f;break;case"3":g.statistics=f;break;case"4":g.marketing=f;break}}}EzConsentCallback(g);function a(k){var j=k+"=";var m=decodeURIComponent(document.cookie);var h=m.split(";");for(var l=0;l<h.length;l++){var n=h[l];while(n.charAt(0)==" "){n=n.substring(1)}if(n.indexOf(j)==0){return n.substring(j.length,n.length)}}return""}}})();</script>
-<script type="text/javascript"  async src="/utilcave_com/inc/ezcl.webp?cb=4"></script>
+</html>
