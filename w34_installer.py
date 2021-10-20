@@ -72,7 +72,7 @@ class w34_installer:
                 sys.exit(1)
             try:
                 php = os.system('php --version')
-                print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED")
+                print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED " + php)
             except:
                 print("!!!PHP NOT INSTALLED!!!")
             from configobj import ConfigObj
@@ -103,7 +103,7 @@ class w34_installer:
                                 response = int(input("Enter the NUMBER of the installer config file ").strip())
                         conf_file = conf_files[response]
                     else:
-                        print("!!! NO VALID W34_INSTALLER CONFIG FILE FOUND. INSTALL ABORTED!!!")
+                        print("!!! NO VALID W34_INSTALLER CONFIG FILE. INSTALL ABORTED!!!")
                         sys.exit(1)
             print("w34_installer Config file " + conf_file + " was chosen.")
             try:
@@ -115,9 +115,16 @@ class w34_installer:
                 sys.exit(1)
             with open(conf_file) as infile:
                 d = eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", ""))
+            copy_list = list(d["copy_paths"].split(","))
+            weewx_config_file = d["weewx_config_file"]
+            locations = {copy_list[i+1]:copy_list[i] for i in range(0, len(copy_list), 2)}
+            config_data = ConfigObj(weewx_config_file, encoding='utf8', list_values=False,write_empty_values=True)
+            www_path = locations["www"].split('weather34')[0][:-1]
+            if www_path != config_data['StdReport'].get('HTML_ROOT'):
+                print("!!! WEEWX HTML ROOT  " + config_data['StdReport'].get('HTML_ROOT') + "  DOES NOT MATCH W34_INSTALLER www PATH.  " + www_path + "  INSTALL ABORTED!!!") 
+                sys.exit(1)
             with open("services.txt") as infile:
                 d.update(eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", "")))
-            copy_list = list(d["copy_paths"].split(","))
             do_overwrite = True if d["over_write"] == "True" else False
             extract_path = d["extract_to_path"]
             if extract_path == None or len(extract_path) == 0:
@@ -146,17 +153,14 @@ class w34_installer:
                 except:
                     for i in range(0, len(copy_list), 2):
                         distutils.dir_util.copy_tree(os.path.join(extract_path, copy_list[i+1].strip()), copy_list[i].strip(), update = do_overwrite)
-                locations = {copy_list[i+1]:copy_list[i] for i in range(0, len(copy_list), 2)}
                 self.change_permissions_recursive([locations["www"]], d["uid_gid"].split(","))
             except Exception as e: 
                 print(e)
             if d["delete_extracted_files"] == "True":
                 if extract_path != os.getcwd():
                     distutils.dir_util.remove_tree(extract_path)
-            weewx_config_file = d["weewx_config_file"]
             distutils.file_util.copy_file(weewx_config_file, weewx_config_file + "." + str(int(time.time())))
             print('Updating weewx config')
-            config_data = ConfigObj(weewx_config_file, encoding='utf8', list_values=False,write_empty_values=True)
             for i in d:
                 if i.startswith("config_entries"):
                     if "delete" in i:
