@@ -1,43 +1,14 @@
-<body>
-<?php  include('shared.php');include('common.php');include('serverdata/airqualitydata.php');
-// PURPLE AIR additional conversion script included by Andrew Billits 24 April 2018
-function pm25_to_aqi($pm25){
-	if ($pm25 > 500.5) {
-	  $aqi = 500;
-	} else if ($pm25 > 350.5 && $pm25 <= 500.5 ) {
-	  $aqi = map($pm25, 350.5, 500.5, 400, 500);
-	} else if ($pm25 > 250.5 && $pm25 <= 350.5 ) {
-	  $aqi = map($pm25, 250.5, 350.5, 300, 400);
-	} else if ($pm25 > 150.5 && $pm25 <= 250.5 ) {
-	  $aqi = map($pm25, 150.5, 250.5, 200, 300);
-	} else if ($pm25 > 55.5 && $pm25 <= 150.5 ) {
-	  $aqi = map($pm25, 55.5, 150.5, 150, 200);
-	} else if ($pm25 > 35.5 && $pm25 <= 55.5 ) {
-	  $aqi = map($pm25, 35.5, 55.5, 100, 150);
-	} else if ($pm25 > 12 && $pm25 <= 35.5 ) {
-	  $aqi = map($pm25, 12, 35.5, 50, 100);
-	} else if ($pm25 > 0 && $pm25 <= 12 ) {
-	  $aqi = map($pm25, 0, 12, 0, 50);
-	}
-	return $aqi;
-}
-function map($value, $fromLow, $fromHigh, $toLow, $toHigh){
-    $fromRange = $fromHigh - $fromLow;
-    $toRange = $toHigh - $toLow;
-    $scaleFactor = $toRange / $fromRange;
-
-    // Re-zero the value within the from range
-    $tmpValue = $value - $fromLow;
-    // Rescale the value to the to range
-    $tmpValue *= $scaleFactor;
-    // Re-zero back to the to range
-    return $tmpValue + $toLow;
-}
-$aqiweather["aqi"]       = number_format(pm25_to_aqi($pm25),0);
+<?php  include('shared.php');include('common.php');
+$json_string             = file_get_contents("jsondata/aq.txt");
+$parsed_json             = json_decode($json_string, true);
+$aqiweather["aqi"]       = $parsed_json['data']['aqi'];
+$aqiweather["aqiozone"]  = 'N/A';
+$aqiweather["time"]     = date($timeFormat,$parsed_json['data']['time']['v']);
+$aqiweather["city"]      = $parsed_json['data']['city']['name'];
 
 ?>
-<div class="updatedtime"><span><?php if(file_exists('serverdata/airqualitydata.php') && time() - filemtime('serverdata/airqualitydata.php')<1800) {
-  echo $online." ".date($timeFormat, filemtime('serverdata/airqualitydata.php'));
+<div class="updatedtime"><span><?php if(file_exists('jsondata/aq.txt') && time() - filemtime('jsondata/aq.txt')<1800) {
+  echo $online." ".date($timeFormat, filemtime('jsondata/aq.txt'));
   } else {
   echo $offline. '<offline> Offline </offline>';
   }?></div> 
