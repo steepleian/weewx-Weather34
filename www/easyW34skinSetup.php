@@ -1203,7 +1203,7 @@ General template settings with options to choose which type of module to display
             <option>temperatureyear.php</option>
             <option>wflightning.php</option>
             <option>daqitop.php</option>
-            <option>worldaqitop.php</option>
+            <option>top_aqi_waqi.php</option>
            </select>
 
 
@@ -1233,7 +1233,7 @@ General template settings with options to choose which type of module to display
             <option>temperatureyear.php</option>
             <option>wflightning.php</option>
             <option>daqitop.php</option>
-            <option>worldaqitop.php</option>
+            <option>top_aqi_waqi.php</option>
             </select>
      <div class="stationvalue"> Position 3 Title</div>
        <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -1409,6 +1409,7 @@ General template settings with options to choose which type of module to display
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> temperatureyear.php</span> *English only<span style="color:rgba(24, 25, 27, 0.8)"> Current Monthly / Yearly Temperature </span>  <br/>
 
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> davisconsoleoutlook.php <span style="color:rgba(24, 25, 27, 0.8)">Davis Hardware Console users only</span> <br/></span>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> top_aqi_waqi.php <span style="color:rgba(24, 25, 27, 0.8)">Location AQI Data via WAQI API</span> <br/></span>
 
 
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> wflightning.php <span style="color:rgba(24, 25, 27, 0.8)">Weatherflow users only uses direct weatherflow API not meteobridge data must add station ID below in the weatherflow section </span> <br/></span>
@@ -1418,7 +1419,7 @@ General template settings with options to choose which type of module to display
       <br/></span></span>
          <strong> <span style="color:rgba(86, 95, 103, 1.000);">options Positions 6 and 12 + last module</span></strong><br/>
         <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> indoortemperature.php <span style="color:rgba(236, 87, 27, 1.000);">display indoor temperature</span><br/></span>
-     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> airqualitymodule.php <span style="color:rgba(236, 87, 27, 1.000);">display airquality</span><br/></span>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> airqualitymodule.php <span style="color:rgba(236, 87, 27, 1.000);">Location AQI Data via WAQI API</span><br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> webcamsmall.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display webcam</span>.*
      add your url/path to wecam image using option below <br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> mooonphase.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display moonphase</span><br/></span>
