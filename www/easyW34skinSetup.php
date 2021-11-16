@@ -29,8 +29,13 @@ $_POST["showDate"] = "false";
 IF (ISSET($_POST["Submit"])) {
 
 $string = '<?php
+$weatherflowID = "'. $_POST["wfid"]. '";
+$weatherflowoption   = "'. $_POST["weatherflowoption"]. '";
+$weatherflowlightning = "'. $_POST["wfli"]. '";
+$weatherflowmapzoom   = "'. $_POST["weatherflowmapzoom"]. '";
 $purpleairhardware   = "'. $_POST["purpleairhardware"]. '";
 $TZ = "'. $_POST["TZ"]. '";
+$UTC = "'. $_POST["UTC"]. '";
 $lon = '. $_POST["lon"]. ';
 $lat = '. $_POST["lat"]. ';
 $stationlocation = "'. $_POST["stationlocation"]. '";
@@ -52,7 +57,7 @@ $rainrate = "'. $_POST["rainrate"]. '";
 $pressureunit  = "'. $_POST["pressureunit"]. '";
 $livedataFormat = "'. $_POST["livedataFormat"]. '";
 $livedata   = "'. $_POST["livedata"]. '";
-$chartsource   = "w34highcharts";
+$chartsource   = "'. $_POST["chartsource"]. '";
 $extralinks   = "'. $_POST["extralinks"]. '";
 $languages   = "'. $_POST["languages"]. '";
 $dateFormat   = "'. $_POST["dateFormat"]. '";
@@ -84,6 +89,10 @@ $weatherhardware   = "'.$_POST["weatherhardware"]. '";
 $davis   = "'.$_POST["davis"]. '";
 $sunoption = "'. $_POST["sunoption"]. '";
 $hemisphere   = "'. $_POST["hemisphere"]. '";
+$metar   = "'. $_POST["metar"]. '";
+$icao1   = "'. $_POST["icao1"]. '";
+$airport1   = "'. $_POST["airport1"]. '";
+$airport1dist   = "'. $_POST["airport1dist"]. '";
 $defaultlanguage   = "'.$_POST["defaultlanguage"]. '";
 $language    = "'.$_POST['language']. '";
 $password    = "'.$_POST['password']. '";
@@ -621,11 +630,13 @@ Station Names</div><br/>
     #########                        Start of Location Info Section                  #########
     ##########################################################################################-->
 
-   <div class="weatheroptionssidebar">Here is the area where you set your Lat/Lon with timezone, for timezone you can check
+   <div class="weatheroptionssidebar">Here is the area where you set your Lat/Lon with timezone + UTC offset , for timezone you can check
    <a href="http://php.net/manual/en/timezones.php" title="http://php.net/manual/en/timezones.php" target="_blank"> the official php timezone documented page</a>
    <br/><br/>
 
 <strong>Lat</strong> 54.00000  <strong>Lon</strong> -22.00000<br/><br/>
+
+<strong>UTC</strong> offset use single number  like -2,-4,1,2,3,4 etc <br/>do not use -01,0-04,01 ,02,03, 04 etc <br/>
 
    </div>
 
@@ -649,6 +660,14 @@ Location Information
 
 
  <input name="TZ" type="text" id="TZ" value="<?php echo $TZ ;?>" class="choose">
+
+
+ <div class="stationvalue">UTC Offset</div>
+   <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+<input name="UTC" type="text" id="UTC" value="<?php echo $UTC ;?>" class="choose">
 
 
 
@@ -1184,7 +1203,7 @@ General template settings with options to choose which type of module to display
             <option>temperatureyear.php</option>
             <option>wflightning.php</option>
             <option>daqitop.php</option>
-            <option>worldaqitop.php</option>
+            <option>top_aqi_waqi.php</option>
            </select>
 
 
@@ -1214,7 +1233,7 @@ General template settings with options to choose which type of module to display
             <option>temperatureyear.php</option>
             <option>wflightning.php</option>
             <option>daqitop.php</option>
-            <option>worldaqitop.php</option>
+            <option>top_aqi_waqi.php</option>
             </select>
      <div class="stationvalue"> Position 3 Title</div>
        <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -1240,7 +1259,6 @@ General template settings with options to choose which type of module to display
            <option>advisory_rw.php</option>
           <option>advisory_eu.php</option>
           <option>advisory_uk.php</option>
-          <option>advisory_au.php</option>
                      </select>
 
 
@@ -1270,9 +1288,7 @@ General template settings with options to choose which type of module to display
             <option>forecast3ds.php</option>
             <option>forecast3wu.php</option>
             <option>forecast3wularge.php</option>
-            <option>forecast3aw.php</option>
-            <option>forecast3awlarge.php</option>         
-            </select>
+                     </select>
 
 
 
@@ -1316,7 +1332,6 @@ General template settings with options to choose which type of module to display
             <option>solaruvds.php</option>
             <option>solaruvwu.php</option>
             <option>eq.php</option>
-            <option>eq_uk.php</option>
             <option>lightning34.php</option>
                      </select>
 
@@ -1354,7 +1369,6 @@ General template settings with options to choose which type of module to display
             <option>solaruvds.php</option>
              <option>solaruvwu.php</option>
             <option>eq.php</option>
-            <option>eq_uk.php</option>
             <option>lightning34.php</option>
                      </select>
 
@@ -1383,7 +1397,6 @@ General template settings with options to choose which type of module to display
        <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_rw.php for Rest of World</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
        <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_eu.php for European Union</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
        <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_uk.php for United Kingdom</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
-       <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> advisory_au.php for Australia</span> Weather <span style="color:rgba(24, 25, 27, 0.8)">Alerts</span><br/></span>
 
        <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> rainfallf-year-month.php</span> Totals <span style="color:rgba(24, 25, 27, 0.8)">YEARLY-MONTHLY</span> Rainfall<br/></span>
 
@@ -1396,6 +1409,7 @@ General template settings with options to choose which type of module to display
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> temperatureyear.php</span> *English only<span style="color:rgba(24, 25, 27, 0.8)"> Current Monthly / Yearly Temperature </span>  <br/>
 
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> davisconsoleoutlook.php <span style="color:rgba(24, 25, 27, 0.8)">Davis Hardware Console users only</span> <br/></span>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> top_aqi_waqi.php <span style="color:rgba(24, 25, 27, 0.8)">Location AQI Data via WAQI API</span> <br/></span>
 
 
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> wflightning.php <span style="color:rgba(24, 25, 27, 0.8)">Weatherflow users only uses direct weatherflow API not meteobridge data must add station ID below in the weatherflow section </span> <br/></span>
@@ -1405,17 +1419,15 @@ General template settings with options to choose which type of module to display
       <br/></span></span>
          <strong> <span style="color:rgba(86, 95, 103, 1.000);">options Positions 6 and 12 + last module</span></strong><br/>
         <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> indoortemperature.php <span style="color:rgba(236, 87, 27, 1.000);">display indoor temperature</span><br/></span>
-     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> airqualitymodule.php <span style="color:rgba(236, 87, 27, 1.000);">display airquality</span><br/></span>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> airqualitymodule.php <span style="color:rgba(236, 87, 27, 1.000);">Location AQI Data via WAQI API</span><br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> webcamsmall.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display webcam</span>.*
      add your url/path to wecam image using option below <br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> mooonphase.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display moonphase</span><br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> weather34uvsolar.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display uv and solar radiation if you have hardware</span> <br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> solaruvds.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display Darksky UV forecast and if you have only solar radiation </span> <br/></span>
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> solaruvwu.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display Weather Underground Day UV forecast and if you have only solar radiation </span> <br/></span>
-     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> eq.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display last world earthquake from EMSC-CSEM</span>   <br/>
-     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> eq_uk.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display last UK earthquake from BGS</span>   <br/>
-
-       <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3ds.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display 3 day forecast from DARK SKY</span>   <br/>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> eq.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display last earthquake from earthquakereport.com</span>   <br/>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3ds.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display 3 day forecast from DARK SKY</span>   <br/>
      </span>
 
    <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3wu.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display 3 period day/night forecast from Weather Underground</span>   <br/>
@@ -1904,6 +1916,98 @@ General template settings with options to choose which type of module to display
     </div>
     <br/>
 
+<!--##########################################################################################
+    #########                        Start of WeatherFlow Sidebar                    #########
+    ##########################################################################################-->
+
+    <div class="weatheroptionssidebar">
+        <span style="color:rgba(236, 87, 27, 1);"><strong>Only</strong> select yes if your <strong>WeatherFlow Station</strong> is not directly connected to your <strong>MB</strong>.</span>
+    </div>
+
+<!--##########################################################################################
+    #########                        Start of WeatherFlow Section                    #########
+    ##########################################################################################-->
+
+    <div class="weatheroptions">
+   <div class="weathersectiontitle"><img src="img/wflogo.svg" width="200px"/></div> <br/>
+
+
+<div class="stationvalue">Do you have Weatherflow Station</div> <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg><svg id="i-chevron-bottom" viewBox="0 0 32 32" width="10" height="10" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M30 12 L16 24 2 12" />
+</svg>
+
+   <label name="weatherflowoption"></label>
+        <select id="weatherflowoption" name="weatherflowoption" class="choose1" >
+            <option><?php echo $weatherflowoption ;?></option>
+            <option>yes</option>
+            <option>no</option>
+            </select>
+            <br/>
+            <span style="color:#777;"><strong> Select <span style="color:rgba(24, 25, 27, 0.8);">Yes</span> or <span style="color:rgba(86, 95, 103, 1.000);">No</span></strong><br/>
+
+  <br/>
+        <strong> <span style="color:rgba(236, 87, 27, 1.000);">*important</span> only select yes if your weatherflow hardware is not connected directly to meteobridge and want to use weatherflow hardware alongside existing hardware connected to meteobridge..this option uses weatherflow API data for UV,SOLAR and lightning only </strong></span><br/>
+
+
+
+     <div class="stationvalue"> Weather-Flow STATION ID</div>
+    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+    <input name="wfid" type="text" id="wfid" value="<?php echo $weatherflowID ;?>" class="choose">
+
+
+
+
+
+    <br/> <svg id="i-info" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M16 14 L16 23 M16 8 L16 10" />
+    <circle cx="16" cy="16" r="14" />
+</svg> <span style="color:#777;">enter your <strong>WeatherFlow </strong> station id example <strong><span style="color:rgba(86, 95, 103, 1.000);"> 1200</strong></span></span>
+
+    <br/>
+        <div class="stationvalue"> Weather-Flow Lightning module </div>
+    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+    <input name="wfli" type="text" id="wfli" value="<?php echo $weatherflowlightning ;?>" class="choose">
+
+
+
+
+
+    <br/> <svg id="i-info" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M16 14 L16 23 M16 8 L16 10" />
+    <circle cx="16" cy="16" r="14" />
+</svg> <span style="color:#777;">(option works when available weatherflow is connected to meteobridge) select yes if you wish to display lightning module </span></span>
+
+<br/>
+
+<div class="stationvalue">
+Weatherflow Map Zoom</div>
+ <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="#F05E40" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+    <label name="weatherflowmapzoom"></label>
+        <select id="weatherflowmapzoom" name="weatherflowmapzoom" value="<?php echo $weatherflowmapzoom ;?>" class="choose1" >
+          <option><?php echo $weatherflowmapzoom ;?></option>
+            <option>5</option>
+            <option>6</option>
+             <option>7</option>
+             <option>8</option>
+             <option>9</option>
+             <option>10</option>
+             <option>11</option>
+            </select>
+
+<br/> <?php echo $iicon;?> <span style="color:#777;"><green>Select Map Zoom level</green> 5-11</span>
+
+</div>
+    <br/>
 
 <!--##########################################################################################
     #########                        Start of Temp Module Section                    #########
@@ -1960,7 +2064,53 @@ General template settings with options to choose which type of module to display
     ##########################################################################################-->
    
 
+<!--##########################################################################################
+    #########                        Start of METAR Section                          #########
+    ##########################################################################################-->
 
+     <div class="weatheroptions">
+   <div class="weathersectiontitle">Nearby Metar Aviation Weather Options</div><br/>
+<span style="color:rgba(236, 87, 27, 1.000);">
+    <br/>
+
+
+<div class="stationvalue"> Display Nearby Metar (yes or no) *English Only </div>
+    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+    <input name="metar" type="text" id="metar" value="<?php echo $metar ;?>" class="choose">
+    <br/> <span style="color:#777;">enter yes or no(lowercase) *note it only supports english language</span>
+
+    <br/>
+    <div class="stationvalue"> ICAO Code for  Metar Station 1  </div>
+    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+    <input name="icao1" type="text" id="icao1" value="<?php echo $icao1 ;?>" class="choose">
+    <br/> <span style="color:#777;">enter your nearby METAR stations  For example station 1 <span style="color:rgba(236, 87, 27, 1.000);">LTBA</span> in capitals
+    <br/>
+
+    <div class="stationvalue"> ICAO Location  for  Metar Station 1  </div>
+    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+    <input name="airport1" type="text" id="airport1" value="<?php echo $airport1 ;?>" class="choose">
+     <br/> <span style="color:#777;">enter your nearby METAR station 1 location for example <span style="color:rgba(236, 87, 27, 1.000);">Istanbul,Turkey</span>
+        <br/>
+
+
+    <div class="stationvalue"> ICAO Aprox Distance  for  Metar Station 1 from your location  </div>
+    <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+
+    <input name="airport1dist" type="text" id="airport1dist" value="<?php echo $airport1dist ;?>" class="choose">
+    <br/> <span style="color:#777;">enter your nearby METAR stations distance for example <span style="color:rgba(236, 87, 27, 1.000);">26</span> or <span style="color:rgba(236, 87, 27, 1.000);">5</span> do not enter any letters km or m
+</div>
+<br/>
   
 
  
