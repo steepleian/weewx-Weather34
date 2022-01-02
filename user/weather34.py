@@ -347,7 +347,7 @@ def lost_sensor_contact(packet):
         return 1
     return 0
 
-def do_file_transfer(mode, rpath, conn, address, lpath, user):
+def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
     try:
         if mode == 'rsync':
             weeutil.rsyncupload.RsyncUpload(
@@ -355,7 +355,7 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user):
                 remote_root=rpath,
                 server=address,
                 user=user,
-                port=None,
+                port=port,
                 ssh_options= None,
                 compress=False,
                 delete=False,
@@ -373,10 +373,10 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user):
         except Exception as e:
             logdbg("do_file_transfer " + str(e))
 
-def do_rsync_transfer(webserver_addresses, rpath, lpath, user):
+def do_rsync_transfer(webserver_addresses, rpath, lpath, user, port):
     if len(webserver_addresses) > 0:
         for web_address in webserver_addresses:
-            threading.Thread(target=do_file_transfer, args=("rsync", rpath, None, socket.gethostbyname(web_address), lpath, user)).start()
+            threading.Thread(target=do_file_transfer, args=("rsync", rpath, None, socket.gethostbyname(web_address), lpath, user, port)).start()
              
 class ZambrettiForecast():
     DEFAULT_FORECAST_BINDING = 'forecast_binding'
@@ -447,6 +447,7 @@ class ForecastData():
         if len(self.remote_html_root) == 0:
             self.remote_html_root = self.html_root
         self.user = config_dict['StdReport']['RSYNC'].get('user', None) 
+        self.rsync_port = config_dict['StdReport']['RSYNC'].get('port', None) 
         self.webserver_addresses = webserver_addresses
 
     def monitor_webservices(self):
@@ -500,7 +501,7 @@ class ForecastData():
                 except Exception as err:
                     logerr("Failed to run webservice: %s, Error: %s" % (service, err)) 
             if check_rsync:
-                do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.user)
+                do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "jsondata/"), os.path.dirname(lfilename), self.user, self.rsync_port)
             time.sleep(60)
 
 class CloudCover():
@@ -657,7 +658,7 @@ class Webserver():
                     record = db_manager.getRecord(ts)
                 weewx.reportengine.StdReportEngine(config_dict, stn_info, record=record, gen_ts=ts).run()
                 logdbg("Webserver: Report complete")
-                do_file_transfer(args[4], os.path.join(html_root,args[2].split(".tmpl")[0]), conn, address, None, config_dict['StdReport']['RSYNC'].get('user',None))
+                do_file_transfer(args[4], os.path.join(html_root,args[2].split(".tmpl")[0]), conn, address, None, config_dict['StdReport']['RSYNC'].get('user',None), config_dict['StdReport']['RSYNC'].get('port',None))
         except Exception as e:
             logerr("Webserver Error in execute_report: " + str(e))
        
@@ -780,7 +781,7 @@ class Weather34RealTime(StdService):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
                 f.write(data)
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None), self.config_dict['StdReport']['RSYNC'].get('port',None))
         except Exception as e:
             loginf("Cannot write to weewxserverinfo.txt due to error " + str(e))
 
@@ -809,8 +810,8 @@ class Weather34RealTime(StdService):
     def handle_new_archive(self, event):
         if self.prev_archive_time + 50 < time.time():
             self.prev_archive_time = time.time()
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "w34Highcharts", "json/"), os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), self.config_dict['StdReport']['RSYNC'].get('user', None))
-            #do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata/', self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "w34Highcharts", "json/"), os.path.join(self.config_dict['StdReport']['w34Highcharts'].get('HTML_ROOT'), 'json/'), self.config_dict['StdReport']['RSYNC'].get('user', None), self.config_dict['StdReport']['RSYNC'].get('port',None))
+            #do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.join(self.config_dict['StdReport']['Weather34Report'].get('HTML_ROOT'), 'serverdata/') if len(self.webserver_addresses) == 0 else '/tmp/weather34/serverdata/', self.config_dict['StdReport']['RSYNC'].get('user', None), self.config_dict['StdReport']['RSYNC'].get('port',None))
         if self.cc != None:
             self.cc.update_cloud_cover(event)
 
@@ -866,7 +867,7 @@ class Weather34RealTime(StdService):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
                 f.write(data + "\n")
-            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None))
+            do_rsync_transfer(self.webserver_addresses, os.path.join(self.remote_html_root, "serverdata/"), os.path.dirname(lfilename), self.config_dict['StdReport']['RSYNC'].get('user', None), self.config_dict['StdReport']['RSYNC'].get('port',None))
         except Exception as err:
             logerr("Error writing file: Error: %s" % (err,))
 
@@ -1204,4 +1205,3 @@ class CachedValues(object):
         for k in self.values:
             pkt[k] = self.get_value(k, ts, stale_age)
         return pkt
-
