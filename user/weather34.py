@@ -348,6 +348,7 @@ def lost_sensor_contact(packet):
     return 0
 
 def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
+    logdbg("do_file_transfer: Port = " + str(port))
     try:
         if mode == 'rsync':
             weeutil.rsyncupload.RsyncUpload(
