@@ -53,6 +53,45 @@ Once completed, make sure you save weewx.conf
 		    Select setup_py. if your WeeWX was installed by setup.py method
 		    or
 		    Select macos if your WeeWX was installed by MacOS method
+
+* Alternate from the command line (Without using Git): - 
+                
+		cd to where you want to store the Weather34 Archive
+		issue the following command
+			(For the tar.gz file)
+			wget -P . https://github.com/steepleian/weewx-Weather34/archive/refs/tags/v4.3.1.tar.gz
+			or
+			(For the zip file)
+			wget -P . https://github.com/steepleian/weewx-Weather34/archive/refs/tags/v4.3.1.zip
+
+		UnTar or UnZip the Archive you just downloaded.
+		Copy the services.txt file yoiu created earlier, into the Weather34 directory
+			cp services.txt weewx-Weather34
+		Change to the Weather34 directory
+			cd [weewx-Weather34 or whatever your directory is named]
+		Edit either setup_py.conf or package.conf depending on which setup you used for WeeWX
+			1) If you used setup.py, edit setup_py.conf
+			2) If you used of the the distrubution setups, such as Debian, RedHat or MacOS for example, edit package.conf
+		
+		In setup_py.conf, package.conf or maCOS.CONF, edit the following lines:
+			Line 2
+				"copy_paths":"/home/weewx/bin/user/,user,/home/weewx/skins/,skins,/var/www/html/weewx/weather34/,www",
+			Line 4
+				"www_path":"/var/www/html/weewx/weather34/",
+			Line 12
+				'HTML_ROOT': '/var/www/html/weewx/weather34/',
+			Line 27
+				'HTML_ROOT': '/var/www/html/weewx/weather34/w34highcharts',
+			
+			Make sure that the above lines match the actual root directory of where you want to serve your web pages from such as '/var/www' or ./var/www/html. Edit and save the file and then proceed with the installation
+		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
+
+		You will be prompted for the config file for your WeeWX install type.
+		    Select packaged if your WeeWX was installed by Debian, RedHat or Suse methods [default option]
+		    or
+		    Select setup_py. if your WeeWX was installed by setup.py method
+		    or
+		    Select macos if your WeeWX was installed by MacOS method
 		
 * Alternative install method : -
 
