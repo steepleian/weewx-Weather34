@@ -29,7 +29,7 @@ echo "<lightningannualx>".date('F Y').":<lorange> " .str_replace(",","",$weather
 <?php  //weatherflow air lightning year current
 echo "<lightningannualx1> Total ".date('Y').":<lorange> " .str_replace(",","",$weather["lightningyear"])." </lorange>";?>
 <?php  //weatherflow air lightning output
-if ($lightningseconds <61 ){ echo "<timeago>Last Strike Detected<br> <agolightning>Now ";}
+if ($lightningseconds < 61 && $lightningseconds > 0){ echo "<timeago>Last Strike Detected<br> <agolightning>Now ";}
 else if ($lightningseconds >=61 ) echo "<timeago>Last Strike Detected<br> <agolightning>", convert($lightningseconds)," ago";?>
 </div>
 <div class="rainconverter">
