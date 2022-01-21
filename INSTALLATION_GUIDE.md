@@ -83,7 +83,8 @@ Once completed, make sure you save weewx.conf
 			Line 27
 				'HTML_ROOT': '/var/www/html/weewx/weather34/w34highcharts',
 			
-			Make sure that the above lines match the actual root directory of where you want to serve your web pages from such as '/var/www' or ./var/www/html. Edit and save the file and then proceed with the installation
+			Make sure that the above lines match the actual root directory of where you want to serve your web pages from such
+			as '/var/www' or ./var/www/html. Edit and save the file and then proceed with the installation
 		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
 
 		You will be prompted for the config file for your WeeWX install type.
