@@ -72,7 +72,7 @@ class w34_installer:
                 sys.exit(1)
             try:
                 php = os.system('php --version')
-                print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED " + php)
+                #print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED " + php)
             except:
                 print("!!!PHP NOT INSTALLED!!!")
             from configobj import ConfigObj
