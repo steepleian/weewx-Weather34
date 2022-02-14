@@ -42,7 +42,6 @@ Once completed, make sure you save weewx.conf
                 
 		cd [path_to_your_Download_folder]
 		sudo git clone https://github.com/steepleian/weewx-Weather34.git
-		sudo cp services.txt weewx-Weather34
 		cd weewx-Weather34
 		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
 		
@@ -65,8 +64,7 @@ Once completed, make sure you save weewx.conf
 			wget -P . https://github.com/steepleian/weewx-Weather34/archive/refs/tags/v4.3.1.zip
 
 		UnTar or UnZip the Archive you just downloaded.
-		Copy the services.txt file yoiu created earlier, into the Weather34 directory
-			cp services.txt weewx-Weather34
+		
 		Change to the Weather34 directory
 			cd [weewx-Weather34 or whatever your directory is named]
 		Edit either setup_py.conf or package.conf depending on which setup you used for WeeWX
