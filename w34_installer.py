@@ -123,7 +123,7 @@ class w34_installer:
             if www_path != config_data['StdReport'].get('HTML_ROOT'):
                 print("!!! WEEWX HTML ROOT  " + config_data['StdReport'].get('HTML_ROOT') + "  DOES NOT MATCH W34_INSTALLER www PATH.  " + www_path + "  INSTALL ABORTED!!!") 
                 sys.exit(1)
-            with open("services.txt") as infile:
+            with open("../services.txt") as infile:
                 d.update(eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", "")))
             do_overwrite = True if d["over_write"] == "True" else False
             extract_path = d["extract_to_path"]
