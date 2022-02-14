@@ -94,7 +94,7 @@ class w34_installer:
             print("Installer Config file " + conf_file + " was chosen.")
             with open(conf_file) as infile:
                 d = eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", ""))
-            with open("services.txt") as infile:
+            with open("../services.txt") as infile:
                 d.update(eval(re.sub(".*\"##.*\n",'', infile.read()).replace("\n", "").replace("\t", "")))
             copy_list = list(d["copy_paths"].split(","))
             do_overwrite = True if d["over_write"] == "True" else False
