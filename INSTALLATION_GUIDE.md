@@ -42,7 +42,6 @@ Once completed, make sure you save weewx.conf
                 
 		cd [path_to_your_Download_folder]
 		sudo git clone https://github.com/steepleian/weewx-Weather34.git
-		sudo cp services.txt weewx-Weather34
 		cd weewx-Weather34
 		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
 		
@@ -59,7 +58,6 @@ Once completed, make sure you save weewx.conf
 		Download weewx-Weather34-master.zip from https://github.com/steepleian/weewx-Weather34/edit/master/ into your Download folder
 		cd [path_to_your_Download_folder]
 		unzip weewx-Weather34-master.zip
-		sudo cp services.txt weewx-Weather34-master
 		cd weewx-Weather34-master
 		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
 		
