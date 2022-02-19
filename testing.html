@@ -27,7 +27,6 @@
             border-radius: 10px;
             grid-template-areas: "Header Header Header Header" "Map-Input Map-Input Map Map" "Line-One Line-One Line-One Line-One" "Footer Footer Footer Footer";
         }
-        
         .Header {
             grid-area: Header;
             padding: 6px;
@@ -35,46 +34,38 @@
             border: 2px solid #000000;
             background-color: #ffffff;
         }
-        
         .Footer {
             grid-area: Footer;
             padding: 12px;
             text-align: center;
         }
-        
         .Map {
             grid-area: Map;
             padding: 12px;
         }
-        
         .Map-Input {
             grid-area: Map-Input;
             padding: 12px;
             background-color: #93bae6;
         }
-        
         .Line-One {
             grid-area: Line-One;
             padding: 12px;
             background-color: #93bae6;
         }
-        
         #mapid {
             height: 500px;
         }
-        
         h3 {
             color: #000000;
             font-size: 150%;
         }
-        
         input[type=text] {
             width: 98%;
             padding: 6px;
             border: 2px solid #ccc;
             border-radius: 4px;
         }
-        
         select {
             font: 12px Arial;
             width: 98%;
@@ -82,16 +73,13 @@
             border: 2px solid #ccc;
             border-radius: 4px;
         }
-        
         label[for=text] {
             width: 95%;
             padding: 6px;
         }
-        
         .radiogroup {
             width: auto;
         }
-        
         .myButton {
             box-shadow: 0px 10px 14px -7px #3e7327;
             background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
@@ -112,7 +100,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
-
 <body>
     <!-- Begin Container -->
     <div class="grid-container">
@@ -120,13 +107,8 @@
             <div style="text-align: center">
                 <h3>Weather34 services.txt Generator</h3>
             </div>
-            <div>This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default
-                is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key
-                or an ID for one of those services, click on the
-                <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send
-                you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you unzipped or cloned the Weather34 files to. Once this is
-                complete, you are ready to do the base installation of the Weather34 Skin. <br /><br /><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
-            <div style="text-align: center">Notice: You can hover over the <i class="fa fa-question-circle"></i> on each entery below for additional information.</div>
+            <div>This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is <i>No</i> and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form, click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download. Then upload this to the directory where you uploaded the Weather34 tarball. Once this is complete, you are ready to do the base installation of the Weather34 Skin. <br /><br /><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We are <b>NOT</b> tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
+            <div style="text-align: center">Notice: You can hover over the <i class="fa fa-question-circle"></i> on each entry below for additional information.</div>
             <div style="text-align: center">No data is retained on this server after the process is complete.</div>
             <div style="text-align: center"><br />Note: We have replaced the use of the DarkSky API on the Weather34 skin with AerisWeather as DarkSky is no longer accepting new API account requests.</div>
         </div>
@@ -155,7 +137,7 @@
             <input type="text" id="txtAlip" />
             <h4>Weather Service API Key Entry Section</h4>
             <div>
-                Do you have a AQI API Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
+                Do you have a AQI API (Air Quality Programmatic API) Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI API Key, you can learn more at <a href="https://aqicn.org/api/" target="_blank"
                     rel="noopener noreferrer">AQI API Info</a>
@@ -197,7 +179,7 @@
                 title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter the ICAO Code."></i>
             <input type="text" id="txtMecode" disabled="true" /><br />
             <div class="control">
-                Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your PurpleAir ID."></i>
+                Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="PurpleAir makes sensors that a community of citizen scientists use to collect hyper-local, real-time air quality data and share it on a map that is accessible to everyone. This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your PurpleAir ID."></i>
                 <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" />Yes</label>
                 <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No</label> (Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
             </div>
@@ -275,6 +257,24 @@
                 <option value="se">London & South East</option>
             </select><br />
             <div class="control">
+                If you live in Australian, do you want to include the Australian Bureau of Meteorology Weather Warnings?
+                <label class="radio"><input type="radio" name="BOMenable" id="BOMenable" onclick="EnableDisableBOM()" value="1" />Yes</label>
+                <label class="radio"><input type="radio" name="BOMenable" id="BOMenable" onclick="EnableDisableBOM()" value="0" checked />No</label> (This is for European users only, it does not work for any other Countries/Continent)
+            </div>
+            <select id="selAUState" disabled="true"><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your State/Territory."></i>
+                <option disabled selected value="">-- Please Choose Your State/Territory--</option>
+				<option value="IDZ00054">New South Wales & ACT</option>
+				<option value="IDZ00059">Victoria</option>
+				<option value="IDZ00056">Queensland</option>
+				<option value="IDZ00060">West Australia</option>
+				<option value="IDZ00057">South Australia</option>
+				<option value="IDZ00058">Tasminia</option>
+				<option value="IDZ00055">Northern Territory</option>
+            </select><br />
+            <label for="text">Australian Bureau of Meteorology Weather Warnings Regions</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Region."></i>
+            <input type="text" id="txtAlregion" disabled="true" /><br />
+            <br />
+            <div class="control">
                 Do you want to enable Cloud Cover display?&nbsp;<i class="fa fa-question-circle" title="This is currently only available for Geographical Europe"></i>
                 <label class="radio"><input type="radio" name="selCloud" id="radio1" value="True"/>Yes</label>
                 <label class="radio"><input type="radio" name="selCloud" id="radio2" value="False" checked />No</label>
@@ -323,7 +323,6 @@
             function onLocationFound(e) {
                 var radius = e.accuracy / 2;
             }
-
             function onLocationError(e) {
                 alert(e.message);
             }
@@ -405,7 +404,6 @@
                 }
             }
         </script>
-
         <script type="text/javascript">
             function EnableDisableRAUK() {
                 var raUkenable = document.getElementById("raUkenable");
@@ -413,6 +411,16 @@
                 selUkregion.disabled = raUkenable.checked ? false : true;
                 if (!selUkregion.disabled) {
                     selUkregion.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableBOM() {
+                var BOMenable = document.getElementById("BOMenable");
+                var selAUState = document.getElementById("selAUState");
+                selAUState.disabled = BOMenable.checked ? false : true;
+                if (!selAUState.disabled) {
+                    selAUState.focus();
                 }
             }
         </script>
@@ -435,6 +443,7 @@
                 const al_region = document.getElementById('txtAlregion');
                 const enable_uk = $('input:radio[name="raUkenable"]:checked').val();
                 const uk_region = document.getElementById('selUkregion');
+                const au_region = document.getElementById('selAUState');
                 const enable = $('input:radio[name="selCloud"]:checked').val();
                 const continent = document.getElementById('selContinent');
                 const txtServices = jQuery.map($(':checkbox[name=checkbox\\[\\]]:checked'), function(n, i) {
@@ -522,10 +531,8 @@
                     type: 'text/plain'
                 });
                 const sFileName = 'services.txt'; // The file to save the data.
-
                 let newLink = document.createElement("a");
                 newLink.download = sFileName;
-
                 if (window.webkitURL != null) {
                     newLink.href = window.webkitURL.createObjectURL(textToBLOB);
                 } else {
