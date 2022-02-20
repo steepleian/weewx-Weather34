@@ -292,7 +292,6 @@
             <br />
             <div style="background-color: #ffffff; padding: 6px;border-radius: 4px;border: 2px solid #ccc;text-align: center;">
                 <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Real Time Air Quality Index (AQI)
-                <input type="checkbox" name="checkbox[]" id="ckds" value="ds" /> DarkSky Forecast
                 <input type="checkbox" name="checkbox[]" id="ckwu" value="wu" disabled checked title="This is a required service" /> Weather Underground Forecast
                 <input type="checkbox" name="checkbox[]" id="ckeq" value="eq" disabled checked title="This is a required service" /> Earthquake Notification
                 <input type="checkbox" name="checkbox[]" id="ckki" value="ki" disabled checked title="This is a required service" /> Geomagnetic Storms
@@ -313,7 +312,7 @@
                 maxZoom: 22,
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 id: 'mapbox/streets-v11',
-                tileSize: 256,
+                tileSize: 512,
                 zoomOffset: -1
             }).addTo(mymap);
 
@@ -465,13 +464,10 @@
                     '"' + 'al_ip' + '"' + ':' + "'" + al_ip.value + "'," + ' \r\n' +
                     '"' + 'al_country' + '"' + ':' + "'" + al_country.value + "'," + ' \r\n' +
                     '"' + 'al_region' + '"' + ':' + "'" + al_region.value + "'," + ' \r\n' +
-                    '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
+                    '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,continent,aq_apikey,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
                     '"config_entries3"' + ':' + "'''=" + ' \r\n' +
                     "'Weather34WebServices' " + ':' + ' \r\n' +
                     '"# Air quality, your own latitude, longitude, token and interval in seconds are required\\n"' + ' \r\n' +
-                    '"# Dark Sky, your own latitude, longitude, API key, language, units and interval in seconds required\\n"' + ' \r\n' +
-                    '"# DarkSky Units key us = US Units, ca = METRIC Units, si = METRICWX Units, uk2 = UK(metric with mph) Units\\n"' + ' \r\n' +
-                    '"# Example https://api.forecast.io/forecast/yourtokenhere/51.94,-0.987?lang=en&units=uk2\\n"' + ' \r\n' +
                     '"# Weather Underground, your own latitude, longitude, API key, language, units and interval in seconds required\\n"' + ' \r\n' +
                     '"# Weather Underground Units key e = US, m = METRIC, s = SI(with m/s Scandinavia), h = UK(with mph)\\n"' + ' \r\n' +
                     '"# Example https://api.weather.com/v3/wx/forecast/daily/5day?geocode=51.94,-0.987&language=en&format=json&units=h&apiKey=yourapikeyhere\\n"' + ' \r\n' +
@@ -485,13 +481,11 @@
                     '"# Meteoalrm European weather warnings country code, region code and interval in seconds required\\n"' + ' \r\n' +
                     '"# Example http://192.168.1.232/weewx/weather34/eualert.php?country=UK&region=013\\n"' + ' \r\n' +
                     '"# Select the services you require by creating a string of the services above\\n"' + ' \r\n' +
-                    '"# Example services = ds.me.eq.ki.wu.aq.al.ah.ao.aa.pu\\n"' + ' \r\n' +
+                    '"# Example services = me.eq.ki.wu.aq.al.ah.ao.aa.pu\\n"' + ' \r\n' +
                     '"# Select your preferred time interval in seconds for each service\\n"' + ' \r\n' +
                     '{' + ' \r\n' +
                     " 'aq_url':'https://api.waqi.info/feed/geo:" + lat.value + ';' + lon.value + '/?token=' + aq_apikey.value + "'" + ',' + ' \r\n' +
                     " 'aq_interval':'3600'" + ',' + ' \r\n' +
-                    " 'ds_url':'https://api.forecast.io/forecast/" + ds_apikey.value + '/' + lat.value + ',' + lon.value + '?lang=' + lang.value + '&units' + '=' + ds_units.value + "'" + ',' + ' \r\n' +
-                    " 'ds_interval':'3600'" + ',' + ' \r\n' +
                     " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode=" + lat.value + ',' + lon.value + '&language=' + lang.value + '&format=json&units=' + wu_units.value + '&apiKey=' + wu_apikey.value + "'" + ',' + ' \r\n' +
                     " 'wu_interval':'3600'" + ',' + ' \r\n' +
                     " 'eq_url':'https://www.emsc-csem.org/service/rss/rss.php?typ=emsc'" + ',' + ' \r\n' +
