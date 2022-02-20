@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="us">
+<!-- This page takes the information provided by the client and sends them a file called services.txt which is used in the -->
+<!-- installation of the Weather34 skin template on a WeeWX Personal Weather Station system. -->
+<!-- Original code written by Ian Millard -->
+<!-- Rewritten on Feburary 2021 by Steven Sheeley, reusing the file saving routine -->
+<!-- Whilst it was attempted to maintain the look and feel of the original, all -->
+<!-- html, css and javascript used in the new page is by Steven Sheeley -->
+<!-- Revised in Feburary 2022 to remove old services and add new ones -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Weather34 services.txt generator form</title>
+    <meta name="description" content="This form generates the services.txt file that is needed to install the Weather34 skin and modify the weewx conf file." />
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <style>
+      .container {  display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 4px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "Banner Banner Banner"
+          "Section-1 Section-1-Info Map"
+          "Section-2 Section-2 Section-2-info"
+          "Checkboxes Checkboxes Checkboxes"
+          "Footer Footer Footer";
+        width: 90%;
+        height: 100%;
+      }
+
+      .Banner { grid-area: Banner; }
+
+      .Map { grid-area: Map; }
+
+      .Section-1 { grid-area: Section-1; }
+
+      .Section-1-Info { grid-area: Section-1-Info; }
+
+      .Section-2 { grid-area: Section-2; }
+
+      .Section-2-info { grid-area: Section-2-info; }
+
+      .Checkboxes { grid-area: Checkboxes; }
+
+      .Footer { grid-area: Footer; }
+
+      @media all and (-ms-high-contrast:none) {
+        .container {
+          display: -ms-grid;
+          -ms-grid-columns: repeat(3, 1fr);
+          -ms-grid-rows: repeat(5, 1fr);
+        }
+
+        .Banner {
+          -ms-grid-row: 1;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+        }
+
+        .Map {
+          -ms-grid-row: 2;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 3;
+          -ms-grid-column-span: 1;
+        }
+
+        .Section-1 {
+          -ms-grid-row: 2;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 1;
+        }
+
+        .Section-1-Info {
+          -ms-grid-row: 2;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 1;
+        }
+
+        .Section-2 {
+          -ms-grid-row: 3;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 2;
+        }
+
+        .Section-2-info {
+          -ms-grid-row: 3;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 3;
+          -ms-grid-column-span: 1;
+        }
+
+        .Checkboxes {
+          -ms-grid-row: 4;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+        }
+
+        .Footer {
+          -ms-grid-row: 5;
+          -ms-grid-row-span: 1;
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
+  <body>
+    <div class="container">
+      <div class="Banner"></div>
+      <div class="Map"></div>
+      <div class="Section-1"></div>
+      <div class="Section-1-Info"></div>
+      <div class="Section-2"></div>
+      <div class="Section-2-info"></div>
+      <div class="Checkboxes"></div>
+      <div class="Footer"></div>
+    </div>
+  </body>
+</html>
