@@ -21,17 +21,17 @@
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(10%, 40%, 40%, 10%);
             margin: auto;
-            width: 80%;
+            width: 90%;
             border: 2px solid #000000;
             background-color: #808080;
             padding: 4px;
-            border-radius: 10px;
+            border-radius: 15px;
             grid-template-areas: "Header Header Header Header" "Map-Input Map-Input Map Map" "Line-One Line-One Line-One Line-One" "Footer Footer Footer Footer";
         }
         .Header {
             grid-area: Header;
             padding: 6px;
-            border-radius: 10px;
+            border-radius: 15px;
             border: 2px solid #000000;
             background-color: #ffffff;
         }
@@ -61,6 +61,31 @@
             color: #000000;
             font-size: 150%;
         }
+        hr{
+            border: 0;
+            height: 1px;
+            width: 10%;
+            position: relative;
+            margin: 30px auto;
+
+            &.center-ball{
+                    background: $aqua;
+
+                &:before{
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    background: $aqua;
+                    display: inline-block;
+                    border: 2px solid $aqua;
+                    @include border-radius(50%);
+                    position: absolute;
+                    top: -4px;
+                    left: 50%;
+                    margin: 0 0 0 -3px;
+                }
+            }
+        }
         input[type=text] {
             width: 98%;
             padding: 6px;
@@ -69,7 +94,7 @@
         }
         select {
             font: 12px Arial;
-            width: 98%;
+            width: 99%;
             padding: 6px;
             border: 2px solid #ccc;
             border-radius: 4px;
@@ -137,6 +162,7 @@
             <label for="text">Web Server's IP Address (xxx.xxx.xxx.xxx)</label><i class="fa fa-question-circle" title="Enter the Weather Station's Web Server IP Address (xxx.xxx.xxx.xxx) where the Weather34 skin is installed."></i>
             <input type="text" id="txtAlip" />
             <h4>Weather Service API Key Entry Section</h4>
+            <hr class="center-ball">
             <div>
                 Do you have a AQI API Key (Air Quality Programmatic API)?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI API Key."></i>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
@@ -300,8 +326,6 @@
                 <br />
                 <input type="checkbox" name="checkbox[]" id="ckpu" value="pu" /> Purple Air Quality Reports
                 <input type="checkbox" name="checkbox[]" id="ckeu" value="eu" /> European Weather Alerts
-                <input type="checkbox" name="checkbox[]" id="ckuk" value="uk" /> MetOffice Warnings
-
             </div>
         </div>
         <!-- End Container-->
