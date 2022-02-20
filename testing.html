@@ -137,7 +137,7 @@
             <input type="text" id="txtAlip" />
             <h4>Weather Service API Key Entry Section</h4>
             <div>
-                Do you have a AQI API (Air Quality Programmatic API) Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
+                Do you have a AQI API Key (Air Quality Programmatic API)?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI API Key."></i>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI API Key, you can learn more at <a href="https://aqicn.org/api/" target="_blank"
                     rel="noopener noreferrer">AQI API Info</a>
@@ -257,7 +257,7 @@
                 <option value="se">London & South East</option>
             </select><br />
             <div class="control">
-                If you live in Australian, do you want to include the Australian Bureau of Meteorology Weather Warnings?
+                If you live in Australia, do you want to include the Australian Bureau of Meteorology Weather Warnings?
                 <label class="radio"><input type="radio" name="BOMenable" id="BOMenable" onclick="EnableDisableBOM()" value="1" />Yes</label>
                 <label class="radio"><input type="radio" name="BOMenable" id="BOMenable" onclick="EnableDisableBOM()" value="0" checked />No</label> (This is for European users only, it does not work for any other Countries/Continent)
             </div>
@@ -271,9 +271,6 @@
 				<option value="IDZ00058">Tasminia</option>
 				<option value="IDZ00055">Northern Territory</option>
             </select><br />
-            <label for="text">Australian Bureau of Meteorology Weather Warnings Regions</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Region."></i>
-            <input type="text" id="txtAlregion" disabled="true" /><br />
-            <br />
             <div class="control">
                 Do you want to enable Cloud Cover display?&nbsp;<i class="fa fa-question-circle" title="This is currently only available for Geographical Europe"></i>
                 <label class="radio"><input type="radio" name="selCloud" id="radio1" value="True"/>Yes</label>
@@ -316,7 +313,7 @@
                 maxZoom: 22,
                 attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                 id: 'mapbox/streets-v11',
-                tileSize: 512,
+                tileSize: 256,
                 zoomOffset: -1
             }).addTo(mymap);
 
