@@ -15,85 +15,56 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <style>
-        .container {
-        display: grid;
-        width: 90%;
-        height: 100%;
-        grid-template-areas: "Header Header"
-        "Map-Input Map"
-        "Section1 Section1"
-        "Section2 Section2"
-        "Section3 Section3"
-        "Checkboxes Checkboxes"
-        "Submit Submit";
-        grid-template-columns: 60% 40%;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        margin: auto;
-        width: 90%;
-        border: 1px solid #000000;
-        background-color: #8080803f;
-        padding: 4px;
-        border-radius: 12px;
-        box-shadow: 4px 4px 8px 0px rgb(0, 0, 0);
-        display:inline-block;
-        }
-        .container > div {
-        border: 1px dashed #888;
-        }
-        .Header {
-        grid-area: Header;
-        padding: 6px;
-        border-radius: 12px;
-        border: 2px solid #000000;
-        background-color: #dbeaf8;
-        }
-        .Map-Input {
-        grid-area: Map-Input;
-        }
-        .Map {
-        grid-area: Map;
-        padding: 12px;
-        background-color: #b6ddfd;
-        }
-        .Section1 {
-        grid-area: Section1;
-        padding: 12px;
-        background-color: #b6ddfd;
-        }
-        .Section2 {
-        grid-area: Section2;
-        padding: 12px;
-        background-color: #b6ddfd;
-        }
-        .Section3 {
-        grid-area: Section3;
-        padding: 12px;
-        background-color: #b6ddfd;
-        }
-        .Checkboxes {
-        grid-area: Checkboxes;
-        padding: 12px;
-        background-color: #b6ddfd;
-        }
-        .Submit {
-        grid-area: Submit;
-        padding: 12px;
-        text-align: center;
-        background-color: #b6ddfd;
-        }
-    </style>
+.container {
+  display: grid;
+  width: 90%;
+  height: 100%;
+  grid-template-areas: "header header"
+  "Info Map"
+  "Section 1 Section 1"
+  "Section 2 Section 2"
+  "Checkboxes Checkboxes"
+  "Submit Submit";
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.container > div {
+  border: 1px dashed #888;
+}
+
+.header {
+  grid-area: header;
+}
+.Info {
+  grid-area: Info;
+}
+.Map {
+  grid-area: Map;
+}
+.Section 1 {
+  grid-area: Section 1;
+}
+.Section 2 {
+  grid-area: Section 2;
+}
+.Checkboxes {
+  grid-area: Checkboxes;
+}
+.Submit {
+  grid-area: Submit;
+}
+</style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
 <body>
     <!-- Begin Container-->
     <div class="container">
-        <div class="Header">Header</div>
-        <div class="Map-Input">Map-Input</div>
+        <div class="header">header</div>
+        <div class="Info">Info</div>
         <div class="Map">Map</div>
-        <div class="Section1">Section1</div>
-        <div class="Section2">Section2</div>
-        <div class="Section3">Section3</div>
+        <div class="Section 1">Section 1</div>
+        <div class="Section 2">Section 2</div>
         <div class="Checkboxes">Checkboxes</div>
         <div class="Submit">Submit</div>
     </div>
