@@ -63,33 +63,6 @@
             color: #000000;
             font-size: 150%;
         }
-        hr {
-            border: 0;
-            height: 1px;
-            width: 50%;
-            position: relative;
-            margin: 30px auto;
-        }
-        hr.center-diamond {
-            background: #142aec;
-        }
-        hr.center-diamond:before {
-            content: "";
-            width: 6px;
-            height: 6px;
-            background: #142aec;
-            display: inline-block;
-            border: 2px solid #142aec;
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            margin: 0 0 0 -3px;
-            transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            /* IE 9 */
-            -webkit-transform: rotate(45deg);
-            /* Opera, Chrome, and Safari */
-        }
         input[type=text] {
             width: 98%;
             padding: 6px;
@@ -146,7 +119,6 @@
         <div class="Map" id="mapid" style="cursor:crosshair;"></div>
         <div class="Map-Input">
             <h4> Weather Station Location, Language and IP Address Section</h4>
-            <hr class="center-diamond">
             <label for="text">Latitude</label><i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br
             />
             <input type="text" id="txtLat"><br />
@@ -167,7 +139,7 @@
             <label for="text">Web Server's IP Address (xxx.xxx.xxx.xxx)</label><i class="fa fa-question-circle" title="Enter the Weather Station's Web Server IP Address (xxx.xxx.xxx.xxx) where the Weather34 skin is installed."></i>
             <input type="text" id="txtAlip" />
             <h4>Weather Service API Key Entry Section</h4>
-            <hr class="center-diamond">
+            <hr>
             <div>
                 Do you have a AQI API Key (Air Quality Programmatic API)?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI API Key."></i>
                 <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
