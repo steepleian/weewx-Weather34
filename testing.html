@@ -18,6 +18,7 @@
         .container {  display: grid;
             grid-template-columns: 1fr 0.8fr;
             grid-template-rows: repeat(10, 1fr);
+            margin: auto;
             gap: 5px 5px;
             grid-auto-flow: row;
             grid-template-areas:
@@ -33,6 +34,9 @@
                 "Submit Submit";
             width: 90%;
             height: 100%;
+            border: 2px solid #000;
+            border-radius: 12px;
+            margin-top: 15px;
         }
         .Banner { grid-area: Banner; }
         .Line-One { grid-area: Line-One; }
@@ -41,10 +45,10 @@
         .Line-Three { grid-area: Line-Three; }
         .Line-Four { grid-area: Line-Four; }
         .Line-Five { grid-area: Line-Five; }
-        .Submit { grid-area: Submit; }
-        .Services { grid-area: Services; }
         .Line-Six { grid-area: Line-Six; }
         .Line-7 { grid-area: Line-7; }
+        .Submit { grid-area: Submit; }
+        .Services { grid-area: Services; }
         @media all and (-ms-high-contrast:none) {
             .container {
                 display: -ms-grid;
@@ -132,10 +136,10 @@
         <div class="Line-Three">Line 3</div>
         <div class="Line-Four">Line 4</div>
         <div class="Line-Five">Line 5</div>
-        <div class="Submit">Submit</div>
-        <div class="Services">Services</div>
         <div class="Line-Six">Line 6</div>
         <div class="Line-7">Line 7</div>
+        <div class="Submit">Submit</div>
+        <div class="Services">Services</div>
     </div>
     <!-- End Container-->
     <script>
