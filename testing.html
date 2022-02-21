@@ -19,6 +19,7 @@
         display: grid;
         grid-template-columns: 60% 40%;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        display:inline-block;
         margin: auto;
         width: 90%;
         height: 100%;
@@ -83,19 +84,41 @@
         padding: 12px;
         border-radius: 12px;
         }
-        .Checkboxes {
-        grid-area: Checkboxes;
-        border: 2px solid #000000;
-        background-color: #b6ddfd;
-        padding: 12px;
-        border-radius: 12px;
+        input[type=text] {
+            width: 98%;
+            padding: 6px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
         }
-        .Submit {
-        grid-area: Submit;
-        border: 2px solid #000000;
-        background-color: #b6ddfd;
-        padding: 12px;
-        border-radius: 12px;
+        select {
+            font: 12px Arial;
+            width: 99%;
+            padding: 6px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        label[for=text] {
+            width: 95%;
+            padding: 6px;
+        }
+        .radiogroup {
+            width: auto;
+        }
+        .myButton {
+            box-shadow: 0px 10px 14px -7px #3e7327;
+            background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+            background-color: #77b55a;
+            border-radius: 4px;
+            border: 1px solid #4b8f29;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 4px;
+            text-decoration: none;
+            text-shadow: 0px 1px 11px #5b8a3c;
         }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
@@ -113,13 +136,32 @@
             <div style="text-align: center">No data is retained on this server after the process is complete.</div>
             <div style="text-align: center"><br />Note: We have replaced the use of the DarkSky API on the Weather34 skin with AerisWeather as DarkSky is no longer accepting new API account requests.</div>
         </div>
-        <div class="Map-Input">Map-Input</div>
+        <div class="Map-Input>
+            <h3> Weather Station Location, Language and IP Address Section</h4>
+            <label for="text">Latitude</label><i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br />
+            <input type="text" id="txtLat"><br />
+            <label for="text">Longitude</label><i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br />
+            <input type="text" id="txtLon"><br />
+            <label for="text">Language</label><i class="fa fa-question-circle" title="Please select your language from the list below"></i><br />
+            <select id="selLang">
+                <option disabled selected value=>"-- Please Choose Your Language--"</option>
+                <option value="en">English</option>
+                <option value="de">German</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="it">Italian</option>
+                <option value="br">Portuguese (Brazil)</option>
+                <option value="ru">Russian</option>
+            </select>
+            <label for="text">Web Server's IP Address (xxx.xxx.xxx.xxx)</label><i class="fa fa-question-circle" title="Enter the Weather Station's Web Server IP Address (xxx.xxx.xxx.xxx) where the Weather34 skin is installed."></i>
+            <input type="text" id="txtSrvIP" />
+        </div>
         <div class="Map" id="mapid" style="cursor:crosshair;">Map</div>
         <div class="Section1">Section1</div>
         <div class="Section2">Section2</div>
         <div class="Section3">Section3</div>
         <div class="Checkboxes">Checkboxes</div>
-        <div class="Submit">Submit</div>
+        <div class="Submit"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
     </div>
     <!-- End Container-->
     <script>
