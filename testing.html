@@ -9,7 +9,6 @@
 <!-- Revised in Feburary 2022 to remove old services and add new ones -->
 
 <head>
-    <meta charset="utf-8">
     <title>Weather34 services.txt generator form</title>
     <meta name="description" content="This form generates the services.txt file that is needed to install the Weather34 skin and modify the weewx conf file." />
     <meta name="robots" content="noindex, nofollow">
@@ -18,8 +17,15 @@
     <style>
         .container {
         display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
         width: 90%;
         height: 100%;
+        border: 1px solid #000000;
+        background-color: #8080803f;
+        padding: 4px;
+        border-radius: 15px;
         grid-template-areas: "Header Header"
         "Map-Input Map"
         "Section1 Section1"
@@ -27,13 +33,7 @@
         "Section3 Section3"
         "Checkboxes Checkboxes"
         "Submit Submit";
-        grid-template-columns: 839px 1fr;
-        grid-template-rows: 160px 1fr 1fr 1fr 1fr 80px 1fr;
         }
-        .container > div {
-        border: 1px dashed #888;
-        }
-
         .Header {
         grid-area: Header;
         }
