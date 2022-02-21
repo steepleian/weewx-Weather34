@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
         .grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -61,30 +62,32 @@
             color: #000000;
             font-size: 150%;
         }
-        hr{
+        hr {
             border: 0;
             height: 1px;
-            width: 80%;
+            width: 50%;
             position: relative;
             margin: 30px auto;
-
-            &.center-ball{
-                    background: #000000;
-
-                &:before{
-                    content: "";
-                    width: 6px;
-                    height: 6px;
-                    background: $aqua;
-                    display: inline-block;
-                    border: 2px solid $aqua;
-                    @include border-radius(50%);
-                    position: absolute;
-                    top: -4px;
-                    left: 50%;
-                    margin: 0 0 0 -3px;
-                }
-            }
+        }
+        hr.center-diamond {
+            background: #142aec;
+        }
+        hr.center-diamond:before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: #142aec;
+            display: inline-block;
+            border: 2px solid #142aec;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            margin: 0 0 0 -3px;
+            transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            /* IE 9 */
+            -webkit-transform: rotate(45deg);
+            /* Opera, Chrome, and Safari */
         }
         input[type=text] {
             width: 98%;
