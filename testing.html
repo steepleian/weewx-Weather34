@@ -25,6 +25,7 @@
         background-color: #dbdada94;
         padding: 4px;
         border-radius: 12px;
+        box-shadow: 5px 5px 5px #4b8f29;
         grid-auto-flow: row;
         grid-template-areas:
             "Banner Banner Banner Banner"
@@ -33,7 +34,12 @@
             "Services Services Services Services"
             "Footer Footer Footer Footer";
         }
-        .Banner { grid-area: Banner; }
+        .Banner { grid-area: Banner;
+        padding: 6px;
+        border-radius: 10px;
+        border: 2px solid #000000;
+        background-color: #cceff8;
+    }
         .Section-1 { grid-area: Section-1; }
         .Map { grid-area: Map; }
         .Section-2 { grid-area: Section-2; }
