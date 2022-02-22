@@ -20,6 +20,7 @@
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(5, 1fr);
             margin: auto;
+            gap: 5px 5px;
             width: 75%;
             border: 2px solid #000000;
             background-color: #dbdada94;
@@ -48,9 +49,7 @@
         }
         .Map {
             grid-area: Map;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
             border-radius: 10px;
             border: 2px solid #000000;
         }
@@ -64,11 +63,15 @@
             background-color: #828283;
         }
         #mapid {
+            position: relative;
             height: 300px;
             width: 300px;
             background-color: #fff;
         }
-
+        hr {
+            border: 3px double;
+            width: 60%;
+        }
         h3 {
             color: #000000;
             font-size: 150%;
