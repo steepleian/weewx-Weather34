@@ -29,7 +29,7 @@
             grid-auto-flow: row;
             grid-template-areas:
                 "Banner Banner Banner Banner"
-                "Section-1 Section-1 Map Map"
+                "Section-1 Section-1 Section-1 Map"
                 "Section-2 Section-2 Section-2 Section-2"
                 "Services Services Services Services"
                 "Footer Footer Footer Footer";
@@ -43,13 +43,13 @@
     }
         .Section-1 {
             grid-area: Section-1;
-            width: 60%;
             padding: 8px;
             background-color: #83bdff;
         }
         .Map {
             grid-area: Map;
-            width: 40%;
+            border-radius: 10px;
+            border: 2px solid #000000;
         }
         .Section-2 { grid-area: Section-2;
             background-color: #83bdff;
@@ -72,13 +72,13 @@
         }
         input[type=text] {
             width: 98%;
-            border: 2px solid #000;
+            border: 1px solid #000;
             border-radius: 10px;
             padding: 10px;
         }
         select {
             width: 98%;
-            border: 2px solid #000;
+            border: 1px solid #000;
             border-radius: 10px;
             padding: 10px;
         }
