@@ -15,36 +15,44 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <style>
-        .container {  display: grid;
-        grid-template-columns: repeat(4, 25%);
-        grid-template-rows: 400px 300px repeat(3, 1fr);
-        gap: 5px 5px;
-        margin: auto;
-        width: 75%;
-        border: 2px solid #000000;
-        background-color: #dbdada94;
-        padding: 4px;
-        border-radius: 12px;
-        box-shadow: 5px 5px 5px #4b8f29;
-        grid-auto-flow: row;
-        grid-template-areas:
-            "Banner Banner Banner Banner"
-            "Section-1 Section-1 Map Map"
-            "Section-2 Section-2 Section-2 Section-2"
-            "Services Services Services Services"
-            "Footer Footer Footer Footer";
+        .container {  
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            grid-template-rows: 400px 300px repeat(3, 1fr);
+            gap: 5px 5px;
+            margin: auto;
+            width: 75%;
+            border: 2px solid #000000;
+            background-color: #dbdada94;
+            padding: 4px;
+            border-radius: 12px;
+            box-shadow: 5px 5px 5px #4b8f29;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "Banner Banner Banner Banner"
+                "Section-1 Section-1 Map Map"
+                "Section-2 Section-2 Section-2 Section-2"
+                "Services Services Services Services"
+                "Footer Footer Footer Footer";
         }
-        .Banner { grid-area: Banner;
-        padding: 6px;
-        border-radius: 10px;
-        border: 2px solid #000000;
-        background-color: #cceff8;
+        .Banner { 
+            grid-area: Banner;
+            padding: 6px;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            background-color: #cceff8;
     }
         .Section-1 { grid-area: Section-1; }
         .Map { grid-area: Map; }
         .Section-2 { grid-area: Section-2; }
         .Services { grid-area: Services; }
         .Footer { grid-area: Footer; }
+        #mapid {
+            height: 300px;
+            width: 300px;
+            background-color: #fff;
+        }
+
         h3 {
             color: #000000;
             font-size: 150%;
@@ -99,7 +107,7 @@
             <div style="text-align: center">Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</div>
         </div>
         <div class="Section-1">Section 1</div>
-        <div class="Map" id="MapID">Map</div>
+        <div class="Map" id="mapid"></div>
         <div class="Section-2">Section 2</div>
         <div class="Services">Services</div>
         <div class="Footer">Footer</div>
