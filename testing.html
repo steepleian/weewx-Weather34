@@ -73,79 +73,6 @@
         }
         .Services { grid-area: Services;
         }
-        @media all and (-ms-high-contrast:none) {
-            .container {
-                display: -ms-grid;
-                -ms-grid-columns: 1fr 0.8fr;
-                -ms-grid-rows: repeat(10, 1fr);
-            }
-            .Banner {
-                -ms-grid-row: 1;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Line-One {
-                -ms-grid-row: 2;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 1;
-            }
-            .Map {
-                -ms-grid-row: 2;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 2;
-                -ms-grid-column-span: 1;
-            }
-            .Line-Two {
-                -ms-grid-row: 3;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Line-Three {
-                -ms-grid-row: 4;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Line-Four {
-                -ms-grid-row: 5;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Line-Five {
-                -ms-grid-row: 6;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Submit {
-                -ms-grid-row: 10;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Services {
-                -ms-grid-row: 9;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Line-Six {
-                -ms-grid-row: 7;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-            .Line-7 {
-                -ms-grid-row: 8;
-                -ms-grid-row-span: 1;
-                -ms-grid-column: 1;
-                -ms-grid-column-span: 2;
-            }
-        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
@@ -155,7 +82,7 @@
     <div class="container">
         <div class="Banner">Banner</div>
         <div class="Line-One">Map Input</div>
-        <div class="Map">Map</div>
+        <div class="Map" id="mapid">Map</div>
         <div class="Line-Two">Line 2</div>
         <div class="Line-Three">Line 3</div>
         <div class="Line-Four">Line 4</div>
