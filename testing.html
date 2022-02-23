@@ -119,8 +119,8 @@
                 <h3>Weather34 services.txt Generator</h3>
             </div>
             <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the Weather34 Archive file to. Once this is complete, you are ready to do the base installation of the Weather34 Skin.</div>
-            <div>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
-            <div>No data is retained on this server after the process is complete.</div>
+            <div><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
+            <div><b>No data is retained on this server after the process is complete.</b></div>
             <div style="text-align: center">Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</div>
         </div>
         <div class="Section-1">
@@ -139,13 +139,12 @@
                 <option value="it">Italian</option>
                 <option value="br">Portuguese (Br)</option>
                 <option value="ru">Russian</option>
-            </select>
+            </select><br />
             <label for="text">Local Web Server IP Address</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Enter the Weather Station's Web Server IP Address"></i>
             <input type="text" id="txtSrvIP" />
         </div>
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
-            <hr>
             <div>
                 <h4>World Air Pollution API Key Entry Section</h4>
                 Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
@@ -163,7 +162,7 @@
             <input type="text" id="txtDskey" disabled="true" /><br />
             <label for="text">DarkSky Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
             <select id="selDsunits" disabled="true" disabled="true">
-                <option selected value="">-- Please Choose Your Units--</option>
+                <option selected disabled value="">-- Please Choose Your Units--</option>
                 <option value="us">US</option>
                 <option value="si">SI Metric</option>
                 <option value="ca">Canada</option>
