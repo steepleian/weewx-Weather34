@@ -40,7 +40,7 @@
             padding: 6px;
             border-radius: 10px;
             border: 2px solid inset #000000;
-            background-color: #cceff8;
+            background-color: #FFF;
             border-style: inset;
     }
         .Section-1 {
@@ -65,13 +65,16 @@
             background-color: #fff;
         }
         .Footer { grid-area: Footer;
-            background-color: #828283;
+            background-color: #d0fceb;
         }
         #mapid {
             position: relative;
             height: 300px;
             width: 300px;
             background-color: #fff;
+        }
+        body{
+            background-color: #dbfac6;
         }
         hr {
             border: 3px double;
@@ -151,19 +154,20 @@
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
             <h4>Aeris Weather Key/Secret Entry Section</h4>
-            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>
-            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableDSK()" />Yes</label>
-            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableDSK()" checked />No</label>
+            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
+            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label>
+            <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
             <input type="text" id="txtAwKey" disabled="true" /><br />
-            <label for="text">Aeris Weather Key</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+            <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
             <input type="text" id="txtAwSecret" disabled="true" /><br />
-            <label for="text">Aeris Weather Secret</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
             <hr>
             <h4>World Air Pollution API Key Entry Section</h4>
             Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
             <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-            <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
+            <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br />
             <input type="text" id="txtAqkey" disabled="true" /><br />
+            If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
             <hr>
 
         </div>
@@ -197,6 +201,18 @@
             txtLat.value = +e.latlng.lat.toFixed(6);
             txtLon.value = +e.latlng.lng.toFixed(6);
         });
+    </script>
+    <script type="text/javascript">
+        function EnableDisableAWK() {
+            var awKeyChkd = document.getElementById("awKeyChkd");
+            var txtAwKey = document.getElementById("txtAwKey");
+            var txtAwSecret = document.getElementById("txtAwSecret");
+            txtAwKey.disabled = awKeyChkd.checked ? false : true;
+            txtAwSecret.disabled = awKeyChkd.checked ? false : true;
+            if (!awKeyChkd.disabled) {
+                awKeyChkd.focus();
+            }
+        }
     </script>
 </body>
 </html>
