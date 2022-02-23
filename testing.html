@@ -39,13 +39,16 @@
             grid-area: Banner;
             padding: 6px;
             border-radius: 10px;
-            border: 2px solid #000000;
+            border: 2px solid inset #000000;
             background-color: #cceff8;
     }
         .Section-1 {
             grid-area: Section-1;
             padding: 8px;
             background-color: #83bdff;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            background-color: #cceff8;
         }
         .Map {
             grid-area: Map;
@@ -55,6 +58,9 @@
         }
         .Section-2 { grid-area: Section-2;
             background-color: #83bdff;
+            border-radius: 10px;
+            border: 2px solid #000000;
+            background-color: #cceff8;
         }
         .Services { grid-area: Services;
             background-color: #fff;
@@ -119,9 +125,9 @@
                 <h3>Weather34 services.txt Generator</h3>
             </div>
             <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the Weather34 Archive file to. Once this is complete, you are ready to do the base installation of the Weather34 Skin.</div>
-            <div><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
-            <div><b>No data is retained on this server after the process is complete.</b></div>
-            <div style="text-align: center">Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</div>
+            <div style="text-align: center"><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
+            <div style="text-align: center"><b>No data is retained on this server after the process is complete.</b></div>
+            <div style="text-align: center"><b>Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</div></b>
         </div>
         <div class="Section-1">
             <h4> Weather Station Location, Language and IP Address Section</h4>
@@ -145,30 +151,21 @@
         </div>
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
-            <div>
-                <h4>World Air Pollution API Key Entry Section</h4>
-                Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
-                <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-                <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
-            </div>
+            <h4>Aeris Weather Key/Secret Entry Section</h4>
+            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>
+            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableDSK()" />Yes</label>
+            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableDSK()" checked />No</label>
+            <input type="text" id="txtAwKey" disabled="true" /><br />
+            <label for="text">Aeris Weather Key</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+            <input type="text" id="txtAwSecret" disabled="true" /><br />
+            <label for="text">Aeris Weather Secret</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
+            <hr>
+            <h4>World Air Pollution API Key Entry Section</h4>
+            Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
+            <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
+            <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /> If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
             <input type="text" id="txtAqkey" disabled="true" /><br />
             <hr>
-            <div>
-                <h4>Aeris Weather Key/Secret Entry Section</h4>
-                Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>
-                <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" />Yes</label>
-                <label class="radio"><input type="radio" name="Dskeychkd" id="Dskeychkd" onclick="EnableDisableDSK()" checked />No</label><br /> Note: Only for existing DarkSky API Key holders, DarkSky is no longer accepting new API account requests.
-            </div>
-            <input type="text" id="txtDskey" disabled="true" /><br />
-            <label for="text">DarkSky Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your DarkSky Units."></i><br />
-            <select id="selDsunits" disabled="true" disabled="true">
-                <option selected disabled value="">-- Please Choose Your Units--</option>
-                <option value="us">US</option>
-                <option value="si">SI Metric</option>
-                <option value="ca">Canada</option>
-                <option value="uk2">UK (Metric with mph and miles)</option>
-                <option value="auto">auto</option>
-            </select><br />
 
         </div>
         <div class="Services">Services</div>
