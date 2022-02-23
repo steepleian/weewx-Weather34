@@ -76,6 +76,9 @@
         body{
             background-color: #e6fad8;
         }
+        dcenter{
+            text-align: center;
+        }
         hr {
             border: 3px double;
             width: 60%;
@@ -132,7 +135,7 @@
             <div style="text-align: center"><b>Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</div></b>
         </div>
         <div class="Section-1">
-            <h4> Weather Station Location, Language and IP Address Section</h4>
+            <div class="dcenter"><h4> Weather Station Location, Language and IP Address Section</h4></div>
             <label for="text">Latitude</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLat"><br />
             <label for="text">Longitude</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
@@ -154,7 +157,7 @@
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
             <h4>Aeris Weather Key/Secret Entry Section</h4>
-            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
             <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
             <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label><br />
             <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
