@@ -12,7 +12,7 @@
     <title>Weather34 services.txt generator form</title>
     <meta name="description" content="This form generates the services.txt file that is needed to install the Weather34 skin and modify the weewx conf file." />
     <meta name="robots" content="noindex, nofollow">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <style>
         .container { 
@@ -130,17 +130,17 @@
                 <h3>Weather34 services.txt Generator</h3>
             </div>
             <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the Weather34 Archive file to. Once this is complete, you are ready to do the base installation of the Weather34 Skin.</div><br />
-            <div style="text-align: center"><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
-            <div style="text-align: center"><b>No data is retained on this server after the process is complete.</b></div>
-            <div style="text-align: center"><b>Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</div></b>
+            <div style="text-align: center"><i class="far fa-lightbulb-exclamation"><b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></i></div><br />
+            <div style="text-align: center"><i class="far fa-lightbulb-exclamation"></i><b>No data is retained on this server after the process is complete.</b></i></div>
+            <div style="text-align: center"><i class="far fa-lightbulb-exclamation"></i><b>Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</b></i></div>
         </div>
         <div class="Section-1">
             <div class="dcenter"><h4> Weather Station Location, Language and IP Address Section</h4></div>
-            <label for="text">Latitude</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            <label for="text">Latitude</label>&nbsp;&nbsp;<i class="far fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLat"><br />
-            <label for="text">Longitude</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            <label for="text">Longitude</label>&nbsp;&nbsp;<i class="far fa-question-circle" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLon"><br />
-            <label for="text">Website Language</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Please select your language from the list below"></i><br />
+            <label for="text">Website Language</label>&nbsp;&nbsp;<i class="far fa-question-circle" title="Please select your language from the list below"></i><br />
             <select id="selLang">
                 <option selected value="">-- Please Choose Your Language--</option>
                 <option value="en">English</option>
@@ -151,22 +151,22 @@
                 <option value="br">Portuguese (Br)</option>
                 <option value="ru">Russian</option>
             </select><br />
-            <label for="text">Local Web Server IP Address</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="Enter the Weather Station's Web Server IP Address"></i>
+            <label for="text">Local Web Server IP Address</label>&nbsp;&nbsp;<i class="far fa-question-circle" title="Enter the Weather Station's Web Server IP Address"></i>
             <input type="text" id="txtSrvIP" />
         </div>
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
             <h4>Aeris Weather Key/Secret Entry Section</h4>
-            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
+            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="far fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
             <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
             <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label><br />
-            <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+            <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="far fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
             <input type="text" id="txtAwKey" disabled="true" /><br />
-            <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
+            <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="far fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
             <input type="text" id="txtAwSecret" disabled="true" /><br />
             <hr>
             <h4>World Air Pollution API Key Entry Section</h4>
-            Do you have a AQI Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
+            Do you have a AQI Key?&nbsp;<i class="far fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
             <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
             <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br />
             <input type="text" id="txtAqkey" disabled="true" /><br />
