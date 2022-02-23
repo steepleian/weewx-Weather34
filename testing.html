@@ -87,63 +87,36 @@
             color: #000000;
             font-size: 150%;
         }
+        input[type=text] {
+            width: 98%;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        select {
+            width: 98%;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+        }
         .radiogroup {
             width: auto;
         }
-        input,
-        select{
-        font-size: 15px;
-        margin-bottom: 2px;
-        font-family: Arial, san-serif;
-        }
-        input,
-        select{
-        width:100%;
-        background: #fff;
-        border: 0;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-        margin-bottom: 25px;
-        padding: 5px;
-        }
-        input:focus,
-        select:focus{
-        background-color: #E5E6E7; 
-        }
-        button[type="submit"] {
-        cursor:pointer;
-        width:100%;
-        border:none;
-        background:#991D57;
-        background-image:linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-        background-image:-moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-        background-image:-webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
-        color:#FFF;
-        margin:0 0 5px;
-        padding:10px;
-        border-radius:5px;
-        }
-        button[type="submit"]:hover {
-        background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-        background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-        background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
-        -webkit-transition:background 0.3s ease-in-out;
-        -moz-transition:background 0.3s ease-in-out;
-        transition:background-color 0.3s ease-in-out;
-        }
-        button[type="submit"]:active {
-        box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
-        }
-        input:required, textarea:required {
-        box-shadow: none;
-        -moz-box-shadow: none;
-        -webkit-box-shadow: none;
-        -o-box-shadow: none;
-        }
-        .required {
-        font-weight:bold;
-        color: #E5E6E7;
+        .myButton {
+            box-shadow: 0px 10px 14px -7px #3e7327;
+            background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+            background-color: #77b55a;
+            border-radius: 4px;
+            border: 1px solid #4b8f29;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 4px;
+            text-decoration: none;
+            text-shadow: 0px 1px 11px #5b8a3c;
         }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
