@@ -192,7 +192,7 @@
             </div>
             <div>
                 <label for="text">Weather Underground Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your Weather Underground units."></i><br />
-                <input type="text" id="txtWukey" disabled="true" /><br />
+                <input type="text" id="txtWKkey" disabled="true" /><br />
                 <label>Please select your Weather Underground Units below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your Weather Underground Units from the list below"></i><br />
                 <select id="selWuUnits" disabled="true">
                     <option selected disabled value="">-- Please Choose Your Units--</option>
@@ -276,7 +276,7 @@
             var wuKeyChkd = document.getElementById("wuKeyChkd");
             var txtWuKey = document.getElementById("txtWuKey");
             var selWuUnits = document.getElementById("selWuUnits");
-            txtWukey.disabled = wuKeyChkd.checked ? false : true;
+            txtWuKey.disabled = wuKeyChkd.checked ? false : true;
             selWuUnits.disabled = wuKeyChkd.checked ? false : true;
             if (!wuKeyChkd.disabled) {
                 wuKeyChkd.focus();
