@@ -204,30 +204,54 @@
                 </select><br />
             </div>
             <hr>
-            <div>
-                <div>
-                    <div style="text-align: center">
-                        <h4>World Air Pollution API Key Entry Section</h4>
-                    </div>
-                    <div>
-                        Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI Key."></i>
-                        <input type="radio" name="aqKeyChkd" id="aqKeyChkd" onclick="EnableDisableAQI()" />Yes
-                        <input type="radio" name="aqKeyChkd" id="aqKeyChkd" onclick="EnableDisableAQI()" checked />No&nbsp;&nbsp;(Details can be found here,<a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer"> AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here.</a>
-                        <input type="text" id="txtAqKey" disabled="true" /><br />
-                    </div>
-                    <div>
-                        Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your PurpleAir ID."></i>
-                        <input type="radio" name="puIdChkd" id="puIdChkd" onclick="EnableDisablePUID()" />Yes
-                        <input type="radio" name="puIdChkd" id="puIdChkd" onclick="EnableDisablePUID()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
-                        <input type="text" id="txtPuId" disabled="true" />
-                    </div>
-                </div>
-            <hr>
             <div style="text-align: center">
+                <h4>World Air Pollution API Key Entry Section</h4>
+            </div>
+            <div>
+                Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI Key."></i>
+                <input type="radio" name="aqKeyChkd" id="aqKeyChkd" onclick="EnableDisableAQI()" />Yes
+                <input type="radio" name="aqKeyChkd" id="aqKeyChkd" onclick="EnableDisableAQI()" checked />No&nbsp;&nbsp;(Details can be found here,<a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer"> AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here.</a>
+                <input type="text" id="txtAqKey" disabled="true" /><br />
+            </div>
+            <div>
+                Do you have a PurpleAir ID?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your PurpleAir ID."></i>
+                <input type="radio" name="puIdChkd" id="puIdChkd" onclick="EnableDisablePUID()" />Yes
+                <input type="radio" name="puIdChkd" id="puIdChkd" onclick="EnableDisablePUID()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
+                <input type="text" id="txtPuId" disabled="true" />
+            </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
+                    <h4>Aviation Weather API (CheckWX) section</h4>
+                </div>
+                <div>
+                    Do you have a CheckWX Key for METAR (METeorological Aerodrome Report)data?&nbsp;<i class="fa-solid fa-question" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes, then you will be able to enter your METAR Key."></i>
+                    <input type="radio" name="meKeyChkd" id="meKeyChkd" onclick="EnableDisableMEK()" />Yes
+                    <input type="radio" name="meKeyChkd" id="meKeyChkd" onclick="EnableDisableMEK()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/documentation" target="_blank" rel="noopener noreferrer">here</a>, and an account can be created <a href="https://www.checkwxapi.com/auth/signup" target="_blank" rel="noopener noreferrer">here.</a>
+                </div>
+                <input type="text" id="txtMeKey" disabled="true" /><br />
+                <label for="text">Enter the ICAO code for the METAR capable airport nearest you.&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa-solid fa-question"
+                    title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes, then you will be able to enter the ICAO Code."></i>
+                <input type="text" id="txtMeCode" disabled="true" />
+            </div>
+        </div>
+        <div class="Services">
+            <label for="text">Active Web Services Code String Selection - Make your selection below.</label><i class="fa-solid fa-question" title="Weather34 uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
+            <br />
+            <div style="background-color: #ffffff; padding: 6px;border-radius: 4px;border: 2px solid #ccc;text-align: center;">
+                <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Real Time Air Quality Index (AQI)
+                <input type="checkbox" name="checkbox[]" id="ckds" value="ds" /> DarkSky Forecast
+                <input type="checkbox" name="checkbox[]" id="ckwu" value="wu" disabled checked title="This is a required service" /> Weather Underground Forecast
+                <input type="checkbox" name="checkbox[]" id="ckeq" value="eq" disabled checked title="This is a required service" /> Earthquake Notification
+                <input type="checkbox" name="checkbox[]" id="ckki" value="ki" disabled checked title="This is a required service" /> Geomagnetic Storms
+                <input type="checkbox" name="checkbox[]" id="ckme" value="me" disabled checked title="This is a required service" /> METAR Reports
+                <br />
+                <input type="checkbox" name="checkbox[]" id="ckpu" value="pu" /> Purple Air Quality Reports
+                <input type="checkbox" name="checkbox[]" id="ckeu" value="eu" /> European Weather Alerts
+                <input type="checkbox" name="checkbox[]" id="ckuk" value="uk" /> MetOffice Warnings
 
             </div>
         </div>
-        <div class="Services">Services</div>
         <div class="Footer">
             <div style="text-align: center"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
       </div>
@@ -300,6 +324,18 @@
                 txtPuId.disabled = puIdChkd.checked ? false : true;
                 if (!txtPuId.disabled) {
                     txtPuId.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableMEK() {
+                var meKeyChkd = document.getElementById("meKeyChkd");
+                var txtMeKey = document.getElementById("txtMeKey");
+                var txtMeCode = document.getElementById("txtMeCode");
+                txtMeKey.disabled = meKeyChkd.checked ? false : true;
+                txtMeCode.disabled = meKeyChkd.checked ? false : true;
+                if (!txtMeKey.disabled) {
+                    txtMeKey.focus();
                 }
             }
         </script>
