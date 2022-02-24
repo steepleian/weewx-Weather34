@@ -225,20 +225,43 @@
                     <h4>Aviation Weather API (CheckWX) section</h4>
                 </div>
                 <div>
-                    Do you have a CheckWX Key for METAR (METeorological Aerodrome Report)data?&nbsp;<i class="fa-solid fa-question" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes, then you will be able to enter your METAR Key."></i>
+                    Do you have a CheckWX Key for METAR (<b>MET</b>eorological <b>A</b>erodrome <b>R</b>eport)data?&nbsp;<i class="fa-solid fa-question" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes, then you will be able to enter your METAR Key."></i>
                     <input type="radio" name="meKeyChkd" id="meKeyChkd" onclick="EnableDisableMEK()" />Yes
                     <input type="radio" name="meKeyChkd" id="meKeyChkd" onclick="EnableDisableMEK()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/documentation" target="_blank" rel="noopener noreferrer">here</a>, and an account can be created <a href="https://www.checkwxapi.com/auth/signup" target="_blank" rel="noopener noreferrer">here.</a>
                 </div>
                 <input type="text" id="txtMeKey" disabled="true" /><br />
-                <label for="text">Enter the ICAO code for the METAR capable airport nearest you.&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa-solid fa-question"
+                <label for="text">Enter the ICAO (<b>I</b>nternational <b>C</b>ivil <b>A</b>viation <b>O</b>rganization) code for the METAR capable airport nearest you.&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa-solid fa-question"
                     title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes, then you will be able to enter the ICAO Code."></i>
                 <input type="text" id="txtMeCode" disabled="true" />
             </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
+                    <h4>Australian Bureau of Meterology section</h4>
+                </div>
+                <div>
+                    Is your weather station located in Australia and do you want Weather warnings for your state or territory?&nbsp;<i class="fa-solid fa-question" title="The Australian Bureau of Meterology provides a collection of data feeds that have been divided into State based options for all weather warnings. This field is disabled until you click on the Radio button for Yes, then you will be able to enter your METAR Key."></i>
+                    <input type="radio" name="bomKeyChkd" id="bomKeyChkd" onclick="EnableDisableBOMK()" />Yes
+                    <input type="radio" name="bomKeyChkd" id="bomKeyChkd" onclick="EnableDisableBOMK()" checked />No&nbsp;&nbsp;(Details can be found <a href="http://www.bom.gov.au/rss/?ref=ftr" target="_blank" rel="noopener noreferrer">here.</a>
+                </div>
+                <label>Please select your State or Territory below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your State or Territory from the list below"></i><br />
+                <select id="selBOMState" disabled="true">
+                    <option selected disabled value="">-- Please Choose Your State/Territory--</option>
+                    <option value="IDZ00054">New South Wales</option>
+                    <option value="IDZ00055">Northern Territory</option>
+                    <option value="IDZ00056">Queensland</option>
+                    <option value="IDZ00057">South Australia</option>
+                    <option value="IDZ00058">Tasmania</option>
+                    <option value="IDZ00059">Victoria</option>
+                    <option value="IDZ00060">West Australia</option>
+                </select><br />
+            </div>
+
         </div>
         <div class="Services">
-            <label for="text">Active Web Services Code String Selection - Make your selection below.</label><i class="fa-solid fa-question" title="Weather34 uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
-            <br />
-            <div style="background-color: #ffffff; padding: 6px;border-radius: 4px;border: 2px solid #ccc;text-align: center;">
+            <div>
+                <label for="text">Active Web Services Code String Selection - Make your selection below.</label><i class="fa-solid fa-question" title="Weather34 uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
+                <br />
                 <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Real Time Air Quality Index (AQI)
                 <input type="checkbox" name="checkbox[]" id="ckds" value="ds" /> DarkSky Forecast
                 <input type="checkbox" name="checkbox[]" id="ckwu" value="wu" disabled checked title="This is a required service" /> Weather Underground Forecast
@@ -249,7 +272,6 @@
                 <input type="checkbox" name="checkbox[]" id="ckpu" value="pu" /> Purple Air Quality Reports
                 <input type="checkbox" name="checkbox[]" id="ckeu" value="eu" /> European Weather Alerts
                 <input type="checkbox" name="checkbox[]" id="ckuk" value="uk" /> MetOffice Warnings
-
             </div>
         </div>
         <div class="Footer">
@@ -336,6 +358,16 @@
                 txtMeCode.disabled = meKeyChkd.checked ? false : true;
                 if (!txtMeKey.disabled) {
                     txtMeKey.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableBOMK() {
+                var bomKeyChkd = document.getElementById("bomKeyChkd");
+                var selBOMState = document.getElementById("selBOMState");
+                selBOMState.disabled = bomKeyChkd.checked ? false : true;
+                if (!selBOMState.disabled) {
+                    selBOMState.focus();
                 }
             }
         </script>
