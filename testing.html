@@ -62,7 +62,7 @@
             border: 2px solid #000000;
         }
         .Services { grid-area: Services;
-            background-color: #83bdff;
+            background-color: #c0dbfa;
             border-radius: 10px;
             border: 2px solid #000000;
         }
@@ -81,7 +81,7 @@
             cursor: crosshair;
         }
         body{
-            background-color: #83bdff80;
+            background-color: #cee5ff;
         }
         hr {
             border: 3px double;
@@ -153,7 +153,7 @@
             <input type="text" id="txtLat"><br />
             <label for="text">Longitude</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLon"><br />
-            <label for="text">Website Language</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
+            <label>Website Language</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
             <select id="selLang">
                 <option selected value="">-- Please Choose Your Language--</option>
                 <option value="en">English</option>
@@ -173,13 +173,35 @@
                 <h4>Aeris Weather Key/Secret Entry Section</h4>
             </div>
             <div>
-                Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
+                Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
                 <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
                 <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label><br />
                 <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
                 <input type="text" id="txtAwKey" disabled="true" /><br />
                 <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
                 <input type="text" id="txtAwSecret" disabled="true" /><br />
+            </div>
+            <hr>
+            <div style="text-align: center">
+                <h4>Weather Underground Key/Unit Section</h4>
+            </div>
+            <div>
+                Do you have a Weather Underground Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground Key and select the measurement units."></i>
+                <label class="radio"><input type="radio" name="wuKeyChkd" id="Wukeychkd" onclick="EnableDisableWUK()" />Yes</label>
+                <label class="radio"><input type="radio" name="wuKeyChkd" id="Wukeychkd" onclick="EnableDisableWUK()" checked />No</label> (Details can be found <a href="https://www.wunderground.com/signup" target="_blank" rel="noopener noreferrer">here.</a>)
+            </div>
+            <div>
+                <label for="text">Weather Underground Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your Weather Underground units."></i><br />
+                <input type="text" id="txtWukey" disabled="true" /><br />
+                <label>Please select your Weather Underground Units below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your Weather Underground Units from the list below"></i><br />
+                <select id="selWuUnits" disabled="true">
+                    <option selected disabled value="">-- Please Choose Your Units--</option>
+                    <option value="e">Imperial</option>
+                    <option value="m">Metric</option>
+                    <option value="s">Scandinavia</option>
+                    <option value="h">United Kingdom</option>
+                    <option value="auto">auto</option>
+                </select><br />
             </div>
             <hr>
             <div>
@@ -204,7 +226,7 @@
 
             <hr>
             <div style="text-align: center">
-            
+
             </div>
         </div>
         <div class="Services">Services</div>
