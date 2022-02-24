@@ -174,11 +174,11 @@
             </div>
             <div>
                 Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
-                <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
-                <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label><br />
-                <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes
+                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://account.aerisweather.com/auth/signup" target="_blank" rel="noopener noreferrer">here.</a>)
+                <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i><br />
                 <input type="text" id="txtAwKey" disabled="true" /><br />
-                <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
+                <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Secret."></i><br />
                 <input type="text" id="txtAwSecret" disabled="true" /><br />
             </div>
             <hr>
@@ -187,11 +187,11 @@
             </div>
             <div>
                 Do you have a Weather Underground Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground Key and select the measurement units."></i>
-                <label class="radio"><input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" />Yes</label>
-                <label class="radio"><input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" checked />No</label>&nbsp;&nbsp;<h5>Details can be found <a href="https://www.wunderground.com/signup" target="_blank" rel="noopener noreferrer">here.</a></h5>
+                <input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" />Yes</label>
+                <input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" checked />No</label>&nbsp;&nbsp;(Details can be found <a href="https://www.wunderground.com/signup" target="_blank" rel="noopener noreferrer">here.</a>)
             </div>
             <div>
-                <label for="text">Weather Underground Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to select your Weather Underground units."></i><br />
+                <label for="text">Weather Underground Units</label><i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to select your Weather Underground units."></i><br />
                 <input type="text" id="txtWuKey" disabled="true" /><br />
                 <label>Please select your Weather Underground Units below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your Weather Underground Units from the list below"></i><br />
                 <select id="selWuUnits" disabled="true">
@@ -210,15 +210,15 @@
                         <h4>World Air Pollution API Key Entry Section</h4>
                     </div>
                     <div>
-                        Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
-                        <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-                        <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /><h5>If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a></h5>
+                        Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI Key."></i>
+                        <input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes
+                        <input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No&nbsp;&nbsp;(Details can be found here,<a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer"> AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here.</a>
                         <input type="text" id="txtAqkey" disabled="true" /><br />
                     </div>
                     <div>
-                        Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your PurpleAir ID."></i>
+                        Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your PurpleAir ID."></i>
                         <input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" />Yes
-                        <input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No&nbsp;&nbsp;<h5>Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a></h5>
+                        <input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
                         <input type="text" id="txtPuid" disabled="true" />
                     </div>
                 </div>
