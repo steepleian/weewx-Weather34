@@ -212,18 +212,16 @@
                     <div>
                         Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
                         <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-                        <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br />
+                        <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br /><h5>If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a></h5>
                         <input type="text" id="txtAqkey" disabled="true" /><br />
-                        If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
                     </div>
                     <div>
                         Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your PurpleAir ID."></i>
                         <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" />Yes</label>
-                        <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No</label> (Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
+                        <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No</label><h5>Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a></h5>
                         <input type="text" id="txtPuid" disabled="true" />
                     </div>
                 </div>
-
             <hr>
             <div style="text-align: center">
 
@@ -273,5 +271,18 @@
             }
         }
     </script>
+    <script type="text/javascript">
+        function EnableDisableWUK() {
+            var wuKeyChkd = document.getElementById("wuKeyChkd");
+            var txtWuKey = document.getElementById("txtWuKey");
+            var selWuUnits = document.getElementById("selWuUnits");
+            txtWukey.disabled = wuKeyChkd.checked ? false : true;
+            selWuUnits.disabled = wuKeyChkd.checked ? false : true;
+            if (!wuKeyChkd.disabled) {
+                wuKeyChkd.focus();
+            }
+        }
+    </script>
+
 </body>
 </html>
