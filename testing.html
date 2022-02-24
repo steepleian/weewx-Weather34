@@ -42,7 +42,7 @@
             border: 2px solid inset #000000;
             background-color: #FFF;
             border-style: inset;
-    }
+        }
         .Section-1 {
             grid-area: Section-1;
             padding: 8px;
@@ -147,7 +147,9 @@
             <div style="text-align: center"><i class="fa-solid fa-exclamation"></i>&nbsp;<b>Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</b></div>
         </div>
         <div class="Section-1">
-            <div style="text-align: center"><h4> Weather Station Location, Language and IP Address Section</h4></div>
+            <div style="text-align: center">
+                <h4> Weather Station Location, Language and IP Address Section</h4>
+            </div>
             <label for="text">Latitude</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLat"><br />
             <label for="text">Longitude</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
@@ -168,23 +170,43 @@
         </div>
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
-            <h4>Aeris Weather Key/Secret Entry Section</h4>
-            Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
-            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
-            <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label><br />
-            <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
-            <input type="text" id="txtAwKey" disabled="true" /><br />
-            <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
-            <input type="text" id="txtAwSecret" disabled="true" /><br />
+            <div style="text-align: center">
+                <h4>Aeris Weather Key/Secret Entry Section</h4>
+            </div>
+            <div>
+                Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
+                <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes</label>
+                <label class="radio"><input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No</label><br />
+                <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Key."></i><br />
+                <input type="text" id="txtAwKey" disabled="true" /><br />
+                <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your Aeris Weather Secret."></i><br />
+                <input type="text" id="txtAwSecret" disabled="true" /><br />
+            </div>
             <hr>
-            <h4>World Air Pollution API Key Entry Section</h4>
-            Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
-            <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
-            <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br />
-            <input type="text" id="txtAqkey" disabled="true" /><br />
-            If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
-            <hr>
+            <div>
+                <div>
+                    <div style="text-align: center">
+                        <h4>World Air Pollution API Key Entry Section</h4>
+                    </div>
+                    <div>
+                        Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your AQI Key."></i>
+                        <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" />Yes</label>
+                        <label class="radio"><input type="radio" name="aqKeychkd" id="aqKeychkd" onclick="EnableDisableAQI()" checked />No</label><br />
+                        <input type="text" id="txtAqkey" disabled="true" /><br />
+                        If you do not have any AQI Key, you can learn more at <a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer">AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here</a>
+                    </div>
+                    <div>
+                        Do you have a PurpleAir ID?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes. Then you will be able to enter your PurpleAir ID."></i>
+                        <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" />Yes</label>
+                        <label class="radio"><input type="radio" name="Puidchkd" id="Puidchkd" onclick="EnableDisablePUID()" checked />No</label> (Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
+                        <input type="text" id="txtPuid" disabled="true" />
+                    </div>
+                </div>
 
+            <hr>
+            <div style="text-align: center">
+            
+            </div>
         </div>
         <div class="Services">Services</div>
         <div class="Footer">
