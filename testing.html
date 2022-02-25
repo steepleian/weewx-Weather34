@@ -181,7 +181,7 @@
             <div>
                 Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
                 <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes
-                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://account.aerisweather.com/auth/signup" target="_blank" rel="noopener noreferrer">here.</a>)
+                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://www.aerisweather.com/signup/pws/" target="_blank" rel="noopener noreferrer">here.</a>)
                 <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i><br />
                 <input type="text" id="txtAwKey" disabled="true" /><br />
                 <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Secret."></i><br />
@@ -502,14 +502,22 @@
                     '"# Example X-API-Key:yourapikeyhere\\n"' + ' \r\n' +
                     '"# Purpleair reports device ID and interval in seconds required\\n"' + ' \r\n' +
                     '"# Example https://www.purpleair.com/json?show=38365\\n"' + ' \r\n' +
-                    '"# Meteoalrm European weather warnings country code, region code and interval in seconds required\\n"' + ' \r\n' +
-                    '"# Example http://192.168.1.232/weewx/weather34/eualert.php?country=UK&region=013\\n"' + ' \r\n' +
                     '"# Select the services you require by creating a string of the services above\\n"' + ' \r\n' +
                     '"# Example services = ds.me.eq.ki.wu.aq.al.ah.ao.aa.pu\\n"' + ' \r\n' +
                     '"# Select your preferred time interval in seconds for each service\\n"' + ' \r\n' +
                     '{' + ' \r\n' +
                     " 'aq_url':'https://api.waqi.info/feed/geo:" + lat.value + ';' + lon.value + '/?token=' + aq_apikey.value + "'" + ',' + ' \r\n' +
                     " 'aq_interval':'3600'" + ',' + ' \r\n' +
+                    " 'awc_url':'https://api.aerisapi.com/observations/" + lat.value + ',' + lon.value + '?format=json&filter=metar&limit=1&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awc_interval':'300'" + ',' + ' \r\n' +
+                    " 'awh_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=1hr&limit=24&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +"
+                    " 'awh_interval':'1800'" + ',' + ' \r\n' +
+                    " 'awd_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=daynight&limit=16&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +"
+                    " 'awd_interval':'1800'" + ',' + ' \r\n' +
+                    " 'awd_url':'https://api.aerisapi.com/phrases/summary/" + lat.value + ',' + lon.value + '?client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +"
+                    " 'awd_interval':'1800'" + ',' + ' \r\n' +
+                    " 'awd_url':'https://api.aerisapi.com/alerts/" + lat.value + ',' + lon.value + '?format=json&limit=10&lang=it&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +"
+                    " 'awd_interval':'1800'" + ',' + ' \r\n' + 
                     " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode=" + lat.value + ',' + lon.value + '&language=' + lang.value + '&format=json&units=' + wu_units.value + '&apiKey=' + wu_apikey.value + "'" + ',' + ' \r\n' +
                     " 'wu_interval':'3600'" + ',' + ' \r\n' +
                     " 'eq_url':'https://www.emsc-csem.org/service/rss/rss.php?typ=emsc'" + ',' + ' \r\n' +
