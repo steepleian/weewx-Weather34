@@ -301,7 +301,7 @@
                 <input type="radio" name="cldCvrChkd" id="cldCvrChkd" onclick="EnableDisableCLD()" checked />No
             </div>
             <label for="text">Land Mass Selection</label><i class="fa-solid fa-question" title="Select the land mass (Continent) where your weather station is located."></i>
-            <select id="selCldCvrContinent">
+            <select id="selCldCvrContinent" disabled="true">
 				<option selected disabled value="">-- Choose Your Land Mass --</option>
 				<option value="eu">Europe</option>
 				<option value="af" disabled>Africa, Middle East</option>
@@ -317,7 +317,7 @@
                 <label for="text">Active Web Services Code String Selection - Make your selection below.</label><i class="fa-solid fa-question" title="Weather34 uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
                 <br />
                 <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Real Time Air Quality Index (AQI)
-                <input type="checkbox" name="checkbox[]" id="ckaw" value="ds" /> Aeris Weather
+                <input type="checkbox" name="checkbox[]" id="ckaw" value="aw" /> Aeris Weather
                 <input type="checkbox" name="checkbox[]" id="ckwu" value="wu" disabled checked title="This is a required service" /> Weather Underground Forecast
                 <input type="checkbox" name="checkbox[]" id="ckeq" value="eq" disabled checked title="This is a required service" /> Earthquake Notification
                 <input type="checkbox" name="checkbox[]" id="ckki" value="ki" disabled checked title="This is a required service" /> Geomagnetic Storms
@@ -451,17 +451,19 @@
                 const lat = document.getElementById('txtLat');
                 const lon = document.getElementById('txtLon');
                 const lang = document.getElementById('selLang');
-                const al_ip = document.getElementById('txtSrvIP');
+                const cld_continent = document.getElementById('selCldCvrContinent');
+                const aq_apikey = document.getElementById('txtAqKey');
+                const srv_ip = document.getElementById('txtSrvIP');
                 const aw_apikey = document.getElementById('txtAwKey');
                 const aw_apisecret = document.getElementById('txtAwSecret');
                 const wu_apikey = document.getElementById('txtWuKey');
                 const wu_units = document.getElementById('selWuUnits');
-                const aq_apikey = document.getElementById('txtAqKey');
                 const pu_id = document.getElementById('txtPuId');
                 const me_key = document.getElementById('txtMeKey');
                 const me_code = document.getElementById('txtMeCode');
                 const bm_state = document.getElementById('selBOMState');
-                const cld_continent = document.getElementById('selCldCvrContinent');
+                const uk_region = document.getElementById('selUkregion');
+                
                 const txtServices = jQuery.map($(':checkbox[name=checkbox\\[\\]]:checked'), function(n, i) {
                     return n.value;
                 }).join('.');
@@ -472,25 +474,21 @@
                     '"' + 'lat' + '"' + ':' + "'" + lat.value + "'," + ' \r\n' +
                     '"' + 'lon' + '"' + ':' + "'" + lon.value + "'," + ' \r\n' +
                     '"' + 'lang' + '"' + ':' + "'" + lang.value + "'," + ' \r\n' +
-                    '"' + 'continent' + '"' + ':' + "'" + continent.value + "'," + ' \r\n' +
+                    '"' + 'cld_continent' + '"' + ':' + "'" + continent.value + "'," + ' \r\n' +
                     '"' + 'aq_apikey' + '"' + ':' + "'" + aq_apikey.value + "'," + ' \r\n' +
-                    '"' + 'ds_apikey' + '"' + ':' + "'" + ds_apikey.value + "'," + ' \r\n' +
-                    '"' + 'ds_units' + '"' + ':' + "'" + ds_units.value + "'," + ' \r\n' +
+                    '"' + 'aw_apikey' + '"' + ':' + "'" + aw_apikey.value + "'," + ' \r\n' +
+                    '"' + 'aw_apisecret' + '"' + ':' + "'" + aq_apisecret.value + "'," + ' \r\n' +
                     '"' + 'wu_apikey' + '"' + ':' + "'" + wu_apikey.value + "'," + ' \r\n' +
                     '"' + 'wu_units' + '"' + ':' + "'" + wu_units.value + "'," + ' \r\n' +
+                    '"' + 'pu_id' + '"' + ':' + "'" + pu_id.value + "'," + ' \r\n' +
                     '"' + 'me_apikey' + '"' + ':' + "'" + me_apikey.value + "'," + ' \r\n' +
                     '"' + 'me_code' + '"' + ':' + "'" + me_code.value + "'," + ' \r\n' +
-                    '"' + 'pu_id' + '"' + ':' + "'" + pu_id.value + "'," + ' \r\n' +
-                    '"' + 'al_ip' + '"' + ':' + "'" + al_ip.value + "'," + ' \r\n' +
-                    '"' + 'al_country' + '"' + ':' + "'" + al_country.value + "'," + ' \r\n' +
-                    '"' + 'al_region' + '"' + ':' + "'" + al_region.value + "'," + ' \r\n' +
-                    '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,continent,aq_apikey,ds_apikey,ds_units,wu_apikey,wu_units,me_apikey,me_code,pu_id,al_ip,al_country,al_region'," + ' \r\n' +
+                    '"' + 'srv_ip' + '"' + ':' + "'" + srv_ip.value + "'," + ' \r\n' +
+                    '"' + 'uk_region' + '"' + ':' + "'" + uk_region.value + "'," + ' \r\n' +
+                    '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,cld_continent,aq_apikey,aw_apikey,aw_apisecret,wu_apikey,wu_units,me_apikey,me_code,pu_id,srv_ip,uk_region'," + ' \r\n' +
                     '"config_entries3"' + ':' + "'''=" + ' \r\n' +
                     "'Weather34WebServices' " + ':' + ' \r\n' +
                     '"# Air quality, your own latitude, longitude, token and interval in seconds are required\\n"' + ' \r\n' +
-                    '"# Dark Sky, your own latitude, longitude, API key, language, units and interval in seconds required\\n"' + ' \r\n' +
-                    '"# DarkSky Units key us = US Units, ca = METRIC Units, si = METRICWX Units, uk2 = UK(metric with mph) Units\\n"' + ' \r\n' +
-                    '"# Example https://api.forecast.io/forecast/yourtokenhere/51.94,-0.987?lang=en&units=uk2\\n"' + ' \r\n' +
                     '"# Weather Underground, your own latitude, longitude, API key, language, units and interval in seconds required\\n"' + ' \r\n' +
                     '"# Weather Underground Units key e = US, m = METRIC, s = SI(with m/s Scandinavia), h = UK(with mph)\\n"' + ' \r\n' +
                     '"# Example https://api.weather.com/v3/wx/forecast/daily/5day?geocode=51.94,-0.987&language=en&format=json&units=h&apiKey=yourapikeyhere\\n"' + ' \r\n' +
@@ -509,8 +507,6 @@
                     '{' + ' \r\n' +
                     " 'aq_url':'https://api.waqi.info/feed/geo:" + lat.value + ';' + lon.value + '/?token=' + aq_apikey.value + "'" + ',' + ' \r\n' +
                     " 'aq_interval':'3600'" + ',' + ' \r\n' +
-                    " 'ds_url':'https://api.forecast.io/forecast/" + ds_apikey.value + '/' + lat.value + ',' + lon.value + '?lang=' + lang.value + '&units' + '=' + ds_units.value + "'" + ',' + ' \r\n' +
-                    " 'ds_interval':'3600'" + ',' + ' \r\n' +
                     " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode=" + lat.value + ',' + lon.value + '&language=' + lang.value + '&format=json&units=' + wu_units.value + '&apiKey=' + wu_apikey.value + "'" + ',' + ' \r\n' +
                     " 'wu_interval':'3600'" + ',' + ' \r\n' +
                     " 'eq_url':'https://www.emsc-csem.org/service/rss/rss.php?typ=emsc'" + ',' + ' \r\n' +
@@ -523,8 +519,6 @@
                     " 'me_interval':'3600'" + ',' + ' \r\n' +
                     " 'pu_url':'https://www.purpleair.com/json?show=" + pu_id.value + "'" + ',' + ' \r\n' +
                     " 'pu_interval':'3600'" + ',' + ' \r\n' +
-                    " 'al_url':'http://" + al_ip.value + '/weewx/weather34/eualert.php?country=' + al_country.value + '&region=' + al_region.value + "'" + ',' + ' \r\n' +
-                    " 'al_interval':'3600'" + ',' + ' \r\n' +
                     " 'enable_uk':'" + enable_uk.value + "'" + ',' + ' \r\n' +
                     " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/" + uk_region.value + "'" + ',' + ' \r\n' +
                     " 'uk_interval':'3600'" + ',' + ' \r\n' +
