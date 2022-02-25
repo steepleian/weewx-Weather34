@@ -283,13 +283,13 @@
                 <label>Please select your State or Territory below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your State or Territory from the list below"></i><br />
                 <select id="selBOMState" disabled="true">
                     <option selected disabled value="">-- Please Choose Your State/Territory--</option>
-                    <option value="IDZ00054">New South Wales</option>
-                    <option value="IDZ00055">Northern Territory</option>
-                    <option value="IDZ00056">Queensland</option>
-                    <option value="IDZ00057">South Australia</option>
-                    <option value="IDZ00058">Tasmania</option>
-                    <option value="IDZ00059">Victoria</option>
-                    <option value="IDZ00060">West Australia</option>
+                    <option value="IDZ00054.warnings_nsw.xml">New South Wales</option>
+                    <option value="IDZ00055.warnings_nt.xml">Northern Territory</option>
+                    <option value="IDZ00056.warnings_qld.xml">Queensland</option>
+                    <option value="IDZ00057.warnings_sa.xml">South Australia</option>
+                    <option value="IDZ00058.warnings_tas.xml">Tasmania</option>
+                    <option value="IDZ00059.warnings_vic.xml">Victoria</option>
+                    <option value="IDZ00060.warnings_wa.xml">West Australia</option>
                 </select><br />
             </div>
             <hr>
@@ -324,6 +324,7 @@
                 <input type="checkbox" name="checkbox[]" id="ckki" value="ki" disabled checked title="This is a required service" /> Geomagnetic Storms
                 <input type="checkbox" name="checkbox[]" id="ckme" value="me" disabled checked title="This is a required service" /> METAR Reports
                 <br />
+                <input type="checkbox" name="checkbox[]" id="ckpu" value="ns" /> AU BOM Warnings
                 <input type="checkbox" name="checkbox[]" id="ckpu" value="pu" /> Purple Air Quality Reports
                 <input type="checkbox" name="checkbox[]" id="ckeu" value="eu" /> European Weather Alerts
                 <input type="checkbox" name="checkbox[]" id="ckuk" value="uk" /> MetOffice Warnings
@@ -531,6 +532,9 @@
                     " 'me_interval':'3600'" + ',' + ' \r\n' +
                     " 'pu_url':'https://www.purpleair.com/json?show=" + pu_id.value + "'" + ',' + ' \r\n' +
                     " 'pu_interval':'3600'" + ',' + ' \r\n' +
+                    " 'ns_url':'http://www.bom.gov.au/fwo/" + bm_state.value + ' \r\n' +
+                    " 'ns_interval':'900'" + ',' + ' \r\n' +
+                    " 'ns_xml_data':'True'" + ',' + ' \r\n' +
                     " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/" + uk_region.value + "'" + ',' + ' \r\n' +
                     " 'uk_interval':'3600'" + ',' + ' \r\n' +
                     " 'uk_xml_data':'" + uk_xmldata + "'" + ',' + ' \r\n' +
