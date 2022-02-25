@@ -464,7 +464,6 @@
                 const me_code = document.getElementById('txtMeCode');
                 const bm_state = document.getElementById('selBOMState');
                 const uk_region = document.getElementById('selUkregion');
-                
                 const txtServices = jQuery.map($(':checkbox[name=checkbox\\[\\]]:checked'), function(n, i) {
                     return n.value;
                 }).join('.');
@@ -475,7 +474,7 @@
                     '"' + 'lat' + '"' + ':' + "'" + lat.value + "'," + ' \r\n' +
                     '"' + 'lon' + '"' + ':' + "'" + lon.value + "'," + ' \r\n' +
                     '"' + 'lang' + '"' + ':' + "'" + lang.value + "'," + ' \r\n' +
-                    '"' + 'cld_continent' + '"' + ':' + "'" + continent.value + "'," + ' \r\n' +
+                    '"' + 'cld_continent' + '"' + ':' + "'" + cld_continent.value + "'," + ' \r\n' +
                     '"' + 'aq_apikey' + '"' + ':' + "'" + aq_apikey.value + "'," + ' \r\n' +
                     '"' + 'aw_apikey' + '"' + ':' + "'" + aw_apikey.value + "'," + ' \r\n' +
                     '"' + 'aw_apisecret' + '"' + ':' + "'" + aq_apisecret.value + "'," + ' \r\n' +
