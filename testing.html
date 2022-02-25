@@ -242,6 +242,36 @@
             <hr>
             <div>
                 <div style="text-align: center">
+                    <h4>MetOffice Severe Weather Warning section</h4>
+                </div>
+                <div>
+                    Enable MetOffice Severe Weather Warnings (UK Users Only)?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to select your region."></i>
+                    <input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" />Yes
+                    <input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" checked />No&nbsp;&nbsp;(This is for UK users only, it does not work for any other Countries/Continents)
+                    <select id="selUkregion" disabled="true">
+                        <option selected disabled value="">--- Please choose ---</option>
+                        <option value="os">Orkney & Shetland</option>
+                        <option value="he">Highlands & Eilean Siar</option>
+                        <option value="gr">Grampian</option>
+                        <option value="st">Strathclyde</option>
+                        <option value="ta">Central, Tayside & Fife</option>
+                        <option value="dg">SW Scotland, Lothian Borders</option>
+                        <option value="ni">Northern Ireland</option>
+                        <option value="wl">Wales</option>
+                        <option value="nw">North West England</option>
+                        <option value="ne">North East England</option>
+                        <option value="yh">Yorkshire & Humberside</option>
+                        <option value="wm">West Midlands</option>
+                        <option value="em">East Midlands</option>
+                        <option value="ee">East of England</option>
+                        <option value="sw">South West England</option>
+                        <option value="se">London & South East</option>
+                    </select><br />
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
                     <h4>Australian Bureau of Meterology section</h4>
                 </div>
                 <div>
@@ -380,6 +410,16 @@
                 txtMeCode.disabled = meKeyChkd.checked ? false : true;
                 if (!txtMeKey.disabled) {
                     txtMeKey.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableRAUK() {
+                var raUkenable = document.getElementById("raUkenable");
+                var selUkregion = document.getElementById("selUkregion");
+                selUkregion.disabled = raUkenable.checked ? false : true;
+                if (!selUkregion.disabled) {
+                    selUkregion.focus();
                 }
             }
         </script>
