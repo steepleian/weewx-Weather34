@@ -464,6 +464,7 @@
                 const me_code = document.getElementById('txtMeCode');
                 const bm_state = document.getElementById('selBOMState');
                 const uk_region = document.getElementById('selUkregion');
+                const uk_xmldata = true;
                 const txtServices = jQuery.map($(':checkbox[name=checkbox\\[\\]]:checked'), function(n, i) {
                     return n.value;
                 }).join('.');
@@ -485,6 +486,7 @@
                     '"' + 'me_code' + '"' + ':' + "'" + me_code.value + "'," + ' \r\n' +
                     '"' + 'srv_ip' + '"' + ':' + "'" + srv_ip.value + "'," + ' \r\n' +
                     '"' + 'uk_region' + '"' + ':' + "'" + uk_region.value + "'," + ' \r\n' +
+                    '"' + 'uk_xml_data' + '"' + ':' + "'" + uk_xmldata + "'," + ' \r\n' +
                     '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,cld_continent,aq_apikey,aw_apikey,aw_apisecret,wu_apikey,wu_units,me_apikey,me_code,pu_id,srv_ip,uk_region'," + ' \r\n' +
                     '"config_entries3"' + ':' + "'''=" + ' \r\n' +
                     "'Weather34WebServices' " + ':' + ' \r\n' +
@@ -519,7 +521,6 @@
                     " 'me_interval':'3600'" + ',' + ' \r\n' +
                     " 'pu_url':'https://www.purpleair.com/json?show=" + pu_id.value + "'" + ',' + ' \r\n' +
                     " 'pu_interval':'3600'" + ',' + ' \r\n' +
-                    " 'enable_uk':'" + enable_uk.value + "'" + ',' + ' \r\n' +
                     " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/" + uk_region.value + "'" + ',' + ' \r\n' +
                     " 'uk_interval':'3600'" + ',' + ' \r\n' +
                     " 'uk_xml_data':'" + enable_uk.value + "'" + ',' + ' \r\n' +
