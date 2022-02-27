@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #525f83;
+  font-family:"weathertext2",Helvetica,Arial,sans-serif;
+  text-align: center;
+  color: silver;
+  margin: 0 20px;
+}
+svg {
+  display: block;
+  margin: 0;
+}
+.container {
+  position: relative;
+  display: block;
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+}
+.container:before {
+  padding-top: 50%;
+  content: ' ';
+  display: block;
+  width: 1px;
+}
+.container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+h1 {
+  font-weight: normal;
+  padding: 60px 0 0;
+  font-size: 24px;
+  color: #239c9c;
+  color: #fff;
+}
+h1 + p {
+  margin: auto;
+  padding: 0 0 40px;
+  font-size: 14px;
+}
+.credit {
+  max-width: 700px;
+  
+  text-align: center;
+  color: #3d4762;
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 300;
+  margin: auto;
+}
+.credit a {
+  color: #3d4762;
+  text-decoration: underline;
+}
+.credit a:hover {
+  color: #7680a9;
+}
+.controls {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 160px;
+  color: #fff;
+}
+.controls:before {
+  position: absolute;
+  margin: 0px;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to left, #df5862, #f3b142);
+  display: block;
+  height: 3px;
+  width: calc(100% - 10px);
+  content: '';
+}
+.controls p {
+  margin: 0;
+}
+.controls .curr-time,
+.controls .curr-date {
+  margin-top: 20px;
+  font-size: 0;
+  cursor: default;
+}
+.controls .curr-date,
+.controls .curr-time {
+  position: relative;
+}
+.controls .curr-date > span,
+.controls .curr-time > span {
+  display: inline-block;
+  width: 80px;
+  line-height: 36px;
+  height: 100%;
+  font-size: 20px;
+}
+.controls .curr-date > span > span,
+.controls .curr-time > span > span {
+  position: absolute;
+  font-size: 10px;
+  top: -20px;
+  opacity: 0.5;
+  font-weight: 300;
+  letter-spacing: 1px;
+  right: 48px;
+}
+.controls .curr-date:hover a,
+.controls .curr-time:hover a {
+  opacity: 0.4;
+}
+.controls .curr-date:hover a.big-jump,
+.controls .curr-time:hover a.big-jump {
+  opacity: 0.4;
+}
+.controls .curr-date a,
+.controls .curr-time a {
+  color: #fff;
+  opacity: 0.2;
+  text-decoration: none;
+  font-size: 16px;
+  width: 15px;
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+  line-height: 36px;
+}
+.controls .curr-date a:hover,
+.controls .curr-time a:hover {
+  opacity: 0.8 !important;
+}
+.controls .curr-date a.big-jump,
+.controls .curr-time a.big-jump {
+  opacity: 0;
+}
+.controls .curr-date {
+  margin-top: -10px;
+  text-transform: uppercase;
+}
+.controls .curr-date > span {
+  font-size: 14px;
+  opacity: 0.5;
+}
+.animate {
+  text-align: center;
+  font-family:"weathertext2",Helvetica,Arial,sans-serif;
+}
+.animate a {
+  display: inline-block;
+  width: auto;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  color: silver;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  width: 130px;
+  text-decoration: none;
+  border: solid 1px #2b3245;
+  font-weight: 300;
+}
+.animate a:hover {
+  color: silver;
+  border: solid 1px #374058;
+}
+.animate a:before {
+  content: 'Animation Off';
+}
+.animate a.animating {
+  color: #6877a1;
+}
+.animate a.animating:hover {
+  color: #7d8aae;
+}
+.animate a.animating:before {
+  content: 'Animation On';
+}

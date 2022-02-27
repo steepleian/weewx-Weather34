@@ -8,7 +8,7 @@
       </div>
       <div class="weather34toolbar__center">
         <button class="weather34btn weather34btn--primary">
-          <weather34toptitle><?php echo $stationName; ?>&nbsp; Home Weather Station</weather34toptitle>
+          <weather34toptitle><?php echo $stationName; ?>&nbsp; Weather Station</weather34toptitle>
         </button>
       </div>
       <div class="weather34toolbar__right">
@@ -46,7 +46,7 @@ else
       
       <li class="header">ADMIN</li>
       <li>
-        <a href="easyW34skinSetup.php" target="_blank" title="WEATHERSTATION SETTINGS PAGE">
+        <a href="templateSetup.php" target="_blank" title="WEATHERSTATION SETTINGS PAGE">
           <weather34menumarkeryellow></weather34menumarkeryellow> <?php echo $lang['Settings']; ?>
         </a>
       </li>
@@ -165,12 +165,22 @@ if ($extralinks == 'yes')
             </li>
           <?php
     } ?>
-          <?php if ($linkNOAA == 'yes' && !empty($linkCWOPID))
+          <?php if (($linkNOAA == 'yes') && (!empty($linkCWOPID) && (empty($linkNOAAID))))
     { ?>
             <li>
               <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on NOAA Meso West" target="_blank">
                 <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
                 <?php echo $linkCWOPID; ?> on NOAA
+              </a>
+            </li>
+          <?php
+    } ?>
+         <?php if ($linkNOAA == 'yes' && !empty($linkNOAAID))
+    { ?>
+            <li>
+              <a href="https://www.wrh.noaa.gov/mesowest/getobext.php?wfo=lox&sid=<?php echo $linkNOAAID; ?>" title="<?php echo $linkNOAAID; ?> on NOAA Meso West" target="_blank">
+                <img class="menuimg" src="img/noaa.svg" style="max-width:30px" alt=""/>
+                <?php echo $linkNOAAID; ?> on NOAA
               </a>
             </li>
           <?php
@@ -185,12 +195,22 @@ if ($extralinks == 'yes')
             </li>
           <?php
     } ?>
-          <?php if ($linkMesoWest == 'yes' && !empty($linkCWOPID))
+          <?php if (($linkMesoWest == 'yes') && (!empty($linkCWOPID) && (empty($linkMesoWestID))))
     { ?>
             <li>
               <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkCWOPID; ?>" title="<?php echo $linkCWOPID; ?> on Meso West" target="_blank">
                 <img class="menuimg" src="img/mesowest.svg" alt=""/>
                 <?php echo $linkCWOPID; ?> on Meso West
+              </a>
+            </li>
+          <?php
+    } ?>
+          <?php if ($linkMesoWest == 'yes' && !empty($linkMesoWestID))
+    { ?>
+            <li>
+              <a href="https://mesowest.utah.edu/cgi-bin/droman/meso_base.cgi?stn=<?php echo $linkMesoWestID; ?>" title="<?php echo $linkMesoWestID; ?> on Meso West" target="_blank">
+                <img class="menuimg" src="img/mesowest.svg" alt=""/>
+                <?php echo $linkMesoWestID; ?> on Meso West
               </a>
             </li>
           <?php
@@ -283,7 +303,7 @@ if ($extralinks == 'yes')
       <?php if ($weatherflowoption == "yes")
 { ?>
         <li>
-          <a href="https://staging.smartweather.weatherflow.com/map/<?php echo $lat . '/' . $lon . '/' . $weatherflowmapzoom; ?>" data-lity title='see your weather station on official weatherflow map'>
+          <a href="https://tempestwx.com/map/<?php echo $lat . '/' . $lon . '/' . $weatherflowmapzoom; ?>" data-lity title='see your weather station on official weatherflow map'>
             <weather34menumarkerblue></weather34menumarkerblue> Weatherflow Map
           </a>
         </li>
@@ -389,6 +409,11 @@ if (!empty($webcamurl) && $webcamurl != ' ' && $webcamurl != 'Null' && $webcamur
         </a>
       </li>
       <li>
+        <a href="https://steepleian.github.io/weewx-Weather34/" title="Web Services Setup Page" target="_blank">
+          <weather34menumarkerbluegrey></weather34menumarkerbluegrey> Web Services Setup Page
+        </a>
+      </li>
+      <li>
         <a href="mailto://steepleian@gmail.com" title="Email Steepleian for Support" target="_blank">
           <weather34menumarkerbluegrey></weather34menumarkerbluegrey> Maintained by Ian Millard (Steepleian)
         </a>
@@ -411,3 +436,4 @@ if (!empty($webcamurl) && $webcamurl != ' ' && $webcamurl != 'Null' && $webcamur
     </ul>
   </div>
 </div>
+

@@ -19,7 +19,7 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 	 $wuskydayPrecipProb = $parsed_weather34wujson->{'daypart'}[0]->{'precipChance'}[1];$wuskydayUV = $parsed_weather34wujson->{'daypart'}[0]->{'uvIndex'}[1];
 	 $wuskydayUVdesc = $parsed_weather34wujson->{'daypart'}[0]->{'uvDescription'}[1];$wuskydaysnow = $parsed_weather34wujson->{'daypart'}[0]->{'qpfSnow'}[1];
 	 $wuskydaysummary = $parsed_weather34wujson->{'daypart'}[0]->{'narrative'}[1];$wuskydaynight = $parsed_weather34wujson->{'daypart'}[0]->{'dayOrNight'}[1];
-	 $wuskydesc = $parsed_weather34wujson->{'daypart'}[0]->{'wxPhraseLong'}[1];$wuskythunder = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[1];
+	 $wuskydesc = $parsed_weather34wujson->{'daypart'}[0]->{'wxPhraseLong'}[1];$wuskythunderidx = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[1];
 	 $wuskyhumidity = $parsed_weather34wujson->{'daypart'}[0]->{'relativeHumidity'}[1];
 	 $wuskyheatindex = $parsed_weather34wujson->{'daypart'}[0]->{'temperatureHeatIndex'}[1];
 	 $wuskywindchill = $parsed_weather34wujson->{'daypart'}[0]->{'temperatureWindChill'}[1];
@@ -33,22 +33,22 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 	 $wuskydayPrecipProb = $parsed_weather34wujson->{'daypart'}[0]->{'precipChance'}[0];$wuskydayUV = $parsed_weather34wujson->{'daypart'}[0]->{'uvIndex'}[0];
 	 $wuskydayUVdesc = $parsed_weather34wujson->{'daypart'}[0]->{'uvDescription'}[0];$wuskydaysnow = $parsed_weather34wujson->{'daypart'}[0]->{'qpfSnow'}[0];
 	 $wuskydaysummary = $parsed_weather34wujson->{'daypart'}[0]->{'narrative'}[0];$wuskydaynight = $parsed_weather34wujson->{'daypart'}[0]->{'dayOrNight'}[0];
-	 $wuskydesc = $parsed_weather34wujson->{'daypart'}[0]->{'wxPhraseLong'}[0];$wuskythunder = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[0];
+	 $wuskydesc = $parsed_weather34wujson->{'daypart'}[0]->{'wxPhraseLong'}[0];$wuskythunderidx = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[0];
 	 $wuskyhumidity = $parsed_weather34wujson->{'daypart'}[0]->{'relativeHumidity'}[0];
 	 $wuskyheatindex = $parsed_weather34wujson->{'daypart'}[0]->{'temperatureHeatIndex'}[0];
 	 $wuskywindchill = $parsed_weather34wujson->{'daypart'}[0]->{'temperatureWindChill'}[0];
 	 }
 	 //thunder
-	 $wuskythunder1 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[1];
-	 $wuskythunder2 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[2];
-	 $wuskythunder3 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[3];
-	 $wuskythunder4 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[4];
-	 $wuskythunder5 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[5];
-	 $wuskythunder6 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[6];
-	 $wuskythunder7 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[7];
-	 $wuskythunder8 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[8];
-	 $wuskythunder9 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[9];
-	 $wuskythunder10 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[10];
+	 $wuskythunderidx1 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[1];
+	 $wuskythunderidx2 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[2];
+	 $wuskythunderidx3 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[3];
+	 $wuskythunderidx4 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[4];
+	 $wuskythunderidx5 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[5];
+	 $wuskythunderidx6 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[6];
+	 $wuskythunderidx7 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[7];
+	 $wuskythunderidx8 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[8];
+	 $wuskythunderidx9 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[9];
+	 $wuskythunderidx10 = $parsed_weather34wujson->{'daypart'}[0]->{'thunderIndex'}[10];
 	 //period
 	 $wuskydayTime1 = $parsed_weather34wujson->{'daypart'}[0]->{'daypartName'}[1];
 	 $wuskydayTime2 = $parsed_weather34wujson->{'daypart'}[0]->{'daypartName'}[2];
@@ -107,8 +107,8 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <div class="wulargeforecasthome"><div class="wulargediv">
 <?php //begin wu stuff 
 //convert lightning index
-if ( $wuskythunder==0 ){$wuskythunder=$lightningalert8.' &nbsp;No Thunder Storm';}else if ( $wuskythunder==1 ){$wuskythunder=$lightningalert8.' &nbsp;Thunder Storm Risk';}
-else if ( $wuskythunder==2 ){$wuskythunder=$lightningalert8.' &nbsp;Thunder Storm';}else if ( $wuskythunder>=3 ){$wuskythunder=$lightningalert8.' &nbsp;Severe Thunderstorm';}
+if ( $wuskythunderidx==0 ){$wuskythunder=$lightningalert8.' &nbsp;No Thunder Storm';}else if ( $wuskythunderidx==1 ){$wuskythunder=$lightningalert8.' &nbsp;Thunder Storm Risk';}
+else if ( $wuskythunderidx==2 ){$wuskythunder=$lightningalert8.' &nbsp;Thunder Storm';}else if ( $wuskythunderidx>=3 ){$wuskythunder=$lightningalert8.' &nbsp;Severe Thunderstorm';}
 //wu convert temps-rain-wind
 //metric to F
 if ($tempunit=='F' && $wuapiunit=='m' ){$wuskydayTempHigh=($wuskydayTempHigh*9/5)+32;}
@@ -192,17 +192,17 @@ if ($tempunit=='F' && $wuskyheatindex>=84.2){echo "Heat Index ".$heatindexwu."<h
 if ($tempunit=='C' && $wuskyheatindex>=29){echo "Heat Index ".$heatindexwu." <heatindexwu>".number_format($wuskyheatindex,0). '°<wuunits>C</wuunits></heatindexwu>';}
 //lightning wu
 echo '</div><div class=wulargeheatindex style="margin-top:27px;width:16em;margin-left:98px">';
-if ($wuskythunder>0 )  {echo 'Thunderstorms expected '.$wuskydayTime.' </wuthunder2>';}
-else if ($wuskythunder1>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime1. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder2>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime2. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder3>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime3. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder4>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime4. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder5>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime5. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder6>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime6. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder7>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime7. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder8>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime8. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder9>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime9. '&nbsp;'.$lightningalert8.'';}
-else if ($wuskythunder10>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime10. '&nbsp;'.$lightningalert8.'';}
+if ($wuskythunderidx>0 )  {echo 'Thunderstorms expected '.$wuskydayTime.' </wuthunder2>';}
+else if ($wuskythunderidx1>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime1. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx2>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime2. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx3>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime3. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx4>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime4. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx5>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime5. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx6>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime6. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx7>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime7. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx8>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime8. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx9>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime9. '&nbsp;'.$lightningalert8.'';}
+else if ($wuskythunderidx10>0 )  {echo $infowu.'<ored>Thunder</ored> '.$wuskydayTime10. '&nbsp;'.$lightningalert8.'';}
 //snowfall wu
 else if ($wuskysnow>0 )  {echo $infowu.'<blue>Snow</blue> '.$wuskydayTime. '&nbsp;'.$freezing.'';}
 else if ($wuskysnow1>0 )  {echo $infowu.'<blue>Snow</blue> '.$wuskydayTime1. '&nbsp;'.$freezing.'';}

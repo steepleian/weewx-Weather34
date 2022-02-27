@@ -1,0 +1,420 @@
+
+
+Minor Wind
+
+type code(s): AW.WI.MN
+
+#ebcfa8
+	
+ 
+
+Moderate Wind
+
+type code(s): AW.WI.MD
+
+#e2ba76
+ 
+
+Severe Wind
+
+type code(s): AW.WI.SV
+
+#daa520
+	
+ 
+
+Extreme Wind
+
+type code(s): AW.WI.EX
+
+#ffc125
+ 
+
+Minor Snow/Ice
+
+type code(s): AW.SI.MN
+
+#4169e1
+	
+ 
+
+Moderate Snow/Ice
+
+type code(s): AW.SI.MD
+
+#3787ea
+ 
+
+Severe Snow/Ice
+
+type code(s): AW.SI.SV
+
+#29a3f4
+	
+ 
+
+Extreme Snow/Ice
+
+type code(s): AW.SI.EX
+
+#01bfff
+ 
+
+Minor Thunderstorm
+
+type code(s): AW.TS.MN
+
+#ff8c00
+	
+ 
+
+Moderate Thunderstorm
+
+type code(s): AW.TS.MD
+
+#ff7000
+ 
+
+Severe Thunderstorm
+
+type code(s): AW.TS.SV
+
+#ff4e00
+	
+ 
+
+Extreme Thunderstorm
+
+type code(s): AW.TS.EX
+
+#ff0000
+ 
+
+Minor Lightning
+
+type code(s): AW.LI.MN
+
+#f0e68c
+	
+ 
+
+Moderate Lightning
+
+type code(s): AW.LI.MD
+
+#f5ee73
+ 
+
+Severe Lightning
+
+type code(s): AW.LI.SV
+
+#faf752
+	
+ 
+
+Extreme Lightning
+
+type code(s): AW.LI.EX
+
+#ffff02
+ 
+
+Minor Fog
+
+type code(s): AW.FG.MN
+
+#c0c0c0
+	
+ 
+
+Moderate Fog
+
+type code(s): AW.FG.MD
+
+#a6aaaf
+ 
+
+Severe Fog
+
+type code(s): AW.FG.SV
+
+#8b959f
+	
+ 
+
+Extreme Fog
+
+type code(s): AW.FG.EX
+
+#708090
+ 
+
+Minor High Temperature
+
+type code(s): AW.HT.MN
+
+#ff7f4f
+	
+ 
+
+Moderate High Temperature
+
+type code(s): AW.HT.MD
+
+#ff686b
+ 
+
+Severe High Temperature
+
+type code(s): AW.HT.SV
+
+#ff4b81
+	
+ 
+
+Extreme High Temperature
+
+type code(s): AW.HT.EX
+
+#ff1493
+ 
+
+Minor Low Temperature
+
+type code(s): AW.LT.MN
+
+#dda0dd
+	
+ 
+
+Moderate Low Temperature
+
+type code(s): AW.LT.MD
+
+#c580d6
+ 
+
+Severe Low Temperature
+
+type code(s): AW.LT.SV
+
+#ae5dd1
+	
+ 
+
+Extreme Low Temperature
+
+type code(s): AW.LT.EX
+
+#9933cc
+ 
+
+Minor Coastal Event
+
+type code(s): AW.CE.MN
+
+#008080
+	
+ 
+
+Moderate Coastal Event
+
+type code(s): AW.CE.MD
+
+#169f9b
+ 
+
+Severe Coastal Event
+
+type code(s): AW.CE.SV
+
+#2bbfb6
+	
+ 
+
+Extreme Coastal Event
+
+type code(s): AW.CE.EX
+
+#40e0d0
+ 
+
+Minor Forest Fire
+
+type code(s): AW.FR.MN
+
+#e9967a
+	
+ 
+
+Moderate Forest Fire
+
+type code(s): AW.FR.MD
+
+#e67f59
+ 
+
+Severe Forest Fire
+
+type code(s): AW.FR.SV
+
+#e06738
+	
+ 
+
+Extreme Forest Fire
+
+type code(s): AW.FR.EX
+
+#d84e0e
+ 
+
+Minor Avalanche
+
+type code(s): AW.AV.MN
+
+#93afe0
+	
+ 
+
+Moderate Avalanche
+
+type code(s): AW.AV.MD
+
+#79a5eb
+ 
+
+Severe Avalanche
+
+type code(s): AW.AV.SV
+
+#589af5
+	
+ 
+
+Extreme Avalanche
+
+type code(s): AW.AV.EX
+
+#1e90ff
+ 
+
+Minor Rainfall
+
+type code(s): AW.RA.MN
+
+#98fb98
+	
+ 
+
+Moderate Rainfall
+
+type code(s): AW.RA.MD
+
+#7bf48a
+ 
+
+Severe Rainfall
+
+type code(s): AW.RA.SV
+
+#55ed7d
+	
+ 
+
+Extreme Rainfall
+
+type code(s): AW.RA.EX
+
+#00e672
+ 
+
+Minor Flooding
+
+type code(s): AW.FL.MN
+
+#2e8b57
+	
+ 
+
+Moderate Flooding
+
+type code(s): AW.FL.MD
+
+#09b153
+ 
+
+Severe Flooding
+
+type code(s): AW.FL.SV
+
+#00d843
+	
+ 
+
+Extreme Flooding
+
+type code(s): AW.FL.EX
+
+#00ff02
+ 
+
+Minor Rain Flooding
+
+type code(s): AW.RF.MN
+
+#f06262
+	
+ 
+
+Moderate Rain Flooding
+
+type code(s): AW.RF.MD
+
+#df4844
+ 
+
+Severe Rain Flooding
+
+type code(s): AW.RF.SV
+
+#cd2c25
+	
+ 
+
+Extreme Rain Flooding
+
+type code(s): AW.RF.EX
+
+#b80000
+ 
+
+Minor Unknown
+
+type code(s): AW.UK.MN
+
+#e8e8e8
+	
+ 
+
+Moderate Unknown
+
+type code(s): AW.UK.MD
+
+#e1e1e1
+ 
+
+Severe Unknown
+
+type code(s): AW.UK.SV
+
+#dadada
+	
+ 
+
+Extreme Unknown
+
+type code(s): AW.UK.EX
+
+#d3d3d3

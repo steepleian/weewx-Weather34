@@ -4,15 +4,15 @@
 date_default_timezone_set($TZ);
 $json_string=file_get_contents('jsondata/eq.txt');
 $parsed_json=json_decode($json_string,true);
-$eqtitle=explode(" ", str_replace("  ", " ", $parsed_json['rss']['channel']['item'][0]['title']),3)[2];
-$magnitude1=explode(" ", str_replace("  ", " ", $parsed_json['rss']['channel']['item'][0]['emsc:magnitude']))[1];
-$magnitude=number_format($magnitude1,1);
-$depth=$parsed_json['rss']['channel']['item'][0]['emsc:depth'];
-$time1=$parsed_json['rss']['channel']['item'][0]['emsc:time'];
-$lati=$parsed_json['rss']['channel']['item'][0]['geo:lat'];
-$longi=$parsed_json['rss']['channel']['item'][0]['geo:long'];
-$eventime=date( $dateFormat . " " . $timeFormatShort, strtotime("$time1") );
-$shorttime=date( $timeFormatShort, strtotime("$time1") );
+
+$eqtitle = $parsed_json['features'][0]['properties']['flynn_region'];
+$magnitude = $parsed_json['features'][0]['properties']['mag'];
+$depth = $parsed_json['features'][0]['properties']['depth'];
+$time       = $parsed_json['features'][0]['properties']['time'];
+$lati=$parsed_json['features'][0]['properties']['lat'];
+$longi=$parsed_json['features'][0]['properties']['lon'];
+$eventime=date("H:i:s j M y", strtotime($time) );
+$eqdist = round(distance($lat, $lon, $lati, $longi)) ;
 ?>
 <?php
 // CALCULATE THE DISTANCE OF LATEST EARTHQUAKE //

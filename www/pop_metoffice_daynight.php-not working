@@ -1,0 +1,655 @@
+<?php
+include_once ('settings.php');
+include ('w34CombinedData.php');
+
+//###################################################################################################
+//	    "time":"2021-06-22T00:00Z",
+//    "midday10MWindSpeed":5.25,
+//    "midnight10MWindSpeed":1.65,
+//    "midday10MWindDirection":30,
+//    "midnight10MWindDirection":333,
+//    "midday10MWindGust":8.23,
+//    "midnight10MWindGust":2.57,
+//    "middayVisibility":40130,
+//    "midnightVisibility":17342,
+//    "middayRelativeHumidity":60.45,
+//    "midnightRelativeHumidity":91.91,
+//    "middayMslp":102110,
+//    "midnightMslp":102400,
+//    "maxUvIndex":6,
+//    "daySignificantWeatherCode":7,
+//    "nightSignificantWeatherCode":0,
+//    "dayMaxScreenTemperature":16.473291,
+//    "nightMinScreenTemperature":5.419586,
+//    "dayUpperBoundMaxTemp":18.28795,
+//    "nightUpperBoundMinTemp":7.7689543,
+//    "dayLowerBoundMaxTemp":14.023125,
+//    "nightLowerBoundMinTemp":4.0180926,
+//    "dayMaxFeelsLikeTemp":15.1,
+//    "nightMinFeelsLikeTemp":8.96,
+//    "dayUpperBoundMaxFeelsLikeTemp":19.015,
+//    "nightUpperBoundMinFeelsLikeTemp":12.42,
+//    "dayLowerBoundMaxFeelsLikeTemp":12.47,
+//    "nightLowerBoundMinFeelsLikeTemp":5.0366,
+//    "dayProbabilityOfPrecipitation":24,
+//    "nightProbabilityOfPrecipitation":0,
+//    "dayProbabilityOfSnow":3,
+//    "nightProbabilityOfSnow":0,
+//    "dayProbabilityOfHeavySnow":0,
+//    "nightProbabilityOfHeavySnow":0,
+//    "dayProbabilityOfRain":24,
+//    "nightProbabilityOfRain":0,
+//    "dayProbabilityOfHeavyRain":12,
+//    "nightProbabilityOfHeavyRain":0,
+//    "dayProbabilityOfHail":0,
+//    "nightProbabilityOfHail":0,
+//    "dayProbabilityOfSferics":0,
+//    "nightProbabilityOfSferics":0    #
+// 	                                                                                               #
+// 	                                                                                               #
+// 	FORECAST WU WEATHER FORECAST: Original FEB 2019	(Updated Gen 2021)  			               #
+// 	                                                                                               #
+// 	ChangeLog:                                                                                     #
+// 		[30-01-21] <Leosirth>																	   #
+//			Merged with latest version															   #
+//			Fixed alerting																		   #
+//			Added Humidity																		   #
+//			Added HeatIndex																		   #
+//			Fixed Gust	                                                                           #
+// 	    [01-04-21] <Steepleian>                                                                    #
+//          Adapted for use with Aeris Daily                                                      #
+//   https://www.weather34.com 	                                                                   #
+//###################################################################################################
+//original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
+//start the aw output
+?>
+<link href="css/forecast.<?php echo $theme; ?>.css?version=<?php echo filemtime('css/forecast.' . $theme . '.css'); ?>" rel="stylesheet prefetch">
+
+<script src="js/jquery.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UK MetOffice Day Night Forecast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<link href="css/popup.light.css?version=<?php echo filemtime('css/popup.light.css'); ?>" rel="stylesheet prefetch">//-->
+
+<body>
+<?php 
+$forecastime = filemtime ('jsondata/md.txt');?>
+<div class="weather34darkbrowser" style="color:<?php echo $text1 ?>;" url="Hourly Forecast for <?php echo $stationName ?>
+                                         <?php echo '&nbsp;';echo "Updated &nbsp;".date( $timeFormatShort, $forecastime);?>"></div>  
+ 
+  
+<main class="grid">
+  <?php
+$forecastime = filemtime('jsondata/md.txt');
+$json = 'jsondata/md.txt';
+$json = file_get_contents($json);
+$parsed_json = json_decode($json, true);
+for ($k = 0;$k < 8;$k++)
+{
+    $forecastcodeDay[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['daySignificantWeatherCode']; 
+    $forecastcodeNight[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['nightSignificantWeatherCode']; 
+    $forecastIconDay[$k] = $forecastcodeDay[$k] . ".svg";
+    $forecastIconNight[$k] = $forecastcodeNight[$k] . ".svg";
+    if ($forecastcodeDay[$k] === "NA"){$forecastdescDay[$k] = "Not available";}
+    else if ($forecastcodeDay[$k] === 0){$forecastdescDay[$k] = "Clear";}
+    else if ($forecastcodeDay[$k] === 1){$forecastdescDay[$k] = "Sunny";}
+    else if ($forecastcodeDay[$k] === 2){$forecastdescDay[$k] = "Partly cloudy";}
+    else if ($forecastcodeDay[$k] === 3){$forecastdescDay[$k] = "Partly cloudy";}
+    else if ($forecastcodeDay[$k] === 5){$forecastdescDay[$k] = "Mist";}
+    else if ($forecastcodeDay[$k] === 6){$forecastdescDay[$k] = "Fog";}
+    else if ($forecastcodeDay[$k] === 7){$forecastdescDay[$k] = "Cloudy";}
+    else if ($forecastcodeDay[$k] === 8){$forecastdescDay[$k] = "Overcast";}
+    else if ($forecastcodeDay[$k] === 9){$forecastdescDay[$k] = "Light rain shower";}
+    else if ($forecastcodeDay[$k] === 10){$forecastdescDay[$k] = "Light rain shower";}
+    else if ($forecastcodeDay[$k] === 11){$forecastdescDay[$k] = "Drizzle";}
+    else if ($forecastcodeDay[$k] === 12){$forecastdescDay[$k] = "Light rain";}
+    else if ($forecastcodeDay[$k] === 13){$forecastdescDay[$k] = "Heavy rain shower";}
+    else if ($forecastcodeDay[$k] === 14){$forecastdescDay[$k] = "Heavy rain shower";}
+    else if ($forecastcodeDay[$k] === 15){$forecastdescDay[$k] = "Heavy rain";}
+    else if ($forecastcodeDay[$k] === 16){$forecastdescDay[$k] = "Sleet shower";}
+    else if ($forecastcodeDay[$k] === 17){$forecastdescDay[$k] = "Sleet shower";}
+    else if ($forecastcodeDay[$k] === 18){$forecastdescDay[$k] = "Sleet";}
+    else if ($forecastcodeDay[$k] === 19){$forecastdescDay[$k] = "Hail shower";}
+    else if ($forecastcodeDay[$k] === 20){$forecastdescDay[$k] = "Hail shower";}
+    else if ($forecastcodeDay[$k] === 21){$forecastdescDay[$k] = "Hail";}
+    else if ($forecastcodeDay[$k] === 22){$forecastdescDay[$k] = "Light snow shower";}
+    else if ($forecastcodeDay[$k] === 23){$forecastdescDay[$k] = "Light snow shower";}
+    else if ($forecastcodeDay[$k] === 24){$forecastdescDay[$k] = "Light snow";}
+    else if ($forecastcodeDay[$k] === 25){$forecastdescDay[$k] = "Heavy snow shower";}
+    else if ($forecastcodeDay[$k] === 26){$forecastdescDay[$k] = "Heavy snow shower";}
+    else if ($forecastcodeDay[$k] === 27){$forecastdescDay[$k] = "Heavy snow";}
+    else if ($forecastcodeDay[$k] === 28){$forecastdescDay[$k] = "Thunder shower";}
+    else if ($forecastcodeDay[$k] === 29){$forecastdescDay[$k] = "Thunder shower";}
+    else if ($forecastcodeDay[$k] === 30){$forecastdescDay[$k] = "Thunder";}
+  
+    if ($forecastcodeNight[$k] === "NA"){$forecastdescNight[$k] = "Not available";}
+    else if ($forecastcodeNight[$k] === 0){$forecastdescNight[$k] = "Clear";}
+    else if ($forecastcodeNight[$k] === 1){$forecastdescNight[$k] = "Sunny";}
+    else if ($forecastcodeNight[$k] === 2){$forecastdescNight[$k] = "Partly cloudy";}
+    else if ($forecastcodeNight[$k] === 3){$forecastdescNight[$k] = "Partly cloudy";}
+    else if ($forecastcodeNight[$k] === 5){$forecastdescNight[$k] = "Mist";}
+    else if ($forecastcodeNight[$k] === 6){$forecastdescNight[$k] = "Fog";}
+    else if ($forecastcodeNight[$k] === 7){$forecastdescNight[$k] = "Cloudy";}
+    else if ($forecastcodeNight[$k] === 8){$forecastdescNight[$k] = "Overcast";}
+    else if ($forecastcodeNight[$k] === 9){$forecastdescNight[$k] = "Light rain shower";}
+    else if ($forecastcodeNight[$k] === 10){$forecastdescNight[$k] = "Light rain shower";}
+    else if ($forecastcodeNight[$k] === 11){$forecastdescNight[$k] = "Drizzle";}
+    else if ($forecastcodeNight[$k] === 12){$forecastdescNight[$k] = "Light rain";}
+    else if ($forecastcodeNight[$k] === 13){$forecastdescNight[$k] = "Heavy rain shower";}
+    else if ($forecastcodeNight[$k] === 14){$forecastdescNight[$k] = "Heavy rain shower";}
+    else if ($forecastcodeNight[$k] === 15){$forecastdescNight[$k] = "Heavy rain";}
+    else if ($forecastcodeNight[$k] === 16){$forecastdescNight[$k] = "Sleet shower";}
+    else if ($forecastcodeNight[$k] === 17){$forecastdescNight[$k] = "Sleet shower";}
+    else if ($forecastcodeNight[$k] === 18){$forecastdescNight[$k] = "Sleet";}
+    else if ($forecastcodeNight[$k] === 19){$forecastdescNight[$k] = "Hail shower";}
+    else if ($forecastcodeNight[$k] === 20){$forecastdescNight[$k] = "Hail shower";}
+    else if ($forecastcodeNight[$k] === 21){$forecastdescNight[$k] = "Hail";}
+    else if ($forecastcodeNight[$k] === 22){$forecastdescNight[$k] = "Light snow shower";}
+    else if ($forecastcodeNight[$k] === 23){$forecastdescNight[$k] = "Light snow shower";}
+    else if ($forecastcodeNight[$k] === 24){$forecastdescNight[$k] = "Light snow";}
+    else if ($forecastcodeNight[$k] === 25){$forecastdescNight[$k] = "Heavy snow shower";}
+    else if ($forecastcodeNight[$k] === 26){$forecastdescNight[$k] = "Heavy snow shower";}
+    else if ($forecastcodeNight[$k] === 27){$forecastdescNight[$k] = "Heavy snow";}
+    else if ($forecastcodeNight[$k] === 28){$forecastdescNight[$k] = "Thunder shower";}
+    else if ($forecastcodeNight[$k] === 29){$forecastdescNight[$k] = "Thunder shower";}
+    else if ($forecastcodeNight[$k] === 30){$forecastdescNight[$k] = "Thunder";}
+
+    //$forecastTimeDay[$k] = date("l", strtotime($parsed_json['features'][0]['properties']['timeSeries'][$k]['time']));
+    //$forecastTimeNight[$k] = date("l", strtotime($parsed_json['features'][0]['properties']['timeSeries'][$k]['time']));
+    //$nameDay[$k] = date("l", $parsed_json['features'][0]['properties']['timeSeries'][$k]['time']
+    $forecastTempDay[$k] = date("l",$parsed_json['features'][0]['properties']['timeSeries'][$k]['dayMaxScreenTemperature']);
+    $forecastTempNight[$k] = date("l",$parsed_json['features'][0]['properties']['timeSeries'][$k]['nightMinScreenTemperature']);
+    $forecastWindGust[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['windSpeed10m'];
+
+
+    $forecastWindDir[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['windDirectionFrom10m'];
+    if ($forecastWindDir[$k] >= 0 && $forecastWindDir[$k] < 11.25){$forecastWinddircardinal[$k] = "N";}
+    else if ($forecastWindDir[$k] >= 11.25 && $forecastWindDir[$k] < 33.75){$forecastWinddircardinal[$k] = "NNE";}
+    else if ($forecastWindDir[$k] >= 33.75 && $forecastWindDir[$k] < 56.25){$forecastWinddircardinal[$k] = "NE";}
+    else if ($forecastWindDir[$k] >= 56.25 && $forecastWindDir[$k] < 78.75){$forecastWinddircardinal[$k] = "ENE";}
+    else if ($forecastWindDir[$k] >= 78.75 && $forecastWindDir[$k] < 101.25){$forecastWinddircardinal[$k] = "E";}
+    else if ($forecastWindDir[$k] >= 101.25 && $forecastWindDir[$k] < 123.75){$forecastWinddircardinal[$k] = "ESE";}
+    else if ($forecastWindDir[$k] >= 123.75 && $forecastWindDir[$k] < 146.25){$forecastWinddircardinal[$k] = "SE";}
+    else if ($forecastWindDir[$k] >= 146.25 && $forecastWindDir[$k] < 168.75){$forecastWinddircardinal[$k] = "SSE";}
+    else if ($forecastWindDir[$k] >= 168.75 && $forecastWindDir[$k] < 191.25){$forecastWinddircardinal[$k] = "S";}
+    else if ($forecastWindDir[$k] >= 191.25 && $forecastWindDir[$k] < 213.75){$forecastWinddircardinal[$k] = "SSW";}
+    else if ($forecastWindDir[$k] >= 213.75 && $forecastWindDir[$k] < 236.25){$forecastWinddircardinal[$k] = "SW";}
+    else if ($forecastWindDir[$k] >= 236.25 && $forecastWindDir[$k] < 258.75){$forecastWinddircardinal[$k] = "WSW";}
+    else if ($forecastWindDir[$k] >= 258.75 && $forecastWindDir[$k] < 281.25){$forecastWinddircardinal[$k] = "W";}
+    else if ($forecastWindDir[$k] >= 281.25 && $forecastWindDir[$k] < 303.75){$forecastWinddircardinal[$k] = "WNW";}
+    else if ($forecastWindDir[$k] >= 303.75 && $forecastWindDir[$k] < 326.25){$forecastWinddircardinal[$k] = "NW";}
+    else if ($forecastWindDir[$k] >= 326.25 && $forecastWindDir[$k] < 348.75){$forecastWinddircardinal[$k] = "NNW";}
+    else if ($forecastWindDir[$k] >= 348.75 && $forecastWindDir[$k] <= 360){$forecastWinddircardinal[$k] = "N";}
+
+
+
+
+
+
+    $forecastprecipIntensity[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['totalPrecipAmount'];
+    $forecastPrecipProb[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['probOfPrecipitation'];
+    $forecastUV[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['uvIndex'];
+    $forecastacumm[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['totalSnowAmount'];
+    //$forecastsummary[$k] = $forecastdesc[$k];
+    //$forecastnight[$k] = $parsed_json['response'][0]['periods'][$k]['isDay'];
+    //$forecastdesc[$k] = $parsed_json['response'][0]['periods'][$k]['weather'];
+    $forecastheatindex[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['feelsLikeTemperature'];
+    $humidity[$k] = $parsed_json['features'][0]['properties']['timeSeries'][$k]['screenRelativeHumidity'];
+    $forecasthumidity[$k] = round($humidity[$k],0,PHP_ROUND_HALF_UP);
+    //$forecastTimeDay[0] = "Today";
+    //$forecastTimeNight[0] = "Tonight";
+    //$forecastTimeDay[1] = "Tomorrow";
+    //$forecastTimeNight[1] = "Tomorrow Night";
+    //$forecastTime[4] = $nameDay[4];$forecastTime[5] = $nameDay[5]." Night";$forecastTime[6] = $nameDay[6];$forecastTime[7] = $nameDay[7]." Night";
+    //$forecastTime[8] = $nameDay[8];$forecastTime[9] = $nameDay[9]." Night";$forecastTime[10] = $nameDay[10];$forecastTime[11] = $nameDay[11]." Night";                     
+
+    //aw convert temps-rain
+    //metric to F
+    if ($tempunit == 'F')
+    {
+        $forecastTempDay[$k] = round(($forecastTempDay[$k] * 9 / 5) + 32, 0);
+        $forecastTempNight[$k] = round(($forecastTempNight[$k] * 9 / 5) + 32, 0);
+    }
+
+    //heatindex
+    if ($tempunit == 'F')
+    {
+        $wuskyheatindex[$k] = ($wuskyheatindex[$k] * 9 / 5) + 32;
+    }
+
+    //rain inches to mm
+    if ($rainunit == 'in')
+    {
+        $forecastprecipIntensity[$k] = $forecastprecipIntensity[$k] * 0.0393701;
+    }
+
+    //ms to kmh
+    if ($windunit == 'kmh')
+    {
+        $forecastWindGust[$k] = round((number_format($forecastWindGust[$k], 1) * 3.6) , 0);
+        $forecastWindSpeed[$k] = round((number_format($forecastWindSpeed[$k], 1) * 3.6) , 0);
+    }
+    //m/s to mph
+    if ($windunit == 'mph')
+    {
+        $forecastWindGust[$k] = round((number_format($forecastWindGust[$k], 1) * 2.23694) , 0);
+        $forecastWindSpeed[$k] = round((number_format($forecastWindSpeed[$k], 1) * 2.23694) , 0);
+    }
+
+    if ($forecastUV[$k] > 0)
+    {
+        $forecastnight[$k] = "D";
+    }
+    else $forecastnight[$k] = "N";
+
+
+?>
+
+
+
+  <article>  
+   <actualtn>
+ <?php //0  detailed forecast day
+//temp
+
+if ($tempunit == 'F' && $forecastTempDay[$k] < 44.6)
+{
+    echo "<bluet>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempDay[$k] > 80.6)
+{
+    echo "<redt>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempDay[$k] > 64.4)
+{
+    echo "<oranget>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempDay[$k] > 55)
+{
+    echo "<yellowt>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempDay[$k] >= 44.6)
+{
+    echo "<greent>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($forecastTempDay[$k] < 7)
+{
+    echo "<bluet>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($forecastTempDay[$k] > 27)
+{
+    echo "<redt>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($forecastTempDay[$k] > 19)
+{
+    echo "<oranget>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($forecastTempDay[$k] > 12.7)
+{
+    echo "<yellowt>" . $forecastTimeDay[$k] . "&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+else if ($forecastTempDay[$k] >= 7)
+{
+    echo "<greent>" . $forecastTimeDay[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempDay[$k], 0);
+}
+echo "°" . $tempunit . "</actualtn>";
+
+//high temp icon
+    if ($tempunit == 'F' && $forecastTempDay[$k] >= 82)
+    {
+        echo "<img src='css/aqi/daywarm.svg' width='40px' class='tempalerticon'> ";
+    }
+    else if ($tempunit == 'C' && $forecastTempDay[$k] >= 28)
+    {
+        echo "<img src='css/aqi/daywarm.svg' width='40px' class='tempalerticon'> ";
+    }
+
+
+
+//icon
+echo "<div class=iconpos> ";
+
+
+    echo '<img src="css/metofficeicons/' . $forecastIconDay[$k] . '" width="35" class="iconpos"></img></div>';
+
+
+//summary of icon
+echo '<div class=greydesc>' . $forecastDaydesc[$k] . '</div><br>';
+//humidity night
+if ($forecastnight[$k] == 'N')
+{
+    echo '<div class=uvforecast><grey>';
+    echo "Humidity ";
+    if ($forecasthumidity[$k] >= 70)
+    {
+        echo "<blueu>" . $forecasthumidity[$k] . '%</blueu>';
+    }
+    else if ($forecasthumidity[$k] > 50)
+    {
+        echo "<yellowu>" . $forecasthumidity[$k] . '%</yellowu>';
+    }
+    else if ($forecasthumidity[$k] > 40)
+    {
+        echo "<greenu>" . $forecasthumidity[$k] . '%</greenu>';
+    }
+    else if ($forecasthumidity[$k] > 0)
+    {
+        echo "<redu>" . $forecasthumidity[$k] . '%</redu>';
+    }
+}
+//uvi
+else if ($forecastUV[$k] > 0)
+{
+    echo '<div class=uvforecast><grey>' . $sunlight2 . ' UVI ';
+}
+if ($forecastUV[$k] > 10)
+{
+    echo "<purpleu>" . $forecastUV[$k] . '</purpleu><grey> ';
+}
+else if ($forecastUV[$k] > 7)
+{
+    echo "<redu>" . $forecastUV[$k] . '</redu><grey> ';
+}
+else if ($forecastUV[$k] > 5)
+{
+    echo "<orangeu>" . $forecastUV[$k] . '</orangeu><grey> ';
+}
+else if ($forecastUV[$k] > 2)
+{
+    echo "<yellowu>" . $forecastUV[$k] . '</yellowu><grey> ';
+}
+else if ($forecastUV[$k] > 0)
+{
+    echo "<greenu>" . $forecastUV[$k] . '</greenu><grey> ';
+}
+//snow
+if ($forecastacumm[$k] > 0)
+{
+    echo '&nbsp;' . $snowflakesvg[$k] . '<valuer>Snow  <bluer>' . $forecastacumm[$k] . 'cm</bluer>';
+}
+//rain
+else if ($forecastPrecipType[$k] = 'rain' && $rainunit == 'in')
+{
+    echo '&nbsp;' . $rainsvg . '<valuer>Rain <bluer>' . number_format($forecastprecipIntensity[$k], 1) . '&nbsp;' . $rainunit . '&nbsp;' . $forecastPrecipProb[$k] . '%</bluer>';
+}
+//mm
+else if ($forecastPrecipType[$k] = 'rain')
+{
+    echo '&nbsp;' . $rainsvg . '<valuer>Rain <bluer>' . number_format($forecastprecipIntensity[$k], 1) . '&nbsp;' . $rainunit . '&nbsp;' . $forecastPrecipProb[$k] . '%</bluer>';
+}
+echo "</div>";
+//wind/gusts
+if ($windunit == 'mph' && $forecastWindGust[$k] >= 30)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<redu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></redu></wind>';
+}
+else if ($windunit == 'mph' && $forecastWindGust[$k] >= 25)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<orangeu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></orangeu></wind>';
+}
+//kts
+if ($windunit == 'kts' && $forecastWindGust[$k] >= 30)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<redu>" . number_format($forecastWindGust[$k] * 1.625 * 0.868976, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></redu></wind>';
+}
+else if ($windunit == 'kts' && $forecastWindGust[$k] >= 25)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<orangeu>" . number_format($forecastWindGust[$k] * 1.625 * 0.868976, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></orangeu></wind>';
+}
+else if ($windunit == 'kts' && $forecastWindGust[$k] >= 0)
+{
+    echo "<wind>Wind <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<blueu>" . number_format($forecastWindGust[$k] * 0.868976, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></blueu></wind>';
+}
+else if ($forecastWindGust[$k] >= 30)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<redu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></redu></wind>';
+}
+else if ($forecastWindGust[$k] >= 25)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<orangeu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></orangeu></wind>';
+}
+else if ($forecastWindGust[$k] < 25)
+{
+    echo "<wind> Wind <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<blueu>" . number_format($forecastWindGust[$k], 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></blueu></wind>';
+}
+
+?>  
+</article>
+    
+  <article>  
+   <actualtn>
+ <?php //0  detailed forecast night
+//temp
+
+if ($tempunit == 'F' && $forecastTempNight[$k] < 44.6)
+{
+    echo "<bluet>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempNight[$k] > 80.6)
+{
+    echo "<redt>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempNight[$k] > 64.4)
+{
+    echo "<oranget>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempNight[$k] > 55)
+{
+    echo "<yellowt>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($tempunit == 'F' && $forecastTempNight[$k] >= 44.6)
+{
+    echo "<greent>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($forecastTempNight[$k] < 7)
+{
+    echo "<bluet>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($forecastTempNight[$k] > 27)
+{
+    echo "<redt>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($forecastTempNight[$k] > 19)
+{
+    echo "<oranget>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($forecastTempNight[$k] > 12.7)
+{
+    echo "<yellowt>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+else if ($forecastTempNight[$k] >= 7)
+{
+    echo "<greent>" . $forecastTime[$k] . "h&nbsp;&nbsp;   " . number_format($forecastTempNight[$k], 0);
+}
+echo "°" . $tempunit . "</actualtn>";
+
+//high temp icon
+
+    if ($tempunit == 'F' && $forecastTempNight[$k] >= 71)
+    {
+        echo "<img src='css/aqi/nightwarm.svg' width='40px' class='tempalerticon'> ";
+    }
+    if ($tempunit == 'C' && $forecastTempNight[$k] >= 22)
+    {
+        echo "<img src='css/aqi/nightwarm.svg' width='40px' class='tempalerticon'> ";
+    }
+
+
+//icon
+echo "<div class=iconpos> ";
+
+   echo '<img src="css/metofficeicons/' . $forecastIconNight[$k] . '" width="35" class="iconpos"></img></div>';
+
+
+//summary of icon
+echo '<div class=greydesc>' . $forecastdesc[$k] . '</div><br>';
+//humidity night
+//if ($forecastnight[$k] == 'N')
+//{
+//    echo '<div class=uvforecast><grey>';
+//    echo "Humidity ";
+//    if ($forecasthumidity[$k] >= 70)
+//    {
+//        echo "<blueu>" . $forecasthumidity[$k] . '%</blueu>';
+//    }
+//    else if ($forecasthumidity[$k] > 50)
+//    {
+//        echo "<yellowu>" . $forecasthumidity[$k] . '%</yellowu>';
+//    }
+//    else if ($forecasthumidity[$k] > 40)
+//    {
+//        echo "<greenu>" . $forecasthumidity[$k] . '%</greenu>';
+//    }
+//    else if ($forecasthumidity[$k] > 0)
+//    {
+//        echo "<redu>" . $forecasthumidity[$k] . '%</redu>';
+//    }
+//}
+//uvi
+//else if ($forecastUV[$k] > 0)
+//{
+    echo '<div class=uvforecast><grey>' . $sunlight2 . ' UVI ';
+//}
+if ($forecastUV[$k] > 10)
+{
+    echo "<purpleu>" . $forecastUV[$k] . '</purpleu><grey> ';
+}
+else if ($forecastUV[$k] > 7)
+{
+    echo "<redu>" . $forecastUV[$k] . '</redu><grey> ';
+}
+else if ($forecastUV[$k] > 5)
+{
+    echo "<orangeu>" . $forecastUV[$k] . '</orangeu><grey> ';
+}
+else if ($forecastUV[$k] > 2)
+{
+    echo "<yellowu>" . $forecastUV[$k] . '</yellowu><grey> ';
+}
+else if ($forecastUV[$k] > 0)
+{
+    echo "<greenu>" . $forecastUV[$k] . '</greenu><grey> ';
+}
+//snow
+if ($forecastacumm[$k] > 0)
+{
+    echo '&nbsp;' . $snowflakesvg[$k] . '<valuer>Snow  <bluer>' . $forecastacumm[$k] . 'cm</bluer>';
+}
+//rain
+else if ($forecastPrecipType[$k] = 'rain' && $rainunit == 'in')
+{
+    echo '&nbsp;' . $rainsvg . '<valuer>Rain <bluer>' . number_format($forecastprecipIntensity[$k], 1) . '&nbsp;' . $rainunit . '&nbsp;' . $forecastPrecipProb[$k] . '%</bluer>';
+}
+//mm
+else if ($forecastPrecipType[$k] = 'rain')
+{
+    echo '&nbsp;' . $rainsvg . '<valuer>Rain <bluer>' . number_format($forecastprecipIntensity[$k], 1) . '&nbsp;' . $rainunit . '&nbsp;' . $forecastPrecipProb[$k] . '%</bluer>';
+}
+echo "</div>";
+//wind/gusts
+if ($windunit == 'mph' && $forecastWindGust[$k] >= 30)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<redu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></redu></wind>';
+}
+else if ($windunit == 'mph' && $forecastWindGust[$k] >= 25)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<orangeu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></orangeu></wind>';
+}
+//kts
+if ($windunit == 'kts' && $forecastWindGust[$k] >= 30)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<redu>" . number_format($forecastWindGust[$k] * 1.625 * 0.868976, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></redu></wind>';
+}
+else if ($windunit == 'kts' && $forecastWindGust[$k] >= 25)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<orangeu>" . number_format($forecastWindGust[$k] * 1.625 * 0.868976, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></orangeu></wind>';
+}
+else if ($windunit == 'kts' && $forecastWindGust[$k] >= 0)
+{
+    echo "<wind>Wind <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<blueu>" . number_format($forecastWindGust[$k] * 0.868976, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></blueu></wind>';
+}
+else if ($forecastWindGust[$k] >= 30)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<redu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></redu></wind>';
+}
+else if ($forecastWindGust[$k] >= 25)
+{
+    echo "<wind>Gust <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<orangeu>" . number_format($forecastWindGust[$k] * 1.625, 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></orangeu></wind>';
+}
+else if ($forecastWindGust[$k] < 25)
+{
+    echo "<wind> Wind <orangeu>";
+    echo $forecastWinddircardinal[$k];
+    echo "</orangeu>&nbsp;<blueu>" . number_format($forecastWindGust[$k], 0) , "&nbsp;<wuunits>" . $windunit;
+    echo '</wuunits></blueu></wind>';
+}
+
+?>  
+</article>    
+<?php } ?>
+  <!-- copyright needs to be kept please be ethical--->
+  <article>
+    <span style="font-size:9px;color:<?php echo $text1 ?>;">
+  <?php echo $knfo ?> CSS/SVG/PHP original scripts were developed by <a href="https://weather34.com" title="weather34.com" target="_blank" style="font-size:8px;">weather34.com</a>  for use in the weather34 template &copy; 2015-<?php echo date('Y'); ?></span> <br>
+    </article>
+  <article>
+    <span style="font-size:9px;color:<?php echo $text1 ?>;">
+  <?php echo $knfo ?> CSS/SVG/PHP these scripts were adapted by <a href="https://claydonsweather.org.uk" title="Steepleian" target="_blank" style="font-size:8px;">Steepleian</a>  for use in the weewx-Weather34 skin &copy; 2015-<?php echo date('Y'); ?></span> <br>
+    </article>
+  <article>
+    <span style="font-size:9px;color:<?php echo $text1 ?>;">
+  <?php echo $knfo ?> Data for Forecast provided by <a href="https://metoffice.apiconnect.ibmcloud.com/metoffice/production/" title="UK MetOffice Weather Data Hub" target="_blank">UK MetOffice Weather Data Hub</a></span>
+  </article>
+</main>
+  </div>
+  </body>
+  </html>

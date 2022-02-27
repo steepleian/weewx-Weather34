@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   x="0"
+   y="0"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1090"
+   sodipodi:docname="01d.svg"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1092"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="8.73"
+     inkscape:cx="27.033219"
+     inkscape:cy="51.37457"
+     inkscape:window-width="2059"
+     inkscape:window-height="1081"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1090" />
+  <symbol
+     id="sun">
+    <path
+       class="sun-glow"
+       fill="url(#sun-glow-grad)"
+       d="M66.64,47.86,82,41,66.64,34.12l9.84-13.66L59.76,22.22,61.46,5.47l-13.6,9.89L41,0,34.12,15.36,20.46,5.52l1.76,16.72L5.47,20.54l9.89,13.6L0,41l15.36,6.83L5.52,61.54l16.72-1.76L20.54,76.53l13.6-9.89L41,82l6.83-15.36,13.66,9.84L59.78,59.76l16.75,1.69Z"
+       id="path1064" />
+    <path
+       class="sun-outer"
+       fill="#ffd348"
+       d="M19.28,53.5a25,25,0,1,0,9.15-34.16A25,25,0,0,0,19.28,53.5Z"
+       id="path1066" />
+    <path
+       class="sun-inner"
+       fill="url(#sun-inner-grad)"
+       d="M22.74,51.5a21,21,0,1,0,7.69-28.69A21,21,0,0,0,22.74,51.5Z"
+       id="path1068" />
+  </symbol>
+  <defs
+     id="defs1083">
+    <radialGradient
+       id="sun-glow-grad"
+       cx="41"
+       cy="41"
+       r="41"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="54%"
+         stop-color="#d6b849"
+         id="stop1071" />
+      <stop
+         offset="67%"
+         stop-color="#ffce47"
+         id="stop1073" />
+      <stop
+         offset="100%"
+         stop-color="#ffdb73"
+         id="stop1075" />
+    </radialGradient>
+    <linearGradient
+       id="sun-inner-grad"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="100%">
+      <stop
+         offset="0%"
+         stop-color="#ffaf22"
+         id="stop1078" />
+      <stop
+         offset="100%"
+         stop-color="#f09900"
+         id="stop1080" />
+    </linearGradient>
+  </defs>
+  <symbol
+     id="s01d">
+    <use
+       xlink:href="#sun"
+       x="0"
+       y="0"
+       width="100"
+       height="100"
+       transform="translate(9,9) scale(1,1)"
+       id="use1085" />
+  </symbol>
+  <g
+     id="g1424">
+    <use
+       xlink:href="#s01d"
+       x="0"
+       y="0"
+       width="100"
+       height="100"
+       id="use1088" />
+    <g
+       id="g1406"
+       transform="translate(1.9473081,1.3054983)">
+      <g
+         id="use843"
+         transform="translate(4.3,-45)">
+        <use
+           xlink:href="#cloud"
+           fill="#dddddd"
+           x="0"
+           y="0"
+           width="100"
+           height="100"
+           transform="translate(3,18)"
+           id="use1171" />
+        <g
+           id="use1173"
+           transform="translate(0,76)">
+          <g
+             fill="#999999"
+             id="g1183">
+            <path
+               d="M 88.7,3 H 14.3 C 13.6,3 13,2.3 13,1.5 13,0.7 13.6,0 14.3,0 H 88.7 C 89.4,0 90,0.7 90,1.5 90,2.3 89.4,3 88.7,3 Z"
+               id="path1177" />
+            <path
+               d="M 75.7,11 H 1.3 C 0.6,11 0,10.3 0,9.5 0,8.7 0.6,8 1.3,8 H 75.7 C 76.4,8 77,8.7 77,9.5 77,10.3 76.4,11 75.7,11 Z"
+               id="path1179" />
+            <path
+               d="M 86.7,19 H 12.3 C 11.6,19 11,18.3 11,17.5 11,16.7 11.6,16 12.3,16 h 74.4 c 0.7,0 1.3,0.7 1.3,1.5 0,0.8 -0.6,1.5 -1.3,1.5 z"
+               id="path1181" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="use843-9"
+         transform="translate(2.3,-29)">
+        <use
+           xlink:href="#cloud"
+           fill="#dddddd"
+           x="0"
+           y="0"
+           width="100"
+           height="100"
+           transform="translate(3,18)"
+           id="use1289" />
+        <g
+           id="use1291"
+           transform="translate(0,76)">
+          <g
+             fill="#999999"
+             id="g1301">
+            <path
+               d="M 88.7,3 H 14.3 C 13.6,3 13,2.3 13,1.5 13,0.7 13.6,0 14.3,0 H 88.7 C 89.4,0 90,0.7 90,1.5 90,2.3 89.4,3 88.7,3 Z"
+               id="path1295" />
+            <path
+               d="M 75.7,11 H 1.3 C 0.6,11 0,10.3 0,9.5 0,8.7 0.6,8 1.3,8 H 75.7 C 76.4,8 77,8.7 77,9.5 77,10.3 76.4,11 75.7,11 Z"
+               id="path1297" />
+            <path
+               d="M 86.7,19 H 12.3 C 11.6,19 11,18.3 11,17.5 11,16.7 11.6,16 12.3,16 h 74.4 c 0.7,0 1.3,0.7 1.3,1.5 0,0.8 -0.6,1.5 -1.3,1.5 z"
+               id="path1299" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

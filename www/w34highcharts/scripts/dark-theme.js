@@ -68,14 +68,14 @@ Highcharts.theme = {
         		},
     			gridLineDashStyle: 'shortdot',
               	gridLineWidth: 1,
-              	gridLineColor: 'RGBA(64, 65, 66, 0.8)',
+              	gridLineColor: 'silver',
                 labels: {
                     style: {
                         color: '#ccc'
                     }
                 },
                 lineColor: '#707073',
-                minorGridLineColor: 'RGBA(64, 65, 66, 0.8)',
+                minorGridLineColor: 'silver',
                 tickColor: '#707073',
                 tickWidth: 1,
                 title: {
@@ -142,68 +142,12 @@ Highcharts.theme = {
 
             exporting: {
         	buttons: {
-            redButton: {
-              symbol: 'circle',  
-              symbolFill: '#EC6D6B',
-              symbolStroke: '#EC6D6B',
-              symbolStrokeWidth: 0,
- 			  align: 'left',
-              x: 10,
+            
+            
               
-              theme: {
-                        states: {
-                            hover: {
-                                stroke: 'rgba(40, 45, 52,.4)',
-                              	fill: 'transparent'
-                            },
-                            select: {
-                                stroke: 'rgba(40, 45, 52,.4)',
-                              	fill: 'transparent'
-                            }
-                        }    
-                    },
-                            
-            },
-            yellowButton: {
-              symbol: 'circle',
-              symbolFill: '#FDBC40',
-              symbolStroke: '#FDBC40',
-              symbolStrokeWidth: 0,
-              align: 'left',
-              x: 30,
-              
-              backgroundColor: null,
-              theme: {
-                        states: {
-                            hover: {
-                                fill: 'transparent'
-                            },
-                            select: {
-                                fill: 'transparent'
-                            }
-                        }    
-                    },
-            },
-              greenButton: {
-                 symbol: 'circle',
-                symbolFill: '#33C84A',
-                symbolStroke: '#33C84A',
-                symbolStrokeWidth: 0,
-                align: 'left',
-              	x: 50,
-                
-                width: 24,
-                backgroundColor: null,
-                theme: {
-                        fill: 'transparent',
-                  		states: {
-                            hover: { fill: 'transparent' },
-                            select: { fill: 'transparent' }
-                        }    
-                    }
-                 },
                           toggle: {
-                                x:0,
+                                align: 'left',
+                                x:20,
                                 y: 0,
                                 height: 18,
                                 theme: {
@@ -226,7 +170,9 @@ Highcharts.theme = {
                 },			
           	navigation: {
                 buttonOptions: {
-                    symbolStroke: '#DDDDDD',
+                    symbolStroke: 'transparent',
+                    align: 'left',
+                    x: -10,
                   
                     theme: {
                         fill: 'transparent'

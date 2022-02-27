@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   x="0"
+   y="0"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg1529"
+   sodipodi:docname="01n.svg"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1531"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="8.73"
+     inkscape:cx="27.434135"
+     inkscape:cy="51.37457"
+     inkscape:window-width="1864"
+     inkscape:window-height="1081"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1529" />
+  <symbol
+     id="moon">
+    <path
+       d="M28.43,0A28.44,28.44,0,0,1,32.3,14.32,28.61,28.61,0,0,1,3.69,42.93,28.71,28.71,0,0,1,0,42.66,28.59,28.59,0,1,0,28.43,0Z"
+       fill="url(#moon-grad)"
+       id="path1514" />
+  </symbol>
+  <defs
+     id="defs1522">
+    <linearGradient
+       id="moon-grad"
+       x1="0%"
+       y1="50%"
+       x2="100%"
+       y2="0%">
+      <stop
+         offset="0%"
+         stop-color="#686e73"
+         id="stop1517" />
+      <stop
+         offset="100%"
+         stop-color="#6a7075"
+         id="stop1519" />
+    </linearGradient>
+  </defs>
+  <symbol
+     id="s01n">
+    <use
+       xlink:href="#moon"
+       x="0"
+       y="0"
+       width="100"
+       height="100"
+       transform="translate(20,20) scale(1,1)"
+       id="use1524" />
+  </symbol>
+  <use
+     xlink:href="#s01n"
+     x="0"
+     y="0"
+     width="100"
+     height="100"
+     id="use1527" />
+  <g
+     id="g1406"
+     transform="translate(1.9473081,1.3054983)">
+    <g
+       id="use843"
+       transform="translate(4.3,-45)">
+      <use
+         xlink:href="#cloud"
+         fill="#dddddd"
+         x="0"
+         y="0"
+         width="100"
+         height="100"
+         transform="translate(3,18)"
+         id="use1171" />
+      <g
+         id="use1173"
+         transform="translate(0,76)">
+        <g
+           fill="#999999"
+           id="g1183">
+          <path
+             d="M 88.7,3 H 14.3 C 13.6,3 13,2.3 13,1.5 13,0.7 13.6,0 14.3,0 H 88.7 C 89.4,0 90,0.7 90,1.5 90,2.3 89.4,3 88.7,3 Z"
+             id="path1177" />
+          <path
+             d="M 75.7,11 H 1.3 C 0.6,11 0,10.3 0,9.5 0,8.7 0.6,8 1.3,8 H 75.7 C 76.4,8 77,8.7 77,9.5 77,10.3 76.4,11 75.7,11 Z"
+             id="path1179" />
+          <path
+             d="M 86.7,19 H 12.3 C 11.6,19 11,18.3 11,17.5 11,16.7 11.6,16 12.3,16 h 74.4 c 0.7,0 1.3,0.7 1.3,1.5 0,0.8 -0.6,1.5 -1.3,1.5 z"
+             id="path1181" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="use843-9"
+       transform="translate(2.3,-29)">
+      <use
+         xlink:href="#cloud"
+         fill="#dddddd"
+         x="0"
+         y="0"
+         width="100"
+         height="100"
+         transform="translate(3,18)"
+         id="use1289" />
+      <g
+         id="use1291"
+         transform="translate(0,76)">
+        <g
+           fill="#999999"
+           id="g1301">
+          <path
+             d="M 88.7,3 H 14.3 C 13.6,3 13,2.3 13,1.5 13,0.7 13.6,0 14.3,0 H 88.7 C 89.4,0 90,0.7 90,1.5 90,2.3 89.4,3 88.7,3 Z"
+             id="path1295" />
+          <path
+             d="M 75.7,11 H 1.3 C 0.6,11 0,10.3 0,9.5 0,8.7 0.6,8 1.3,8 H 75.7 C 76.4,8 77,8.7 77,9.5 77,10.3 76.4,11 75.7,11 Z"
+             id="path1297" />
+          <path
+             d="M 86.7,19 H 12.3 C 11.6,19 11,18.3 11,17.5 11,16.7 11.6,16 12.3,16 h 74.4 c 0.7,0 1.3,0.7 1.3,1.5 0,0.8 -0.6,1.5 -1.3,1.5 z"
+             id="path1299" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

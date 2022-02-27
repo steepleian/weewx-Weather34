@@ -1,0 +1,45 @@
+<?php
+if ($wuskydayIcon[$i]=='mcloudy.png'){$wuskydayIcon[$i]='mostlycloudy.svg';}
+else if ($wuskydayIcon[$i]=='mcloudyn.png'){$wuskydayIcon[$i]='nt_mostlycloudy.svg';}
+else if ($wuskydayIcon[$i]=='pcloudy.png'){$wuskydayIcon[$i]='partlycloudy.svg';}
+else if ($wuskydayIcon[$i]=='pcloudyn.png'){$wuskydayIcon[$i]='nt_partlycloudy.svg';}
+else if ($wuskydayIcon[$i]=='sunny.png'){$wuskydayIcon[$i]='clear.svg';}
+else if ($wuskydayIcon[$i]=='clear.png'){$wuskydayIcon[$i]='clear.svg';}  
+else if ($wuskydayIcon[$i]=='clearn.png'){$wuskydayIcon[$i]='nt_clear.svg';}
+else if ($wuskydayIcon[$i]=='fair.png'){$wuskydayIcon[$i]='mostlyclear.svg';}  
+else if ($wuskydayIcon[$i]=='fairn.png'){$wuskydayIcon[$i]='nt_mostlyclear.svg';}
+else if ($wuskydayIcon[$i]=='cloudy.png'){$wuskydayIcon[$i]='cloudy.svg';}
+else if ($wuskydayIcon[$i]=='cloudyn.png'){$wuskydayIcon[$i]='nt_cloudy.svg';}
+else if ($wuskydayIcon[$i]=='snow.png'){$wuskydayIcon[$i]='snow.svg';}
+else if ($wuskydayIcon[$i]=='pcloudyn.png'){$wuskydayIcon[$i]='nt_snow.svg';}
+else if ($wuskydayIcon[$i]=='sleet.png'){$wuskydayIcon[$i]='sleet.svg';}
+else if ($wuskydayIcon[$i]=='pcloudyn.png'){$wuskydayIcon[$i]='nt_sleet.svg';}
+else if ($wuskydayIcon[$i]=='freezingrain.png'){$wuskydayIcon[$i]='sleet.svg';}
+else if ($wuskydayIcon[$i]=='freezingrainn.png'){$wuskydayIcon[$i]='nt_sleet.svg';}
+else if ($wuskydayIcon[$i]=='rain.png'){$wuskydayIcon[$i]='rain.svg';}
+else if ($wuskydayIcon[$i]=='rainn.png'){$wuskydayIcon[$i]='nt_rain.svg';}
+else if ($wuskydayIcon[$i]=='showers.png'){$wuskydayIcon[$i]='rain.svg';}
+else if ($wuskydayIcon[$i]=='showersn.png'){$wuskydayIcon[$i]='nt_rain.svg';}
+else if ($wuskydayIcon[$i]=='cold.png'){$wuskydayIcon[$i]='cold.svg';}
+else if ($wuskydayIcon[$i]=='coldn.png'){$wuskydayIcon[$i]='cold.svg';}
+else if ($wuskydayIcon[$i]=='hot.png'){$wuskydayIcon[$i]='warm.svg';}
+else if ($wuskydayIcon[$i]=='hotn.png'){$wuskydayIcon[$i]='nt_warm.svg';}
+else if ($wuskydayIcon[$i]=='dust.png'){$wuskydayIcon[$i]='dust.svg';}
+else if ($wuskydayIcon[$i]=='dustn.png'){$wuskydayIcon[$i]='dust.svg';}
+else if ($wuskydayIcon[$i]=='fog.png'){$wuskydayIcon[$i]='fog.svg';}
+else if ($wuskydayIcon[$i]=='fogn.png'){$wuskydayIcon[$i]='nt_fog.svg';}
+else if ($wuskydayIcon[$i]=='hazy.png'){$wuskydayIcon[$i]='hazy.svg';}
+else if ($wuskydayIcon[$i]=='hazyn.png'){$wuskydayIcon[$i]='nt_hazy.svg';}
+else if ($wuskydayIcon[$i]=='tstorm.png'){$wuskydayIcon[$i]='tstorm.svg';}
+else if ($wuskydayIcon[$i]=='tsormn.png'){$wuskydayIcon[$i]='nt_tstorm.svg';}
+else if ($wuskydayIcon[$i]=='wind.png'){$wuskydayIcon[$i]='windy.svg';}
+else if ($wuskydayIcon[$i]=='windn.png'){$wuskydayIcon[$i]='nt_windy.svg';}
+else if ($wuskydayIcon[$i]=='pcloudys.png'){$wuskydayIcon[$i]='snow.svg';}
+else if ($wuskydayIcon[$i]=='pcloudysn.png'){$wuskydayIcon[$i]='nt_snow.svg';}
+else if ($wuskydayIcon[$i]=='wintrymix.png'){$wuskydayIcon[$i]='sleet.svg';}  
+else if ($wuskydayIcon[$i]=='wintrymixn.png'){$wuskydayIcon[$i]='nt_sleet.svg';}
+else if ($wuskydayIcon[$i]=='pcloudyr.png'){$wuskydayIcon[$i]='rain.svg';}  
+else if ($wuskydayIcon[$i]=='pcloudyrn.png'){$wuskydayIcon[$i]='nt_rain.svg';}  
+else if ($wuskydayIcon[$i]=='drizzle.png'){$wuskydayIcon[$i]='rain.svg';}
+else if ($wuskydayIcon[$i]=='drizzlen.png'){$wuskydayIcon[$i]='nt_rain.svg';}
+?>

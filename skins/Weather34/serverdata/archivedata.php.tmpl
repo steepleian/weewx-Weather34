@@ -6,8 +6,8 @@
 #encoding UTF-8
 ##
 <?php
-##		Calculate lenght of daylight
-	#set $daylenght = time.strftime('%H:%M', time.gmtime(int($almanac.sun.set.raw -  $almanac.sun.rise.raw)))
+##		Calculate length of daylight
+	#set $daylength = time.strftime('%H:%M', time.gmtime(int($almanac.sun.set.raw -  $almanac.sun.rise.raw)))
 ##		Truncate station uptime decimals
 	#set $stationuptime = str($station.os_uptime.raw).split('.')[0] 	
 ##		Calculate Beaufort based on wind speed in knots
@@ -71,6 +71,8 @@
             #set $moonphase = "7"
           #end if
           
+
+    
       #import datetime
       #set $now = datetime.datetime.now()
       #set $nowHour = $now.hour
@@ -97,6 +99,14 @@
         #set $dysc = "N/A"
         #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None 
           #set $dysc = $day.lightning_strike_count.sum 
+        #end if
+	#set $atsc = "N/A"
+        #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None
+          #set $atsc = $alltime.lightning_strike_count.sum
+        #end if
+        #set $ysc = "N/A"
+        #if $varExists('day.lightning_strike_count') and $day.lightning_strike_count.sum is not None
+          #set $ysc = $yesterday.lightning_strike_count.sum
         #end if
         #set $ldlt = "N/A"
         #if $varExists('year.lightning_distance.lasttime') and $year.lightning_distance.lasttime is not None  
@@ -161,12 +171,12 @@ $weewxapi[72] = "$span($time_delta=900).windSpeed.avg.format(add_label=False, $l
 $weewxapi[73] = "$span($time_delta=1800).windSpeed.avg.format(add_label=False, $localize=False)";
 $weewxapi[74] = "$mlsc";	
 $weewxapi[75] = "$ylsc";	
-$weewxapi[76] = "$dysc";	
+$weewxapi[76] = "$day.lightning_strike_count.sum"; //"$dysc";	
 $weewxapi[77] = "$ldlt";
-$weewxapi[78] = "N/A";	
-$weewxapi[79] = "N/A";
+$weewxapi[78] = "$atsc";
+$weewxapi[79] = "$ysc";
 $weewxapi[80] = "$day.radiation.max.format(add_label=False, $localize=False)";
-$weewxapi[81] = "$stationuptime";
+$weewxapi[81] = "$station.uptime";
 $weewxapi[82] = "$yesterday.outTemp.max.format(add_label=False, $localize=False)";
 $weewxapi[83] = "$yesterday.outTemp.maxtime.format(format_string="%Y%m%d%H%M%S")";
 $weewxapi[84] = "$yesterday.outTemp.min.format(add_label=False, $localize=False)";
@@ -241,7 +251,7 @@ $weewxapi[151] = "$alltime.rain.sum.format(add_label=False, $localize=False)";
 $weewxapi[152] = "$day.outTemp.avg.format(add_label=False, $localize=False)";
 $weewxapi[153] = "$moonphase";
 $weewxapi[154] = "$almanac.moon_fullness";
-$weewxapi[155] = "$daylenght";
+$weewxapi[155] = "$daylength";
 $weewxapi[156] = "$almanac.moon.rise.format(format_string="%H:%M")";
 $weewxapi[157] = "$almanac.moon.set.format(format_string="%H:%M")";
 $weewxapi[158] = "$day.windSpeed.avg.format(add_label=False, $localize=False)";
@@ -263,8 +273,18 @@ $weewxapi[202] = "$span($hour_delta=3).rain.sum.format(add_label=False, $localiz
 $weewxapi[203] = "$current.cloudbase.format(add_label=False, $localize=False)";
 $weewxapi[204] = "$current.signal8.format("%.0f")";
 $weewxapi[205] = "$current.appTemp.format(add_label=False, $localize=False)";
+$weewxapi[206] = "$alltime.outHumidity.max.format(add_label=False, $localize=False)";
+$weewxapi[207] = "$alltime.outHumidity.maxtime.format(format_string="%Y%m%d%H%M%S")";	
+$weewxapi[208] = "$alltime.outHumidity.min.format(add_label=False, $localize=False)";	
+$weewxapi[209] = "$alltime.outHumidity.mintime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[210] = "$alltime.UV.max.format(add_label=False, $localize=False)";
+$weewxapi[211] = "$alltime.UV.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$weewxapi[212] = "$alltime.radiation.max.format(add_label=False, $localize=False)";
+$weewxapi[213] = "$alltime.radiation.maxtime.format(format_string="%Y%m%d%H%M%S")";
 $startcivil = "$almanac(horizon=-6).sun(use_center=1).rise.raw";
 $endcivil = "$almanac(horizon=-6).sun(use_center=1).set.raw";
+$sunrise = "$almanac.sun.rise";
+$sunset = "$almanac.sun.set";
 $rain_year_start = "$rainyear.start.format(format_string="%b -")";
 $rain_year_end = "$time.strftime("%b", $almost_end_tt)";	
 $daymaxrainrate = "$day.rainRate.max.format(add_label=False, $localize=False)";
@@ -274,11 +294,129 @@ $alltimemaxrainrate = "$alltime.rainRate.max.format(add_label=False, $localize=F
 $alltimemaxrainratetime = "$alltime.rainRate.maxtime.format(format_string="%Y%m%d%H%M%S")";
 $yesterdaymaxwind = "$yesterday.windSpeed.max.format(add_label=False, $localize=False)";
 $yesterdaymaxwindtime = "$yesterday.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$yesterdaymaxwindtime2 = "$yesterday.windSpeed.maxtime.format(format_string="%H:%M")";
 $monthmaxwind = "$month.windSpeed.max.format(add_label=False, $localize=False)";
 $monthmaxwindtime = "$month.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$monthmaxwindtime2 = "$month.windSpeed.maxtime.format(format_string="%d:%m")";
 $yearmaxwind = "$year.windSpeed.max.format(add_label=False, $localize=False)";
 $yearmaxwindtime = "$year.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$yearmaxwindtime2 = "$year.windSpeed.maxtime.format(format_string="%d:%m")";
+$alltimemaxwind = "$alltime.windSpeed.max.format(add_label=False, $localize=False)";
+$alltimemaxwindtime = "$alltime.windSpeed.maxtime.format(format_string="%Y%m%d%H%M%S")";
+$alltimemaxwindtime2 = "$alltime.windSpeed.maxtime.format(format_string="%d:%m:%Y")";
+$pm25now = "$current.pm2_5.format(add_label=False, $localize=False)";
+$pm10now = "$current.pm10_0.format(add_label=False, $localize=False)";
+$pm25avg24 = "$span($hour_delta=24).pm2_5.avg.format(add_label=False, $localize=False)"; 
+$pm10avg24 = "$span($hour_delta=24).pm10_0.avg.format(add_label=False, $localize=False)";
 ## $current_windchill = "$current.windchill.format(add_label=False, $localize=False)";   
 ## $current_heatindex = "$current.heatindex.format(add_label=False, $localize=False)";
+
+## If extended almanac information is available, do extra calculations.
+#if $almanac.hasExtras
+  #set $sun_altitude = $almanac.sun.alt
+  #if $sun_altitude < 0
+    #set $sun_None="<i>(Always down)</i>"
+    #set $daylight_str = "00:00"
+  #else
+    #set $sun_None="<i>(Always up)</i>"
+    #set $daylight_str = "24:00"
+  #end if
+  #set $sunrise_ts = $almanac.sun.rise.raw
+  #set $sunset_ts = $almanac.sun.set.raw
+  #if $sunrise_ts and $sunset_ts
+    #set $now = $current.dateTime.raw
+    #set $today_daylight = $sunset_ts -  $sunrise_ts
+    #set $seconds = $today_daylight
+    #set $hours = $seconds //3600
+    #set $seconds %= 3600
+    #set $minutes = $seconds//60
+    #set $seconds %= 60
+    #set $daylight_str = "%d hours, %d minutes, %d seconds" % ($hours, $minutes, $seconds)
+    #set $yesterday = $now - 24*3600
+    #set $yesterday_daylight = $almanac($almanac_time=$yesterday).sun.set.raw - $almanac($almanac_time=$yesterday).sun.rise.raw
+    #set $difference = $today_daylight - $yesterday_daylight
+    #if $difference
+      #set $delta = abs($difference)
+      #set $amt_str = "%s%d seconds" % (str(int($delta) // 60) + ' minutes, ' if ($delta // 60) > 0 else '', $delta % 60 if ($delta // 60) > 0 else $delta)
+      #if $difference > 0
+        #set $delta_str = "%s more than yesterday" % $amt_str
+      #else
+        #set $delta_str = "%s less than yesterday" % $amt_str
+      #end if
+      ##set $daylight_str = "%s<br/>%s" % ($daylight_str, $delta_str)
+    #end if
+  #end if
+#end if
+#if $almanac.hasExtras
+$astronomical_twighlight_begin = "$almanac(horizon=-18).sun(use_center=1).rise";	  
+$nautical_twighlight_begin     = "$almanac(horizon=-12).sun(use_center=1).rise";
+$civil_twighlight_begin        = "$almanac(horizon=-6).sun(use_center=1).rise";
+$sun_rise 		       = "$almanac.sun.rise";
+$sun_meridian_transit	       = "$almanac.sun.transit";
+$sun_set 		       = "$almanac.sun.set";
+$civil_twighlight_end 	       = "$almanac(horizon=-6).sun(use_center=1).set";
+$nautical_twighlight_end       = "$almanac(horizon=-12).sun(use_center=1).set";
+$astronomical_twighlight_end   = "$almanac(horizon=-18).sun(use_center=1).set";
+$sun_azimuth		       = "$almanac.sun.az";          
+$sun_alt		       = "$almanac.sun.alt";          
+$sun_right_ascension	       = "$almanac.sun.ra";          
+$sun_declination	       = "$almanac.sun.dec";
+$sidereal_time		       = "$almanac.sidereal_time";          
+$winter_solstice	       = "$almanac.next_winter_solstice";
+$summer_solstice	       = "$almanac.next_summer_solstice";
+$vernal_equinox		       = "$almanac.next_vernal_equinox";
+$autumnal_equinox	       = "$almanac.next_autumnal_equinox";
+$total_daylight		       = "$daylight_str";
+$moon_rise		       = "$almanac.moon.rise";
+$moon_meridian_transit	       = "$almanac.moon.transit";
+$moon_set		       = "$almanac.moon.set";
+$moon_azimuth		       = "$almanac.moon.az";          
+$moon_altitude		       = "$almanac.moon.alt";          
+$moon_right_ascension	       = "$almanac.moon.ra";          
+$moon_declination	       = "$almanac.moon.dec";         
+$new_moon		       = "$almanac.next_new_moon";
+$first_quarter_moon	       = "$almanac.next_first_quarter_moon";
+$full_moon		       = "$almanac.next_full_moon";
+$last_quarter_moon	       = "$almanac.next_last_quarter_moon";
+$moon_phase		       = "$almanac.moon_phase";
+$moon_fullness		       = "$almanac.moon_fullness% full";
+$mercury_hlongitude	       = "$almanac.mercury.hlong";
+$venus_hlongitude	       = "$almanac.venus.hlong";
+$earth_hlongitude	       = "$almanac.sun.hlong";
+$mars_hlongitude	       = "$almanac.mars.hlong";
+$jupiter_hlongitude	       = "$almanac.jupiter.hlong";
+$saturn_hlongitude	       = "$almanac.saturn.hlong";
+$uranus_hlongitude	       = "$almanac.uranus.hlong";
+$neptune_hlongitude	       = "$almanac.neptune.hlong";
+$pluto_hlongitude	       = "$almanac.pluto.hlong";
+
+if (
+    strtotime(date("G.i")) >= strtotime($civil_twighlight_begin) &&
+    strtotime(date("G.i")) < strtotime($civil_twighlight_end)
+) {
+    $dayPartCivil = "day";
+} else {
+    $dayPartCivil = "night";
+}
+if (
+    strtotime(date("G.i")) >= strtotime($nautical_twighlight_begin) &&
+    strtotime(date("G.i")) < strtotime($nautical_twighlight_end)
+) {
+    $dayPartNautical = "day";
+} else {
+    $dayPartNautical = "night";
+}
+if (
+    strtotime(date("G.i")) >= strtotime($astronomical_twighlight_begin) &&
+    strtotime(date("G.i")) < strtotime($astronomical_twighlight_end)
+) {
+    $dayPartAstronomical = "day";
+} else {
+    $dayPartAstronomical = "night";
+}
+#end if
 ?>
+
+
+
 

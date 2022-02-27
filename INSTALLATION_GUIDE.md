@@ -4,20 +4,20 @@
 
 This installation guide assumes that you are already reasonably familiar with WeeWX and that it is already installed on your computer along with a webserver, php and curl.
 
-If you have not already done so, you must update your WeeWX installation to version 4.1.1 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.1.1/Python2.7 or Python3.x.
+If you have not already done so, you must update your WeeWX installation to version 4.6.0 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.6.0/Python3.x.
 
 Update your WeeWX database to the new wview_extended.schema. Follow the directions in the section *Adding a new type to the database* (https://www.weewx.com/docs/customizing.htm#add_archive_type), except skip step #1 and in step #2, specify *schemas.wview_extended.schema* as the schema. 
 
 If you are carrying out a fresh install of WeeWX, my own personal preference is to use the setup.py method (http://www.weewx.com/docs/setup.htm). However, this increases the chances of requiring more path edits in the configuration files. Alternatively use one of the dedicated packaged installs (http://weewx.com/docs/debian.htm, http://weewx.com/docs/redhat.htm, http://weewx.com/docs/suse.htm or http://weewx.com/docs/macos.htm).
 
-* Please familiarise yourself with the location of your WeeWX system files inhttp://weewx.com/docs/ including your bin/user folder, skins folder and weewx.conf file. If you are unsure where to find these, please refer to the installation processes here: - http://www.weewx.com/docs/setup.htm which shows various WeeWX installation scenarios.
+* Please familiarise yourself with the location of your WeeWX system files inhttp://weewx.com/docs/cluding your bin/user folder, skins folder and weewx.conf file. If you are unsure where to find these, please refer to the installation processes here: - http://www.weewx.com/docs/setup.htm which shows various WeeWX installation scenarios.
 
-IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP7.4 modules on a Debian based distribution: -
+IMPORTANT. Installing PHP; please make sure you install all the PHP modules appropriate for your version of PHP. Failure to due so may mean that forecasts and current conditions fail to update. This is an example for PHP8.0 modules on a Debian based distribution: -
 
-	sudo apt install php7.4
-	sudo apt install php7.4-cli php7.4-fpm php7.4-json php7.4-sqlite3 php7.4-zip php7.4-gd  php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
-	sudo apt install libapache2-mod-php7.4
-	sudo a2enmod php7.4
+	sudo apt install php8.1
+	sudo apt install php8.1-cli php8.1-fpm php8.1-sqlite3 php8.1-zip php8.1-gd  php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath
+	sudo apt install libapache2-mod-php8.1
+	sudo a2enmod php8.1
 	sudo systemctl restart apache2
 
 * Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
@@ -32,74 +32,18 @@ Once completed, make sure you save weewx.conf
 
 * If you have have the CRT extension (Cumulus Real-Time) extension installed, unless you require it for another purpose, you can remove it now. (sudo ./wee_extension --uninstall crt)
 
-* This install process assumes that you are using one of the officially documented WeeWX installs and a typical Apache2 web server configuration of /var/www/html. In this instance, at the end of the installation process, your path to the Weather34 skin will be /var/www/html/weewx/weather34. If your installation deviates from this, you will need to adjust the paths in your weewx.conf file after the installation process has taken place.
+* This install process assumes that your are using one of the officially documented WeeWX installs and a typical Apache2 web server configuration of /var/www/html. In this instance, at the end of the installation process your path to thw Weather34 skin will be /var/www/html/weewx/weather34. If your installation deviates from this, you will need to adjust the paths in your weewx.conf file after the installation process has taken place.
 
-* The default WeeWX extension installer (wee_extension) was not really intended to deal with monolithic structure of the Weather34 skin. It is possible to configure an install package to use wee_extension, but it is a difficult and tedious process to maintain for this skin. I am very gratefully to Jerry Dietrich for writing a new installer specially for Weather34. This installer copies everything to the correct places and automatically configures the correct web server ownerships, permissions and groups etc. The whole process is very fast and your skin will be up and running without having to wait till the end of the first archive cycle. By using the supplied configuration files, setup.py, packaged or MacOS installed versions of WeeWX can be catered for.
+* I am very gratefully to Jerry Dietrich for writing a new installer specially for Weather34. This installer copies everything to the correct places and automatically configures the correct web server ownerships, permissions and groups etc. The whole process is very fast and your skin will be up and running in no time. By using the supplied configuration files, setup.py, packaged or MacOS installed versions of WeeWX can be catered for.
 
-* Go to https://steepleian.github.io/weewx-Weather34 to complete the pre-install web services settings which which generates 'services.txt' in your default Download folder. IMPORTANT the unit codes that you select for the Weather Underground and DarkSky forecast APIs must be identical to those that you select in the post-install settings page. Failure to do so will possibly produce some bizzare data.
+* Go to https://steepleian.github.io/weewx-Weather34 to complete the pre-install web services settings which which generates 'services.txt' in your default Download folder. 
 
 * From the command line: - 
                 
+		Download weewx-Weather34-master.zip from https://github.com/steepleian/weewx-w34rc1/edit/main/ into your Download folder alongside the services.txt file
 		cd [path_to_your_Download_folder]
-		sudo git clone https://github.com/steepleian/weewx-Weather34.git
-		cd weewx-Weather34
-		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
-		
-		
-		    You will be prompted for the config file for your WeeWX install type.
-		    Select packaged if your WeeWX was installed by Debian, RedHat or Suse methods [default option]
-		    or
-		    Select setup_py. if your WeeWX was installed by setup.py method
-		    or
-		    Select macos if your WeeWX was installed by MacOS method
-
-* Alternate from the command line (Without using Git): - 
-                
-		cd to where you want to store the Weather34 Archive
-		issue the following command
-			(For the tar.gz file)
-			wget -P . https://github.com/steepleian/weewx-Weather34/archive/refs/tags/v4.3.1.tar.gz
-			or
-			(For the zip file)
-			wget -P . https://github.com/steepleian/weewx-Weather34/archive/refs/tags/v4.3.1.zip
-
-		UnTar or UnZip the Archive you just downloaded.
-		
-		Change to the Weather34 directory
-			cd [weewx-Weather34 or whatever your directory is named]
-		Edit either setup_py.conf or package.conf depending on which setup you used for WeeWX
-			1) If you used setup.py, edit setup_py.conf
-			2) If you used of the the distrubution setups, such as Debian, RedHat or MacOS for example, edit package.conf
-		
-		In setup_py.conf, package.conf or maCOS.CONF, edit the following lines:
-			Line 2
-				"copy_paths":"/home/weewx/bin/user/,user,/home/weewx/skins/,skins,/var/www/html/weewx/weather34/,www",
-			Line 4
-				"www_path":"/var/www/html/weewx/weather34/",
-			Line 12
-				'HTML_ROOT': '/var/www/html/weewx/weather34/',
-			Line 27
-				'HTML_ROOT': '/var/www/html/weewx/weather34/w34highcharts',
-			
-			Make sure that the above lines match the actual root directory of where you want to serve your web pages from such
-			as '/var/www' or ./var/www/html. Edit and save the file and then proceed with the installation
-			
-		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
-
-		You will be prompted for the config file for your WeeWX install type.
-		    Select packaged if your WeeWX was installed by Debian, RedHat or Suse methods [default option]
-		    or
-		    Select setup_py. if your WeeWX was installed by setup.py method
-		    or
-		    Select macos if your WeeWX was installed by MacOS method
-		
-* Alternative install method : -
-
-		Download weewx-Weather34-master.zip from https://github.com/steepleian/weewx-Weather34/edit/master/ into your Download folder
-		cd [path_to_your_Download_folder]
-		unzip weewx-Weather34-master.zip
-		sudo cp services.txt weewx-Weather34-master
-		cd weewx-Weather34-master
+		unzip weewx-w34rc1-main.zip
+		cd weewx-w34rc1-main
 		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
 		
 		    You will be prompted for the config file for your WeeWX install type.

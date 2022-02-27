@@ -18,6 +18,7 @@ include('settings1.php');error_reporting(0);
 ###########################################################################
 
 $TZconf = $TZ;// PLEASE LEAVE it is fixed 
+$UTC_offset = timezone_offset_get(timezone_open($TZ), new DateTime()) / 3600; // DO NOT CHANGE
 $api2= 'xxx'; // optional Weather Underground api key developer key '1234567890'
 $rise_zenith = 90+ 40/60; // try 50/60 or something/60 until it matches correctly to your sunrise .this allows you to fine tune the sunrise
 $set_zenith = 90+ 36/60;  // try 50/60 or something/60 until it matches correctly to your sunset .this allows you to fine tune the sunset
@@ -44,8 +45,8 @@ $skyRefresh         = 600; // 10 minutes
 $windSpeedRefresh   = 04; // 4 seconds
 $baroRefresh        = 300; // 5 minutes
 $windDirRefresh     = 04; // 4 seconds
-$solarRefresh       = 600; // 10 minutes
-$moonRefresh        = 1800; // 30 minutes 
+$solarRefresh       = 300; // 10 minutes
+$moonRefresh        = 300; // 30 minutes 
 $rainRefresh        = 60; // 60 seconds 
 $p12Refresh         = 600; // 10 minutes        Position 12 refresh (if not webcam) 
 $p13Refresh         = 600; // 10 minutes        Last Postion refresh (if not webcam)
@@ -79,7 +80,8 @@ $creditschart 		= "CanvasJs.com v2.3.1 GA (CC BY-NC 3.0) Non-Commercial-Version"
 $creditsURL         = ""; // for chart pages only
 $credits            = "Data Supplied via Weather Underground"; // for chart pages only
 $templateinfo       = ''; // template information page
-$templateversion    = 'W34-HC-<maxblue>IMJD</maxblue>-4.1.3';
+$templateversion    = 'W34-HC-<maxblue>IMJD</maxblue>-4.2.0';
+
 $software    = 'WeeWX <span>Hardware</span> Users';$designedfor='<br>For WeeWX Users';$chartversion='(WUDATACHARTS)';$somethinggoeshere ='d4586dec-e7a2-47ae-99b6-25527b2563c9';$chartversionmysql  =  '(DATACHARTS WeeWX Database Version)';
 if (array_key_exists('theme', $_GET) && ($_GET['theme'] == 'dark' || $_GET['theme'] == 'light')) {
   SetCookie('theme', $_GET['theme'], time() + 15552000);

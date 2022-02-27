@@ -1,4 +1,11 @@
-<?php include('settings.php');$url = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://').$_SERVER['SERVER_NAME'];?>
+<?php include('settings.php');$url = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://').$_SERVER['SERVER_NAME'];
+include('w34CombinedData.php');error_reporting(0);
+if($theme==="dark"){$text1="silver";}
+else if($theme==="light"){$text1="black";}
+$forecastime = filemtime ('jsondata/uk.txt');
+?>
+<link href="css/popup.<?php echo $theme; ?>.css?version=<?php echo filemtime('css/popup.' . $theme . '.css'); ?>" rel="stylesheet prefetch">
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -13,7 +20,7 @@
 .davishardwaresvg{position:absolute;margin-left:240px;}.nanohardwaresvg{position:absolute;margin-left:270px;}</style>
 </head>
 <body>
-<div class="weather34darkbrowser" url="<?php echo $stationlocation ?> Weather Station Information"></div>
+<div class="weather34darkbrowser" style="color:<?php echo $text1 ?>;" url="Weather Station Information"></div>  
  
   <div class="container:fluid">
     <div class="row xs:center xs:middle">
@@ -47,7 +54,7 @@
                                     
                                     <div class="collection:data">
                                         <h3>Weather Station <blue> WeeWX</blue></h3>
-                                        <span>Model:<?php echo $weatherhardware?></span>
+                                        <span>Model: <?php echo $weatherhardware?></span>
                                         <img src="" >
                                     </div>
                                 </div>
@@ -64,7 +71,7 @@
                                     </div>
                                     <div class="collection:data">
                                         <h3>Interface <blue> WeeWX</blue></h3>
-                                        <span>Type:<?php echo $mbplatform?> </span>
+                                        <span>Type: <?php echo "Ethernet Link" ?> </span>
                                        <img src="">
                                     </div>
                                 </div>

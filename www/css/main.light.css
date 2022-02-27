@@ -207,6 +207,8 @@ html {
 body {
   background: #fff;
   clear: both;
+  cursor: default
+  
 }
 
 #navigation {
@@ -4166,7 +4168,7 @@ heatindex {
 .weatherclock34 {
   position: absolute;
   margin: 20px auto 0;
-  left: 20px;
+  left: 45px;
   font-size: .7rem;
   font-family: weathertext2;
   text-align: center;
@@ -4381,7 +4383,7 @@ agolightning {
 .orangeclock {
   position: relative;
   background: rgba(245, 247, 252, 1);
-  padding: 1px;
+  padding: 0px;
   color: #d35d4e;
   -o-border-radius: 3px;
   border-radius: 3px;
@@ -4391,7 +4393,7 @@ agolightning {
   margin-left: 40px;
   margin-top: 3px;
   font-size: .9rem;
-  font-family: clock
+  font-family: weathertext2
 }
 
 #weather34lightningdialog-notify,
@@ -5664,7 +5666,7 @@ topyellow2 {
 }
 
 .minwordl {
-  margin-left: 43px
+  margin-left: 30px
 }
 
 .maxword {
@@ -6127,7 +6129,7 @@ moonsetcolor {
 .sunbelowweather34 {
   border-width: 6px 3px 0;
   border-color: rgba(74, 99, 111, .8) transparent transparent;
-  -webkit-transform: rotate(360deg)
+  webkit-transform: rotate(360deg)
 }
 
 .heatcircle {
@@ -6549,7 +6551,7 @@ rainu {
 #weather34rainwater {
   background-color: rgba(0, 154, 171, .6);
   border: 0;
-  -webkit-border-radius: 0 0 2px 2px;
+  webkit-border-radius: 0 0 2px 2px;
   -moz-border-radius: 0 0 2px 2px;
   -o-border-radius: 0 0 2px 2px;
   -ms-border-radius: 0 0 2px 2px;
@@ -6674,7 +6676,7 @@ smallrainunita {
 
 .cloudconvertercircle,
 .cloudconvertercircle2000 {
-  width: 4.7rem;
+  width: 6.0rem;
   font-family: weathertext2;
   height: 1.25rem;
   line-height: 16px;
@@ -6711,7 +6713,7 @@ valuetextheading {
   position: absolute;
   font-size: 12px;
   margin-top: 7px;
-  margin-left: 230px
+  margin-left: 210px
 }
 
 .cloudconvertercircle2000 {
@@ -7210,7 +7212,7 @@ wfstriketoday {
 .wflaststrike {
   position: absolute;
   margin-left: 55px;
-  margin-top: 40px;
+  margin-top: 33px;
   font-size: .55rem;
   width: 200px
 }
@@ -7236,7 +7238,7 @@ wfstriketoday {
   justify-content: center;
   border-radius: 3px;
   position: absolute;
-  margin-left: 133px;
+  margin-left: 120px;
   top: -5px;
   background: #d05f2d
 }
@@ -8082,8 +8084,9 @@ valuewindunit {
 }
 
 alertvalue {
-  font-size: .75rem;
+  font-size: .65rem;
   margin-top: 10px
+  margin-left: -10px;  
 }
 
 spanefreezing,
@@ -8098,7 +8101,7 @@ spanelightning {
 }
 
 alertadvisory {
-  margin-left: -70px;
+  margin-left: -55px;
   position: absolute
 }
 
@@ -8410,7 +8413,7 @@ purplet {
 }
 
 .darkskyhomeicons {
-  margin-bottom: -8px
+  margin-bottom: 0px
 }
 
 bluetds,
@@ -8691,7 +8694,7 @@ topbarmetric {
   height: 142px;
   padding: 0;
   background: 0;
-  border: 1px solid rgba(153, 155, 156, .1);
+  border: 0px solid rgba(153, 155, 156, .1);
   color: #2d3a4b
 }
 
@@ -9366,7 +9369,7 @@ weather34menumarkerlight {
     left: 15px;
     height: 22px;
     width: 22px
-  }
+}
 }
 
 .lity {
@@ -9377,7 +9380,7 @@ weather34menumarkerlight {
   bottom: 0;
   left: 0;
   white-space: nowrap;
-  background: rgba(33, 36, 40, 0.5);
+  background: rgba(255, 255, 255, 0.8);
   outline: none !important;
   opacity: 0;
   margin: 0 auto
@@ -9447,7 +9450,8 @@ weather34menumarkerlight {
   max-width: 100%;
   max-height: 100%;
   outline: none !important;
-  margin: 0 auto
+  margin: 0 auto;
+  border: none  
 }
 
 .lity-content {
@@ -9481,14 +9485,6 @@ weather34menumarkerlight {
   z-index: -1;
 }
 
-.lity.lity-closed{opacity:0}
-.lity *{-webkit-box-sizing:border-box;box-sizing:border-box}
-.lity-wrap{z-index:9990;position:fixed;top:0;right:0;bottom:0;left:0;margin:0 auto;outline:0!important;text-align:center}
-.lity-wrap:before{content:"";display:inline-block;height:100%;margin-right:-.25em;vertical-align:middle}
-.lity-loader{z-index:9991;position:absolute;top:50%;width:100%;margin-top:-.8em;color:#fff;opacity:0;text-align:center;font-family:headingtext;font-size:14px}
-.lity-loading .lity-loader{opacity:1}
-.lity-container{z-index:9992;display:inline-block;position:relative;max-width:98%;max-height:98%;margin:0 auto;outline:0!important;text-align:left;vertical-align:middle;white-space:normal}
-.lity-content{z-index:9993;width:100%;max-width:820px;-webkit-transform:scale(1);transform:scale(1)}
 .lity-closed .lity-content,.lity-loading .lity-content{-webkit-transform:scale(.8);transform:scale(.8)}
 .lity-content:after{z-index:-1;content:"";display:block;position:absolute;top:0;right:0;bottom:0;left:0;width:auto;height:auto}
 .lity-close{z-index:9994;-webkit-appearance:none;position:absolute;top:-30px;width:20px;float:right;right:1%;padding:0;color:#fff;border:0;background:0;outline:0;-webkit-box-shadow:none;box-shadow:none;text-align:center;text-decoration:none;font-family:headingtext;font-size:20px;font-style:normal;line-height:20px;cursor:pointer;background:#d05f2d;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;-o-border-radius:3px;margin-top:38px}
@@ -9513,7 +9509,7 @@ weather34menumarkerlight {
   width: 100%;
   max-width: 820px;
   height: 0;
-  padding-top: 56.25%;
+  padding-top: 69%;
   overflow: auto;
   pointer-events: auto;
   -webkit-transform: translateZ(0);
@@ -9523,7 +9519,10 @@ weather34menumarkerlight {
   justify-content: center;
   text-align: center;
   margin: 0 auto;
-  margin-left: 0px
+  margin-left: 0px;
+  background-color: transparent;
+  border: none
+  
 }
 
 .lity-iframe-container iframe {
@@ -9537,6 +9536,7 @@ weather34menumarkerlight {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
   background: rgba(30, 33, 36, 1.000);
+  background-color: rgba(255, 255, 255, 0.5);
   background: linear-gradient(135deg, #212428 0%, #2f363f 100%);
   align-items: center;
   justify-content: center;
@@ -9546,4 +9546,32 @@ weather34menumarkerlight {
 
 .lity-hide {
   display: none
+}
+.lightningicon {
+  position: absolute;
+  display: inline;
+  right: -95px;
+  margin-top: 25px;
+}
+.lightningiconx {
+  position: absolute;
+  display: inline;
+  right: 587px;
+  margin-top: 15px;
+}
+.maxtimedate,
+.mintimedatex {
+  position: absolute;
+  margin-top: 61px;
+  font-size: .54rem;
+  z-index: 1;
+  color: #2d3a4b;;
+  width: 50px
+}
+
+.mintimedatex {
+  margin-left: 17px
+}
+.alertpos {
+  margin: auto
 }

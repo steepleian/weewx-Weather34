@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="weather34 clear icon"
+   width="302"
+   height="290"
+   viewBox="0 0 226.5 217.5"
+   version="1.1"
+   sodipodi:docname="1.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata9">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs7" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     id="namedview5"
+     showgrid="false"
+     inkscape:zoom="1.8301587"
+     inkscape:cx="105.4"
+     inkscape:cy="163.4"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="weather34 clear icon"
+     inkscape:document-rotation="0" />
+  <path
+     fill="#d05f2d"
+     stroke="#d05f2d"
+     stroke-width="0.08"
+     d="m 108.72424,45.347658 h 6.4 v 23.36 h -6.4 z m -40.719999,23.6 4.8,-4.8 13.44,13.600002 c -1.6,1.44 -3.04,3.36 -4.96,4.56 -4.32,-4.56 -8.8,-8.800002 -13.28,-13.360002 z m 70.399999,8.720002 13.6,-13.440002 4.64,4.8 -13.6,13.440002 z m -32.8,1.12 c 6.64,-1.2 13.6,-0.56 19.68,2.4 8.8,4.16 15.2,12.64 16.96,22.16 1.04,6.4 0.32,13.2 -2.56,19.04 -4,8.48 -12.24,14.88 -21.6,16.8 -6.64,1.2 -13.92,0.48 -19.999999,-2.8 -8.64,-4.24 -14.96,-12.8 -16.48,-22.24 -0.96,-6.24 -0.24,-12.8 2.56,-18.64 4,-8.4 12.24,-14.88 21.439999,-16.8 z m -57.279999,26.96 h 23.36 v 6.4 h -23.36 z m 103.839999,0 h 23.36 v 6.4 h -23.36 z m -84.159999,42.4 13.6,-13.6 4.64,4.8 -13.6,13.6 z m 70.399999,-8.8 4.8,-4.8 13.44,13.6 -4.8,4.8 c -4.4,-4.64 -8.96,-9.12 -13.44,-13.6 z m -29.68,9.84 h 6.4 v 23.36 h -6.4 z"
+     id="path2" />
+</svg>

@@ -1,0 +1,139 @@
+/* $scrpt_vrsn_dt  = 'configure_css.css|01|2020-11-05|';  # release 2012_lts 
+ */
+body {font-family: Arial;}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+/* Style the buttons inside the tab */
+.tab label {
+  float: left;
+  border: none;
+  outline: 1px solid #ddd;
+  cursor: pointer;
+  padding: 12px 14px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+/* Change background color of labels on hover */
+.tab label:hover {
+  background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tab label.active {
+  background-color: #ccc;
+}
+/* Style the tab content */
+.tabcontent {
+  display: none;
+/*  padding: 6px 12px; 
+  border: 1px solid #ccc; */
+  border-top: none;
+}
+#config__manager .headerline2 td {
+	text-align: center;
+	border: 0px solid #ccc;
+	font-weight: bold;
+	font-size: 1.17em;
+	padding-bottom: 2px;
+	padding-top: 0px;
+}
+#config__manager .headerline1 td {
+	text-align: center;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	font-size: 1.0em;
+	padding: 6px;
+	background-color: #e6e6e6;
+}
+#config__manager a.urlextern {
+	background-image: url(globe.png);
+	background-repeat: no-repeat;
+	background-position: 0 center;
+  	background-position-x: 0px;
+  	background-position-y: 50%;
+  	padding: 0 0 0 18px;
+}
+#config__manager .headerline tr {
+	text-align: center;
+	border: 0px solid #ccc;
+}
+#config__manager {
+  background-color: #f3f3f3;
+  padding: 0px;
+  max-width: 1020px; 
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin: 0 auto;
+}
+#config__manager table , tbody , tr{
+  border-collapse: collapse;
+  empty-cells: show;
+  border-spacing: 0;
+  border: 0px solid #ccc;
+  width: 100%;
+  margin: 0 auto;
+}
+#config__manager button {
+	margin-bottom: 5px;
+}
+#config__manager td {
+  border: 1px solid #ccc;
+  padding: 0px;
+  vertical-align: top;
+}
+#config__manager label {
+}
+#config__manager td.label {
+  padding: 4px;;
+  vertical-align: middle;
+  text-align: right;
+}
+#config__manager td.value {
+  /*  width: 31em; */
+}
+#config__manager select.default { 
+    background-color: #cdf;
+}
+#config__manager div.input  {
+	margin: 0.2em;
+}
+#config__manager div.default input.edit {
+	background-color: #cdf;
+}
+#config__manager input div.default.edit {
+	background-color: #cdf;
+}
+#config__manager div.default, span.default, div.default.edit{
+	background-color: #cdf;
+	min-width: 20em;
+}
+#config__manager td input.edit {
+  width: 98%;
+}
+#config__manager td.label span.outkey{
+  font-size: 50%;
+  margin-top: -1px;
+  margin-left: -2px;
+  display: block;
+  background-color: #fff;
+  color: #666;
+  float: left;
+  position: relative;
+  z-index: 1;
+}
+#config__manager td.value span.outkey{
+  font-size: 70%;
+  margin-top: -0.7em;
+  margin-right: 2em;
+  margin-bottom: 0.5em;
+  display: block;
+  background-color: #fff;
+  color: #666;
+  float: left;
+  padding: 0 .1em;
+  position: relative;
+  z-index: 1;
+}
