@@ -61,9 +61,7 @@ Once completed, make sure you save weewx.conf
 
 * You can now test that the template is working by opening it up in your browser. Initially you will see random demo data. Click on the menu button at the top-left corner and select settings. This will open up a web form in which you apply your own settings. The default password is '12345'. Please change this to your own unique password for your own protection. Pay particular attention to the location of the w34realtime.txt file being generated on a loop cycle by weeWX. The default location is “/[html_root]/weewx/w34weather/serverdata/w34realtime.txt” (for example /var/www/html/weewx/w34weather/serverdata/w34realtime.txt). IMPORTANT the unit codes that you select for the Weather Underground and DarkSky forecast APIs must be identical to those that you select in the pre-install settings process. Failure to do so will possibly produce some bizzare data.
 
-* Automatic database backup module. This module has not yet been integrated fully into the install process so you will need to make some changes manually.
-
-    Copy the w34_db_backup.py file into /home/weewx/bin/user (or /usr/share/weewx/user for a DEB install)
+* Automatic database backup module. 
 
     Open your weewx.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line add:-
 
