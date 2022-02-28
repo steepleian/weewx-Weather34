@@ -63,7 +63,7 @@ Once completed, make sure you save weewx.conf
 
 * Automatic database backup module. 
 			
-   Then at the end of the weewx.conf file add this stanza: -
+   At the end of the weewx.conf file add this stanza: -
 
 			[W34_DB_Backup]
 				
