@@ -1,5 +1,5 @@
 #
-# Ignore file for CU-HWS configuration
+# Ignore file for weewx-Weather34 configuration
 #
 # ignore the downloaded json files (but not the wuupdate.php there
 jsondata/*.txt
