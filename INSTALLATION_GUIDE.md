@@ -2,6 +2,8 @@
 
 **The installer now defaults to overwrite mode, settings1.php will not be overwritten as it does not exist in the package. However, it is essential that any customisations you may have been made are backed up before running the install.**
 
+IMPORTANT. If you are making a completley clean install of WeeWX and Weather34 Template it is strongly recommended that you allow the WeeWX database to establish itself for 24hours before attempting installing the template.
+
 This installation guide assumes that you are already reasonably familiar with WeeWX and that it is already installed on your computer along with a webserver, php and curl.
 
 If you have not already done so, you must update your WeeWX installation to version 4.6.0 or later. This is required to facillitate nested copying during the skin install process. Follow the various installation type links on this page http://weewx.com/docs/usersguide.htm#installation_methods for instructions on updating. This version of Weather34 is compatible with WeeWX 4.6.0/Python3.x.
