@@ -63,7 +63,23 @@ Once completed, make sure you save weewx.conf
 
 * Automatic database backup module. 
 			
-   At the end of the weewx.conf file add this stanza: -
+   Open your weewx.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line add:-
+
+			,user.w34_db_backup.W34_DB_Backup
+			
+   Then at the end of the file add this stanza: -
+
+			[W34_DB_Backup]
+				
+				# database path(s) seperated by , rename this/these database(s) to match your own
+    				databases = /home/weewx/archive/weewx.sdb,/home/weewx/archive/another.sdb
+				
+				# backup path(s) comma seperated 
+    				backups = [your_backup_path]/weewx_backup.sdb,[your_backup_path]/home/pi/another_backup.sdb
+				
+				# set the daily time to backup comma seperated for multiple databases
+				# the time must be set an to archive time so it runs immediately after the archive interval processes are complete
+    				backup_times = 00:00,00:00
 
 			[W34_DB_Backup]
 				
