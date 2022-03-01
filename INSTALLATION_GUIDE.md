@@ -26,10 +26,6 @@ IMPORTANT. Installing PHP; please make sure you install all the PHP modules appr
 
         sudo apt install python2-ephem or sudo apt install python3-ephem
 
-* If you are going to use the optional enhancement to convert RSS XML feeds to json data for Web Services, the following Python library must be installed (this is required if you are going to use the RSS XML earthquake data and/or the UK MetOffice Severe Weather Warning RSS XML streams): -
-
-		sudo pip3 install xmltodict (if using Python3.x) or sudo pip install xmltodict (for users still using Python2.x)
-
 Once completed, make sure you save weewx.conf
 
 * If you have have the CRT extension (Cumulus Real-Time) extension installed, unless you require it for another purpose, you can remove it now. (sudo ./wee_extension --uninstall crt)
