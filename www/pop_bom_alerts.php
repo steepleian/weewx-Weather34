@@ -29,7 +29,7 @@ if ($theme === "dark") {
       $url = "cyan";
   } elseif ($theme === "light") {
       $text1 = "black";
-      $url = "blue";
+      $url = "green";
   }
   $forecastime = filemtime("jsondata/ns.txt");
   ?> 
@@ -40,7 +40,7 @@ $parsed_json = json_decode($jsonData, true);
 $title1 = $parsed_json["channel"]["title"];
 ?>
 <div class="weather34darkbrowser" style="color:<?php echo $text1; ?>;" url="<?php echo $title1; ?>"></div>
-<main class="grid1"  style="font-size:13px";>  
+<main class="grid3"  style="font-size:13px";>  
 <?php for ($i = 0; $i < count($parsed_json["channel"]["item"]); $i++) {
 
     $title2[$i] = $parsed_json["channel"]["item"][$i]["title"];
@@ -49,7 +49,7 @@ $title1 = $parsed_json["channel"]["title"];
     $guid[$i] = $parsed_json["channel"]["item"][$i]["guid"];
     ?>
 
-<articlegraph>  
+<articlegraph3>  
   <div class="lotemp" style="color:<?php echo $text1; ?>;";>
                      <?php echo $title2[$i]; ?> 
 <a href="<?php echo $link[$i]; ?>" title="<?php echo $link[
@@ -60,7 +60,7 @@ $title1 = $parsed_json["channel"]["title"];
   </div>
   
    
-  </articlegraph>   
+  </articlegraph3>   
  <?php
 } ?>   
         
