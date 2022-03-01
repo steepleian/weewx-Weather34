@@ -5,7 +5,7 @@
 <!-- Original code written by Ian Millard -->
 <!-- Rewritten on Feburary 2021 by Steven Sheeley, reusing the file saving routine -->
 <!-- Whilst it was attempted to maintain the look and feel of the original, all -->
-<!-- html, css and javascript used in the new page is by Steven Sheeley -->
+<!-- html, css and javascript used in the new page is by Steven Sheeley for the Weather34/DivumWX Team-->
 
 <head>
     <meta charset="utf-8">
@@ -13,6 +13,7 @@
     <link rel="icon" href="https://steepleian.github.io/weewx-Weather34/favicon.ico"/>
     <meta name="description" content="This form generates the services.txt file that is needed to install the Weather34 skin and modify the weewx conf file." />
     <meta name="robots" content="noindex, nofollow">
+    <meta name="version" content="2.0.1010">
     <script src="https://kit.fontawesome.com/772d7a8539.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <style>
@@ -184,7 +185,7 @@
             <div>
                 Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
                 <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes
-                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://www.aerisweather.com/signup/pws/" target="_blank" rel="noopener noreferrer">here.</a>)<br />
+                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://www.aerisweather.com/signup/pws/" target="_blank" rel="noopener noreferrer">here.</a>)
                 <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i><br />
                 <input type="text" id="txtAwKey" disabled="true" /><br />
                 <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Secret."></i><br />
@@ -195,12 +196,12 @@
                 <h4>Weather Underground Key/Unit Section</h4>
             </div>
             <div>
-                Do you have a Weather Underground Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground Key and select the measurement units."></i>
+                Do you have a Weather Underground Key?&nbsp;<i class="fa fa-question-circle" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground Key and select the measurement units."></i>
                 <input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" />Yes</label>
                 <input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" checked />No</label>&nbsp;&nbsp;(Details can be found <a href="https://www.wunderground.com/signup" target="_blank" rel="noopener noreferrer">here.</a>)
             </div>
             <div>
-                <label for="text">Weather Underground API Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground API Key."></i><br />
+                <label for="text">Weather Underground API Key</label>&nbap;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground API Key."></i><br />
                 <input type="text" id="txtWuKey" disabled="true" /><br />
                 <label>Please select your Weather Underground Units below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your Weather Underground Units from the list below"></i><br />
                 <select id="selWuUnits" disabled="true">
@@ -337,6 +338,11 @@
             <div style="text-align: center"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
       </div>
     <!-- End Container-->
+    <script>
+        window.onload=function(){
+            document.getElementById("txtLat").focus();
+        }
+    </script>
     <script>
         var mymap = L.map('mapid').fitWorld();
         var txtLat = document.getElementById('txtLat');
@@ -535,7 +541,7 @@
                     " 'me_interval':'3600'" + ',' + ' \r\n' +
                     " 'pu_url':'https://www.purpleair.com/json?show=" + pu_id.value + "'" + ',' + ' \r\n' +
                     " 'pu_interval':'3600'" + ',' + ' \r\n' +
-                    " 'ns_url':'http://www.bom.gov.au/fwo/" + bm_state.value + ' \r\n' +
+                    " 'ns_url':'http://www.bom.gov.au/fwo/" + bm_state.value + "'" + ' \r\n' +
                     " 'ns_interval':'900'" + ',' + ' \r\n' +
                     " 'ns_xml_data':'True'" + ',' + ' \r\n' +
                     " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/" + uk_region.value + "'" + ',' + ' \r\n' +
