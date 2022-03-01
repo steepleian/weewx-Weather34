@@ -3,10 +3,10 @@
 
 <?php
 
-$json = 'jsondata/ns.txt'; 
-$json = file_get_contents($json); 
-$parsed_json = json_decode($json, true);
-if(($parsed_json['rss']['channel']['item'][0]['title'])!==null){$alertlevel="Yellow";}
+$xml = simplexml_load_file("jsondata/ns.txt") or die("Error: Cannot create object");
+$jsonData = json_encode($xml, JSON_PRETTY_PRINT);
+$parsed_json = json_decode($jsonData, true);
+if(($parsed_json['channel']['item'][0]['title'])!==null){$alertlevel="Yellow";}
 else $alertlevel="LightGreen";
 
 ?>
@@ -146,7 +146,7 @@ else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelig
    </spanelightning></div></div></div>';}  
  
   else if (strpos($alertlevel,'LightGreen') !== false)
-  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="metofficealerts.php" data-lity>'.$newalertgreen.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
+  {echo '<spanelightning><alertadvisory><a alt="Alerts" title="Alerts" href="pop_bom_alerts.php" data-lity>'.$newalertgreen.'</alertadvisory><alertvalue> Currently <lightgreen>No Alerts</lightgreen></alertvalue>
   </spanelightning></div></div></div>';}  
  //WEATHER34 solar eclipse events and no alerts 
  else {echo '<spanelightning><alertvalue>'.$eclipse_default.'</spanelightning></div></div></div>';}   
