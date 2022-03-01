@@ -5,7 +5,7 @@
 <!-- Original code written by Ian Millard -->
 <!-- Rewritten on Feburary 2021 by Steven Sheeley, reusing the file saving routine -->
 <!-- Whilst it was attempted to maintain the look and feel of the original, all -->
-<!-- html, css and javascript used in the new page is by Steven Sheeley -->
+<!-- html, css and javascript used in the new page is by Steven Sheeley for the Weather34/DivumWX Team-->
 
 <head>
     <meta charset="utf-8">
@@ -337,6 +337,11 @@
             <div style="text-align: center"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
       </div>
     <!-- End Container-->
+    <script>
+        window.onload=function(){
+            document.getElementById("txtLat").focus();
+        }
+    </script>
     <script>
         var mymap = L.map('mapid').fitWorld();
         var txtLat = document.getElementById('txtLat');
