@@ -34,20 +34,19 @@ if ($theme === "dark") {
   $forecastime = filemtime("jsondata/ns.txt");
   ?> 
 <?php
-$json = "jsondata/ns.txt";
-$json = file_get_contents($json);
-$parsed_json = json_decode($json, true);
-//$cnt=count($parsed_json['rss']['channel']['item']); echo $cnt;
-$title1 = $parsed_json["rss"]["channel"]["title"];
+$xml = simplexml_load_file("jsondata/ns.txt") or die("Error: Cannot create object");
+$jsonData = json_encode($xml, JSON_PRETTY_PRINT);
+$parsed_json = json_decode($jsonData, true);
+$title1 = $parsed_json["channel"]["title"];
 ?>
 <div class="weather34darkbrowser" style="color:<?php echo $text1; ?>;" url="<?php echo $title1; ?>"></div>
 <main class="grid1"  style="font-size:13px";>  
-<?php for ($i = 0; $i < count($parsed_json["rss"]["channel"]["item"]); $i++) {
+<?php for ($i = 0; $i < count($parsed_json["channel"]["item"]); $i++) {
 
-    $title2[$i] = $parsed_json["rss"]["channel"]["item"][$i]["title"];
-    $link[$i] = $parsed_json["rss"]["channel"]["item"][$i]["link"];
-    $pubDate[$i] = $parsed_json["rss"]["channel"]["item"][$i]["pubDate"];
-    $guid[$i] = $parsed_json["rss"]["channel"]["item"][$i]["guid"]["#text"];
+    $title2[$i] = $parsed_json["channel"]["item"][$i]["title"];
+    $link[$i] = $parsed_json["channel"]["item"][$i]["link"];
+    $pubDate[$i] = $parsed_json["channel"]["item"][$i]["pubDate"];
+    $guid[$i] = $parsed_json["channel"]["item"][$i]["guid"];
     ?>
 
 <articlegraph>  
