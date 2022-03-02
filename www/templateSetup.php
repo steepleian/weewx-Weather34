@@ -417,7 +417,7 @@ WeeWX Software Paths to Data files</div><br/>
 
   <input name="livedata" type="text" id="livedata" value="<?php echo $livedata ;?>" class="chooseapi">
   <br/>
-  <span style='color:red'>Do not change unless you know what you're doing (/var/www/html/weather34/serverdata/w34realtime.txt)</span>
+  <span style='color:red'>The path is normally: - serverdata/w34realtime.txt</span>
     
   <br/> 
      
