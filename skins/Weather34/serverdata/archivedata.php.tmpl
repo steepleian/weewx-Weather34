@@ -116,7 +116,7 @@
           #import time
 #set almost_end = $rainyear.end.raw - 1
 #set almost_end_tt = $time.localtime($almost_end)
-#######################SAME ORDER AS METEOBRIDGEAPI
+#######################
 $theme_switch = "$bodyTheme";
 $weewxapi[17] = "$span($time_delta=300).windSpeed.avg.format(add_label=False, $localize=False)";
 $weewxapi[18] = "$span($hour_delta=1).barometer.avg.format(add_label=False, $localize=False)";
@@ -136,8 +136,6 @@ $weewxapi[34] = "$day.barometer.max.format(add_label=False, $localize=False)";
 $weewxapi[35] = "$day.barometer.maxtime.format(format_string="%H:%M")";
 $weewxapi[36] = "$day.barometer.min.format(add_label=False, $localize=False)";
 $weewxapi[37] = "$day.barometer.mintime.format(format_string="%H:%M")";
-## $daymaxintemp = "$day.inTemp.max.format(add_label=False, $localize=False)";
-## $dayminintemp = "$day.inTemp.min.format(add_label=False, $localize=False)"; 
 $weewxapi[40] = "$current.windGust.format(add_label=False, $localize=False)";
 $weewxapi[41] = "$current.heatindex.format(add_label=False, $localize=False)";
 $weewxapi[44] = "$span($hour_delta=24).rain.sum.format(add_label=False, $localize=False)";
@@ -389,6 +387,8 @@ $saturn_hlongitude	       = "$almanac.saturn.hlong";
 $uranus_hlongitude	       = "$almanac.uranus.hlong";
 $neptune_hlongitude	       = "$almanac.neptune.hlong";
 $pluto_hlongitude	       = "$almanac.pluto.hlong";
+
+$civilam = $sun['civil_twilight_begin'];
 
 if (
     strtotime(date("G.i")) >= strtotime($civil_twighlight_begin) &&
