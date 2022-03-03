@@ -105,7 +105,7 @@ if (isset($weewxapi)){
 	$weather["build"]	                  = $weewxrt[39];
 	$weather["actualhardware"]            = $weewxapi[42];
 	$weather["mbplatform"]	              = $weewxapi[41];
-	$weather["uptime"]	                  = $weewxapi[81];//uptime in seconds
+	$weather["uptime"]	                  = $weewxapi[81];   //uptime Days, Hours, Minutes, no need for NULL/Empty checking
 	$weather["vpforecasttext"]            = $weewxapi1[1];//davis console forecast text
 	$weather["temp_avgtoday"]             = $weewxapi[152];
 	$weather['wind_speed_avg30']          = $weewxapi[158];
