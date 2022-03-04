@@ -10,9 +10,13 @@
 # Millard), with permission from Brian Underwood, December 2019.                                   #
 #                                                                                                  #
 #                              https://claydonsweather.org.uk 	                                   #
+#                                                                                                  #
+# Code rewritted to handle numeric fields, when NULL in the database, being written as "N/A" in    #
+# in the archivedata.php file, causing blank page to be displayed, due to strict error handling    #
+# in PHP8.                                                                                         #
 ####################################################################################################
-// original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original
-// by weather34 (Brian Underwood)
+# original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original
+# by weather34 (Brian Underwood)
 include('settings.php');
 include('shared.php');
 error_reporting(0);
@@ -44,27 +48,27 @@ if (isset($weewxapi)){
 	$weather["date"]                      = date($dateFormat, $recordDate);
 	$weather["time"]                      = date($timeFormat, $recordDate);
 	$weather["barometer"]                 = $weewxrt[10];
-	$weather["barometer_max"]             = $weewxapi[34];
-	$weather["barometer_min"]             = $weewxapi[36];
+	$weather["barometer_max"]             = (is_numeric($weewxapi[34]) ? number_format($weewxapi[34],1) : null);
+	$weather["barometer_min"]             = (is_numeric($weewxapi[36]) ? number_format($weewxapi[36],0) : "0");
 	$weather["barometer_units"]           = $weewxrt[15]; // mb or hPa or kPa or in
-	$weather["barometer_trend"]           = $weewxrt[10] - $weewxapi[18];
+	$weather["barometer_trend"]           = $weewxrt[10] - (is_numeric($weewxapi[18]) ? number_format($weewxapi[18],0) : "0");
 	$weather["temp_units"]                = $weewxrt[14]; // C
 	$weather["temp_indoor"]               = $weewxrt[22];
 	$weather["temp_indoor_feel"]          = heatIndex($weewxrt[22], $weewxrt[23]); // must set temp_units first
-	$weather["temp_indoormax"]            = $weewxapi[120];
-	$weather["temp_indoormin"]            = $weewxapi[121];
+	$weather["temp_indoormax"]            = (is_numeric($weewxapi[120]) ? number_format($weewxapi[120],0) : "0");
+	$weather["temp_indoormin"]            = (is_numeric($weewxapi[121]) ? number_format($weewxapi[121],0) : "0");
 	$weather["humidity_indoor"]           = $weewxrt[23];
-	$weather["humidity_indoor15"]         = $weewxapi[71];
-	$weather["humidity_indoortrend"]      = $weewxrt[23] - $weewxapi[71];
+	$weather["humidity_indoor15"]         = (is_numeric($weewxapi[71]) ? number_format($weewxapi[71],0) : "0");
+	$weather["humidity_indoortrend"]      = $weewxrt[23] - (is_numeric($weewxapi[71]) ? number_format($weewxapi[71],0) : "0");
 	$weather["rain_rate"]                 = $weewxrt[8];
 	$weather["dewpoint"]                  = (is_numeric($weewxrt[4]) ? number_format($weewxrt[4],1) : null);
 	$weather["rain_today"]                = $weewxrt[9];
-	$weather["rain_lasthour"]             = $weewxapi[47];
-	$weather["rain_last3hours"]           = $weewxapi[202];
-	$weather["rain_yesterday"]            = $weewxapi[21];
-	$weather["rain_month"]                = $weewxapi[19];
-	$weather["rain_year"]                 = $weewxapi[20];
-	$weather["rain_24hrs"]                = $weewxapi[44];
+	$weather["rain_lasthour"]             = (is_numeric($weewxapi[47]) ? number_format($weewxapi[47],0) : "0");
+	$weather["rain_last3hours"]           = (is_numeric($weewxapi[202]) ? number_format($weewxapi[202],0) : "0");
+	$weather["rain_yesterday"]            = (is_numeric($weewxapi[21]) ? number_format($weewxapi[21],0) : "0");
+	$weather["rain_month"]                = (is_numeric($weewxapi[19]) ? number_format($weewxapi[19],0) : "0");
+	$weather["rain_year"]                 = (is_numeric($weewxapi[20]) ? number_format($weewxapi[20],0) : "0");
+	$weather["rain_24hrs"]                = (is_numeric($weewxapi[44]) ? number_format($weewxapi[44],0) : "0");
 	$weather["rain_units"]                = $weewxrt[16]; // mm or in
 	$weather["uv"]                        = $weewxrt[43];
 	$weather["solar"]                     = (is_numeric($weewxrt[45]) ? round($weewxrt[45],1) : null);
@@ -73,22 +77,22 @@ if (isset($weewxapi)){
 	$weather["heatindex"]                 = ($weewxrt[41] == 'NULL' ? $weewxapi[41]  : $weewxrt[41]); // Use Archive data if loop data missing^M
 	$weather["windchill"]                 = ($weewxrt[24] == 'NULL' ? $weewxapi[24]  : $weewxrt[24]); // Use Archive data if loop data missing^M
 	$weather["humidity"]                  = (is_numeric($weewxrt[3]) ? number_format($weewxrt[3],0) : null);
-	$weather["temp_today_high"]           = $weewxapi[26];
-	$weather["temp_today_low"]            = $weewxapi[28];
-	$weather["temp_avg15"]                = $weewxapi[67];
-	$weather["temp_avg"]                  = $weewxapi[123]; // last 60 minutes
+	$weather["temp_today_high"]           = (is_numeric($weewxrt[26]) ? number_format($weewxrt[26],0) : null);
+	$weather["temp_today_low"]            = (is_numeric($weewxrt[28]) ? number_format($weewxrt[28],0) : null);
+	$weather["temp_avg15"]                = (is_numeric($weewxrt[67]) ? number_format($weewxrt[67],0) : null);
+	$weather["temp_avg"]                  = (is_numeric($weewxrt[123]) ? number_format($weewxrt[123],0) : "0"); // last 60 minutes
 	$weather["wind_speed_avg"]            = $weewxrt[5]; //Console's Average Wind Speed
 	$weather["wind_direction"]            = (is_numeric($weewxrt[7]) ? number_format($weewxrt[7],0) : null);
 	$weather["wind_direction_avg"]        = (is_numeric($weewxapi[46]) ? number_format($weewxapi[46],0) : null);
-	$weather["wind_speed"]                = (is_numeric($weewxrt[6]) ? number_format($weewxrt[6]) : null); // Instant Wind Speed
+	$weather["wind_speed"]                = (is_numeric($weewxrt[6]) ? number_format($weewxrt[6],0) : null); // Instant Wind Speed
 	$weather["wind_gust_10min"]           = $weewxrt[40]; // Wind Speed Gust - Max speed of last 10 minutes
-	$weather["wind_gust_speed"]           = $weewxapi[40]; //
-	$weather["wind_gust_60min"]           = $weewxapi[201]; //
+	$weather["wind_gust_speed"]           = (is_numeric($weewxrt[40]) ? number_format($weewxrt[40],1) : "0");
+	$weather["wind_gust_60min"]           = (is_numeric($weewxrt[201]) ? number_format($weewxrt[201],1) : "0");
 	$weather["wind_speed_bft"]            = $weewxrt[12];
-	$weather["wind_speed_max"]            = $weewxapi[30];
-	$weather["wind_gust_speed_max"]       = $weewxapi[32];
-	$weather["wind_units"]                = $weewxrt[13]; // m/s or mph or km/h or kts
-	$weather["wind_speed_avg15"]          = $weewxapi[72];
+	$weather["wind_speed_max"]            = (is_numeric($weewxrt[30]) ? number_format($weewxrt[30],1) : "0");
+	$weather["wind_gust_speed_max"]       = (is_numeric($weewxrt[32]) ? number_format($weewxrt[32],1) : "0");
+	$weather["wind_units"]                = (is_numeric($weewxrt[13]) ? number_format($weewxrt[13],1) : "0"); // m/s or mph or km/h or kts
+	$weather["wind_speed_avg15"]          = (is_numeric($weewxrt[72]) ? number_format($weewxrt[72],1) : "0");
 	$weather["wind_speed_avg30"]          = $weewxapi[73];
 	$weather["sunshine"]                  = $weewxapi[55];
 	$weather["maxsolar"]                  = (is_numeric($weewxapi[80]) ? number_format($weewxapi[80],0) : null);
@@ -105,7 +109,7 @@ if (isset($weewxapi)){
 	$weather["build"]	                  = $weewxrt[39];
 	$weather["actualhardware"]            = $weewxapi[42];
 	$weather["mbplatform"]	              = $weewxapi[41];
-	$weather["uptime"]	                  = $weewxapi[81];//uptime in seconds
+	$weather["uptime"]	                  = $weewxapi[81];   //uptime Days, Hours, Minutes, no need for NULL/Empty checking
 	$weather["vpforecasttext"]            = $weewxapi1[1];//davis console forecast text
 	$weather["temp_avgtoday"]             = $weewxapi[152];
 	$weather['wind_speed_avg30']          = $weewxapi[158];
