@@ -64,7 +64,7 @@ if (isset($weewxapi)){
 	$weather["dewpoint"]                  = (is_numeric($weewxrt[4]) ? number_format($weewxrt[4],1) : null);
 	$weather["rain_today"]                = $weewxrt[9];
 	$weather["rain_lasthour"]             = (is_numeric($weewxapi[47]) ? number_format($weewxapi[47],1) : "0");
-	$weather["rain_last3hours"]           = (is_numeric($weewxapi[202]) ? number_format($weewxapi[202],1) : "0")
+	$weather["rain_last3hours"]           = (is_numeric($weewxapi[202]) ? number_format($weewxapi[202],1) : "0");
 	$weather["rain_yesterday"]            = (is_numeric($weewxapi[21]) ? number_format($weewxapi[21],1) : "0");
 	$weather["rain_month"]                = (is_numeric($weewxapi[19]) ? number_format($weewxapi[19],1) : "0");
 	$weather["rain_year"]                 = (is_numeric($weewxapi[20]) ? number_format($weewxapi[20],1) : "0");
