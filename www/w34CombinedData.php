@@ -91,7 +91,7 @@ if (isset($weewxapi)){
 	$weather["wind_speed_bft"] = $weewxrt[12];
 	$weather["wind_speed_max"] = (is_numeric($weewxrt[30]) ? number_format($weewxrt[30],1) : null);
 	$weather["wind_gust_speed_max"] = (is_numeric($weewxrt[32]) ? number_format($weewxrt[32],1) : null);
-	$weather["wind_units"] = (is_numeric($weewxrt[13]) ? number_format($weewxrt[13],1) : null); // m/s or mph or km/h or kts
+	$weather["wind_units"] = $weewxrt[13]; // m/s or mph or km/h or kts
 	$weather["wind_speed_avg15"] = (is_numeric($weewxrt[72]) ? number_format($weewxrt[72],1) : null);
 	$weather["wind_speed_avg30"] = ($weewxapi[73] == "   N/A" ? "0" : $weewxapi[73]);
 	$weather["sunshine"] = ($weewxapi[55] == "   N/A" ? "0" : $weewxapi[55]);
