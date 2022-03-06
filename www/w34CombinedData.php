@@ -111,7 +111,7 @@ if (isset($weewxapi)){
 	$weather["mbplatform"] = ($weewxapi[41] == "   N/A" ? "0" : $weewxapi[41]);
 	$weather["uptime"] = ($weewxapi[81] == "   N/A" ? "0" : $weewxapi[81]);
 	// Verify the below variable of $weewxapi1
-	$weather["vpforecasttext"] = $weewxapi1[1]; //davis console forecast text
+	//$weather["vpforecasttext"] = $weewxapi1[1]; //davis console forecast text
 	$weather["temp_avgtoday"] = ($weewxapi[152] == "   N/A" ? "0" : $weewxapi[152]);
 	//Verify next two variables as they are duplicates
 	$weather['wind_speed_avg30'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
@@ -287,7 +287,7 @@ if (isset($weewxapi)){
 	$weather["humidity_mintime"] = $hummintime;
 	//hum year max
 	$weather["humidity_ymax"] = (is_numeric($weewxapi[163]) ? number_format($weewxapi[163],0) : null);
-	$originalDate754 = $($weewxapi[164] == "   N/A" ? "0" : $weewxapi[164]);
+	$originalDate754 = ($weewxapi[164] == "   N/A" ? "0" : $weewxapi[164]);
 	$humymaxtime = date('jS M',strtotime($originalDate754));
 	$weather["humidity_ymaxtime"] = $humymaxtime;
 	//hum year min
@@ -297,7 +297,7 @@ if (isset($weewxapi)){
 	$weather["humidity_ymintime"] = $humymintime;
 	//hum month max
 	$weather["humidity_mmax"] = (is_numeric($weewxapi[159]) ? number_format($weewxapi[159],0) : null);
-	$originalDate756 = ($weewxapi[160] == "   N/A" ? "0" : $weewxapi[160
+	$originalDate756 = ($weewxapi[160] == "   N/A" ? "0" : $weewxapi[160]);
 	$hummmaxtime = date('jS M',strtotime($originalDate756));
 	$weather["humidity_mmaxtime"] = $hummmaxtime;
 	//hum month min
@@ -328,19 +328,19 @@ if (isset($weewxapi)){
 	//wind gust
 	$originalDate8 = ($weewxapi[95] == "   N/A" ? "0" : $weewxapi[95]);
     $windydmaxtime = date("H:i", strtotime($originalDate8));
-	$originalDate9 = ($weewxapi[] == "   N/A" ? "0" : $weewxapi[]);$weewxapi[97];
+	$originalDate9 = ($weewxapi[97] == "   N/A" ? "0" : $weewxapi[97]);
     $windmmaxtime = date('jS M', strtotime($originalDate9));
 	$windmmaxtime2 = date('jS M', strtotime($originalDate9));
-	$originalDate10 = ($weewxapi[] == "   N/A" ? "0" : $weewxapi[]);$weewxapi[99];
+	$originalDate10 = ($weewxapi[99] == "   N/A" ? "0" : $weewxapi[99]);
     $windymaxtime =  date('jS M', strtotime($originalDate10));
 	$windymaxtime2 =  date('jS M', strtotime($originalDate10));
-	$originalDate11 = ($weewxapi[] == "   N/A" ? "0" : $weewxapi[]);$weewxapi[33];
+	$originalDate11 = ($weewxapi[33] == "   N/A" ? "0" : $weewxapi[33]);
     $winddmaxtime =  date('H:i', strtotime($originalDate11));
-	$originalavgDate = ($weewxapi[] == "   N/A" ? "0" : $weewxapi[]);$weewxapi[31];
+	$originalavgDate = ($weewxapi[31] == "   N/A" ? "0" : $weewxapi[31]);
     $windavgdmaxtime = date("H:i", strtotime($originalavgDate));
-	$originalDate8a = ($weewxapi[] == "   N/A" ? "0" : $weewxapi[]);$weewxapi[134];
+	$originalDate8a = ($weewxapi[134] == "   N/A" ? "0" : $weewxapi[134]);
     $windamaxtime = date("jS M Y", strtotime($originalDate8a));
-	$weather["windamax"] = ($weewxapi[] == "   N/A" ? "0" : $weewxapi[133]); //wind max yesterday
+	$weather["windamax"] = ($weewxapi[133] == "   N/A" ? "0" : $weewxapi[133]); //wind max yesterday
 	$weather["windamaxtime"] = $windamaxtime; //seconds
 	$weather["windavgdmaxtime"] = $windavgdmaxtime; //seconds
 	$weather["windydmax"] = ($weewxapi[94] == "   N/A" ? "0" : $weewxapi[94]); //wind max yesterday
