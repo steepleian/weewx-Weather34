@@ -120,8 +120,6 @@ if (isset($weewxapi))
     // Verify the below variable of $weewxapi1
     //$weather["vpforecasttext"] = $weewxapi1[1]; //davis console forecast text
     $weather["temp_avgtoday"] = ($weewxapi[152] == "   N/A" ? "0" : $weewxapi[152]);
-    //Verify next two variables as they are duplicates
-    $weather['wind_speed_avg30'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
     $weather['wind_speed_avgday'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
     $weather["cloud_cover"] = ($weewxapi[204] == "   N/A" ? "0" : $weewxapi[204]);
     //weather34 windrun
