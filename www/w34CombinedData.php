@@ -2,18 +2,18 @@
 ####################################################################################################
 # This the the W34CombinedData.php file, which was created by using the original liveData.php file #
 # that was writted and copyrighted by Brian Underwood (c) 2015-2019 for the Weather34 Template.    #
-#                  #
-# The origianl liveData.php script was created for the Homeweather Station template at   #
-#      https://weather34.com/homeweatherstation       #
-#                  #
-# This WeeWx specific version of the liveData.php file has been adapted by Steepleian (Ian    #
-# Millard), with permission from Brian Underwood, December 2019.          #
-#                  #
-#     https://claydonsweather.org.uk      #
-#                  #
-# Code rewritted to handle numeric fields, when NULL in the database, being written as "N/A" in    #
+#                  																				   #
+# The origianl liveData.php script was created for the Homeweather Station template at   		   #
+#                              https://weather34.com/homeweatherstation       					   #
+#                  																				   #
+# This WeeWx specific version of the liveData.php file has been adapted by Steepleian (Ian    	   #
+# Millard), with permission from Brian Underwood, December 2019.          						   #
+#                  																				   #
+#                                   https://claydonsweather.org.uk      						   #
+#                  																				   #
+# Code rewritted to handle numeric fields, when NULL in the database, being written as "   N/A" in #
 # in the archivedata.php file, causing blank page to be displayed, due to strict error handling    #
-# in PHP8.                   #
+# in PHP8.                   																	   #
 ####################################################################################################
 # original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original
 # by weather34 (Brian Underwood)
