@@ -148,7 +148,7 @@
         <div class="Banner">
             <div style="text-align: center">
                 <h3>Weather34 services.txt Generator</h3>
-                <h5>Version - 2.1.54</h5>
+                <h5>Version - 2.2.01</h5>
             </div>
             <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the Weather34 Archive file to. Once this is complete, you are ready to do the base installation of the Weather34 Skin.</div><br />
             <div style="text-align: center"><i class="fa-solid fa-exclamation"></i>&nbsp;<b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
@@ -347,9 +347,9 @@
         var mymap = L.map('mapid').fitWorld();
         var txtLat = document.getElementById('txtLat');
         var txtLon = document.getElementById('txtLon');
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmF5dmVuaGF1cyIsImEiOiJjbDBnNXpoaDYwcXRxM2puc29qajZ3dDgxIn0.3wG1BkjQ8ynbhqekMYU8rg', {
+        //L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmF5dmVuaGF1cyIsImEiOiJjbDBnNXpoaDYwcXRxM2puc29qajZ3dDgxIn0.3wG1BkjQ8ynbhqekMYU8rg', {
+        L.tileLayer('https://api.tomtom.com/map/1/tile/hybrid/main/18/{X}/{Y}.png?key=DULI3JfdkCl2rJs1V9GDptweOiY9EP4i', {
             maxZoom: 22,
-            id: 'mapbox/streets-v11',
             tileSize: 512,
             zoomOffset: -1
         }).addTo(mymap);
