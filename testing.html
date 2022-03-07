@@ -377,6 +377,7 @@
             var txtAwSecret = document.getElementById("txtAwSecret");
             txtAwKey.disabled = awKeyChkd.checked ? false : true;
             txtAwSecret.disabled = awKeyChkd.checked ? false : true;
+            ckaw.checked.enable = awKeyChkd.checked ? false : true;
             if (!awKeyChkd.disabled) {
                 awKeyChkd.focus();
             }
