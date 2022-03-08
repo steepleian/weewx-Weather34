@@ -84,9 +84,9 @@ if (isset($weewxapi))
     $weather["heatindex"] = ($weewxrt[41] == 'NULL' ? $weewxapi[41] : $weewxrt[41]); // Use Archive data if loop data missing^M
     $weather["windchill"] = ($weewxrt[24] == 'NULL' ? $weewxapi[24] : $weewxrt[24]); // Use Archive data if loop data missing^M
     $weather["humidity"] = (is_numeric($weewxrt[3]) ? number_format($weewxrt[3], 0) : null);
-    $weather["temp_today_high"] = (is_numeric($weewxrt[26]) ? number_format($weewxrt[26], 0) : null);
-    $weather["temp_today_low"] = (is_numeric($weewxrt[28]) ? number_format($weewxrt[28], 0) : null);
-    $weather["temp_avg15"] = (is_numeric($weewxrt[67]) ? number_format($weewxrt[67], 0) : null);
+    $weather["temp_today_high"] = (is_numeric($weewxrt[26]) ? number_format($weewxrt[26], 1) : null);
+    $weather["temp_today_low"] = (is_numeric($weewxrt[28]) ? number_format($weewxrt[28], 1) : null);
+    $weather["temp_avg15"] = (is_numeric($weewxrt[67]) ? number_format($weewxrt[67], 1) : null);
     $weather["temp_avg"] = ($weewxapi[123] == "   N/A" ? "0" : $weewxapi[123]);
     $weather["wind_speed_avg"] = $weewxrt[5]; //Console's Average Wind Speed
     $weather["wind_direction"] = (is_numeric($weewxrt[7]) ? number_format($weewxrt[7], 0) : null);
@@ -120,10 +120,13 @@ if (isset($weewxapi))
     // Verify the below variable of $weewxapi1
     //$weather["vpforecasttext"] = $weewxapi1[1]; //davis console forecast text
     $weather["temp_avgtoday"] = ($weewxapi[152] == "   N/A" ? "0" : $weewxapi[152]);
+    //Verify next two variables as they are duplicates
+    $weather['wind_speed_avg30'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
     $weather['wind_speed_avgday'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
     $weather["cloud_cover"] = ($weewxapi[204] == "   N/A" ? "0" : $weewxapi[204]);
     //weather34 windrun
-    $weather["windrun"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
+    //$weather["windrun"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
+    $weather["windrun"] = $weewxapi[200];
     //weather34 weewx moon sun data
     $weather["moonphase"] = ($weewxapi[153] == "   N/A" ? "0" : $weewxapi[153]);
     $weather["luminance"] = ($weewxapi[154] == "   N/A" ? "0" : $weewxapi[154]);
