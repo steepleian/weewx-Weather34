@@ -3778,7 +3778,6 @@ rainu {
 
 /* CSS for the flyout menu */
 .weather34sidebarMenuInner li.sub {
-  background-image: url(sub2.svg);
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: center;
@@ -3793,7 +3792,7 @@ rainu {
   /* set up the overrun area */
   padding: 30px;
   /* this is for IE to make it interpret the overrrun padding */
-  background: transparent url(transparent.gif);
+  background: transparent;
 }
 
 .weather34sidebarMenuInner li.sub ul li {
