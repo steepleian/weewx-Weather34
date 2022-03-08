@@ -19,10 +19,12 @@ include_once('w34CombinedData.php');
 error_reporting(0); date_default_timezone_set($TZ);
 header('Content-type: text/html; charset=UTF-8');
 if ($windunit=='kts'){$windunit="kn";}
-$jsonfile="jsondata/ad.txt";if(!file_exists($jsonfile)) {return;}
+$jsonfile="jsondata/awd.txt";if(!file_exists($jsonfile)) {return;}
 ?>
 
+
 <div class="updatedtime1"><?php $forecastime=filemtime('jsondata/awd.txt');
+
 $forecasturl = file_get_contents("jsondata/awd.txt");
 if(filesize('jsondata/awd.txt')<1){echo "".$offline. "";}
 else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>

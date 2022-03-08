@@ -32,11 +32,11 @@ $forecastTime[0] = "0";
 
 
 <?php
-$forecastime = filemtime('jsondata/ad.txt');
+$forecastime = filemtime('jsondata/awd.txt');
 $jsonIcon = 'jsondata/lookupTable.json';
 $jsonIcon = file_get_contents($jsonIcon);
 $parsed_icon = json_decode($jsonIcon, true);
-$json = 'jsondata/ad.txt';
+$json = 'jsondata/awd.txt';
 $json = file_get_contents($json);
 $parsed_json = json_decode($json, true);
 for ($k = 0;$k < 14;$k++)
