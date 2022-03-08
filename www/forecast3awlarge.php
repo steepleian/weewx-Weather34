@@ -21,7 +21,7 @@ date_default_timezone_set($TZ);
 $jsonIcon = 'jsondata/lookupTable.json';
 $jsonIcon = file_get_contents($jsonIcon);
 $parsed_icon = json_decode($jsonIcon, true);
-$json        = 'jsondata/ad.txt';
+$json        = 'jsondata/awd.txt';
 $forecasturl = file_get_contents($json);
 $parsed_json = json_decode($forecasturl, true);
 $pngicon = $parsed_json['response'][0]['periods'][0]['icon'];
@@ -57,9 +57,9 @@ $forecastheatindex = $parsed_json['response'][0]['periods'][0]['avgFeelslikeC'];
 
 ?>
 <div class="updatedtime1"><?php
-$forecastime = filemtime('jsondata/ad.txt');
-$forecasturl = file_get_contents("jsondata/ad.txt");
-if (filesize('jsondata/ad.txt') < 1) {
+$forecastime = filemtime('jsondata/awd.txt');
+$forecasturl = file_get_contents("jsondata/awd.txt");
+if (filesize('jsondata/awd.txt') < 1) {
     echo "" . $offline . "";
 } else
     echo $online, "";

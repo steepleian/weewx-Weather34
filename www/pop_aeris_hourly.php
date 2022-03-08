@@ -42,7 +42,7 @@ else if ($theme === "light")
 
 <body>
 <?php
-$forecastime = filemtime('jsondata/ah.txt'); ?>
+$forecastime = filemtime('jsondata/awh.txt'); ?>
 
   
 <main class="grid">
@@ -50,8 +50,8 @@ $forecastime = filemtime('jsondata/ah.txt'); ?>
 $jsonIcon = 'jsondata/lookupTable.json';
 $jsonIcon = file_get_contents($jsonIcon);
 $parsed_icon = json_decode($jsonIcon, true);
-$forecastime = filemtime('jsondata/ah.txt');
-$json = 'jsondata/ah.txt';
+$forecastime = filemtime('jsondata/awh.txt');
+$json = 'jsondata/awh.txt';
 $json = file_get_contents($json);
 $parsed_json = json_decode($json, true);
 for ($k = 0;$k < 12;$k++)
