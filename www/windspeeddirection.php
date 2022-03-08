@@ -54,7 +54,7 @@ else {$weather["windrun"]=$weather["windrun"]*1;}
 
 echo ' <div class=weather34windrun>'.$windrunicon.' &nbsp;<grey><valuetext1>',number_format($weather["windrun"],1);?>
 <grey><weather34windrunspan></valuetext>
-<?php if ($weather["wind_units"] == 'mph') echo 'mi'; else if ($weather["wind_units"] == 'm/s') echo ''; else if ($weather["wind_units"] == 'kts') echo 'kts';else echo 'km';?></weather34windrunspan>
+<?php if ($weather["wind_units"] == 'mph') echo 'mi'; else if ($weather["wind_units"] == 'm/s') echo 'km'; else if ($weather["wind_units"] == 'kts') echo 'kts';else echo 'km';?></weather34windrunspan>
 </div></div><br /><div class=windrun1><?php echo  $lang['Wind Run']?></div>
 <?php ///weather34 beaufort
 if ($weather["wind_speed_bft"] >= 12) {
