@@ -126,8 +126,8 @@ if (isset($weewxapi))
     $weather['wind_speed_avgday'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
     $weather["cloud_cover"] = ($weewxapi[204] == "   N/A" ? "0" : $weewxapi[204]);
     //weather34 windrun
-    //$weather["windrun"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
-    $weather["windrun"] = $weewxapi[200];
+    $weather["windrun"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
+    //$weather["windrun"] = $weewxapi[200];
     //weather34 weewx moon sun data
     $weather["moonphase"] = ($weewxapi[153] == "   N/A" ? "0" : $weewxapi[153]);
     $weather["luminance"] = ($weewxapi[154] == "   N/A" ? "0" : $weewxapi[154]);
