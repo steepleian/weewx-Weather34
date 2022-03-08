@@ -1249,9 +1249,7 @@ General template settings with options to choose which type of module to display
         <label name="position6"></label>
         <select id="position6" name="position6" class="choose">
             <option><?php echo $position6 ;?></option>
-            <option>forecast3wu.php</option>
             <option>forecast3aw.php</option>
-            <option>forecast3wularge.php</option>
             <option>forecast3awlarge.php</option>
                      </select>
 
@@ -1392,11 +1390,11 @@ General template settings with options to choose which type of module to display
      <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> eq.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display last earthquake from earthquakereport.com</span>   <br/>
           </span>
 
-   <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3wu.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display 3 period day/night forecast from Weather Underground</span>   <br/>
+   <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3aw.php</span> <span style="color:rgba(236, 87, 27, 1.000);">display 3 period day/night forecast from AerisWeather</span>   <br/>
      </span>
 
 
-     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3wularge.php</span> <span style="color:rgba(236, 87, 27, 1.000);">large display of current period day/night forecast from Weather Underground</span>   <br/>
+     <span style="color:#777;"><?php echo $iicon;?><span style="color:#777;"> forecas3awlarge.php</span> <span style="color:rgba(236, 87, 27, 1.000);">large display of current period day/night forecast from AerisWeather</span>   <br/>
      </span>
 
 
