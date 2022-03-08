@@ -55,7 +55,8 @@ if (isset($weewxapi))
     $weather["date"] = date($dateFormat, $recordDate);
     $weather["time"] = date($timeFormat, $recordDate);
     $weather["barometer"] = $weewxrt[10];
-    $weather["barometer_max"] = (is_numeric($weewxapi[34]) ? number_format($weewxapi[34], 1) : null);
+    //$weather["barometer_max"] = (is_numeric($weewxapi[34]) ? number_format($weewxapi[34], 1) : null);
+    $weather["barometer_max"] = ($weewxapi[34] == "   N/A" ? "0" : $weewxapi[34]);
     $weather["barometer_min"] = ($weewxapi[36] == "   N/A" ? "0" : $weewxapi[36]);
     $weather["barometer_units"] = $weewxrt[15]; // mb or hPa or kPa or in
     $weather["barometer_trend"] = $weewxrt[10] - ($weewxapi[18] == "   N/A" ? "0" : $weewxapi[18]);
