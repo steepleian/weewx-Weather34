@@ -17,24 +17,29 @@ uppercase{ text-transform:capitalize;}
 // 	Issues for weewx-Weather34 template should be addressed to https://github.com/steepleian/weewx-Weather34/issues #                                                                                              #
 // 	                                                                                                				#
 //###################################################################################################################
-include('metar34get.php');include('serverdata/archivedata.php');include('serverdata/celestialValues.php');include('settings1.php');
+include('metar34get.php');include('serverdata/archivedata.php');
 $iconset = "icon1";
+$place = number_format($lat, 3) . "," . number_format($lon, 3);
 $dayPart = $dayPartCivil;
 error_reporting(0);
 $jsonIcon = 'jsondata/lookupTable.json';
 $jsonIcon = file_get_contents($jsonIcon);
 $parsed_icon = json_decode($jsonIcon, true);
-$json_string             = file_get_contents("jsondata/me.txt");
+$json_string             = file_get_contents("jsondata/awc.txt");
 $parsed_json             = json_decode($json_string, true);
-$sky_code                = $parsed_json['data'][0]['clouds'][0]['code'];
-if ($windunit =='mph' ||  $windunit =='kts'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['feet'];}
-else if ($windunit =='km/h' ||  $windunit =='m/s'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['meters'];} 
-
-
-
+$sky_code                = $parsed_json['response']['ob']['weatherPrimary'];
+$pngIcon                 = $parsed_json['response']['ob']['icon']; 
+$weather["cloud_cover"]  = $parsed_json['response']['ob']['sky'];
+if ($windunit =='mph'){
+$visibility              = round($parsed_json['response']['ob']['visibilityMI'],0,PHP_ROUND_HALF_UP)."mi";
+}
+else
+{
+$visibility              = round($parsed_json['response']['ob']['visibilityKM'],0,PHP_ROUND_HALF_UP)."km";
+}
 ?>
 <div class="updatedtimecurrent">
-<?php $forecastime=filemtime('jsondata/me.txt');$weather34wuurl = file_get_contents("jsondata/me.txt");if(filesize('jsondata/me.txt')<10){echo  $online;}
+<?php $forecastime=filemtime('jsondata/awc.txt');$weather34wuurl = file_get_contents("jsondata/awc.txt");if(filesize('jsondata/awc.txt')<10){echo  $online;}
 else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
 <div class="cloudconverter">
 <?php //cloudbase-weather34
@@ -43,7 +48,7 @@ $clouds = "Cloudbase";
 //$weather["cloud_cover"]=0;
 if ($windunit =='mph' ||  $windunit =='kts'){$distance="ft";}
 else if ($windunit =='km/h' ||  $windunit =='m/s'){$distance="m";}
-if ($sky_code == 'CLR'){$weather["cloudbase3"]="No Cloud Base";$clouds="";$distance="";}
+if ($weather["cloud_cover"]===0){$weather["cloudbase3"]="No Cloud Base";$clouds="";$distance="";}
 if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]>=1999){echo "<div class=cloudconvertercircle2000>".$clouds."<tyellow> ".$weather["cloudbase3"]."</tyellow><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
 else if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]<1999){echo "<div class=cloudconvertercircle>".$clouds."<tblue> ".$weather["cloudbase3"]."</tblue><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
 else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]>=609){echo "<div class=cloudconvertercircle2000>".$clouds."<tyellow> ".$weather["cloudbase3"]."</tyellow><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
@@ -54,90 +59,16 @@ else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]<609)
 //homeweatherstation weather34 current conditions using hardware values
 if ($windunit=='kts'){$windunit="kn";}       
 //rain-weather34
-
-  if($weather["rain_rate"]>0 && $dayPart==="night" && $weather["wind_speed_avg"]>15){$pngIcon="rainwn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy rain icon'>";}
-else if($weather["rain_rate"]>0 && $dayPart==="day" && $weather["wind_speed_avg"]>15){$pngIcon="rainw.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy rain icon'>";}
-else if($weather["rain_rate"]>10){$pngIcon="rainh.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 heavy rain icon'>";}
-else if($weather["rain_rate"]>0){$pngIcon="rainn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 rain icon'>";}
-//fog-weather34
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $dayPart==="night" && $weather["temp"]>5){$pngIcon="fogn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 fog icon'>";}
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $dayPart==="day" && $weather["temp"]>5){$pngIcon="fog.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 fog icon'>";}
-
-//windy moderate-weather34
-else if($weather["wind_speed_avg"]>=15 && $dayPart==="night" && $weather["cloud_cover"]<20){$pngIcon="sunnywn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";}
-else if($weather["wind_speed_avg"]>=15 && $dayPart==="day" && $weather["cloud_cover"]<20){$pngIcon="sunnyw.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";}
-
-//windy moderate-weather34
-else if($weather["wind_speed_avg"]>=15 && $dayPart==="night" ){$pngIcon="wind.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";}
-else if($weather["wind_speed_avg"]>=15 && $dayPart==="day" ){$pngIcon="wind.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";}
-
-//cloud-icon
-else if ($weather["cloud_cover"]<5 and $weather["cloud_cover"]>0) {
-if ($dayPart==="night" ){$pngIcon="sunnyn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else if ($dayPart==="day" ){$pngIcon="sunny.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-}
-else if ($weather["cloud_cover"]<20) {
-if ($dayPart==="night"){$pngIcon="fairn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else if ($dayPart==="day"){$pngIcon="fair.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";}
-
-}
-else if ($weather["cloud_cover"]<40) {
-if ($dayPart==="night"  ){$pngIcon="fairn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else if ($dayPart==="day" ){$pngIcon="fair.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
- 
-}
-else if ($weather["cloud_cover"]<60) {
-if ($dayPart==="night"  ){$pngIcon="pcloudyn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else if ($dayPart==="day"){$pngIcon="pcloudy.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
- 
-}
-else if ($weather["cloud_cover"]<80) {
-if ($dayPart==="night" ){$pngIcon="mcloudyn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else if ($dayPart==="day" ){$pngIcon="mcloudy.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
- 
-}
-else if($weather["cloud_cover"]>=80) {
-if ($dayPart==="night" ){$pngIcon="cloudywn.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else if ($dayPart==="day"){$pngIcon="cloudyw.png"; $icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/04.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
-}
-
-//metar with darksky fallback-weather34
-else if(filesize('jsondata/me.txt')<160){
-echo "<img rel='prefetch' src='css/svg/offline.svg'width='70px' height='60px' alt='weather34 offline icon'>";} 	
+$icon="css/svg/".$parsed_icon[$pngIcon][$iconset]; echo "<img rel='prefetch' src=$icon width='60px' height='55px' alt='weather icon'>";
+   	
 
 ?></div>
 <div class="darkskysummary"><span>
 <?php echo '';
 if ($windunit=='kts'){$windunit="kn";}
+ 
 //rain-weather34
-if($weather["rain_rate"]>0 && $weather["wind_speed_avg"]>15){echo "Rain Showers"; echo '<br>';echo "Windy Conditions";}
-else if($weather["rain_rate"]>=20){echo "Heavy Rain"; echo '<br>';echo "Flooding Possible";}
-else if($weather["rain_rate"]>=10){echo "Heavy Rain"; echo '<br>Showers';}
-else if($weather["rain_rate"]>=5){echo "Moderate Rain"; echo '<br>Showers';}
-else if($weather["rain_rate"]>=1){echo "Steady Rain";echo '<br>Showers';}
-else if($weather["rain_rate"]>0){echo "Light Rain";echo '<br>Showers';}
-//fog-weather34
-else if($weather["temp"] -$weather["dewpoint"] <0.5  && $now >$suns2 && $weather["temp"]>5){echo "Misty Fog<br>Conditions ".$alert."";}
-else if($weather["temp"] -$weather["dewpoint"] <0.5  && $now <$sunr2 && $weather["temp"]>5) {echo "Misty Fog<br>Conditions ".$alert."";}
-else if($weather["temp"] -$weather["dewpoint"] <0.5  && $weather["temp"]>5){echo "Misty Fog<br>Conditions ".$alert."";}
-//misty-weather34
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $now >$suns2 && $weather["temp"]>5){echo "Fog Hazy<br>Conditions";}
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $now <$sunr2 && $weather["temp"]>5) {echo " Misty Hazy<br>Conditions";}
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $weather["temp"]>5){echo "Misty Hazy<br>Conditions";}
-//windy-weather34
-else if($weather["wind_speed_avg"]>=40){echo "Strong Wind ".$alert."<br>Conditions" ;}
-else if($weather["wind_speed_avg"]>=30){echo "Very Windy ".$alert."<br>Conditions";}
-else if($weather["wind_speed_avg"]>=22){echo "Moderate Wind <br>Conditions";}
-else if($weather["wind_speed_avg"]>=15){echo "Breezy <br>Conditions";}
-//cloud-description
-else if($weather["cloud_cover"]<5 and $weather["cloud_cover"]>0) {echo "Clear <br>Conditions";}
-else if($weather["cloud_cover"]<20) {echo "Mostly Clear <br>Conditions";}
-else if($weather["cloud_cover"]<40) {echo "Scattered <br>Clouds";}
-else if($weather["cloud_cover"]<60) {echo "Partly Cloudy <br>Conditions";}
-else if($weather["cloud_cover"]<80) {echo "Mostly Cloudy <br>Conditions";}
-else if($weather["cloud_cover"]>=80) {echo "Overcast <br>Conditions";}
-else if(filesize('jsondata/me.txt')<160){echo "<uppercase>Conditions<br>Not Available</uppercase>";}
+echo '<br>';echo $sky_code;
 //oktas
 if($weather["cloud_cover"]<5 and $weather["cloud_cover"]>0) {$weather["cloud_oktas"]="0 oktas";}
 else if($weather["cloud_cover"]<=12.5) {$weather["cloud_oktas"]="1 okta";}
@@ -153,10 +84,10 @@ else if($weather["cloud_cover"]<=100) {$weather["cloud_oktas"]="8 oktas";}
 ?>
 </span></div>
  <!-- weather34 generated Data--> 
-<div class="darkskynexthours">
+<div class="darkskynexthours" style="margin: 60px auto auto">
 <?php //weather34 average station data
 //echo "Average <oblue>Cloud Cover</oblue> last 5 minutes <ogreen>" .$weather["cloud_cover"]."</ogreen><valuetext>".$cloudcoverunit. "(".$weather["cloud_oktas"].")";
-
+echo "Visibility ".$visibility."</br>";
 if (strpos($weather["cloud_cover"],"N/A") == false){
 echo "<oblue>Cloud Cover</oblue><ogreen> " .$weather["cloud_cover"]."</ogreen><valuetext>".$cloudcoverunit. " (".$weather["cloud_oktas"].")";
 }
