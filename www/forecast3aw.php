@@ -22,9 +22,9 @@ if ($windunit=='kts'){$windunit="kn";}
 $jsonfile="jsondata/ad.txt";if(!file_exists($jsonfile)) {return;}
 ?>
 
-<div class="updatedtime1"><?php $forecastime=filemtime('jsondata/ad.txt');
-$forecasturl = file_get_contents("jsondata/ad.txt");
-if(filesize('jsondata/ad.txt')<1){echo "".$offline. "";}
+<div class="updatedtime1"><?php $forecastime=filemtime('jsondata/awd.txt');
+$forecasturl = file_get_contents("jsondata/awd.txt");
+if(filesize('jsondata/awd.txt')<1){echo "".$offline. "";}
 else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
 <div class="darkskyforecasthome" ><div class="darkskydiv">
 <?php //begin ad stuff 
