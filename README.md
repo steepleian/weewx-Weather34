@@ -1,7 +1,7 @@
 # Weather34 skin for WeeWX
 Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **This version of the template requires either the extended database schema introduced with WeeWX 4.0.0 or one that has been manually extended to included fields for lightning data.** It is strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.4.0 or later.
 
-Version W34-HC-IMJD-4.2.0
+Version W34-HC-IMJD-4.2.1
 
 Packaged for installation using its own unique installer and an online pre-installation settings form https://steepleian.github.io/weewx-Weather34
 
@@ -15,7 +15,7 @@ This version is designed explicitly to harness the powerful WeeWX database to ge
 
 This version is assembled as an install package and uses its own unique installer and un-installer utilities. This greatly simplifies the installation process from that of previous versions. Depending on your own WeeWX setup, minor edits may be required to be made to weewx.conf and Weather34 skin.conf files. Please see the Weather34 skin Installation Guide for detailed instructions.
 
-# What's New in this Version W34-HC-IMJD-4.2.0
+# What's New in this Version W34-HC-IMJD-4.2.1
 
 DarkSky has been removed as a source of forecasting data etc - the API has been withdrawn by its owners Apple.
 
@@ -76,11 +76,11 @@ https://weather34.com/homeweatherstation/weather34timeline/weather34timeline.htm
 **If you are upgrading from a previous version of this skin, due to the significant changes, you must recreate your settings1.php file by running the full install process. Just copying your previous settings1.php will cause errors which are then more difficult to resolve.**
 
 Follow the instructions in the 'installation guide' (INSTALLATION_GUIDE.md) to install the template.
-Browse to http://your/path/to/weewx/weather34/easyW34skinSetup.php
+Browse to http://your/path/to/weewx/weather34/templateSetup.php
 There is no initial password when the page prompts the first time -- just press LOGIN to enter the page.
 IMPORTANT set a password in the screen for future use -- your browser can remember it. This will make future updates    reasonably secure so only you can do the updates to the configuration.
-Make setting entries in the easyweathersetup.php page and SAVE. The next time you run it, use the password you set in the step above.
-Repeat running easyW34skinSetup.php until the main screen appears as you like it.
+Make setting entries in the templateSetup.php page and SAVE. The next time you run it, use the password you set in the step above.
+Repeat running templateSetup.php until the main screen appears as you like it.
 
 # License
 
