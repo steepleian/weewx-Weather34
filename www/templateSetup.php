@@ -158,8 +158,6 @@ FCLOSE($fp);
 
     <body>
 
-
-
 <div class="loginformarea">
 <?php
 	//lets secure the homeweatherstation easy setup ///
@@ -175,10 +173,6 @@ function showForm($error="LOGIN"){
      </center>
       <?php echo "2015-" ;?><?php echo date('Y');?> &copy;</a> WEATHER34 HC-IMJD</span></span></span>
       <br/><br/>
-
-
-
-
 
 <?php
 }
@@ -511,6 +505,10 @@ Hardware Options</div><br/>
            <option>Fine Offset WH-3080</option>
            <option>Fine Offset WH-1080</option>
            <option>Ecowitt GW1000</option>
+           <option>Ecowitt GW1100</option>
+           <option>Ecowitt GW1101</option>
+           <option>Ecowitt GW1102</option>
+           <option>Ecowitt WS6006</option>
            <option>Accurite</option>
            <option>La Crosse</option>
            <option>Weatherflow Air-Sky</option>
