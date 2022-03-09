@@ -187,7 +187,7 @@ else echo "" ?></a></span>
 }
 else
 {
-    echo $meteor_default;
+    echo "".$meteor_default;
 } ?></a></span>
 <span class="yearpopup"><a alt="aurora information" title="aurora information" href=pop_aurora.php data-lity><?php echo $info; ?> Aurora <?php if ($kp >= 5)
 {
