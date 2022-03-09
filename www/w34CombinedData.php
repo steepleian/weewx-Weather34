@@ -396,7 +396,7 @@ if (isset($weewxapi))
     $rainlasttoday = date("H:i", strtotime($originalDate26));
     $originalDate27 = ($weewxapi[124] == "   N/A" ? "0" : $weewxapi[124]);
     $rainlasttoday1 = date("jS", strtotime($originalDate27));
-    $weather["rainydmax"] = ($weewxapi[100] == "   N/A" ? "0" : $weewxapi[100]); //rain max yesterday
+    $weather["rainydmax"] = ($weewxapi[21] == "   N/A" ? "0" : $weewxapi[21]); //rain max yesterday
     $weather["rainmmax"] = ($weewxapi[101] == "   N/A" ? "0" : $weewxapi[101]); //wind max month
     $weather["rainmmaxtime"] = $rainmmaxtime; //seconds
     $weather["rainymax"] = ($weewxapi[103] == "   N/A" ? "0" : $weewxapi[103]); //wind max year
