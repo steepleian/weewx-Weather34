@@ -232,38 +232,30 @@ if ($position12 == 'weather34uvsolar.php')
     echo ' <span class="yearpopup"><a alt="solar" title="UV Guide" href="pop_menu_solar.php" data-lity>' . $chartinfo . " UV and Solar Almanacs and Guides  </a></span>";
 }
 
-if ($position12 == 'solaruvwu.php')
-{
+if ($position12 == 'solaruvwu.php'){
     echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindexwu.php" data-lity>' . $chartinfo . " UV Guide </a></span>";
 }
-if ($position12 == 'solaruvwu.php')
-{
-    echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="wpop_solaralmanac.php" data-lity>' . $chartinfo . " Solar Almanac </a></span>";
+if ($position12 == 'solaruvwu.php'){
+    echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="pop_solaralmanac.php" data-lity>' . $chartinfo . " Solar Almanac </a></span>";
 }
-if ($position12 == 'solaruvwu.php')
-{
+if ($position12 == 'solaruvwu.php'){
     echo ' <span class="yearpopup"><a alt="Solar Chart" title="Solar Chart" href="<?php echo $chartsource ;?>/todaysolar.php" data-lity>&nbsp;' . $menucharticonpage . " Solar chart </a></span>";
 }
-if ($position12 == 'lightning34.php')
-{
-    echo '<span class="yearpopup"><a 
-alt="Lightning Strike Almanac" title="Almanac 
-Lightning"href="pop_lightningalmanac.php". data-lity>' . $chartinfo . " Strike Almanac </a></span>";
+if ($position12 == 'lightning34.php'){
+    echo '<span class="yearpopup"><a alt="Lightning Strike Almanac" title="AlmanacLightning"href="pop_lightningalmanac.php". data-lity>' . $chartinfo . " Strike Almanac </a></span>";
 }
-if ($position12 == 'eq.php')
-{
+if ($position12 == 'eq.php'){
     echo ' <span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="pop_eqlist.php" data-lity>' . $chartinfo . " Worldwide Earthquakes </a></span>";
 }
-if ($position12 == 'eq_uk.php')
-{
+if ($position12 == 'eq_uk.php'){
     echo ' <span class="yearpopup" scrolling="no"><a alt="Earthquakes UK" title="Earthquakes UK" href="pop_eqlist.php" data-lity>' . $chartinfo . " UK Earthquakes </a></span>";
 } ?>
 </div><span class='moduletitle'><a alt="Position12 Switcher" title="Position12 Switcher" href="updatesection.php?pos=position12"><img src="img/lightningalert.svg" width="10" height="10" align="right"/></a><?php echo $position12title ?></span></span><div id="solar"></div></div>
  <!--position last module for homeweatherstation template-->
   <div class="weather-item"><div class="chartforecast" >
   <span class="yearpopup">
-<?php 
-  
+<?php
+
   if ($positionlastmodule == 'webcamsmall.php' && $dayPartCivil == 'night')
 {
     $positionlastmodule = 'moonphase.php'; $positionlastmoduletitle = 'Moonphase';}
