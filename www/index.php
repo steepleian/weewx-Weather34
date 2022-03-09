@@ -1,17 +1,17 @@
 <?php
-//###################################################################################################################
-//	weewx-Weather34 Template maintained by Ian Millard (Steepleian)                                 				
-//	                                                                                                				
-//  Contains original legacy code (by agreement) created and developed by Brian Underdown (https://weather34.com)   
-//  for the (now superseeded) original Weather34 Template which is no longer maintained by its creator              
-//  © weather34.com original CSS/SVG/PHP 2015-2019                                                                  
-// 	                                                                                                				
-//  Contains original code by Ian Millard and collaborators															
-//  © claydonsweather.org.uk original CSS/SVG/PHP 2020-2021                                                            
-// 	                                                                                                				
-// 	Issues for weewx-Weather34 template should be addressed to https://github.com/steepleian/weewx-Weather34/issues                                                                                               
-// 	                                                                                                				
-//###################################################################################################################
+####################################################################################################################
+#	weewx-Weather34 Template maintained by Ian Millard (Steepleian)                                                  #
+#                                                                                                                  #
+#   Contains original legacy code (by agreement) created and developed by Brian Underdown (https://weather34.com)  #
+#   for the (now superseded) original Weather34 Template which is no longer maintained by its creator              #
+#   © weather34.com original CSS/SVG/PHP 2015-2019                                                                 #
+#                                                                                                                  #
+#   Contains original code by Ian Millard and collaborators                                                        #
+#   © claydonsweather.org.uk original CSS/SVG/PHP 2020-2021                                                        #
+#                                                                                                                  #
+# Issues for weewx-Weather34 template should be addressed to https://github.com/steepleian/weewx-Weather34/issues  #
+#                                                                                                                  #
+####################################################################################################################
 if(!file_exists('settings1.php')) {copy('initial_settings1.php','settings1.php'); }
 include_once ('w34CombinedData.php');
 include_once ('common.php');
