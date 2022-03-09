@@ -3,7 +3,7 @@
 <!-- The page take the information inputted by the client and sends them a file called services.txt which is used in the -->
 <!-- installation of the Weather34 skin template on a WeeWX Personal Weather Station system. -->
 <!-- Original code written by Ian Millard -->
-<!-- Rewritten on Feburary 2021 by Steven Sheeley, reusing the file saving routine -->
+<!-- Rewritten on February 2021 by Steven Sheeley, reusing the file saving routine -->
 <!-- Whilst it was attempted to maintain the look and feel of the original, all -->
 <!-- html, css and javascript used in the new page is by Steven Sheeley for the Weather34/DivumWX Team-->
 
@@ -13,7 +13,6 @@
     <link rel="icon" href="https://steepleian.github.io/weewx-Weather34/favicon.ico"/>
     <meta name="description" content="This form generates the services.txt file that is needed to install the Weather34 skin and modify the weewx conf file." />
     <meta name="robots" content="noindex, nofollow">
-    <meta name="version" content="2.0.1011">
     <script src="https://kit.fontawesome.com/772d7a8539.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <style>
@@ -24,7 +23,7 @@
             margin: auto;
             gap: 5px 5px;
             width: 90%;
-            border: 2px solid #000000;
+            border: 2px solid #000;
             background-color: #dbdada94;
             padding: 4px;
             border-radius: 12px;
@@ -41,7 +40,7 @@
             grid-area: Banner;
             padding: 6px;
             border-radius: 10px;
-            border: 2px solid inset #000000;
+            border: 2px solid inset #000;
             background-color: #FFF;
             border-style: inset;
         }
@@ -50,43 +49,43 @@
             padding: 8px;
             background-color: #83bdff;
             border-radius: 10px;
-            border: 2px solid #000000;
+            border: 2px solid #000;
         }
         .Map {
             grid-area: Map;
             position: relative;
             border-radius: 10px;
-            border: 2px solid #000000;
+            border: 2px solid #000;
         }
         .Section-2 {
             grid-area: Section-2;
             padding: 8px;
             background-color: #83bdff;
             border-radius: 10px;
-            border: 2px solid #000000;
+            border: 2px solid #000;
         }
         .Services {
             grid-area: Services;
             padding: 8px;
             background-color: #c0dbfa;
             border-radius: 10px;
-            border: 2px solid #000000;
+            border: 2px solid #000;
         }
         .Footer {
             grid-area: Footer;
             background-color: #cccccc;
             border-radius: 10px;
-            border: 2px solid #000000;
+            border: 2px solid #000;
             text-align: center;
             padding: 10px;
         }
-        .fa-exclamation{
-            color: #fc0000
+        .fa-asterisk{
+            color: #fc0000;
         }
         #mapid {
             position: relative;
-            height: 300px;
-            width: 300px;
+            height: 340px;
+            width: 397px;
             background-color: #fff;
             cursor: crosshair;
         }
@@ -98,8 +97,17 @@
             width: 75%;
         }
         h3 {
-            color: #000000;
+            color: #000;
             font-size: 150%;
+            display: inline;
+        }
+        h4{
+            color: #000;
+            display: inline;
+        }
+        h6{
+            color: #000;
+            font-size:xx-small;
         }
         input[type=text] {
             width: 98%;
@@ -125,10 +133,10 @@
             background-color: #d8d6d6;
         }
         .myButton {
-            box-shadow: 0px 10px 14px #000000;
+            box-shadow: 0px 10px 14px #000;
             background: linear-gradient(to bottom, #0578fc 5%, #8cc2ff 100%);
             border-radius: 4px;
-            border: 1px solid #000000;
+            border: 1px solid #000;
             display: inline-block;
             cursor: pointer;
             color: #ffffff;
@@ -137,7 +145,7 @@
             font-weight: bold;
             padding: 10px 4px;
             text-decoration: none;
-            text-shadow: 0px 1px 11px #000000;
+            text-shadow: 0px 1px 11px #000;
         }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
@@ -148,22 +156,23 @@
     <div class="container">
         <div class="Banner">
             <div style="text-align: center">
-                <h3>Weather34 services.txt Generator</h3>
+                <h3>Weather34 services.txt Generator</h3>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="Please take notice of the following. The fields with a Red asterisk are required fields and your generated services.txt field will appear to work during installation, however, the info entered into your weewx conf fille will be erroneous and cause Weather34 to not work correctly."></i><br />
             </div>
             <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the Weather34 Archive file to. Once this is complete, you are ready to do the base installation of the Weather34 Skin.</div><br />
-            <div style="text-align: center"><i class="fa-solid fa-exclamation"></i>&nbsp;<b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
-            <div style="text-align: center"><i class="fa-solid fa-exclamation"></i>&nbsp;<b>No data is retained on this server after the process is complete.</b></div>
-            <div style="text-align: center"><i class="fa-solid fa-exclamation"></i>&nbsp;<b>Darksky as been removed as a service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because Darksky is no longer accepting any new account, and Aeris Weather still provides a free service.</b></div>
+            <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
+            <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>No data is retained on this server after you click on the <b>Submit Button</b>.</b></div>
+            <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>DarkSky as been removed as a forecasting service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because DarkSky is no longer accepting any new accounts, and Aeris Weather still provides a free service.</b></div><br/>
+            <div style="text-align: left"><i class="fa-solid fa-question"></i> = Information&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-exclamation fa-bounce"></i> = Attention&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-asterisk fa-beat"></i> = Input Required&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader"></i> = Read Me&nbsp;&nbsp;&nbsp;(Hover over any of these icons for a popup tooltip (except the exclamation))</div>
         </div>
         <div class="Section-1">
             <div style="text-align: center">
                 <h4> Weather Station Location, Language and IP Address Section</h4>
             </div>
-            <label for="text">Latitude</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
-            <input type="text" id="txtLat"><br />
-            <label for="text">Longitude</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            &nbsp;<label for="text">Latitude</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            <input type="text" id="txtLat" required><br />
+            &nbsp;<label for="text">Longitude</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLon"><br />
-            <label>Website Language</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
+            &nbsp;<label>Website Language</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
             <select id="selLang">
                 <option selected value="">-- Please Choose Your Language--</option>
                 <option value="en">English</option>
@@ -174,21 +183,21 @@
                 <option value="br">Portuguese (Br)</option>
                 <option value="ru">Russian</option>
             </select><br />
-            <label for="text">Local Web Server IP Address</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Enter the Weather Station's Web Server IP Address"></i>
+            &nbsp;<label for="text">Local Web Server IP Address</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Enter the Weather Station's Web Server IP Address"></i>
             <input type="text" id="txtSrvIP" />
         </div>
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
             <div style="text-align: center">
-                <h4>Aeris Weather Key/Secret Entry Section</h4>
+                <h4>Aeris Weather Key/Secret Entry Section</h4>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="This section is required for forecasting in the Weather34 skin. If you do not sighup for a Free API Key as shown in the link below, forecasting will not operate. Please ensure that you enable Aeris below and enter your Aeris Key and Secret Token."></i><br />
             </div>
             <div>
-                Do you have a Aeris Weather  Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
+                Do you have a Aeris Weather Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
                 <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes
                 <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://www.aerisweather.com/signup/pws/" target="_blank" rel="noopener noreferrer">here.</a>)<br />
-                <label for="text">Aeris Weather Key</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i><br />
+                &nbsp;<label for="text">Aeris Weather Key</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i><br />
                 <input type="text" id="txtAwKey" disabled="true" /><br />
-                <label for="text">Aeris Weather Secret</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Secret."></i><br />
+                &nbsp<label for="text">Aeris Weather Secret</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Secret."></i><br />
                 <input type="text" id="txtAwSecret" disabled="true" /><br />
             </div>
             <hr>
@@ -347,9 +356,8 @@
         var mymap = L.map('mapid').fitWorld();
         var txtLat = document.getElementById('txtLat');
         var txtLon = document.getElementById('txtLon');
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmF5dmVuaGF1cyIsImEiOiJjbDBnNXpoaDYwcXRxM2puc29qajZ3dDgxIn0.3wG1BkjQ8ynbhqekMYU8rg', {
             maxZoom: 22,
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             id: 'mapbox/streets-v11',
             tileSize: 512,
             zoomOffset: -1
@@ -375,8 +383,14 @@
             var awKeyChkd = document.getElementById("awKeyChkd");
             var txtAwKey = document.getElementById("txtAwKey");
             var txtAwSecret = document.getElementById("txtAwSecret");
+            var ckaw = document.getElementById("ckaw");
             txtAwKey.disabled = awKeyChkd.checked ? false : true;
             txtAwSecret.disabled = awKeyChkd.checked ? false : true;
+            if(awKeyChkd.checked == true){
+                ckaw.checked = true;
+            }else{
+                ckaw.checked = false;
+            }
             if (!awKeyChkd.disabled) {
                 awKeyChkd.focus();
             }
@@ -398,7 +412,13 @@
             function EnableDisableAQI() {
                 var aqKeyChkd = document.getElementById("aqKeyChkd");
                 var txtAqKey = document.getElementById("txtAqKey");
+                var ckaq = document.getElementById("ckaq");
                 txtAqKey.disabled = aqKeyChkd.checked ? false : true;
+                if(aqKeyChkd.checked == true){
+                    ckaq.checked = true;
+                }else{
+                    ckaq.checked = false;
+                }
                 if (!txtAqKey.disabled) {
                     txtAqKey.focus();
                 }
@@ -408,7 +428,13 @@
             function EnableDisablePUID() {
                 var puIdChkd = document.getElementById("puIdChkd");
                 var txtPuId = document.getElementById("txtPuId");
+                var ckpu = document.getElementById("ckpu");
                 txtPuId.disabled = puIdChkd.checked ? false : true;
+                if(puIdChkd.checked == true){
+                    ckpu.checked = true;
+                }else{
+                    ckpu.checked = false;
+                }
                 if (!txtPuId.disabled) {
                     txtPuId.focus();
                 }
@@ -430,7 +456,13 @@
             function EnableDisableRAUK() {
                 var raUkenable = document.getElementById("raUkenable");
                 var selUkregion = document.getElementById("selUkregion");
+                var ckeu = document.getElementById("ckeu");
                 selUkregion.disabled = raUkenable.checked ? false : true;
+                if(raUkenable.checked == true){
+                    ckeu.checked = true;
+                }else{
+                    ckeu.checked = false;
+                }
                 if (!selUkregion.disabled) {
                     selUkregion.focus();
                 }
@@ -440,7 +472,13 @@
             function EnableDisableBOMK() {
                 var bomKeyChkd = document.getElementById("bomKeyChkd");
                 var selBOMState = document.getElementById("selBOMState");
+                var ns = document.getElementById("ns");
                 selBOMState.disabled = bomKeyChkd.checked ? false : true;
+                if(bomKeyChkd.checked == true){
+                    ns.checked = true;
+                }else{
+                    ns.checked = false;
+                }
                 if (!selBOMState.disabled) {
                     selBOMState.focus();
                 }
@@ -577,5 +615,6 @@
                 newLink.click();
             }
         </script>
+<h6>Version - 2.1.85</h6>
 </body>
 </html>
