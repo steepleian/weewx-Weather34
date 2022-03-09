@@ -238,9 +238,6 @@ if ($position12 == 'solaruvwu.php'){
 if ($position12 == 'solaruvwu.php'){
     echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="pop_solaralmanac.php" data-lity>' . $chartinfo . " Solar Almanac </a></span>";
 }
-if ($position12 == 'solaruvwu.php'){
-    echo ' <span class="yearpopup"><a alt="Solar Chart" title="Solar Chart" href="<?php echo $chartsource ;?>/todaysolar.php" data-lity>&nbsp;' . $menucharticonpage . " Solar chart </a></span>";
-}
 if ($position12 == 'lightning34.php'){
     echo '<span class="yearpopup"><a alt="Lightning Strike Almanac" title="AlmanacLightning"href="pop_lightningalmanac.php". data-lity>' . $chartinfo . " Strike Almanac </a></span>";
 }
