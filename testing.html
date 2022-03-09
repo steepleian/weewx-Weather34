@@ -3,7 +3,7 @@
 <!-- The page take the information inputted by the client and sends them a file called services.txt which is used in the -->
 <!-- installation of the Weather34 skin template on a WeeWX Personal Weather Station system. -->
 <!-- Original code written by Ian Millard -->
-<!-- Rewritten on Feburary 2021 by Steven Sheeley, reusing the file saving routine -->
+<!-- Rewritten on February 2021 by Steven Sheeley, reusing the file saving routine -->
 <!-- Whilst it was attempted to maintain the look and feel of the original, all -->
 <!-- html, css and javascript used in the new page is by Steven Sheeley for the Weather34/DivumWX Team-->
 
@@ -164,11 +164,11 @@
             <div style="text-align: center">
                 <h4> Weather Station Location, Language and IP Address Section</h4>
             </div>
-            <label for="text">&nbsp;Latitude</label><i class="fa-solid fa-asterisk fa-beat"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            &nbsp;<label for="text">Latitude</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLat" required><br />
-            <label for="text">Longitude</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            &nbsp;<label for="text">Longitude</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
             <input type="text" id="txtLon"><br />
-            <label>Website Language</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
+            &nbsp;<label>Website Language</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
             <select id="selLang">
                 <option selected value="">-- Please Choose Your Language--</option>
                 <option value="en">English</option>
@@ -179,7 +179,7 @@
                 <option value="br">Portuguese (Br)</option>
                 <option value="ru">Russian</option>
             </select><br />
-            <label for="text">Local Web Server IP Address</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Enter the Weather Station's Web Server IP Address"></i>
+            &nbsp;<label for="text">Local Web Server IP Address</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Enter the Weather Station's Web Server IP Address"></i>
             <input type="text" id="txtSrvIP" />
         </div>
         <div class="Map" id="mapid" style="text-align: center"></div>
@@ -611,6 +611,6 @@
                 newLink.click();
             }
         </script>
-<h6>Version - 2.1.75</h6>
+<h6>Version - 2.1.80</h6>
 </body>
 </html>
