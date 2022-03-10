@@ -153,14 +153,13 @@ FCLOSE($fp);
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link href="favicon.ico" rel="icon" type="image/x-icon">
         <script src="js/jquery.js"></script>
-        <link href="css/easyweathersetup.css" rel="stylesheet prefetch">
+        <link href="css/templateSetup.css" rel="stylesheet prefetch">
     </head>
     <body>
         <div class="loginformarea">
             <?php
                 //lets secure the homeweatherstation easy setup ///
-                function showForm($error="LOGIN"){
-                    ?> 
+                function showForm($error="LOGIN"){?>
                     <?php echo $error; ?>
                     <div class="login_screen" style="width:60%;max-width:600px;margin:0 auto;color:rgba(24, 25, 27, 1.000);border:solid 1px grey;padding:10px;border-radius:4px;">  <?php echo 'Current PHP version :<span style="color:rgba(236, 87, 27, 1.000);"> ' . phpversion(), '</span> <br/>'; ?>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="pwd" >
@@ -168,14 +167,12 @@ FCLOSE($fp);
                         <center>
                             <div class="modal-buttons">
                                 <input name="passwd" type="password" class="input-button"/>  <input type="submit" name="submit_pwd" value="Login " class="modal-button" />
-                                </form>
                         </center>
                         <?php echo "2015-" ;?><?php echo date('Y');?> &copy;</a> WEATHER34 HC-IMJD</span></span></span>
                         <br/><br/>
-
+                    </form>
                     <?php
-}
-                ?>
+                }?>
         </div>
         <div style="width:auto;margin:0 auto;text-align:center;color:#fff;background:0;font-family:arial;padding:20px;border-radius:4px;">
             <?php
