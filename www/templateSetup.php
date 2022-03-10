@@ -160,79 +160,85 @@ FCLOSE($fp);
             <?php
                 //lets secure the homeweatherstation easy setup ///
                 function showForm($error="LOGIN"){
-            ?>
-            <?php echo $error; ?>
-            <div class="login_screen" style="width:60%;max-width:600px;margin:0 auto;color:rgba(24, 25, 27, 1.000);border:solid 1px grey;padding:10px;border-radius:4px;">
-                <?php echo 'Current PHP version :<span style="color:rgba(236, 87, 27, 1.000);"> ' . phpversion(), '</span> <br/>'; ?>
-                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="pwd" >
-                    Enter Your Password For Weather34 Setup Screen Below
-                    <center>
-                        <div class="modal-buttons">
-                            <input name="passwd" type="password" class="input-button"/>  <input type="submit" name="submit_pwd" value="Login " class="modal-button" />
-                            </form>
-                    </center>
-                    <?php echo "2015-" ;?><?php echo date('Y');?> &copy;</a> WEATHER34 HC-IMJD</span></span></span>
-                    <br/><br/>
-                <?php}?>
-            </div>
-            <div style="width:auto;margin:0 auto;text-align:center;color:#fff;background:0;font-family:arial;padding:20px;border-radius:4px;">
-                <?php $Password = $password;
-                    if (isset($_POST['submit_pwd'])){
-                        $pass = isset($_POST['passwd']) ? $_POST['passwd'] : '';
-                        if ($pass != $Password) {
-                            showForm("Dashboard Meteobridge EASY SETUP");
-                            exit();
-                        }
-                    }else{
-                        showForm("Dashboard Meteobridge EASY SETUP");
-                        exit();
-                    }
+                    ?> 
+                    <?php echo $error; ?>
+                    <div class="login_screen" style="width:60%;max-width:600px;margin:0 auto;color:rgba(24, 25, 27, 1.000);border:solid 1px grey;padding:10px;border-radius:4px;">  <?php echo 'Current PHP version :<span style="color:rgba(236, 87, 27, 1.000);"> ' . phpversion(), '</span> <br/>'; ?>
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="pwd" >
+                        Enter Your Password For Weather34 Setup Screen Below
+                        <center>
+                            <div class="modal-buttons">
+                                <input name="passwd" type="password" class="input-button"/>  <input type="submit" name="submit_pwd" value="Login " class="modal-button" />
+                                </form>
+                        </center>
+                        <?php echo "2015-" ;?><?php echo date('Y');?> &copy;</a> WEATHER34 HC-IMJD</span></span></span>
+                        <br/><br/>
+
+                    <?php
+}
                 ?>
-            </div>
-        <div style="width:390px;margin:0 auto;margin-top:10px;text-align:center;color:#4a636f;background:0;font-family:arial;padding:20px;border-radius:4px;border:1px solid rgba(74, 99, 111, 0.4);">
-            <img src='img/easyweathersetupweather34.svg' width='120px'>
-            <img src='img/icon-weewx.svg' width='120px' style="float:none;"><br />
-            Welcome you have logged into the WeeWX WEATHER34 Template setup screen <?php echo date("M jS Y H:i"); ?>
         </div>
-        </div></div>
-        </div></div>
-        <div class="theframe1">
-            <div class="theframe">
-                <form action="" method="post" name="install" id="install">
-                <!--##########################################################################################
-                    #########                        Start of Easy Password Sidebar                  #########
-                    ##########################################################################################-->
-                <div class="weatheroptionssidebar">
-                    <?php echo $iicon;?> Please select and enter a unique password to protect this page for later use for your privacy and protection.
-                </div>
-                <!--##########################################################################################
-                    #########                        Start of Easy Password Section                  #########
-                    ##########################################################################################-->
-                <div class="weatheroptions">
-                    <div class="weathersectiontitle">
-                        <svg id="i-settings" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                        <path d="M13 2 L13 6 11 7 8 4 4 8 7 11 6 13 2 13 2 19 6 19 7 21 4 24 8 28 11 25 13 26 13 30 19 30 19 26 21 25 24 28 28 24 25 21 26 19 30 19 30 13 26 13 25 11 28 8 24 4 21 7 19 6 19 2 Z" />
-                        <circle cx="16" cy="16" r="4" />
-                        </svg>
-                        Setup Unique Setup Password</div><br/>
-                        <div class="stationvalue">  Set Setup Password it is for your privacy & protection</div>
-                            <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                            <path d="M12 30 L24 16 12 2" />
-                            </svg>
-                            <input name="password" type="password" id="password" value="<?php echo $password ;?>" class="choose">
-                    </div>
-                    <br/>
-                <!--##########################################################################################
-                    #########                        Start of Language Sidebar                       #########
-                    ##########################################################################################-->
-                <div class="weatheroptionssidebar">
-                    <?php echo $iicon;?>  Setup the default language
-                    <div class="weatherbottominfo">
-                        <svg id="i-checkmark" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                        <path d="M2 20 L12 28 30 4" />
-                        </svg>
-                        check languages</div>
-                    </div>
+        <div style="width:auto;margin:0 auto;text-align:center;color:#fff;background:0;font-family:arial;padding:20px;border-radius:4px;">
+            <?php
+            $Password = $password;
+            if (isset($_POST['submit_pwd'])){    $pass = isset($_POST['passwd']) ? $_POST['passwd'] : '';
+            if ($pass != $Password) {
+                showForm("Dashboard Meteobridge EASY SETUP");
+                exit();
+            }
+            } else {
+            showForm("Dashboard Meteobridge EASY SETUP");
+            exit();
+            }
+            ?>
+        </div>
+<div style="width:390px;margin:0 auto;margin-top:10px;text-align:center;color:#4a636f;background:0;font-family:arial;padding:20px;border-radius:4px;border:1px solid rgba(74, 99, 111, 0.4);">
+    <img src='img/easyweathersetupweather34.svg' width='120px'>
+    <img src='img/icon-weewx.svg' width='120px' style="float:none;"><br />
+    Welcome you have logged into the WeeWX WEATHER34 Template setup screen <?php echo date("M jS Y H:i"); ?>
+</div>
+</div></div>
+</div></div>
+<div class="theframe1">
+    <div class="theframe">
+        <form action="" method="post" name="install" id="install">
+        <!--##########################################################################################
+            #########                        Start of Easy Password Sidebar                  #########
+            ##########################################################################################-->
+
+        <div class="weatheroptionssidebar">
+<?php echo $iicon;?> Please setup and password protect this page for later use it is for your privacy and protection.
+</div>
+
+<!--##########################################################################################
+    #########                        Start of Easy Password Section                  #########
+    ##########################################################################################-->
+
+<div class="weatheroptions">
+  <div class="weathersectiontitle">
+   <svg id="i-settings" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M13 2 L13 6 11 7 8 4 4 8 7 11 6 13 2 13 2 19 6 19 7 21 4 24 8 28 11 25 13 26 13 30 19 30 19 26 21 25 24 28 28 24 25 21 26 19 30 19 30 13 26 13 25 11 28 8 24 4 21 7 19 6 19 2 Z" />
+    <circle cx="16" cy="16" r="4" />
+</svg>
+  Setup Unique Setup Password</div><br/>
+  <div class="stationvalue">  Set Setup Password it is for your privacy & protection</div>
+<svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M12 30 L24 16 12 2" />
+</svg>
+  <input name="password" type="password" id="password" value="<?php echo $password ;?>" class="choose">
+   </div>
+   <br/>
+<!--##########################################################################################
+    #########                        Start of Language Sidebar                       #########
+    ##########################################################################################-->
+
+<div class="weatheroptionssidebar">
+<?php echo $iicon;?>  Setup the default language
+<div class="weatherbottominfo">
+<svg id="i-checkmark" viewBox="0 0 32 32" width="12" height="12" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+    <path d="M2 20 L12 28 30 4" />
+</svg>
+check languages</div>
+</div>
 <!--##########################################################################################
     #########                        Start of Language Section                       #########
     ##########################################################################################-->
