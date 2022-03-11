@@ -557,7 +557,7 @@
                     '{' + ' \r\n' +
                     " 'aq_url':'https://api.waqi.info/feed/geo:" + lat.value + ';' + lon.value + '/?token=' + aq_apikey.value + "'" + ',' + ' \r\n' +
                     " 'aq_interval':'3600'" + ',' + ' \r\n' +
-                    " 'awc_url':'https://api.aerisapi.com/observations/" + lat.value + ',' + lon.value + '?format=json&filter=metar&limit=1&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awc_url':'https://api.aerisapi.com/conditions/" + lat.value + ',' + lon.value + '?format=json&filter=1min&plimit=1&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
                     " 'awc_interval':'300'" + ',' + ' \r\n' +
                     " 'awh_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=1hr&limit=24&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
                     " 'awh_interval':'1800'" + ',' + ' \r\n' +
