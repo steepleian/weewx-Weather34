@@ -27,15 +27,15 @@ $jsonIcon = file_get_contents($jsonIcon);
 $parsed_icon = json_decode($jsonIcon, true);
 $json_string             = file_get_contents("jsondata/awc.txt");
 $parsed_json             = json_decode($json_string, true);
-$sky_code                = $parsed_json['response']['ob']['weatherPrimary'];
-$pngIcon                 = $parsed_json['response']['ob']['icon']; 
-$weather["cloud_cover"]  = $parsed_json['response']['ob']['sky'];
+$sky_code                = $parsed_json['response'][0]['periods'][0]['weatherPrimary'];
+$pngIcon                 = $parsed_json['response'][0]['periods'][0]['icon']; 
+$weather["cloud_cover"]  = $parsed_json['response'][0]['periods'][0]['sky'];
 if ($windunit =='mph'){
-$visibility              = round($parsed_json['response']['ob']['visibilityMI'],0,PHP_ROUND_HALF_UP)."mi";
+$visibility              = round($parsed_json['response'][0]['periods'][0]['visibilityMI'],0,PHP_ROUND_HALF_UP)."mi";
 }
 else
 {
-$visibility              = round($parsed_json['response']['ob']['visibilityKM'],0,PHP_ROUND_HALF_UP)."km";
+$visibility              = round($parsed_json['response'][0]['periods'][0]['visibilityKM'],0,PHP_ROUND_HALF_UP)."km";
 }
 ?>
 <div class="updatedtimecurrent">
