@@ -1,17 +1,17 @@
 <?php
-//###################################################################################################################
-//	weewx-Weather34 Template maintained by Ian Millard (Steepleian)                                 				
-//	                                                                                                				
-//  Contains original legacy code (by agreement) created and developed by Brian Underdown (https://weather34.com)   
-//  for the (now superseeded) original Weather34 Template which is no longer maintained by its creator              
-//  © weather34.com original CSS/SVG/PHP 2015-2019                                                                  
-// 	                                                                                                				
-//  Contains original code by Ian Millard and collaborators															
-//  © claydonsweather.org.uk original CSS/SVG/PHP 2020-2021                                                            
-// 	                                                                                                				
-// 	Issues for weewx-Weather34 template should be addressed to https://github.com/steepleian/weewx-Weather34/issues                                                                                               
-// 	                                                                                                				
-//###################################################################################################################
+####################################################################################################################
+#	weewx-Weather34 Template maintained by Ian Millard (Steepleian)                                                  #
+#                                                                                                                  #
+#   Contains original legacy code (by agreement) created and developed by Brian Underdown (https://weather34.com)  #
+#   for the (now superseded) original Weather34 Template which is no longer maintained by its creator              #
+#   © weather34.com original CSS/SVG/PHP 2015-2019                                                                 #
+#                                                                                                                  #
+#   Contains original code by Ian Millard and collaborators                                                        #
+#   © claydonsweather.org.uk original CSS/SVG/PHP 2020-2021                                                        #
+#                                                                                                                  #
+# Issues for weewx-Weather34 template should be addressed to https://github.com/steepleian/weewx-Weather34/issues  #
+#                                                                                                                  #
+####################################################################################################################
 if(!file_exists('settings1.php')) {copy('initial_settings1.php','settings1.php'); }
 include_once ('w34CombinedData.php');
 include_once ('common.php');
@@ -187,7 +187,7 @@ else echo "" ?></a></span>
 }
 else
 {
-    echo $meteor_default;
+    echo "".$meteor_default;
 } ?></a></span>
 <span class="yearpopup"><a alt="aurora information" title="aurora information" href=pop_aurora.php data-lity><?php echo $info; ?> Aurora <?php if ($kp >= 5)
 {
@@ -232,38 +232,27 @@ if ($position12 == 'weather34uvsolar.php')
     echo ' <span class="yearpopup"><a alt="solar" title="UV Guide" href="pop_menu_solar.php" data-lity>' . $chartinfo . " UV and Solar Almanacs and Guides  </a></span>";
 }
 
-if ($position12 == 'solaruvwu.php')
-{
+if ($position12 == 'solaruvwu.php'){
     echo ' <span class="yearpopup"><a alt="UV Guide" title="UV Guide" href="uvindexwu.php" data-lity>' . $chartinfo . " UV Guide </a></span>";
 }
-if ($position12 == 'solaruvwu.php')
-{
-    echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="wpop_solaralmanac.php" data-lity>' . $chartinfo . " Solar Almanac </a></span>";
+if ($position12 == 'solaruvwu.php'){
+    echo ' <span class="yearpopup"><a alt="Solar Almanac" title="Solar Almanac" href="pop_solaralmanac.php" data-lity>' . $chartinfo . " Solar Almanac </a></span>";
 }
-if ($position12 == 'solaruvwu.php')
-{
-    echo ' <span class="yearpopup"><a alt="Solar Chart" title="Solar Chart" href="<?php echo $chartsource ;?>/todaysolar.php" data-lity>&nbsp;' . $menucharticonpage . " Solar chart </a></span>";
+if ($position12 == 'lightning34.php'){
+    echo '<span class="yearpopup"><a alt="Lightning Strike Almanac" title="AlmanacLightning"href="pop_lightningalmanac.php". data-lity>' . $chartinfo . " Strike Almanac </a></span>";
 }
-if ($position12 == 'lightning34.php')
-{
-    echo '<span class="yearpopup"><a 
-alt="Lightning Strike Almanac" title="Almanac 
-Lightning"href="pop_lightningalmanac.php". data-lity>' . $chartinfo . " Strike Almanac </a></span>";
-}
-if ($position12 == 'eq.php')
-{
+if ($position12 == 'eq.php'){
     echo ' <span class="yearpopup"><a alt="Earthquakes Worldwide" title="Earthquakes Worldwide" href="pop_eqlist.php" data-lity>' . $chartinfo . " Worldwide Earthquakes </a></span>";
 }
-if ($position12 == 'eq_uk.php')
-{
+if ($position12 == 'eq_uk.php'){
     echo ' <span class="yearpopup" scrolling="no"><a alt="Earthquakes UK" title="Earthquakes UK" href="pop_eqlist.php" data-lity>' . $chartinfo . " UK Earthquakes </a></span>";
 } ?>
 </div><span class='moduletitle'><a alt="Position12 Switcher" title="Position12 Switcher" href="updatesection.php?pos=position12"><img src="img/lightningalert.svg" width="10" height="10" align="right"/></a><?php echo $position12title ?></span></span><div id="solar"></div></div>
  <!--position last module for homeweatherstation template-->
   <div class="weather-item"><div class="chartforecast" >
   <span class="yearpopup">
-<?php 
-  
+<?php
+
   if ($positionlastmodule == 'webcamsmall.php' && $dayPartCivil == 'night')
 {
     $positionlastmodule = 'moonphase.php'; $positionlastmoduletitle = 'Moonphase';}

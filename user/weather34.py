@@ -863,7 +863,11 @@ class Weather34RealTime(StdService):
     def write_data(self, data):
         data = self.create_realtime_string(data)
         try:
-            lfilename = os.path.join(self.html_root, "serverdata", "w34realtime.txt") if len(self.webserver_addresses) == 0 else "/tmp/weather34/serverdata/w34realtime.txt"
+            realtime_path = self.config_dict['Weather34RealTime'].get('realtime_path_only',"")
+            if len(realtime_path):
+                lfilename = os.path.join(self.html_root, realtime_path, "w34realtime.txt") if len(self.webserver_addresses) == 0 else "/tmp/weather34/serverdata/w34realtime.txt"
+            else:
+                lfilename = os.path.join(self.html_root, "serverdata", "w34realtime.txt") if len(self.webserver_addresses) == 0 else "/tmp/weather34/serverdata/w34realtime.txt"
             if len(self.webserver_addresses) > 0  and not os.path.exists(os.path.dirname(lfilename)):
                 os.mkdir(os.path.dirname(lfilename), 0o777)
             with open(lfilename, 'w') as f:
