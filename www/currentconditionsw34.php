@@ -12,8 +12,8 @@ error_reporting(0);
 $json_string             = file_get_contents("jsondata/me.txt");
 $parsed_json             = json_decode($json_string, true);
 $sky_code                = $parsed_json['data'][0]['clouds'][0]['code'];
-if ($windunit =='mph' ||  $windunit =='kts'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['feet'];}
-else if ($windunit =='km/h' ||  $windunit =='m/s'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['meters'];} 
+if ($windunit =='mph' ||  $windunit =='kts'){$weather["cloudbase3"]   = round(($weather["cloudbase3"]*3.28084),0);}
+else if ($windunit =='km/h' ||  $windunit =='m/s'){$weather["cloudbase3"]   = $weather["cloudbase3"];}
 
 $result = date_sun_info(time(), $lat, $lon);$sunr=date_sunrise(time(), SUNFUNCS_RET_STRING, $lat, $lon, $rise_zenith, $UTC_offset);$suns=date_sunset(time(), SUNFUNCS_RET_STRING, $lat, $lon, $set_zenith, $UTC_offset);
 $sunr1=date_sunrise(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat, $lon, $rise_zenith, $UTC_offset);$suns1=date_sunset(strtotime('+1 day', time()), SUNFUNCS_RET_STRING, $lat, $lon, $set_zenith, $UTC_offset);
