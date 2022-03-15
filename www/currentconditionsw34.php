@@ -12,6 +12,8 @@ error_reporting(0);
 $json_string             = file_get_contents("jsondata/me.txt");
 $parsed_json             = json_decode($json_string, true);
 $sky_code                = $parsed_json['data'][0]['clouds'][0]['code'];
+//if ($windunit =='mph' ||  $windunit =='kts'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['feet'];}
+//else if ($windunit =='km/h' ||  $windunit =='m/s'){$weather["cloudbase3"]   = $parsed_json['data'][0]['clouds'][0]['meters'];} 
 if ($windunit =='mph' ||  $windunit =='kts'){$weather["cloudbase3"]   = round(($weather["cloudbase3"]*3.28084),0);}
 else if ($windunit =='km/h' ||  $windunit =='m/s'){$weather["cloudbase3"]   = $weather["cloudbase3"];}
 
@@ -39,15 +41,14 @@ else echo $online,"";echo " ",	date($timeFormat,$forecastime);	?></div>
 <?php //cloudbase-weather34
 $cloudcoverunit = '%';
 $clouds = "Cloudbase";
-//$weather["cloud_cover"]=0;
 if ($windunit =='mph' ||  $windunit =='kts'){$distance="ft";}
 else if ($windunit =='km/h' ||  $windunit =='m/s'){$distance="m";}
-if ($sky_code == 'CLR'){$weather["cloudbase3"]="No Cloud Base";$clouds="";$distance="";}
+if ($weather["cloudbase3"]>0){
 if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]>=1999){echo "<div class=cloudconvertercircle2000>".$clouds."<tyellow> ".$weather["cloudbase3"]."</tyellow><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
 else if ($windunit =='mph' ||  $windunit =='kts' && $weather["cloudbase3"]<1999){echo "<div class=cloudconvertercircle>".$clouds."<tblue> ".$weather["cloudbase3"]."</tblue><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
 else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]>=609){echo "<div class=cloudconvertercircle2000>".$clouds."<tyellow> ".$weather["cloudbase3"]."</tyellow><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
 else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]<609){echo "<div class=cloudconvertercircle>".$clouds."<tblue> ".$weather["cloudbase3"]."</tblue><smalltempunit2> ".$distance."</tblue><smalltempunit2>" ;}
-?></div></div>
+}?></div></div>
 <div class="darkskyiconcurrent"><span1>
 <?php 
 //homeweatherstation weather34 current conditions using hardware values
