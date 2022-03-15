@@ -1,0 +1,13 @@
+#errorCatcher Echo
+##
+## Specifying an encoding of UTF-8 is usually safe, but if your text is 
+## actually in Latin-1, then you should replace the string "UTF-8" with "latin-1"
+## If you do this, you should also change the 'Content-Type' metadata below.
+#encoding UTF-8
+##
+<?php
+$lightningdistance = "$alltime.lightning_distance.lastnonzero.format(add_label=False, $localize=False)";
+$lastlightningtime = "$alltime.lightning_last_det_time.lastnonzero.raw";
+$lightning = "$alltime.lightning_strike_count.sum";
+$lightning3hr = "$span($hour_delta=3)lightning_strike_count.sum";  
+?>
