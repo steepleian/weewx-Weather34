@@ -1068,19 +1068,19 @@
 			"icon2": "sleet.svg"
 		},
 		"sunny.png": {
-			"icon1": "01dw.svg",
-			"icon2": "clear-day.svg"
-		},
-		"sunnyn.png": {
-			"icon1": "01nw.svg",
-			"icon2": "clear-night.svg"
-		},
-		"sunnyw.png": {
 			"icon1": "01d.svg",
 			"icon2": "clear-day.svg"
 		},
-		"sunnywn.png": {
+		"sunnyn.png": {
 			"icon1": "01n.svg",
+			"icon2": "clear-night.svg"
+		},
+		"sunnyw.png": {
+			"icon1": "01dw.svg",
+			"icon2": "clear-day.svg"
+		},
+		"sunnywn.png": {
+			"icon1": "01nw.svg",
 			"icon2": "clear-night.svg"
 		},
 		"tstorm.png": {
