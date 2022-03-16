@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   x="0"
+   y="0"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg34"
+   sodipodi:docname="03n.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata38">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     id="namedview36"
+     showgrid="false"
+     inkscape:lockguides="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="8.8"
+     inkscape:cx="50"
+     inkscape:cy="50"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg34">
+    <sodipodi:guide
+       position="1.8181818,80"
+       orientation="1,0"
+       id="guide883" />
+    <sodipodi:guide
+       position="0,25"
+       orientation="0,-1"
+       id="guide885" />
+    <sodipodi:guide
+       position="93.068182,53.863636"
+       orientation="1,0"
+       id="guide887" />
+  </sodipodi:namedview>
+  <symbol
+     id="cloud">
+    <path
+       d="M55.7,5A23.94,23.94,0,0,0,34.37,18.05a9.9,9.9,0,0,0-12.78,5.56,15,15,0,0,0-1.71-.1A14.81,14.81,0,0,0,9.2,28,14.63,14.63,0,0,0,5,38.17v.21A14.83,14.83,0,0,0,19.88,53.06H75.59a14.3,14.3,0,0,0,3.67-28.14A23.93,23.93,0,0,0,55.7,5Z"
+       id="path2" />
+    <image
+       x="5"
+       y="14"
+       width="85"
+       height="43"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAAAkCAMAAAAkYj0PAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAVUExURSgoKExpcaCgoFBQUG5ublBQUISEhI1fsT0AAAAHdFJOUxsACBsPFRpGXuFgAAABWElEQVRIx7XV25bDIAgF0BMu/v8nF/E+iWlqHNKVN3cpIMXxL4GFM3SQfTazkUyxk63oLYwlVSy2silXkS/wUrZS2a3ZCn1zsdSw7UUYijuHsTa1IvfwWrbSXLkc4N9r27JViwmM1UtWXA3hohQ41m6vl8FQZi7wu2z7KXPW4uRiZS+2AmdXN7DdQEQWQHYHlt6z0dXBBa2xeeVktiZc1jDoF5eGkI4d4MjKc7cNbZ3bqjocLLx5oPDYTaIftcfvAvcs2GFxVsJTOP1wO1jGdUSLaz/DWA1Tl45+Tkqul2ArcPzayGq8JafOUffP3TUp6JQs+Rptc6vtmtBkUw+dv0NzWG0PYf8O7Ym09+ITXyXOPZqEX95aFe3PKxRsL2XV3HR+ZALirPSF0ceHp6F51WBv1A22VaW2GHWzWvat8LOAPf4CrjrA+neNK7+PQBf/DmmLrId09/QDWyESBsibwBUAAAAASUVORK5CYII="
+       id="image4" />
+  </symbol>
+  <symbol
+     id="s04">
+    <use
+       xlink:href="#cloud"
+       fill="#dddddd"
+       x="0"
+       y="0"
+       width="100"
+       height="100"
+       transform="translate(3,18) scale(1,1)"
+       id="use7" />
+  </symbol>
+  <symbol
+     id="moon">
+    <path
+       d="M28.43,0A28.44,28.44,0,0,1,32.3,14.32,28.61,28.61,0,0,1,3.69,42.93,28.71,28.71,0,0,1,0,42.66,28.59,28.59,0,1,0,28.43,0Z"
+       fill="url(#moon-grad)"
+       id="path10" />
+  </symbol>
+  <defs
+     id="defs23">
+    <mask
+       id="cloud_3_18_1_1_5">
+      <rect
+         x="0"
+         y="0"
+         width="100"
+         height="100"
+         fill="white"
+         id="rect13" />
+      <use
+         xlink:href="#cloud"
+         fill="black"
+         stroke="black"
+         stroke-linejoin="round"
+         stroke-width="10"
+         x="0"
+         y="0"
+         width="100"
+         height="100"
+         transform="translate(3,18) scale(1,1)"
+         id="use15" />
+    </mask>
+    <linearGradient
+       id="moon-grad"
+       x1="0%"
+       y1="50%"
+       x2="100%"
+       y2="0%">
+      <stop
+         offset="0%"
+         stop-color="#686e73"
+         id="stop18" />
+      <stop
+         offset="100%"
+         stop-color="#6a7075"
+         id="stop20" />
+    </linearGradient>
+  </defs>
+  <symbol
+     id="s03n">
+    <g
+       mask="url(#cloud_3_18_1_1_5)"
+       id="g27">
+      <use
+         xlink:href="#moon"
+         x="0"
+         y="0"
+         width="100"
+         height="100"
+         transform="translate(2,5) scale(0.714285714,0.714285714)"
+         id="use25" />
+    </g>
+    <use
+       xlink:href="#s04"
+       x="0"
+       y="0"
+       width="100"
+       height="100"
+       id="use29" />
+  </symbol>
+  <use
+     xlink:href="#s03n"
+     x="0"
+     y="0"
+     width="100"
+     height="100"
+     id="use32"
+     transform="matrix(0.75,0,0,0.75,10.511364,7.5)" />
+  <use
+     xlink:href="#s04"
+     x="0"
+     y="0"
+     width="100"
+     height="100"
+     id="use10"
+     transform="matrix(0.5,0,0,0.5,43.288584,4.710928)" />
+  <use
+     xlink:href="#s04"
+     x="0"
+     y="0"
+     width="100"
+     height="100"
+     id="use10-7"
+     transform="matrix(0.375,0,0,0.375,-1.1818182,46.875)" />
+</svg>
