@@ -112,7 +112,8 @@ if (isset($weewxapi))
     $weather["maxwindtime"] = ($weewxapi[31] == "   N/A" ? "0" : $weewxapi[31]);
     $weather["maxgusttime"] = ($weewxapi[33] == "   N/A" ? "0" : $weewxapi[33]);
     $weather["cloudbase3"] = ($weewxapi[203] == "   N/A" ? "0" : $weewxapi[203]);
-    $weather["wind_run"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[203]);
+    //$weather["wind_run"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
+    
     $weather["swversion"] = $weewxrt[38];
     $weather["build"] = $weewxrt[39];
     $weather["actualhardware"] = ($weewxapi[42] == "   N/A" ? "0" : $weewxapi[42]);
@@ -126,7 +127,7 @@ if (isset($weewxapi))
     $weather['wind_speed_avgday'] = ($weewxapi[158] == "   N/A" ? "0" : $weewxapi[158]);
     $weather["cloud_cover"] = ($weewxapi[204] == "   N/A" ? "0" : $weewxapi[204]);
     //weather34 windrun
-    $weather["windrun"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
+    $weather["windrun"] = ($weewxrt[17] == "   N/A" ? "0" : $weewxrt[17]);
     //$weather["windrun"] = $weewxapi[200];
     //weather34 weewx moon sun data
     $weather["moonphase"] = ($weewxapi[153] == "   N/A" ? "0" : $weewxapi[153]);
@@ -712,7 +713,7 @@ if ($windunit != $weather["wind_units"])
         ktsTomph($weather, "wind_gust_speed_trend");
         ktsTomph($weather, "wind_speed_max");
         ktsTomph($weather, "wind_gust_speed_max");
-        //ktsTomph($weather, "wind_run");
+        ktsTomph($weather, "wind_run");
         ktsTomph($weather, "wind_speed_avg");
         ktsTomph($weather, "wind_speed_avg15");
         ktsTomph($weather, "wind_speed_avg30");
@@ -736,7 +737,7 @@ if ($windunit != $weather["wind_units"])
         kmhTomph($weather, "wind_gust_speed_trend");
         kmhTomph($weather, "wind_speed_max");
         kmhTomph($weather, "wind_gust_speed_max");
-        //kmhTomph($weather, "wind_run");
+        kmhTomph($weather, "wind_run");
         kmhTomph($weather, "wind_speed_avg");
         kmhTomph($weather, "wind_speed_avg15");
         kmhTomph($weather, "wind_speed_avg30");
@@ -760,7 +761,7 @@ if ($windunit != $weather["wind_units"])
         msTomph($weather, "wind_gust_speed_trend");
         msTomph($weather, "wind_speed_max");
         msTomph($weather, "wind_gust_speed_max");
-        //msTomph($weather, "wind_run");
+        msTomph($weather, "wind_run");
         msTomph($weather, "wind_speed_avg");
         msTomph($weather, "wind_speed_avg15");
         msTomph($weather, "wind_speed_avg30");
@@ -784,7 +785,7 @@ if ($windunit != $weather["wind_units"])
         ktsTokmh($weather, "wind_gust_speed_trend");
         ktsTokmh($weather, "wind_speed_max");
         ktsTokmh($weather, "wind_gust_speed_max");
-        //ktsTokmh($weather, "wind_run");
+        ktsTokmh($weather, "wind_run");
         ktsTokmh($weather, "wind_speed_avg");
         ktsTokmh($weather, "wind_speed_avg15");
         ktsTokmh($weather, "wind_speed_avg30");
@@ -808,7 +809,7 @@ if ($windunit != $weather["wind_units"])
         mphTokmh($weather, "wind_gust_speed_trend");
         mphTokmh($weather, "wind_speed_max");
         mphTokmh($weather, "wind_gust_speed_max");
-        //mphTokmh($weather, "wind_run");
+        mphTokmh($weather, "wind_run");
         mphTokmh($weather, "wind_speed_avg");
         mphTokmh($weather, "wind_speed_avg15");
         mphTokmh($weather, "wind_speed_avg30");
@@ -832,7 +833,7 @@ if ($windunit != $weather["wind_units"])
         msTokmh($weather, "wind_gust_speed_trend");
         msTokmh($weather, "wind_speed_max");
         msTokmh($weather, "wind_gust_speed_max");
-        //msTokmh($weather, "wind_run");
+        msTokmh($weather, "wind_run");
         msTokmh($weather, "wind_speed_avg");
         msTokmh($weather, "wind_speed_avg15");
         msTokmh($weather, "wind_speed_avg30");
@@ -857,7 +858,7 @@ if ($windunit != $weather["wind_units"])
         ktsToms($weather, "wind_speed_max");
         ktsToms($weather, "wind_gust_speed_max");
         ktsToms($weather, "wind_gust_speed1");
-        //ktsToms($weather, "wind_run");
+        ktsToms($weather, "wind_run");
         ktsToms($weather, "wind_speed_avg");
         ktsToms($weather, "wind_speed_avg15");
         ktsToms($weather, "wind_speed_avg30");
@@ -881,7 +882,7 @@ if ($windunit != $weather["wind_units"])
         mphToms($weather, "wind_gust_speed_trend");
         mphToms($weather, "wind_speed_max");
         mphToms($weather, "wind_gust_speed_max");
-        //mphToms($weather, "wind_run");
+        mphToms($weather, "wind_run");
         mphToms($weather, "wind_speed_avg");
         mphTokmh($weather, "wind_speed_avg15");
         mphTokmh($weather, "wind_speed_avg30");
@@ -905,7 +906,7 @@ if ($windunit != $weather["wind_units"])
         kmhToms($weather, "wind_gust_speed_trend");
         kmhToms($weather, "wind_speed_max");
         kmhToms($weather, "wind_gust_speed_max");
-        //kmhToms($weather, "wind_run");
+        kmhToms($weather, "wind_run");
         kmhToms($weather, "wind_speed_avg");
         kmhToms($weather, "wind_speed_avg15");
         kmhToms($weather, "wind_speed_avg30");
@@ -929,7 +930,7 @@ if ($windunit != $weather["wind_units"])
         msTokts($weather, "wind_gust_speed_trend");
         msTokts($weather, "wind_speed_max");
         msTokts($weather, "wind_gust_speed_max");
-        //msTokts($weather, "wind_run");
+        msTokts($weather, "wind_run");
         msTokts($weather, "wind_speed_avg");
         msTokts($weather, "wind_speed_avg15");
         msTokts($weather, "wind_speed_avg30");
@@ -953,7 +954,7 @@ if ($windunit != $weather["wind_units"])
         mphTokts($weather, "wind_gust_speed_trend");
         mphTokts($weather, "wind_speed_max");
         mphTokts($weather, "wind_gust_speed_max");
-        //mphTokts($weather, "wind_run");
+        mphTokts($weather, "wind_run");
         mphTokts($weather, "wind_speed_avg");
         mphTokts($weather, "wind_speed_avg15");
         mphTokts($weather, "wind_speed_avg30");
@@ -977,7 +978,7 @@ if ($windunit != $weather["wind_units"])
         kmhTokts($weather, "wind_gust_speed_trend");
         kmhTokts($weather, "wind_speed_max");
         kmhTokts($weather, "wind_gust_speed_max");
-        //kmhTokts($weather, "wind_run");
+        kmhTokts($weather, "wind_run");
         kmhTokts($weather, "wind_speed_avg");
         kmhTokts($weather, "wind_speed_avg15");
         kmhTokts($weather, "wind_speed_avg30");

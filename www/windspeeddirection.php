@@ -1,4 +1,3 @@
-
 <?php 
 //original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
 require_once('w34CombinedData.php');require_once('common.php');?>
