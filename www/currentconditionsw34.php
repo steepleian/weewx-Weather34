@@ -57,9 +57,9 @@ else if($weather["rain_rate"]>0){echo "<img rel='prefetch' src='css/svg/09.svg' 
 //else if($weather["rain_rate2"]>10){echo "<img rel='prefetch' src='css/svg/10.svg' width='70px' height='60px' alt='weather34 heavy rain icon'>";}
 //else if($weather["rain_rate2"]>0){echo "<img rel='prefetch' src='css/svg/09.svg' width='70px' height='60px' alt='weather34 rain icon'>";}
 //fog-weather34
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $now >$suns2 && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog.night.svg' width='70px' height='60px' alt='weather34 fog icon'>";}
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $now <$sunr2 && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog.day.svg' width='70px' height='60px' alt='weather34 fog icon'>";}
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog.svg' width='70px' height='60px' alt='weather34 fog'>";}
+else if($weather["temp"] -$weather["dewpoint"] <0.8  && $now >$suns2 && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/15.svg' width='70px' height='60px' alt='weather34 fog icon'>";}
+else if($weather["temp"] -$weather["dewpoint"] <0.8  && $now <$sunr2 && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/15.svg' width='70px' height='60px' alt='weather34 fog icon'>";}
+else if($weather["temp"] -$weather["dewpoint"] <0.8  && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/15.svg' width='70px' height='60px' alt='weather34 fog'>";}
 //windy moderate-weather34
 else if($weather["wind_speed_avg"]<15 && $now <$sunr2 && $weather["cloud_cover"]<20){echo "<img rel='prefetch' src='css/svg/01n.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
 else if($weather["wind_speed_avg"]<15 && $weather["cloud_cover"]<20){echo "<img rel='prefetch' src='css/svg/01d.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
