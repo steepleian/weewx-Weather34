@@ -128,6 +128,11 @@ else if($weather["wind_speed_avg"]>=22){echo "Moderate Wind <br>Conditions";}
 else if($weather["wind_speed_avg"]>=15){echo "Breezy <br>Conditions";}
 //cloud-description
 else if($weather["cloud_cover"]<7 and $weather["cloud_cover"]>0) {echo "Clear <br>Conditions";}
+else if ($weather["cloud_cover"]<7 and $weather["cloud_cover"]>0) {
+if ($now >$suns2 ){echo "Clear <br>Conditions";} 
+else if ($now <$sunrs2 ){echo "Clear <br>Conditions";} 
+else echo "Sunny <br>Conditions"; 
+} 
 else if ($weather["cloud_cover"]<32) {
 if ($now >$suns2 ){echo "Mostly Clear <br>Conditions";} 
 else if ($now <$sunrs2 ){echo "Mostly Clear <br>Conditions";} 
