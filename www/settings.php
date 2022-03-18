@@ -80,7 +80,7 @@ $creditschart 		= "CanvasJs.com v2.3.1 GA (CC BY-NC 3.0) Non-Commercial-Version"
 $creditsURL         = ""; // for chart pages only
 $credits            = "Data Supplied via Weather Underground"; // for chart pages only
 $templateinfo       = ''; // template information page
-$templateversion    = 'W34-HC-<maxblue>IMJD</maxblue>-4.2.4';
+$templateversion    = 'W34-HC-<maxblue>IMJD</maxblue>-4.2.5';
 
 $software    = 'WeeWX <span>Hardware</span> Users';$designedfor='<br>For WeeWX Users';$chartversion='(WUDATACHARTS)';$somethinggoeshere ='d4586dec-e7a2-47ae-99b6-25527b2563c9';$chartversionmysql  =  '(DATACHARTS WeeWX Database Version)';
 if (array_key_exists('theme', $_GET) && ($_GET['theme'] == 'dark' || $_GET['theme'] == 'light')) {
