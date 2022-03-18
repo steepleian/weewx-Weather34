@@ -73,32 +73,27 @@ else if($weather["wind_speed_avg"]>=15 && $now <$sunr2){echo "<img rel='prefetch
 else if($weather["wind_speed_avg"]>=15){echo "<img rel='prefetch' src='css/svg/wind.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
 
 //cloud-icon
-else if ($weather["cloud_cover"]<5 and $weather["cloud_cover"]>0) {
+else if ($weather["cloud_cover"]<7 and $weather["cloud_cover"]>0) {
 if ($now >$suns2 ){echo "<img rel='prefetch' src='css/svg/01n.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else if ($now <$sunrs2 ){echo "<img rel='prefetch' src='css/svg/01n.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else echo "<img rel='prefetch' src='css/svg/01d.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 } 
-else if ($weather["cloud_cover"]<20) {
+else if ($weather["cloud_cover"]<32) {
 if ($now >$suns2 ){echo "<img rel='prefetch' src='css/svg/02n.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else if ($now <$sunrs2 ){echo "<img rel='prefetch' src='css/svg/02n.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else echo "<img rel='prefetch' src='css/svg/02d.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
-else if ($weather["cloud_cover"]<40) {
-if ($now >$suns2 ){echo "<img rel='prefetch' src='css/svg/02n-sca.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else if ($now <$sunrs2 ){echo "<img rel='prefetch' src='css/svg/02n-sca.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/02d-sca.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
-}
-else if ($weather["cloud_cover"]<60) {
+else if ($weather["cloud_cover"]<70) {
 if ($now >$suns2 ){echo "<img rel='prefetch' src='css/svg/03n-part.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else if ($now <$sunrs2 ){echo "<img rel='prefetch' src='css/svg/03n-part.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else echo "<img rel='prefetch' src='css/svg/03d-part.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
-else if ($weather["cloud_cover"]<80) {
+else if ($weather["cloud_cover"]<95) {
 if ($now >$suns2 ){echo "<img rel='prefetch' src='css/svg/03n-most.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else if ($now <$sunrs2 ){echo "<img rel='prefetch' src='css/svg/03n-most.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else echo "<img rel='prefetch' src='css/svg/03d-most.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
-else if($weather["cloud_cover"]>=80) {
+else if($weather["cloud_cover"]>=95) {
 if ($now >$suns2 ){echo "<img rel='prefetch' src='css/svg/04.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else if ($now <$sunrs2 ){echo "<img rel='prefetch' src='css/svg/04.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
 else echo "<img rel='prefetch' src='css/svg/04.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
@@ -133,12 +128,11 @@ else if($weather["wind_speed_avg"]>=30){echo "Very Windy ".$alert."<br>Condition
 else if($weather["wind_speed_avg"]>=22){echo "Moderate Wind <br>Conditions";}
 else if($weather["wind_speed_avg"]>=15){echo "Breezy <br>Conditions";}
 //cloud-description
-else if($weather["cloud_cover"]<5 and $weather["cloud_cover"]>0) {echo "Clear <br>Conditions";}
-else if($weather["cloud_cover"]<20) {echo "Mostly Clear <br>Conditions";}
-else if($weather["cloud_cover"]<40) {echo "Scattered <br>Clouds";}
-else if($weather["cloud_cover"]<60) {echo "Partly Cloudy <br>Conditions";}
-else if($weather["cloud_cover"]<80) {echo "Mostly Cloudy <br>Conditions";}
-else if($weather["cloud_cover"]>=80) {echo "Overcast <br>Conditions";}
+else if($weather["cloud_cover"]<7 and $weather["cloud_cover"]>0) {echo "Clear <br>Conditions";}
+else if($weather["cloud_cover"]<32) {echo "Mostly Clear <br>Conditions";}
+else if($weather["cloud_cover"]<70) {echo "Partly Cloudy <br>Conditions";}
+else if($weather["cloud_cover"]<95) {echo "Mostly Cloudy <br>Conditions";}
+else if($weather["cloud_cover"]>=95) {echo "Overcast <br>Conditions";}
 else if(filesize('jsondata/me.txt')<160){echo "<uppercase>Conditions<br>Not Available</uppercase>";}
 //oktas
 if($weather["cloud_cover"]<5 and $weather["cloud_cover"]>0) {$weather["cloud_oktas"]="0 oktas";}
