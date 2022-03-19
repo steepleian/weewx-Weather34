@@ -414,6 +414,14 @@ if (
 } else {
     $dayPartAstronomical = "night";
 }
+if (
+    strtotime(date("G.i")) >= strtotime($sun_rise) &&
+    strtotime(date("G.i")) < strtotime($sun_set)
+) {
+    $dayPartNatural = "day";
+} else {
+    $dayPartNatural = "night";
+}
 #end if
 ?>
 
