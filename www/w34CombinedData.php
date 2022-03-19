@@ -111,9 +111,8 @@ if (isset($weewxapi))
     $weather["lowtemptime"] = ($weewxapi[29] == "   N/A" ? "0" : $weewxapi[29]);
     $weather["maxwindtime"] = ($weewxapi[31] == "   N/A" ? "0" : $weewxapi[31]);
     $weather["maxgusttime"] = ($weewxapi[33] == "   N/A" ? "0" : $weewxapi[33]);
-    $weather["cloudbase3"] = ($weewxapi[203] == "   N/A" ? "0" : $weewxapi[203]);
-    //$weather["wind_run"] = ($weewxapi[200] == "   N/A" ? "0" : $weewxapi[200]);
-    
+    $weather["cloudbase3"] = ($weewxrt[52] == "   N/A" ? "0" : $weewxrt[52]);
+     
     $weather["swversion"] = $weewxrt[38];
     $weather["build"] = $weewxrt[39];
     $weather["actualhardware"] = ($weewxapi[42] == "   N/A" ? "0" : $weewxapi[42]);
