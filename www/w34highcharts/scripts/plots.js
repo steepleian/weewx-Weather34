@@ -1603,38 +1603,38 @@ function plot_js(units, ptype, span, plt_div, dplots = false, cdates = false, re
             options.yAxis[0].plotBands = [{
                              color: Highcharts.theme=='white'?Highcharts.theme:'transparent',
                              from: 0,
-                             to: 20,
+                             to: 7,
                              label: {
                                  text: 'Clear',
                                  style: {color: Highcharts.theme=='white'?'black':'white'}
                                  }
                              },{
                              color: Highcharts.theme=='white'?Highcharts.theme:'transparent',
-                             from: 20,
-                             to: 40,
+                             from: 7,
+                             to: 32,
                              label: {
                                  text: 'Scattered Clouds',
                                  style: {color: Highcharts.theme=='white'?'black':'white'}
                                  }
                              },{
                              color: Highcharts.theme=='white'?Highcharts.theme:'transparent',
-                             from: 40,
-                             to: 60,
+                             from: 32,
+                             to: 70,
                              label: {
                                  text: 'Partly Cloudy',
                                  style: {color: Highcharts.theme=='white'?'black':'white'}
                                  }
                              },{
                              color: Highcharts.theme=='white'?Highcharts.theme:'transparent',
-                             from: 60,
-                             to: 80,
+                             from: 70,
+                             to: 95,
                              label: {
                                  text: 'Mostly Cloudy',
                                  style: {color: Highcharts.theme=='white'?'black':'white'}
                                  }
                              },{
                              color: Highcharts.theme=='white'?Highcharts.theme:'transparent',
-                             from: 80,
+                             from: 95,
                              to: 100,
                              label: {
                                  text: 'Overcast',
