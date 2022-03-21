@@ -134,7 +134,8 @@ else if($weather["cloud_cover"]<=100) {$weather["cloud_oktas"]="8 oktas";}
 <div class="darkskynexthours" style="margin: 60px auto auto">
 <?php //weather34 average station data
 //echo "Average <oblue>Cloud Cover</oblue> last 5 minutes <ogreen>" .$weather["cloud_cover"]."</ogreen><valuetext>".$cloudcoverunit. "(".$weather["cloud_oktas"].")";
-echo "</br>Visibility <oorange>".$visibility."</oorange></br>";
+
+if ($visibility!==0){echo "</br>Visibility <oorange>".$visibility."</oorange></br>";}
 if (strpos($weather["cloud_cover"],"N/A") == false){
 echo "<oblue>Cloud Cover</oblue><ogreen> " .$weather["cloud_cover"]."</ogreen><valuetext>".$cloudcoverunit. " (".$weather["cloud_oktas"].")";
 }
