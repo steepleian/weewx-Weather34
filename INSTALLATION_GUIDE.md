@@ -22,9 +22,11 @@ IMPORTANT. Installing PHP; please make sure you install all the PHP modules appr
 	sudo a2enmod php8.1
 	sudo systemctl restart apache2
 
-* Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
+* Install Ephem (https://rhodesmill.org/pyephem/). It is important that you install the latest version as versions prior to 4.1.3 are missing crucial libraries in the install package. It is also important that any previous versions are removed before hand. From the command line (if your version of Python is 2.x, use pip2 and python2 instead): -
 
-        sudo apt install python2-ephem or sudo apt install python3-ephem
+        sudo pip3 uninstall pyephem
+		sudo apt purge python3-ephem
+		sudo pip3 install ephem
 
 Once completed, make sure you save weewx.conf
 
