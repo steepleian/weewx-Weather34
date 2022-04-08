@@ -385,11 +385,6 @@
             var ckaw = document.getElementById("ckaw");
             txtAwKey.disabled = awKeyChkd.checked ? false : true;
             txtAwSecret.disabled = awKeyChkd.checked ? false : true;
-            if(awKeyChkd.checked == true){
-                ckaw.checked = true;
-            }else{
-                ckaw.checked = false;
-            }
             if (!awKeyChkd.disabled) {
                 awKeyChkd.focus();
             }
@@ -402,7 +397,12 @@
             var selWuUnits = document.getElementById("selWuUnits");
             txtWuKey.disabled = wuKeyChkd.checked ? false : true;
             selWuUnits.disabled = wuKeyChkd.checked ? false : true;
-            if (!wuKeyChkd.disabled) {
+            if(awKeyChkd.checked == true){
+                ckwu.checked = true;
+            }else{
+                ckwu.checked = false;
+            }
+	    if (!wuKeyChkd.disabled) {
                 wuKeyChkd.focus();
             }
         }
