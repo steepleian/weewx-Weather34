@@ -212,6 +212,13 @@ if (isset($weewxapi))
     $weather["lightningday"] = ($weewxapi[76] == "   N/A" ? "0" : $weewxapi[76]);
     $weather["lightningmonth"] = ($weewxapi[74] == "   N/A" ? "0" : $weewxapi[74]);
     $weather["lightningyear"] = ($weewxapi[75] == "   N/A" ? "0" : $weewxapi[75]);
+    
+    //ecowitt lightning
+    $lightning['light_last_distance'] = ($lightning['light_last_distance'] == "   N/A" ? "0" : $lightning['light_last_distance']);
+    $lightning['last_time'] = ($lightning['last_time'] == "   N/A" ? "0" : $lightning['last_time']);
+    $lightning['strike_count'] = ($lightning['strike_count'] == "   N/A" ? "0" : $lightning['strike_count']);
+    $lightning['strike_count_3hr'] = ($lightning['strike_count_3hr'] == "   N/A" ? "0" : $lightning['strike_count_3hr']);
+    
     $originalDate = ($weewxapi[83] == "   N/A" ? "0" : $weewxapi[83]);
     $tempydmaxtime = date("H:i", strtotime($originalDate));
     $originalDate1 = ($weewxapi[85] == "   N/A" ? "0" : $weewxapi[85]);
