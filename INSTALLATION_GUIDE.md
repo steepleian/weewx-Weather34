@@ -55,7 +55,11 @@ Once completed, make sure you save weewx.conf
 		
 
 
-* Restart WeeWX.
+* Restart WeeWX and from command line run: -
+            	
+		sudo python3 ./[YOUR OWN PATH TO]/wee_reports
+
+This will allow some of the required variable data to be generated immediately without having to wait for the next report generation interval.
 
 * You can now test that the template is working by opening it up in your browser. Initially you will see random demo data. Click on the menu button at the top-left corner and select settings. This will open up a web form in which you apply your own settings. The default password is '12345'. Please change this to your own unique password for your own protection. Pay particular attention to the location of the w34realtime.txt file being generated on a loop cycle by weeWX. The default location is “/[html_root]/weewx/w34weather/serverdata/w34realtime.txt” (for example /var/www/html/weewx/w34weather/serverdata/w34realtime.txt). IMPORTANT the unit codes that you select for the Weather Underground and DarkSky forecast APIs must be identical to those that you select in the pre-install settings process. Failure to do so will possibly produce some bizzare data.
 
