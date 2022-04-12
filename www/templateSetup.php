@@ -1002,7 +1002,7 @@ General template settings with options to choose which type of module to display
         </select>
         <br/>
 
-<div class="stationvalue"> *Position 6 </div>
+<div class="stationvalue"> *Position 5 </div>
        
        <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
     <path d="M12 30 L24 16 12 2" />
