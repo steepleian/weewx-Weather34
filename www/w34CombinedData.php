@@ -42,15 +42,22 @@ if (isset($weewxapi))
 {
     $weather["rain_alltime"] = $weewxapi[151];
     $year = substr($weewxrt[0], 6);
-    if ($livedataFormat == 'WeeWX-W34')
-    {
+    //if ($livedataFormat == 'WeeWX-W34')
+    //{
         if (isset($weewxrt[23]))
         {
             $weewxrt[23] = (float)(1 * $weewxrt[23]);
             $weewxrt[23] = number_format((float)$weewxrt[23], 0, '.', '');
         }
-    }
+    //}
     $recordDate = mktime(substr($weewxrt[1], 0, 2) , substr($weewxrt[1], 3, 2) , substr($weewxrt[1], 6, 2) , substr($weewxrt[0], 3, 2) , substr($weewxrt[0], 0, 2) , $year);
+
+    $stationlocation = $sta['location'];
+    $lat = $sta['latitude'];
+    $lon = $sta['longitude'];
+    $elevation = $sta['altitude_meters'];
+    $meteogramURL = $sta['link'];
+    
     $weather["datetime"] = $recordDate;
     $weather["date"] = date($dateFormat, $recordDate);
     $weather["time"] = date($timeFormat, $recordDate);
@@ -111,8 +118,9 @@ if (isset($weewxapi))
     $weather["lowtemptime"] = ($weewxapi[29] == "   N/A" ? "0" : $weewxapi[29]);
     $weather["maxwindtime"] = ($weewxapi[31] == "   N/A" ? "0" : $weewxapi[31]);
     $weather["maxgusttime"] = ($weewxapi[33] == "   N/A" ? "0" : $weewxapi[33]);
+    //$weather["cloudbase3"] = ($weewxapi[203] == "   N/A" ? "0" : $weewxapi[203]);
     $weather["cloudbase3"] = ($weewxrt[52] == "   N/A" ? "0" : $weewxrt[52]);
-     
+    
     $weather["swversion"] = $weewxrt[38];
     $weather["build"] = $weewxrt[39];
     $weather["actualhardware"] = ($weewxapi[42] == "   N/A" ? "0" : $weewxapi[42]);
@@ -218,7 +226,7 @@ if (isset($weewxapi))
     $lightning['last_time'] = ($lightning['last_time'] == "   N/A" ? "0" : $lightning['last_time']);
     $lightning['strike_count'] = ($lightning['strike_count'] == "   N/A" ? "0" : $lightning['strike_count']);
     $lightning['strike_count_3hr'] = ($lightning['strike_count_3hr'] == "   N/A" ? "0" : $lightning['strike_count_3hr']);
-    
+
     $originalDate = ($weewxapi[83] == "   N/A" ? "0" : $weewxapi[83]);
     $tempydmaxtime = date("H:i", strtotime($originalDate));
     $originalDate1 = ($weewxapi[85] == "   N/A" ? "0" : $weewxapi[85]);
