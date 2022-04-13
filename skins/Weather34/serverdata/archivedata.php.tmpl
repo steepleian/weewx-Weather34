@@ -117,6 +117,17 @@
 #set almost_end = $rainyear.end.raw - 1
 #set almost_end_tt = $time.localtime($almost_end)
 #######################
+
+$sta['location'] = "$station.location";
+$sta['name'] = "$station.location";
+$sta['latitude'] = "$station.stn_info.latitude_f";
+$sta['longitude'] = "$station.stn_info.longitude_f";
+$sta['altitude_meters'] = "$station.altitude.meter.raw";
+$sta['link'] = "$station.station_url";
+$sta['hardware'] = "$station.hardware";
+
+
+
 $theme_switch = "$bodyTheme";
 $weewxapi[17] = "$span($time_delta=300).windSpeed.avg.format(add_label=False, $localize=False)";
 $weewxapi[18] = "$span($hour_delta=1).barometer.avg.format(add_label=False, $localize=False)";
@@ -306,6 +317,12 @@ $pm25now = "$current.pm2_5.format(add_label=False, $localize=False)";
 $pm10now = "$current.pm10_0.format(add_label=False, $localize=False)";
 $pm25avg24 = "$span($hour_delta=24).pm2_5.avg.format(add_label=False, $localize=False)"; 
 $pm10avg24 = "$span($hour_delta=24).pm10_0.avg.format(add_label=False, $localize=False)";
+//lightning for Ecowitt sensor
+$lightning['light_last_distance'] = "$alltime.lightning_distance.lastnonzero.format(add_label=False, $localize=False)";
+$lightning['last_time'] = "$alltime.lightning_last_det_time.lastnonzero.raw";
+$lightning['strike_count'] = "$alltime.lightning_strike_count.sum";
+$lightning['strike_count_3hr'] = "$span($hour_delta=3)lightning_strike_count.sum";
+
 ## $current_windchill = "$current.windchill.format(add_label=False, $localize=False)";   
 ## $current_heatindex = "$current.heatindex.format(add_label=False, $localize=False)";
 
@@ -413,6 +430,14 @@ if (
     $dayPartAstronomical = "day";
 } else {
     $dayPartAstronomical = "night";
+}
+if (
+    strtotime(date("G.i")) >= strtotime($sun_rise) &&
+    strtotime(date("G.i")) < strtotime($sun_set)
+) {
+    $dayPartNatural = "day";
+} else {
+    $dayPartNatural = "night";
 }
 #end if
 ?>

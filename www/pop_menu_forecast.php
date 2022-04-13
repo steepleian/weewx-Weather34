@@ -62,8 +62,7 @@ body, html {
 #Tab2 {background-color: <?php echo $background ?>;}
 #Tab3 {background-color: <?php echo $background ?>;}
 #Tab4 {background-color: <?php echo $background ?>;}
-#Tab5 {background-color: <?php echo $background ?>;}
-#Tab6 {background-color: <?php echo $background ?>;}    
+    
    
 
 </style>
@@ -74,9 +73,7 @@ body, html {
 <button class="tablink" onclick="openPage('Tab2', this, 'rgba(194, 102, 58)')">Hourly Forecast Table</button>
 <button class="tablink" onclick="openPage('Tab3', this, 'rgba(194, 102, 58)')">Day and Night Foecast</button>  
 <button class="tablink" onclick="openPage('Tab4', this, 'rgba(194, 102, 58)')">Day and Night Forecast Table</button>  
-<button class="tablink" onclick="openPage('Tab5', this, 'rgba(194, 102, 58)')">Meteogram</button>
-<button class="tablink" onclick="openPage('Tab6', this, 'rgba(194, 102, 58)')">Yr.no</button>  
-  
+
   
   <div id="Tab1" class="tabcontent">
   
@@ -100,19 +97,6 @@ body, html {
   <iframe width="100%" height="92%" scrolling="no" src="pop_aeris_daynight_table.php" frameborder="0"></iframe>
 </div>
   
-  <div id="Tab5" class="tabcontent">
-  
-  <iframe width="100%" height="92%" scrolling="no" src="pop_meteogram.php" frameborder="0"></iframe>
-</div>
-  
-  <div id="Tab6" class="tabcontent">
-  
-  <iframe width="100%" height="92%" scrolling="no" src="pop_forecast_graph.php" frameborder="0"></iframe>
-</div>
-  
-  
-  
-
 <script>
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;

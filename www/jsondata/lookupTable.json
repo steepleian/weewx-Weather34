@@ -315,12 +315,20 @@
 			"icon": "02m.svg",
 			"summary": "Fair"
 		},
+        "mostlycloudy_day": {
+			"icon": "03d-most.svg",
+			"summary": "Partly Cloudy"
+		},
+		"mostlycloudy_night": {
+			"icon": "03n-most.svg",
+			"summary": "Partly Cloudy"
+		},
 		"partlycloudy_day": {
-			"icon": "03d.svg",
+			"icon": "03d-part.svg",
 			"summary": "Partly Cloudy"
 		},
 		"partlycloudy_night": {
-			"icon": "03n.svg",
+			"icon": "03n-part.svg",
 			"summary": "Partly Cloudy"
 		},
 		"partlycloudy_twilight": {
@@ -766,12 +774,12 @@
 			"icon3": "/wuicons/36.svg"
 		},
 		"mcloudy.png": {
-			"icon1": "03d.svg",
+			"icon1": "03d-most.svg",
 			"icon2": "partly-cloudy-day.svg",
 			"icon3": "/wuicons/28.svg"
 		},
 		"mcloudyn.png": {
-			"icon1": "03n.svg",
+			"icon1": "03n-most.svg",
 			"icon2": "partly-cloudy-night.svg",
 			"icon3": "/wuicons/nt_28.svg"
 		},
@@ -872,11 +880,11 @@
 			"summary": "Offline"
 		},
 		"pcloudy.png": {
-			"icon1": "03d.svg",
+			"icon1": "03d-part.svg",
 			"icon2": "partly-cloudy-day.svg"
 		},
 		"pcloudyn.png": {
-			"icon1": "03n.svg",
+			"icon1": "03n-part.svg",
 			"icon2": "partly-cloudy-night.svg"
 		},
 		"pcloudyr.png": {
@@ -1068,19 +1076,19 @@
 			"icon2": "sleet.svg"
 		},
 		"sunny.png": {
-			"icon1": "01dw.svg",
-			"icon2": "clear-day.svg"
-		},
-		"sunnyn.png": {
-			"icon1": "01nw.svg",
-			"icon2": "clear-night.svg"
-		},
-		"sunnyw.png": {
 			"icon1": "01d.svg",
 			"icon2": "clear-day.svg"
 		},
-		"sunnywn.png": {
+		"sunnyn.png": {
 			"icon1": "01n.svg",
+			"icon2": "clear-night.svg"
+		},
+		"sunnyw.png": {
+			"icon1": "01dw.svg",
+			"icon2": "clear-day.svg"
+		},
+		"sunnywn.png": {
+			"icon1": "01nw.svg",
 			"icon2": "clear-night.svg"
 		},
 		"tstorm.png": {

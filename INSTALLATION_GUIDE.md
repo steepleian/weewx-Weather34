@@ -22,9 +22,11 @@ IMPORTANT. Installing PHP; please make sure you install all the PHP modules appr
 	sudo a2enmod php8.1
 	sudo systemctl restart apache2
 
-* Install PyePhem (https://rhodesmill.org/pyephem/). From the command line depending on the version of Python you use: -
+* Install Ephem (https://rhodesmill.org/pyephem/). It is important that you install the latest version as versions prior to 4.1.3 are missing crucial libraries in the install package. It is also important that any previous versions are removed before hand. From the command line (if your version of Python is 2.x, use pip2 and python2 instead): -
 
-        sudo apt install python2-ephem or sudo apt install python3-ephem
+        sudo pip3 uninstall pyephem
+		sudo apt purge python3-ephem
+		sudo pip3 install ephem
 
 Once completed, make sure you save weewx.conf
 
@@ -53,7 +55,11 @@ Once completed, make sure you save weewx.conf
 		
 
 
-* Restart WeeWX.
+* Restart WeeWX and from command line run: -
+            	
+		sudo python3 ./[YOUR OWN PATH TO]/wee_reports
+
+This will allow some of the required variable data to be generated immediately without having to wait for the next report generation interval.
 
 * You can now test that the template is working by opening it up in your browser. Initially you will see random demo data. Click on the menu button at the top-left corner and select settings. This will open up a web form in which you apply your own settings. The default password is '12345'. Please change this to your own unique password for your own protection. Pay particular attention to the location of the w34realtime.txt file being generated on a loop cycle by weeWX. The default location is “/[html_root]/weewx/w34weather/serverdata/w34realtime.txt” (for example /var/www/html/weewx/w34weather/serverdata/w34realtime.txt). IMPORTANT the unit codes that you select for the Weather Underground and DarkSky forecast APIs must be identical to those that you select in the pre-install settings process. Failure to do so will possibly produce some bizzare data.
 

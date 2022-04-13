@@ -356,7 +356,7 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
                 remote_root=rpath,
                 server=address,
                 user=user,
-                port=port,
+                port=int(port),
                 ssh_options= None,
                 compress=False,
                 delete=False,
@@ -365,7 +365,7 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
         elif mode == 'socket':
             with open(rpath, 'r') as f:
                 conn.sendall(f.read())
-    except IOError as e:
+    except Exception as e:
         logerr("do_file_transfer " + str(e))
     finally:
         try:
@@ -507,7 +507,7 @@ class ForecastData():
 
 class CloudCover():
     def __init__(self, weewx_dict):
-        if weewx_dict.get('Weather34CloudCover').get('enable') != 'True':
+        if weewx_dict.get('Weather34CloudCover').get('enable').upper() != 'TRUE':
             raise Exception("Not Enabled")
         self.cloud_cover_percent = 0.0
         try:
@@ -766,12 +766,12 @@ class Weather34RealTime(StdService):
             loginf("CloudCover Not Installed due to " + str(e))
 
         try:
-            self.chk_lightning_cnt = True if config_dict['Weather34RealTime'].get('chk_lightning_cnt') == 'True' else False; 
+            self.chk_lightning_cnt = True if config_dict['Weather34RealTime'].get('chk_lightning_cnt').upper() == 'TRUE' else False; 
         except:
             self.chk_lightning_cnt = False
 
         try:
-            self.cache_debug = True if config_dict['Weather34RealTime'].get('cache_debug') == 'True' else False; 
+            self.cache_debug = True if config_dict['Weather34RealTime'].get('cache_debug').upper() == 'TRUE' else False; 
         except:
             self.cache_debug = False
 
@@ -796,7 +796,7 @@ class Weather34RealTime(StdService):
             os.mkdir(os.path.dirname(self.cache_file), 0o777)
         if 'Weather34RealTime' in config_dict:
             if 'cache_enable' in config_dict['Weather34RealTime']:
-                self.cache_enable = True if config_dict['Weather34RealTime'].get('cache_enable') == 'True' else False; 
+                self.cache_enable = True if config_dict['Weather34RealTime'].get('cache_enable').upper() == 'TRUE' else False; 
             if 'cache_stale_time' in config_dict['Weather34RealTime']:
                 self.cache_stale_time = int(config_dict['Weather34RealTime'].get('cache_stale_time')) 
             if 'exclude_fields' in config_dict['Weather34RealTime']:
