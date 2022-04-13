@@ -63,6 +63,18 @@ This will allow some of the required variable data to be generated immediately w
 
 * You can now test that the template is working by opening it up in your browser. Initially you will see random demo data. Click on the menu button at the top-left corner and select settings. This will open up a web form in which you apply your own settings. The default password is '12345'. Please change this to your own unique password for your own protection. Pay particular attention to the location of the w34realtime.txt file being generated on a loop cycle by weeWX. The default location is “/[html_root]/weewx/w34weather/serverdata/w34realtime.txt” (for example /var/www/html/weewx/w34weather/serverdata/w34realtime.txt). IMPORTANT the unit codes that you select for the Weather Underground and DarkSky forecast APIs must be identical to those that you select in the pre-install settings process. Failure to do so will possibly produce some bizzare data.
 
+* Using a RAM Disk for w34realtime.txt. The default location is hard-coded but can be changed: -
+
+	Edit the [Weather34Realtime] stanza in weewx.conf
+
+			[Weather34RealTime]
+    
+    				realtime_path_only = /[your path to your ram disk] # no trailing /
+
+        Edit line 33 in weather34/settings.php
+    				
+				$livedata = "/[your path to ram disk]/w34realtime.txt";
+
 * Automatic database backup module. 
 
     Open your weewx.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line add:-
