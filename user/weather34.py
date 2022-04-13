@@ -356,7 +356,7 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
                 remote_root=rpath,
                 server=address,
                 user=user,
-                port=port,
+                port=int(port),
                 ssh_options= None,
                 compress=False,
                 delete=False,
@@ -365,7 +365,7 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
         elif mode == 'socket':
             with open(rpath, 'r') as f:
                 conn.sendall(f.read())
-    except IOError as e:
+    except Exception as e:
         logerr("do_file_transfer " + str(e))
     finally:
         try:
