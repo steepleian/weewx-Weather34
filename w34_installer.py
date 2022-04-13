@@ -35,7 +35,10 @@ class w34_installer:
                     del d[k]
                 elif append:
                     if not v in d[k]:
-                        d[k] += ", " + v
+                        if d[k][-1] == ",":
+                            d[k] += " " + v
+                        else:
+                            d[k] += ", " + v
                 else:
                     d[k] = eval(v)
             else:
