@@ -1,7 +1,7 @@
 # Weather34 skin for WeeWX
 Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **This version of the template requires either the extended database schema introduced with WeeWX 4.0.0 or one that has been manually extended to included fields for lightning data.** It is strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.4.0 or later.
 
-Version W34-HC-IMJD-4.2.2
+Version W34-HC-IMJD-4.3.0
 
 Packaged for installation using its own unique installer and an online pre-installation settings form https://steepleian.github.io/weewx-Weather34
 
@@ -15,7 +15,7 @@ This version is designed explicitly to harness the powerful WeeWX database to ge
 
 This version is assembled as an install package and uses its own unique installer and un-installer utilities. This greatly simplifies the installation process from that of previous versions. Depending on your own WeeWX setup, minor edits may be required to be made to weewx.conf and Weather34 skin.conf files. Please see the Weather34 skin Installation Guide for detailed instructions.
 
-# What's New in this Version W34-HC-IMJD-4.2.2
+# What's New in this Version W34-4.3.0
 
 DarkSky has been removed as a source of forecasting data etc - the API has been withdrawn by its owners Apple.
 
@@ -28,6 +28,12 @@ With newer versions of Python3.x several fixes have add to be applied. Thanks on
 There are one or two other features included at the suggestion of User Sean, so thanks to him as well.
 
 The default symbol set is now based on the yr.no symbols. (Please note that Weather Underground still uses the old set for forecasts).
+
+Significant update of settings page.
+
+Compliant with WeeWX 4.7.0 for remote syncrinisation. Thanks to Jerry (and to Chris for raising the issue).
+
+Various bugs squashed. Thanks to mutiple users support in raising issues.
 
 # Demo
 
@@ -113,7 +119,7 @@ Cumulus Version available via download and more info supported by Ken True ( htt
 
 Apart from Brian Underdown without him, this template would never exist, I would aslo like to acknowledge the following people: -
 
-Jerry Dietrich for his massive contribution in converting my wild ideas into reality, putting me straight on my mediocre coding skills and having the patience of a dozen saints.
+Jerry Dietrich for his massive contribution in converting my wild ideas into reality, putting me straight on my mediocre coding skills and having the patience of a dozen saints. Aslo Stephen, Sean, Chris, Ray, Mauro, Frank for their invaluable contribution.
 
 Gary Roderick for his original coding of Highcharts for WeeWX.
 
