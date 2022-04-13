@@ -33,6 +33,22 @@ if ($theme === "dark") {
 ); ?>" rel="stylesheet prefetch">
 
 
+<?php
+if ($weather["barometer_units"]==="kPa"){$weather["barometer"]=$weather["barometer"]*0.1;
+                                        $weather["barometer_trend"]=$weather["barometer_trend"]*0.1;
+                                        $weather["barometer_min"]=$weather["barometer_min"]*0.1;
+                                        $weather["barometer_max"]=$weather["barometer_max"]*0.1;
+                                        $weather["thb0seapressydmax"]=$weather["thb0seapressydmax"]*0.1;
+                                        $weather["thb0seapressydmin"]=$weather["thb0seapressydmin"]*0.1;
+                                        $weather["thb0seapressmmax"]=$weather["thb0seapressmmax"]*0.1;
+                                        $weather["thb0seapressmmin"]=$weather["thb0seapressmmin"]*0.1;
+                                        $weather["thb0seapressymax"]=$weather["thb0seapressymax"]*0.1;
+                                        $weather["thb0seapressymin"]=$weather["thb0seapressymin"]*0.1;
+                                        $weather["thb0seapressamax"]=$weather["thb0seapressamax"]*0.1;
+                                        $weather["thb0seapressamin"]=$weather["thb0seapressamin"]*0.1;
+}
+                                        
+?>
 <main class="grid">
   <article>
    <div class=actualt>&nbsp;Barometer Today </div>
