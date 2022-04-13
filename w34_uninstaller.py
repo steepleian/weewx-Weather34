@@ -8,9 +8,9 @@ import os
 import re
 
 KEYS_TO_DELETE   = ['Weather34RealTime','Weather34WebServices','Weather34CloudCover','W34_DB_Backup','StdReport:w34Highcharts','StdReport:Weather34Report','StdReport:w34skinReport']
-VALUES_TO_DELETE = ['Engine:Services:process_services:user.w34_db_backup.W34_DB_Backup','Engine:Services:process_services:user.weather34.Weather34RealTime']
+VALUES_TO_DELETE = ['Engine:Services:process_services:user.w34_db_backup.W34_DB_Backup','Engine:Services:process_services:user.weather34.Weather34RealTime','Engine:Services:xtype_services:user.lastnonzero.LastNonZeroService']
 DIRS_TO_DELETE   = ['www:','skins:Weather34','skins:w34Highcharts','skins:w34Highcharts-day']
-FILES_TO_DELETE  = ['user:w34highchartsSearchX.py','user:weather34.py','user:w34_db_backup.py','user:lastrain.py','user:ml.py','user:stats.py']
+FILES_TO_DELETE  = ['user:w34highchartsSearchX.py','user:weather34.py','user:w34_db_backup.py','user:lastrain.py','user:ml.py','user:stats.py','user:lastnonzero.py']
   
 class w34_uninstaller:
     def __init__(self, conf_file):
@@ -95,7 +95,7 @@ class w34_uninstaller:
                         section = section.get(parts[i])
                     data = section.get(parts[-2])
                     if parts[-1] in data:
-                        section[parts[-2]] = data.replace(parts[-1], "")
+                        section[parts[-2]] = data.replace(", " + parts[-1], "")
                         config_data.write()
                     else:
                         print('Value not found:' + k) 
