@@ -296,7 +296,6 @@ if ('serviceWorker' in navigator) {
 <!--<span class="yearpopup"><a alt="space weather information" title="space weather information" href=spaceweather/pop_spacewx.php data-lity><?php echo $info; ?> Space Weather</a></span>
 <span class="yearpopup"><a alt="orrery" title="orrery" href=orrery.php data-lity><?php echo $info; ?> Orrery</a></span>-->
 <span class="yearpopup"><a alt="daylightmap" title="daylightmap" href=pop_daylightmap.php data-lity><?php echo $info; ?> Daylight Map</a></span>
-<span class="yearpopup"><a alt="astroclock" title="astroclock" href=astroclock.php data-lity><?php echo $info; ?> Astroclock</a></span>
 </div>
 <span class='moduletitle'><?php echo $lang["Daylight"] .
     " | " .
