@@ -965,7 +965,7 @@ General template settings with options to choose which type of module to display
             <option>top_rainfallfyearmonth.php</option>
             <option>top_windgustyear.php</option>
             <option>top_temperatureyear.php</option>
-            <option>top_lightning.php</option>
+            <option>top_lightning_ew.php</option>
             <option>top_aqi_world.php</option>
             </select>
      <div class="stationvalue"> Position 3 Title</div>
@@ -1089,7 +1089,7 @@ General template settings with options to choose which type of module to display
             <option>solaruvds.php</option>
              <option>solaruvwu.php</option>
             <option>eq.php</option>
-            <option>lightning34.php</option>
+            
         </select>
         <div class="stationvalue">Last Title</div>
        <svg id="i-chevron-right" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="rgba(86, 95, 103, 1.000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
@@ -1110,7 +1110,8 @@ General template settings with options to choose which type of module to display
         <span style="color:#777;"><?php echo $iicon; ?><span style="color:#777;"> weather34clock.php</span> Station  <span style="color:rgba(24, 25, 27, 0.8)">Time</span><br/>
      <span style="color:#777;"><?php echo $iicon; ?><span style="color:#777;"> top_windgustyear.php</span> *English only<span style="color:rgba(24, 25, 27, 0.8)"> Current Monthly / Yearly max Gust </span> <br/>
      <span style="color:#777;"><?php echo $iicon; ?><span style="color:#777;"> top_temperatureyear.php</span> *English only<span style="color:rgba(24, 25, 27, 0.8)"> Current Monthly / Yearly Temperature </span>  <br/>
-      <br/></span></span>
+     <span style="color:#777;"><?php echo $iicon; ?><span style="color:#777;"> top_lightning_eq.php</span> For Ecowitt Lightning Sensor Only <span style="color:rgba(24, 25, 27, 0.8)">YEARLY-MONTHLY</span> Rainfall<br/></span>
+<br/></span></span>
          <strong> <span style="color:rgba(86, 95, 103, 1.000);">options Position 5 module</span></strong><br/>
         <span style="color:#777;"><?php echo $iicon; ?><span style="color:#777;"> temperaturein.php <span style="color:rgba(236, 87, 27, 1.000);">display indoor and outdoor temperature</span><br/></span>
      <span style="color:#777;"><?php echo $iicon; ?><span style="color:#777;"> temperature.php <span style="color:rgba(236, 87, 27, 1.000);">display only outdoor temperature</span><br/></span>
