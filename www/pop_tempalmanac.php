@@ -134,7 +134,7 @@ if ($theme === "dark") {
 	</div>
 <div class="temperaturecontainer2">
  <?php
-	//dew min tyesterday
+	//dew min yesterday
 	if ($weather["dewydmin"]>=-50)  {
 	echo "<div class='temperaturetoday0'>",$weather["dewydmin"] . "</value>";}
 
