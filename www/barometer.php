@@ -8,11 +8,7 @@ $weather["barometer_units"]=$pressureunit;
 <meta http-equiv="Content-Type: text/html; charset=UTF-8" />
 <style>
 .weather34barometerarrowactual{-webkit-transform:rotate(<?php
-if ($weather["barometer_units"]==="kPa"){$weather["barometer"]=$weather["barometer"]*0.1;
-                                        $weather["barometer_trend"]=$weather["barometer_trend"]*0.1;
-                                        $weather["barometer_min"]=$weather["barometer_min"]*0.1;
-                                        $weather["barometer_max"]=$weather["barometer_max"]*0.1;}
-if ($weather["barometer_units"]=='mb' OR $weather["barometer_units"]=="hPa" OR $weather["barometer_units"]=="kPa"){echo $weather["barometer"]*0.02953*50.6;}else if ($weather["barometer_units"]=='inHg'){echo $weather["barometer"]*50.6;}?>deg);
+if ($weather["barometer_units"]=='mb' OR $weather["barometer_units"]=="hPa"){echo $weather["barometer"]*0.02953*50.6;} else if($weather["barometer_units"]=="kPa"){echo $weather["barometer"]*0.2953*50.6;}else if ($weather["barometer_units"]=='inHg'){echo $weather["barometer"]*50.6;}?>deg);
 transform:rotate(<?php if ($weather["barometer_units"]=='mb' OR $weather["barometer_units"]=="hPa" OR $weather["barometer_units"]=="kPa"){echo $weather["barometer"]*0.02953*50.6;}else if ($weather["barometer_units"]=='inHg'){echo $weather["barometer"]*50.6;}?>deg);}
 .weather34barometerarrowmin{-webkit-transform:rotate(<?php 
 if ($weather["barometer_units"]=='mb' OR $weather["barometer_units"]=="hPa" OR $weather["barometer_units"]=="kPa"){echo $weather["barometer_min"]*0.02953*50.6;}else if ($weather["barometer_units"]=='inHg'){echo $weather["barometer_min"]*50.6;}?>deg);
@@ -21,6 +17,12 @@ transform:rotate(<?php if ($weather["barometer_units"]=='mb' OR $weather["barome
 if ($weather["barometer_units"]=='mb' OR $weather["barometer_units"]=="hPa" OR $weather["barometer_units"]=="kPa"){echo $weather["barometer_max"]*0.02953*50.6;}else if ($weather["barometer_units"]=='inHg'){echo $weather["barometer_max"]*50.6;}?>deg);
 transform:rotate(<?php if ($weather["barometer_units"]=='mb' OR $weather["barometer_units"]=="hPa" OR $weather["barometer_units"]=="kPa"){echo $weather["barometer_max"]*0.02953*50.6;}else if ($weather["barometer_units"]=='inHg'){echo $weather["barometer_max"]*50.6;}?>deg);}
 </style>
+<?php
+if ($weather["barometer_units"]==="kPa"){$weather["barometer"]=$weather["barometer"]*0.1;
+                                        $weather["barometer_trend"]=$weather["barometer_trend"]*0.1;
+                                        $weather["barometer_min"]=$weather["barometer_min"]*0.1;
+                                        $weather["barometer_max"]=$weather["barometer_max"]*0.1;}
+?>
 <div class="updatedtime"><span><?php if(file_exists($livedata)&&time()- filemtime($livedata)>300)echo $offline. '<offline> Offline </offline>';else echo $online." ".$weather["time"];?></div>  
 <div class='barometermax'>
 <?php echo '<div class=barometerorange><valuetext>Max ('.$weather["thb0seapressmaxtime"].')<br><maxred><value>',$weather["barometer_max"],'</maxred>&nbsp;',$weather["barometer_units"],' </valuetext></div>';?></div>
