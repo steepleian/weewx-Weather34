@@ -75,6 +75,8 @@ This will allow some of the required variable data to be generated immediately w
     				
 				$livedata = "/[your path to ram disk]/w34realtime.txt";
 
+  These edited settings may not be persistent after an update / re-install so you may need to re-edit the above files.
+
 * Automatic database backup module. 
 
     Open your weewx.conf file and find the [[Services]] section in the [Engine] stanza. Find the line that starts with process_services. At the end of that line add:-
