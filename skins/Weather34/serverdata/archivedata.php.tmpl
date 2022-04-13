@@ -119,11 +119,12 @@
 #######################
 
 $sta['location'] = "$station.location";
+$sta['name'] = "$station.location";
 $sta['latitude'] = "$station.stn_info.latitude_f";
 $sta['longitude'] = "$station.stn_info.longitude_f";
 $sta['altitude_meters'] = "$station.altitude.meter.raw";
 $sta['link'] = "$station.station_url";
-
+$sta['hardware'] = "$station.hardware";
 
 
 
@@ -318,7 +319,7 @@ $pm25avg24 = "$span($hour_delta=24).pm2_5.avg.format(add_label=False, $localize=
 $pm10avg24 = "$span($hour_delta=24).pm10_0.avg.format(add_label=False, $localize=False)";
 //lightning for Ecowitt sensor
 $lightning['light_last_distance'] = "$alltime.lightning_distance.lastnonzero.format(add_label=False, $localize=False)";
-$lightning['last_time'] = "$alltime.lightning_last_det_time.lastnonzero.raw";
+$lightning['last_time'] = "$alltime.signal5.lastnonzero.raw";
 $lightning['strike_count'] = "$alltime.lightning_strike_count.sum";
 $lightning['strike_count_3hr'] = "$span($hour_delta=3)lightning_strike_count.sum";
 
