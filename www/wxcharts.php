@@ -246,7 +246,7 @@ $paddingtop = $percentage;
 <!--<a alt="weekly humidity" title="weekly humidity" href="<?php echo $chartsource; ?>/<?php echo $theme1; ?>-charts.html?chart='humidityplot'&span='weekly'&temp='<?php echo $weather['temp_units']; ?>'&pressure='<?php echo $weather['barometer_units']; ?>'&wind='<?php echo $weather['wind_units']; ?>'&rain='<?php echo $weather['rain_units'] ?>" data-lity > <?php echo '| Hum'; ?> </a></span>-->
       </div>
 <span class='moduletitle'> <?php echo $lang['Temperature']; ?> (<valuetitleunit>&deg;<?php echo $weather["temp_units"]; ?></valuetitleunit>) </span><br /></span>
-  <div id="temperature"></div><br></div><?div>
+  <div id="temperature"></div><br></div></div>
   <!--end Top Row 1 Box 2-->
   <!--Bottom Row 3 Box 8-->
   <div class="weather-item">
@@ -552,7 +552,7 @@ $paddingtop = $percentage;
   <!--end Bottom Row 3 Box 9 last one-->
   </div>
  <!--end outdoor data for homeweatherstation template-->
-  <!--footer area for homeweatherstation template warning dont mess with this below this line unless you really know what you are doing-->
+  <!--footer area for homeweatherstation template warning don't mess with this below this line unless you really know what you are doing-->
 <div class=weatherfooter-container><div class=weatherfooter-item> 
 <div class=hardwarelogo1>
 <a href="http://weewx.com" alt="http://weewx.com" title="http://weewx.com">

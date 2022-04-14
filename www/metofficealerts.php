@@ -29,9 +29,9 @@ switch ($favcolor) {
     $description[0]=$parsed_json['rss']['channel']['item']['description'];
     $url[0]=$parsed_json['rss']['channel']['item']['guid']['#text'];
     $alidpos[0]=strpos($description[0],"alid");
- 	$alidtext[0]=substr($description[0],$alidpos[0]);
- 	$validpos[0]=strpos($description[0],"valid");
- 	$description[0]=substr($description[0], 0, $validpos[0]);
+ 	  $alidtext[0]=substr($description[0],$alidpos[0]);
+ 	  $validpos[0]=strpos($description[0],"valid");
+ 	  $description[0]=substr($description[0], 0, $validpos[0]);
     
        if (strpos($description[0], "Red") === 0) {$alertlevel[0]="red";$warntext="The weather is very dangerous. Exceptionally intense meteorological phenomena have been forecast. Major damage and accidents are likely, in many cases with threat to life and limb, over a wide area. Keep frequently informed about detailed expected meteorological conditions and risks. Follow orders and any advice given by your authorities under all circumstances, be prepared for extraordinary measures.";}
 
@@ -52,7 +52,7 @@ switch ($favcolor) {
        else if($alertlevel[0]=='yellow' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImages/Fog_Yellow.svg";}
        else if($alertlevel[0]=='orange' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImages/Fog_Orange.svg";}
        else if($alertlevel[0]=='red' && strpos($description[0], "fog") !== false) {$alerttype='Fog';$warnimage="css/wrnImages/Fog_Red.svg";}
-       else if($alertlevel[0]=='yellow' && stros($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/Thunderstorms_Yellow.svg";}
+       else if($alertlevel[0]=='yellow' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/Thunderstorms_Yellow.svg";}
        else if($alertlevel[0]=='orange' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/Thunderstorms_Orange.svg";}
        else if($alertlevel[0]=='red' && strpos($description[0], "thunder") !== false) {$alerttype='Thunderstorms';$warnimage="css/wrnImages/Thunderstorms_Red.svg";}
 
@@ -98,7 +98,7 @@ switch ($favcolor) {
        else if($alertlevel[$i]=='yellow' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImages/Fog_Yellow.svg";}
        else if($alertlevel[$i]=='orange' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImages/Fog_Orange.svg";}
        else if($alertlevel[$i]=='red' && strpos($description[$i], "fog") !== false) {$alerttype[$i]='Fog';$warnimage[$i]="css/wrnImages/Fog_Red.svg";}
-       else if($alertlevel[$i]=='yellow' && stros($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Yellow.svg";}
+       else if($alertlevel[$i]=='yellow' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Yellow.svg";}
        else if($alertlevel[$i]=='orange' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Orange.svg";}
        else if($alertlevel[$i]=='red' && strpos($description[$i], "thunder") !== false) {$alerttype[$i]='Thunderstorms';$warnimage[$i]="css/wrnImages/Thunderstorms_Red.svg";}
 ?>
