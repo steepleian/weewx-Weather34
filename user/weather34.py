@@ -356,7 +356,7 @@ def do_file_transfer(mode, rpath, conn, address, lpath, user, port):
                 remote_root=rpath,
                 server=address,
                 user=user,
-                port=int(port),
+                port=int(port) if port != None else None,
                 ssh_options= None,
                 compress=False,
                 delete=False,
