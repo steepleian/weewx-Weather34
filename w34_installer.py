@@ -69,12 +69,6 @@ class w34_installer:
                 print("!!!NO VALID PYTHON EPHEM FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
                 sys.exit(1)
             try:
-                import xmltodict
-                print("PYTHON XMLTODICT VERSION " + xmltodict.__version__ + " INSTALLED\n") 
-            except:
-                print("!!!NO VALID PYTHON XMLTODICT FOUND INSTALL CANNOT CONTINUE. PLEASE READ INSTALL README!!!") 
-                sys.exit(1)
-            try:
                 php = os.system('php --version')
                 #print("!!!PHP NOT INSTALLED!!!" if php !=0 else "PHP INSTALLED " + php)
             except:
