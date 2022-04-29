@@ -18,7 +18,7 @@
   <div class='wflaststrike'>
   <?php
     //weather34 weather34 last detect
-    if (isset($lightning['last_time'])) {
+    if ($lightning['last_time']>=1) {
       echo "<spanfeelstitle>Last Strike: <orange> ".date("j M Y", $lightning['last_time'])." </orange> ";}?><br />
   <?php
     if ($windunit == 'mph'){
