@@ -1,0 +1,106 @@
+    {
+	"pop": {
+		"AV": {
+			"icon": "avalanches.svg",
+			"desc": "AVALANCHES"
+		},
+		"CE": {
+			"icon": "coastal-event.svg",
+			"desc": "AVALANCHES"
+		},
+		"FG": {
+			"icon": "fog.svg",
+			"desc": "FOG"
+		},
+		"FL": {
+			"icon": "flooding.svg",
+			"desc": "FLOODING"
+		},
+		"FR": {
+			"icon": "forest-fire.svg",
+			"desc": "FOREST FIRE"
+		},
+		"HT": {
+			"icon": "high-temperature.svg",
+			"desc": "HIGH TEMPERATURES"
+		},
+		"LI": {
+			"icon": "thunderstorm.svg",
+			"desc": "LIGHTNING"
+		},
+		"LT": {
+			"icon": "low-temperature.svg",
+			"desc": "LOW TEMPERATURES"
+		},
+		"RA": {
+			"icon": "rain.svg",
+			"desc": "RAIN"
+		},
+		"RF": {
+			"icon": "rain-flood.svg",
+			"desc": "RAIN AND FLOODING"
+		},
+		"SI": {
+			"icon": "snow-ice.svg",
+			"desc": "SNOW AND/OR ICE"
+		},
+		"TS": {
+			"icon": "thunderstorm.svg",
+			"desc": "THUNDERSTORMS"
+		},
+		"UK": {
+			"icon": "generic.svg",
+			"desc": "UNKNOWN"
+		},
+		"WI": {
+			"icon": "wind.svg",
+			"desc": "WIND"
+		},
+                "MD": {
+			"background": "#FFDB23",
+			"alertlevel": "YELLOW ALERT FOR "
+		},
+                "SV": {
+			"background": "#FF9500",
+			"alertlevel": "ORANGE ALERT FOR "
+		},
+                "EX": {
+			"background": "#FF0100",
+			"alertlevel": "RED ALERT FOR "
+		},
+		"Fog": {
+			"icon": "fog.svg",
+			"desc": "FOG"
+		},
+		"Extreme heat": {
+			"icon": "high-temperature.svg",
+			"desc": "EXTREME HEAT"
+		},
+		"Lightning": {
+			"icon": "thunderstorm.svg",
+			"desc": "LIGHTNING"
+		},
+		"Thunderstorms": {
+			"icon": "thunderstorm.svg",
+			"desc": "THUNDERSTORMS"
+		},
+		"Rain": {
+			"icon": "rain.svg",
+			"desc": "RAIN"
+		},
+		"Snow": {
+			"icon": "snow-ice.svg",
+			"desc": "SNOW"
+		},
+		"Ice": {
+			"icon": "snow-ice.svg",
+			"desc": "ICE"
+		},
+		"Wind": {
+			"icon": "wind.svg",
+			"desc": "WIND"
+		}
+
+
+	}
+}

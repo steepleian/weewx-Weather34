@@ -2476,7 +2476,6 @@ oblue {
 }
 
 oorange,
-orange,
 rise {
   color: #ff7c39
 }
@@ -3325,8 +3324,8 @@ tsteady {
   position: absolute;
   font-size: .7rem;
   color: #aaa;
-  margin-top: -18px;
-  margin-left: 30px;
+  margin-top: -127px;
+  margin-left: 77px;
   width: 90px;
   background: 0;
   text-align: center;
@@ -4334,7 +4333,6 @@ timeago {
 .lightninginfo {
   margin-top: 45px;
   border-radius: 3px;
-  border: 1px solid rgba(95, 96, 97, .2);
   width: 140px;
   font-size: .7rem
 }
@@ -5049,7 +5047,7 @@ redtime {
   text-align: left
 }
 
-smallrainunit {
+.smallrainunit {
   font-size: .7em
 }
 
@@ -5704,9 +5702,11 @@ topyellow2 {
 
 smallwindunit {
   font-size: .45rem;
+  margin-top: 3px;
   font-family: Arial, Helvetica, system;
   padding-left: 2px
 }
+
 
 .yearwordbig {
   position: absolute;
@@ -6639,22 +6639,22 @@ rainu {
   margin-left: 255px
 }
 
-smallrainunit2 {
+.smallrainunit2 {
   font-size: .5rem;
   color: #111;
   font-family: Arial, Helvetica, system
 }
 
-smallrainunit3 {
+.smallrainunit3 {
   font-size: .5rem;
   color: #2d3a4b
 }
 
-smallrainunit {
+.smallrainunit {
   color: #fff
 }
 
-smallrainunita {
+.smallrainunita {
   color: #fff;
   font-size: .45rem
 }
@@ -6861,12 +6861,12 @@ valuetextheading1 {
   border-bottom-right-radius: 3px
 }
 
-valuetextheading1 {
+.valuetextheading1 {
   margin-left: 10px;
   color: #2d3a4b
 }
 
-valuetextheading2 {
+.valuetextheading2 {
   margin-left: 0px;
   color: #2d3a4b
 }
@@ -8109,7 +8109,7 @@ alertadvisory2 {
   position: absolute
 }
 
-raiblue {
+.raiblue {
   color: #07727d
 }
 
@@ -9379,7 +9379,7 @@ weather34menumarkerlight {
   bottom: 0;
   left: 0;
   white-space: nowrap;
-  background: rgba(255, 255, 255, 0.8);
+  background: transparent;
   outline: none !important;
   opacity: 0;
   margin: 0 auto
@@ -9500,7 +9500,8 @@ weather34menumarkerlight {
 .lity-iframe .lity-container {
   width: 100%;
   max-width: 820px;
-  margin: 0 auto
+  margin: 0 auto;
+  border: 0
 }
 
 .lity-iframe-container {
@@ -9573,4 +9574,34 @@ weather34menumarkerlight {
 }
 .alertpos {
   margin: auto
+}
+eqvaluetext,
+eqvaluetextheading {
+  font-size: .9em;
+  font-weight: 500;
+  margin-left: -10px  
+}
+.daylightword {
+  left: 105px;
+  top: 2px
+}
+
+.circleborder {
+  width: 111.5px;
+  height: 111.5px;
+  border: 7px solid #e6e8ef;
+  position: absolute;
+  left: 100.5px;
+  top: 19px;
+  border-radius: 50%
+}
+dialred {
+  color: #d65b4a 
+}
+.windunitgust2 {
+  color: #565f67;
+  margin-top: 7px;
+  font-size: 10px;
+  position: absolute;
+  margin-left: 15px
 }

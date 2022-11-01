@@ -257,7 +257,7 @@ $elev1 = $_SunPos->elevation."&deg;<div class=sunbelowweather34>&nbsp;</div>"; }
 
 if ($position12 == 'moonphase.php' OR $positionlastmodule == 'moonphase.php') { echo ''; } else echo
 '<div class="weather34moonphasem">Moon Phase <br>'.$weather["moonphase"].'<br>'.$lang['Moonrise'].'<br>'.$weather['moonrise'].'</div>
-<div class="weather34luminancem">Luminance<br> '.$weather["luminance"].'% '.'<br>'.$lang['Moonset'].'<br>'.$weather['moonset'].'</div></div></div></div>';
+<div class="weather34luminancem">Luminance<br> '.$weather["luminance"].' '.'<br>'.$lang['Moonset'].'<br>'.$weather['moonset'].'</div></div></div></div>';
 
 $d_crcl = 24 * 60 / 2;
 function clc_crcl ($integer) { 

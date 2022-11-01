@@ -1,8 +1,8 @@
 <!-- begin updater.php  30-Mar-2019 -->
 <?php
-include_once "settings1.php";
-include "serverdata/archivedata.php";
-include_once "common.php";
+include_once("settings1.php");
+include("serverdata/archivedata.php");
+include_once("common.php");
 date_default_timezone_set($TZ);
 
 //check which hemisphere for sun option and moonphase option
@@ -16,15 +16,7 @@ if ($sta["latitude"] > "90") {
 ?>
 <script src="js/jquery.js"></script>
 <script>
- //update the charts,eq,forecast data and current conditions//
-  var refreshId;$(document).ready(function(){stationcron()});function stationcron(){$.ajax({cache:false,
-  success:function(a){$("#blank")
-  .html(a);<?php if ($wuupdate > 0) {
-      echo "setTimeout(stationcron," . 1000 * $wuupdate . ")";
-  } ?>},
-  contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
-  type:"GET",url:"stationcron.php"
-})}; 
+ 
 
 //update the modules
 
@@ -66,7 +58,7 @@ var refreshId;$(document).ready(function(){temperature()});function temperature(
     $tempRefresh > 0
 ) {
     echo "setTimeout(temperature," . 1000 * $tempRefresh . ")";
-} ?>},type:"GET",url:"<?php echo $temperaturemodule; ?>"})};
+} ?>},type:"GET",url:"temperaturein.php"})};
 
 //current conditions icon
 var refreshId;$(document).ready(function(){currentsky()});function currentsky(){$.ajax({cache:false,success:function(a){$("#currentsky").html(a);<?php if (

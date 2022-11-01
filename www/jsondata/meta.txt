@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:cap="urn:oasis:names:tc:emergency:cap:1.2">
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+  <link href="https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-italy" rel="self" type="application/atom+xml"/>
+  <link href="https://meteoalarm.org" rel="alternate" type="text/html"/>
+  <rights>Copyright (c) 2022, meteoalarm.org</rights>
+  <generator>Meteoalarm Producer Server</generator>
+  <logo>https://feeds.meteoalarm.org/images/logo.svg</logo>
+  <author>
+    <name>meteoalarm.org</name>
+    <uri>https://meteoalarm.org</uri>
+    <email>meteoalarm@zamg.ac.at</email>
+  </author>
+  <id>tag:meteoalarm.org,2021-02-19:IT</id>
+  <title>Meteoalarm - severe weather warnings for Europe</title>
+  <updated>2022-06-28T14:25:15.574649Z</updated>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT010</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT010" hreflang="en" title="Umbria"/>
+    <cap:areaDesc>Umbria</cap:areaDesc>
+    <cap:event>Yellow High-temperature Warning</cap:event>
+    <cap:sent>2022-06-27T08:44:14+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T06:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T06:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220627104412.071</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/1000b8b9-568d-4ad7-9df5-0eca60fa4d6f" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-27T08:44:14Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/1000b8b9-568d-4ad7-9df5-0eca60fa4d6f?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow High-temperature Warning issued for Italy - Umbria</title>
+    <updated>2022-06-27T08:44:14Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT002</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT002" hreflang="en" title="Trentino Alto Adige"/>
+    <cap:areaDesc>Trentino Alto Adige</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-27T08:44:13+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220627104412.056</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/69956f66-f8b7-43b9-8478-a8a8a33c93a4" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-27T08:44:13Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/69956f66-f8b7-43b9-8478-a8a8a33c93a4?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Trentino Alto Adige</title>
+    <updated>2022-06-27T08:44:13Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT009</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT009" hreflang="en" title="Toscana"/>
+    <cap:areaDesc>Toscana</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-27T08:44:13+00:00</cap:sent>
+    <cap:expires>2022-06-27T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-27T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-27T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220627104412.040</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/3e06833c-b7b0-42ba-b26b-de3e2da3434c" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-27T08:44:13Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/3e06833c-b7b0-42ba-b26b-de3e2da3434c?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Toscana</title>
+    <updated>2022-06-27T08:44:13Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT008</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT008" hreflang="en" title="Emilia e Romagna"/>
+    <cap:areaDesc>Emilia e Romagna</cap:areaDesc>
+    <cap:event>Yellow High-temperature Warning</cap:event>
+    <cap:sent>2022-06-27T08:44:13+00:00</cap:sent>
+    <cap:expires>2022-06-27T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-27T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-27T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220627104412.039</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/4f0210df-f71b-4b7c-8e61-fdc33a1cea84" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-27T08:44:13Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/4f0210df-f71b-4b7c-8e61-fdc33a1cea84?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow High-temperature Warning issued for Italy - Emilia e Romagna</title>
+    <updated>2022-06-27T08:44:13Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT011</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT011" hreflang="en" title="Marche"/>
+    <cap:areaDesc>Marche</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-27T08:44:13+00:00</cap:sent>
+    <cap:expires>2022-06-27T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-27T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-27T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220627104412.041</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/4abfd3ab-0ebe-45dc-8b9e-05ebd647373f" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-27T08:44:13Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/4abfd3ab-0ebe-45dc-8b9e-05ebd647373f?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Marche</title>
+    <updated>2022-06-27T08:44:13Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT019</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT019" hreflang="en" title="Sardegna"/>
+    <cap:areaDesc>Sardegna</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-27T08:44:13+00:00</cap:sent>
+    <cap:expires>2022-06-27T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-27T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-27T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220627104412.046</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/a949cbce-941b-4fae-a792-91fe4c898a63" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-27T08:44:13Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/a949cbce-941b-4fae-a792-91fe4c898a63?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Sardegna</title>
+    <updated>2022-06-27T08:44:13Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT019</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT019" hreflang="en" title="Sardegna"/>
+    <cap:areaDesc>Sardegna</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:28+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.091</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/9bb56803-2748-4945-b26d-1a2b2d32f6f1" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:28Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/9bb56803-2748-4945-b26d-1a2b2d32f6f1?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Sardegna</title>
+    <updated>2022-06-28T07:32:28Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT018</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT018" hreflang="en" title="Sicilia"/>
+    <cap:areaDesc>Sicilia</cap:areaDesc>
+    <cap:event>Red High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-30T16:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Extreme</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.090</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/0fff82aa-31d5-4de8-bda5-c87841c09421" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/0fff82aa-31d5-4de8-bda5-c87841c09421?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Red High-temperature Warning issued for Italy - Sicilia</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT015</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT015" hreflang="en" title="Puglia"/>
+    <cap:areaDesc>Puglia</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.087</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/0377f615-abea-4cb0-acc9-72954b68b1e7" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/0377f615-abea-4cb0-acc9-72954b68b1e7?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Puglia</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT017</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT017" hreflang="en" title="Basilicata"/>
+    <cap:areaDesc>Basilicata</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.086</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/fd1e40d3-65b8-4807-a11d-60fa74a2649f" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/fd1e40d3-65b8-4807-a11d-60fa74a2649f?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Basilicata</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT014</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT014" hreflang="en" title="Molise"/>
+    <cap:areaDesc>Molise</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T08:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T08:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.083</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/47dfd3ad-8de3-4e34-abad-d0b14429aaf4" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/47dfd3ad-8de3-4e34-abad-d0b14429aaf4?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Molise</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT001</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT001" hreflang="en" title="Calabria"/>
+    <cap:areaDesc>Calabria</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.085</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/d1fa6f09-39d1-4e19-b034-461f5c25d350" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/d1fa6f09-39d1-4e19-b034-461f5c25d350?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Calabria</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT016</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT016" hreflang="en" title="Campania"/>
+    <cap:areaDesc>Campania</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T08:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T08:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.084</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/3ba2a0df-c7ac-48de-9f45-fb53db0bd0fc" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/3ba2a0df-c7ac-48de-9f45-fb53db0bd0fc?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Campania</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT012</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT012" hreflang="en" title="Lazio"/>
+    <cap:areaDesc>Lazio</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T08:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T08:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.082</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/2ba20873-5568-4825-8f64-1dad5bf97fb6" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/2ba20873-5568-4825-8f64-1dad5bf97fb6?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Lazio</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT012</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT012" hreflang="en" title="Lazio"/>
+    <cap:areaDesc>Lazio</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.081</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/e0534b79-4af1-42c2-a28a-3c38c55d7b0b" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/e0534b79-4af1-42c2-a28a-3c38c55d7b0b?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Lazio</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT009</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT009" hreflang="en" title="Toscana"/>
+    <cap:areaDesc>Toscana</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T21:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.077</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/e1e94df9-18e1-406f-a2f5-8d360992c746" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/e1e94df9-18e1-406f-a2f5-8d360992c746?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Toscana</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT009</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT009" hreflang="en" title="Toscana"/>
+    <cap:areaDesc>Toscana</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.078</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/706439ea-7858-4706-9714-858f253d4f36" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/706439ea-7858-4706-9714-858f253d4f36?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Toscana</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT010</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT010" hreflang="en" title="Umbria"/>
+    <cap:areaDesc>Umbria</cap:areaDesc>
+    <cap:event>Orange High-temperature Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T15:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T08:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T08:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.080</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/4543d237-71c7-4503-b02e-f4d08c7183fc" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/4543d237-71c7-4503-b02e-f4d08c7183fc?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange High-temperature Warning issued for Italy - Umbria</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT010</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT010" hreflang="en" title="Umbria"/>
+    <cap:areaDesc>Umbria</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.079</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/9d75ed6c-12e6-4ed7-956f-39bc256e3e82" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/9d75ed6c-12e6-4ed7-956f-39bc256e3e82?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Umbria</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT007</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT007" hreflang="en" title="Liguria"/>
+    <cap:areaDesc>Liguria</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.076</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/13a089a7-c824-4efe-974c-a232cea5f08d" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/13a089a7-c824-4efe-974c-a232cea5f08d?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Liguria</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT007</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT007" hreflang="en" title="Liguria"/>
+    <cap:areaDesc>Liguria</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.074</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/f58d5287-53ab-4e30-bf2d-c38ce8b10ed3" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/f58d5287-53ab-4e30-bf2d-c38ce8b10ed3?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Liguria</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT008</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT008" hreflang="en" title="Emilia e Romagna"/>
+    <cap:areaDesc>Emilia e Romagna</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.073</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/c45149be-afc4-46cf-b33b-29d71fe68279" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/c45149be-afc4-46cf-b33b-29d71fe68279?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Emilia e Romagna</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT008</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT008" hreflang="en" title="Emilia e Romagna"/>
+    <cap:areaDesc>Emilia e Romagna</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.072</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/f6cbf08f-1dd4-435c-9f69-10580c4dd424" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/f6cbf08f-1dd4-435c-9f69-10580c4dd424?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Emilia e Romagna</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT020</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT020" hreflang="en" title="Friuli Venezia Giulia"/>
+    <cap:areaDesc>Friuli Venezia Giulia</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T05:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T11:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T11:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.068</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/7de5d66c-aa34-42fa-9a0d-19ee3faebaa6" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/7de5d66c-aa34-42fa-9a0d-19ee3faebaa6?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Friuli Venezia Giulia</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT008</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT008" hreflang="en" title="Emilia e Romagna"/>
+    <cap:areaDesc>Emilia e Romagna</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.071</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/f346c876-78ec-4cce-9a36-e0f95374e9df" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/f346c876-78ec-4cce-9a36-e0f95374e9df?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Emilia e Romagna</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT006</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT006" hreflang="en" title="Veneto"/>
+    <cap:areaDesc>Veneto</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-29T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T11:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T11:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.066</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/46f3bd4d-237b-4474-8075-65bdaa74722b" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/46f3bd4d-237b-4474-8075-65bdaa74722b?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Veneto</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT020</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT020" hreflang="en" title="Friuli Venezia Giulia"/>
+    <cap:areaDesc>Friuli Venezia Giulia</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T11:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T11:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.069</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/d0e7ca6e-1371-4b76-85d7-d94052587503" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/d0e7ca6e-1371-4b76-85d7-d94052587503?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Friuli Venezia Giulia</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT002</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT002" hreflang="en" title="Trentino Alto Adige"/>
+    <cap:areaDesc>Trentino Alto Adige</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.061</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/9bd5fcc4-b81e-44e5-8ffe-2c9f234af179" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/9bd5fcc4-b81e-44e5-8ffe-2c9f234af179?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Trentino Alto Adige</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT002</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT002" hreflang="en" title="Trentino Alto Adige"/>
+    <cap:areaDesc>Trentino Alto Adige</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-29T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-29T11:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-29T11:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.064</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/a39a5bff-f372-47be-8bb6-5a2d4e35bcd4" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/a39a5bff-f372-47be-8bb6-5a2d4e35bcd4?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Trentino Alto Adige</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT020</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT020" hreflang="en" title="Friuli Venezia Giulia"/>
+    <cap:areaDesc>Friuli Venezia Giulia</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:27+00:00</cap:sent>
+    <cap:expires>2022-06-29T05:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T17:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T17:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.070</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/554d6780-016d-4bea-807f-4b0267618825" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:27Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/554d6780-016d-4bea-807f-4b0267618825?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Friuli Venezia Giulia</title>
+    <updated>2022-06-28T07:32:27Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT006</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT006" hreflang="en" title="Veneto"/>
+    <cap:areaDesc>Veneto</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-29T05:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T17:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T17:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.067</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/2858a499-79ba-4dcc-bb50-ec02429a35cd" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/2858a499-79ba-4dcc-bb50-ec02429a35cd?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Veneto</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT003</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT003" hreflang="en" title="Lombardia"/>
+    <cap:areaDesc>Lombardia</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.059</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/40aa9e73-72fc-4beb-849c-b1fbe1bbe2b7" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/40aa9e73-72fc-4beb-849c-b1fbe1bbe2b7?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Lombardia</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT006</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT006" hreflang="en" title="Veneto"/>
+    <cap:areaDesc>Veneto</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-29T05:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T11:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T11:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.065</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/a2a86f99-49c4-4639-b4c0-3045d5b9a6a4" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/a2a86f99-49c4-4639-b4c0-3045d5b9a6a4?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Veneto</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT003</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT003" hreflang="en" title="Lombardia"/>
+    <cap:areaDesc>Lombardia</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.057</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/052458f2-6bfc-4bfa-aede-75fbb958015a" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/052458f2-6bfc-4bfa-aede-75fbb958015a?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Lombardia</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT002</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT002" hreflang="en" title="Trentino Alto Adige"/>
+    <cap:areaDesc>Trentino Alto Adige</cap:areaDesc>
+    <cap:event>Yellow Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-29T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-29T00:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-29T00:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.063</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/9611134c-f067-4621-8fea-a770179bd294" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/9611134c-f067-4621-8fea-a770179bd294?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for Italy - Trentino Alto Adige</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT003</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT003" hreflang="en" title="Lombardia"/>
+    <cap:areaDesc>Lombardia</cap:areaDesc>
+    <cap:event>Yellow Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-29T11:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-29T00:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-29T00:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.060</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/5c4c65da-8e56-462b-9b9c-9b5204632a8b" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/5c4c65da-8e56-462b-9b9c-9b5204632a8b?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for Italy - Lombardia</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT002</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT002" hreflang="en" title="Trentino Alto Adige"/>
+    <cap:areaDesc>Trentino Alto Adige</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.062</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/f692d451-8f0f-4302-83e4-7aeee3c9b1a0" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/f692d451-8f0f-4302-83e4-7aeee3c9b1a0?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Trentino Alto Adige</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT005</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT005" hreflang="en" title="Piemonte"/>
+    <cap:areaDesc>Piemonte</cap:areaDesc>
+    <cap:event>Orange Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.054</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/e6ebbf6b-2049-4663-9e22-894df012d3f2" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/e6ebbf6b-2049-4663-9e22-894df012d3f2?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Rain Warning issued for Italy - Piemonte</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT003</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT003" hreflang="en" title="Lombardia"/>
+    <cap:areaDesc>Lombardia</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.058</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/b92b3e49-ad13-4939-bfec-63441ce1f7d2" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/b92b3e49-ad13-4939-bfec-63441ce1f7d2?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Lombardia</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT005</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT005" hreflang="en" title="Piemonte"/>
+    <cap:areaDesc>Piemonte</cap:areaDesc>
+    <cap:event>Orange Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T23:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Severe</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.055</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/31f3449a-3d91-4229-962d-7fae0fd279bb" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/31f3449a-3d91-4229-962d-7fae0fd279bb?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Orange Thunderstorm Warning issued for Italy - Piemonte</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT004</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT004" hreflang="en" title="Valle d'Aosta"/>
+    <cap:areaDesc>Valle d'Aosta</cap:areaDesc>
+    <cap:event>Yellow Rain Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Alert</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.052</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/32c3f4e7-4a1e-4077-a0be-5eb5402e6b3b" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/32c3f4e7-4a1e-4077-a0be-5eb5402e6b3b?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Rain Warning issued for Italy - Valle d'Aosta</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT005</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT005" hreflang="en" title="Piemonte"/>
+    <cap:areaDesc>Piemonte</cap:areaDesc>
+    <cap:event>Yellow Wind Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.056</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/d9e9b69e-0bca-4c82-8bc1-b6d1112fb3a5" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/d9e9b69e-0bca-4c82-8bc1-b6d1112fb3a5?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Wind Warning issued for Italy - Piemonte</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+  <entry>
+    <cap:geocode>
+      <valueName>EMMA_ID</valueName>
+      <value>IT004</value>
+    </cap:geocode>
+    <link href="https://meteoalarm.org?geocode=EMMA_ID:IT004" hreflang="en" title="Valle d'Aosta"/>
+    <cap:areaDesc>Valle d'Aosta</cap:areaDesc>
+    <cap:event>Yellow Thunderstorm Warning</cap:event>
+    <cap:sent>2022-06-28T07:32:26+00:00</cap:sent>
+    <cap:expires>2022-06-28T17:59:00+00:00</cap:expires>
+    <cap:effective>2022-06-28T07:00:00+00:00</cap:effective>
+    <cap:onset>2022-06-28T07:00:00+00:00</cap:onset>
+    <cap:certainty>Likely</cap:certainty>
+    <cap:severity>Moderate</cap:severity>
+    <cap:urgency>Future</cap:urgency>
+    <cap:scope>Public</cap:scope>
+    <cap:message_type>Update</cap:message_type>
+    <cap:status>Actual</cap:status>
+    <cap:identifier>2.49.0.0.380.3.IT.220628093226.053</cap:identifier>
+    <link href="https://hub.meteoalarm.org/warnings/feeds-italy/5154e6bb-8e4d-4764-96f6-498d43b5a371" type="application/cap+xml"/>
+    <link href="https://meteoalarm.org?region=IT" hreflang="en" rel="related" title="Italy"/>
+    <author>
+      <name>meteoalarm.org</name>
+      <uri>https://meteoalarm.org</uri>
+    </author>
+    <published>2022-06-28T07:32:26Z</published>
+    <id>https://hub.meteoalarm.org/warnings/feeds-italy/5154e6bb-8e4d-4764-96f6-498d43b5a371?index_info=0&amp;index_area=0&amp;index_geocode=0</id>
+    <title>Yellow Thunderstorm Warning issued for Italy - Valle d'Aosta</title>
+    <updated>2022-06-28T07:32:26Z</updated>
+  </entry>
+</feed>

@@ -194,7 +194,7 @@ $thehour=date('H');$theminute=date('i');
 
 if ($positionlastmodule == 'moonphase.php'){echo '';} else echo'
 <div class="weather34moonphasem">Moon Phase <br>'.$weather["moonphase"].'<br>'.$lang['Moonrise'].'<br>'.$weather['moonrise'].'</div>
-<div class="weather34luminancem">Luminance<br> '.$weather["luminance"].'% '.$luminance.'<br>'.$lang['Moonset'].'<br>'.$weather['moonset'].'</div></div></div></div>';
+<div class="weather34luminancem">Luminance<br> '.$weather["luminance"].' '.$luminance.'<br>'.$lang['Moonset'].'<br>'.$weather['moonset'].'</div></div></div></div>';
 
 
 $d_crcl = 24*60/2;function clc_crcl ($integer){  global $d_crcl ;$h= (int) date ('H',$integer);$m = (int) date ('i',$integer);$calc = $m + $h*60; $calc= (float) 0.5 + ($calc / $d_crcl );if ($calc > 2.0) { $calc = $calc - 2;}return round ($calc,5);}$start  = clc_crcl ($result['sunrise']);$end    = clc_crcl ($result['sunset']);$pos    = clc_crcl ($now);if ($now > $result['sunset'] || $now < $result['sunrise'] ){$sn_clr = 'rgba(86,95,103,0)';}else {$sn_clr = 'rgba(255, 112,50,1)';}echo '<script>var c = document.getElementById("sundial");var ctx = c.getContext("2d");ctx.imageSmoothingEnabled =false;ctx.beginPath();ctx.arc(63, 65, 55, 0, 2 * Math.PI);ctx.lineWidth = 0;ctx.strokeStyle = "#565f67";ctx.stroke();ctx.beginPath();ctx.arc(63, 65, 55, '.$start.' * Math.PI, '.$end.' * Math.PI);ctx.lineWidth = 2;ctx.strokeStyle ="#3b9cac";ctx.stroke();ctx.beginPath();ctx.arc(63, 65, 55, '.$pos.'* Math.PI, '.$pos.' * Math.PI);ctx.lineWidth = 0;ctx.strokeStyle = "'.$sn_clr.'";ctx.stroke();</script> ';?>

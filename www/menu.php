@@ -1,3 +1,11 @@
+<?php
+
+
+include ('serverdata/archivedata.php');
+
+
+?>
+
 <div class="weather34admin">
   
   <!-- Top Bar -->
@@ -8,7 +16,7 @@
       </div>
       <div class="weather34toolbar__center">
         <button class="weather34btn weather34btn--primary">
-          <weather34toptitle><?php echo $stationName; ?>&nbsp; Weather Station</weather34toptitle>
+          <weather34toptitle><?php echo $sta['location']; ?>&nbsp; Weather Station</weather34toptitle>
         </button>
       </div>
       <div class="weather34toolbar__right">

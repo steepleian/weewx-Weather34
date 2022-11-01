@@ -2,7 +2,7 @@
 ?>
 
 <?php
-$json_icon = file_get_contents("jsondata/lookupTable.json");
+$json_icon = file_get_contents("jsondata/advisoryLookup.json");
 $parsed_icon = json_decode($json_icon, true);
 $xml=simplexml_load_file("jsondata/uk.txt") or die("Error: Cannot create object");
 $jsonData = json_encode($xml, JSON_PRETTY_PRINT);
@@ -15,7 +15,7 @@ else if (($parsed_json['channel']['item']['description']) !== null){$description
        else if (strpos($description, "Yellow") === 0) {$alertlevel="Yellow"; $lowercasealert="yellow"; $uppercasealert="Yellow Alert";}
        else {$uppercasealert="No Alerts"; $alerttype='In Force'; $alertlevel="White"; }
        
-       if(strpos($description, "heat") !== false) {$alerttype='Extreme Heat';}
+       if(strpos($description, "heat") !== false) {$alerttype='Extreme heat';}
        else if(strpos($description, "wind") !== false) {$alerttype='Wind';}
        else if(strpos($description, "snow") !== false) {$alerttype='Snow';}
        else if(strpos($description, "ice") !== false) {$alerttype='Ice';}
@@ -26,7 +26,7 @@ else if (($parsed_json['channel']['item']['description']) !== null){$description
        else {$alerttype='In Force';}
 
        if ($alerttype==='In Force'){$warnimage = "icon-warning-noalert-white.svg";}
-       else {$warnimage = $parsed_icon[$lowercasealert][$alerttype];}
+       else {$warnimage = $parsed_icon["pop"][$alerttype]["icon"];}
 
 ?>
 
@@ -69,7 +69,7 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <?php
 ///MetOffice
 if ($alertlevel != "")
-{echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_ukalerts.php" data-lity><img src="css/svg/' . $warnimage . '" width="100%" class="iconpos"></img></alertadvisory2><alertpos><alertvalue>'.$uppercasealert.'<br> '.$alerttype.'</alertvalue></alertpos>
+{echo '<spanelightning><alertadvisory2><a alt="Alerts" title="Alerts" href="pop_ukalerts.php" data-lity><img src="img/europe_warnings/' . $warnimage . '" width="50%" class="iconpos"></img></alertadvisory2><alertpos><alertvalue>'.$uppercasealert.'<br> '.$alerttype.'</alertvalue></alertpos>
    </spanelightning></div></div></div>';}
 
     //weather34 //forecast3wularge wu alerts storms 

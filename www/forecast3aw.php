@@ -16,6 +16,7 @@
 
 
 include_once('w34CombinedData.php');
+$iconset = "icon2";
 error_reporting(0); date_default_timezone_set($TZ);
 header('Content-type: text/html; charset=UTF-8');
 if ($windunit=='kts'){$windunit="kn";}
@@ -39,7 +40,7 @@ $wucount = 0;
 for ($k=0;$k<=2;$k++) 
 {
      $pngicon[$k] = $parsed_forecastjson['response'][0]['periods'][$k]['icon'];
-     $forecastIcon[$k] = $parsed_icon[$pngicon[$k]]['icon1'];
+     $forecastIcon[$k] = $parsed_icon[$pngicon[$k]][$iconset];
      $Time[$k] = date("H", $parsed_forecastjson['response'][0]['periods'][$k]['timestamp']);
      if($Time[0] ==="07"){$forecastdayTime[0] = "Today"; $forecastdayTime[1] = "Tonight"; $forecastdayTime[2] = "Tomorrow";}
 	 else if($Time[0] ==="19"){$forecastdayTime[0] = "Tonight"; $forecastdayTime[1] = "Tomorrow"; $forecastdayTime[2] = "Tomorrow Night";}

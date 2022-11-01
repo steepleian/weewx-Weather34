@@ -224,11 +224,12 @@ switch ($favcolor)
             else if ($alertlevel[$i] == 'orange' && strpos($description[$i], "heat") !== false)
             {
                 $alerttype[$i] = 'Extreme heat';
-
+                $fontcolor = "black";
             }
             else if ($alertlevel[$i] == 'red' && strpos($description[$i], "heat") !== false)
             {
                 $alerttype[$i] = 'Extreme heat';
+                $fontcolor = "white";
 
             }
             $warnimage[$i] = "css/svg/" . $parsed_icon[$alertlevel[$i]][$alerttype[$i]];
@@ -237,7 +238,7 @@ switch ($favcolor)
 <main class="grid_MET"><articlegraph_MET class="alert-row-narrow" style="font-size:10px; background-color:<?php echo $alertlevel[$i] ?>">
                             <div class="alert-row" style="background-color:<?php echo $alertlevel[$i] ?>">
     <img src="<?php echo $warnimage[$i] ?>"style="width:70px; height:70px;">
-    <div class="alert-text-container">
+    <div class="alert-text-container" style="color:<?php echo $fontcolor;?>">
       <div><?php echo $fromto[$i] ?></br></br><?php echo $description[$i] ?></br></br><?php echo $warntext ?></a></div>
         
     

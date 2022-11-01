@@ -103,7 +103,7 @@ body {
   
   <div id="Tab5" class="tabcontent">
   
-  <iframe width="100%" height="92%" scrolling="no" src="<?php echo $chartsource;?>/<?php echo $theme1;?>-charts.html?chart='windroseplot'&span='weekly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0"></iframe>
+  <iframe width="100%" height="92%" scrolling="no" src="<?php echo $chartsource;?>/dark-charts.html?chart='windroseplot'&span='weekly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0"></iframe>
 </div>
   
   

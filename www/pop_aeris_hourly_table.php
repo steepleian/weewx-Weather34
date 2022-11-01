@@ -10,6 +10,7 @@
 //###################################################################################################################
 include_once ('settings.php');
 include ('w34CombinedData.php');
+$iconset = "icon2";
 if ($theme === "dark")
 {
     echo '<style>.demo{border:0 solid #aaa;border-collapse:collapse;padding:50px;font-family:arial,helvetica,verdana,sans-serif;font-size:10px;margin-bottom:50px;margin-top:50px margin-left:50%;margin-right:-50%;width:100%;color:silver}.demo th{border-bottom:.5px solid #aaa;/*! border-top:1px solid #aaa; */
@@ -43,7 +44,7 @@ for ($k = 0;$k < 24;$k++)
 {
 
     $pngicon[$k] = $parsed_json['response'][0]['periods'][$k]['icon'];
-    $forecastIcon[$k] = $parsed_icon[$pngicon[$k]]['icon1'];
+    $forecastIcon[$k] = $parsed_icon[$pngicon[$k]][$iconset];
     $forecastTime[$k] = date("H:i", $parsed_json['response'][0]['periods'][$k]['timestamp']);
 
     $forecastTempHigh[$k] = $parsed_json['response'][0]['periods'][$k]['maxTempC'];

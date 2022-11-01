@@ -6,7 +6,7 @@
 		"AW.FG.MD": "icon-warning-fog-yellow.svg",
 		"AW.FL.MD": "icon-warning-flood-yellow.svg",
 		"AW.FR.MD": "icon-warning-forestfire-yellow.svg",
-		"AW.HT.MD": "icon-warning-generic-yellow.svg",
+		"AW.HT.MD": "icon-warning-heat-yellow.svg",
 		"AW.LI.MD": "icon-warning-lightning-yellow.svg",
 		"AW.LT.MD": "icon-warning-polarlow-yellow.svg",
 		"AW.RA.MD": "icon-warning-rain-yellow.svg",
@@ -17,7 +17,7 @@
 		"AW.WI.MD": "icon-warning-wind-yellow.svg",
  		"Snow": "icon-warning-snow-yellow.svg",
 		"Fog": "icon-warning-fog-yellow.svg",
-	    "Extreme heat": "AW.HT.MD.svg",
+	        "Extreme heat": "icon-warning-heat-yellow.svg",
 		"Thunderstorms": "icon-warning-lightning-yellow.svg",
 		"Rain": "icon-warning-rain-yellow.svg",
 		"Ice": "icon-warning-ice-yellow.svg",
@@ -40,7 +40,7 @@
 		"AW.FG.SV": "icon-warning-fog-orange.svg",
 		"AW.FL.SV": "icon-warning-flood-orange.svg",
 		"AW.FR.SV": "icon-warning-forestfire-orange.svg",
-		"AW.HT.SV": "icon-warning-generic-orange.svg",
+		"AW.HT.SV": "icon-warning-heat-orange.svg",
 		"AW.LI.SV": "icon-warning-lightning-orange.svg",
 		"AW.LT.SV": "icon-warning-polarlow-orange.svg",
 		"AW.RA.SV": "icon-warning-rain-orange.svg",
@@ -51,7 +51,7 @@
 		"AW.WI.SV": "icon-warning-wind-orange.svg",
  		"Snow": "icon-warning-snow-orange.svg",
 		"Fog": "icon-warning-fog-orange.svg",
-	    "Extreme heat": "AW.HT.SV.svg",
+	    "Extreme heat": "icon-warning-heat-orange",
 		"Thunderstorms": "icon-warning-lightning-orange.svg",
 		"Rain": "icon-warning-rain-orange.svg",
 		"Ice": "icon-warning-ice-orange.svg",
@@ -74,7 +74,7 @@
 		"AW.FG.SV": "icon-warning-fog-orange.svg",
 		"AW.FL.SV": "icon-warning-flood-orange.svg",
 		"AW.FR.SV": "icon-warning-forestfire-orange.svg",
-		"AW.HT.SV": "icon-warning-generic-orange.svg",
+		"AW.HT.SV": "icon-warning-heat-orange.svg",
 		"AW.LI.SV": "icon-warning-lightning-orange.svg",
 		"AW.LT.SV": "icon-warning-polarlow-orange.svg",
 		"AW.RA.SV": "icon-warning-rain-orange.svg",
@@ -85,7 +85,7 @@
 		"AW.WI.SV": "icon-warning-wind-orange.svg",
  		"Snow": "icon-warning-snow-orange.svg",
 		"Fog": "icon-warning-fog-orange.svg",
-	    "Extreme heat": "AW.HT.SV.svg",
+	        "Extreme heat": "icon-warning-heat-orange.svg",
 		"Thunderstorms": "icon-warning-lightning-orange.svg",
 		"Rain": "icon-warning-rain-orange.svg",
 		"Ice": "icon-warning-ice-orange.svg",
@@ -94,7 +94,7 @@
 		"Wind": "icon-warning-wind-orange.svg",
  		"snow": "Snow",
 		"fog": "Fog",
-	    "extreme heat": "Extreme heat",
+	        "extreme heat": "Extreme heat",
 		"thunderstorms": "Thunderstorms",
 		"rain": "Rain",
 		"ice": "Ice",
@@ -108,7 +108,7 @@
 		"AW.FG.EX": "icon-warning-fog-red.svg",
 		"AW.FL.EX": "icon-warning-flood-red.svg",
 		"AW.FR.EX": "icon-warning-forestfire-red.svg",
-		"AW.HT.EX": "icon-warning-generic-red.svg",
+		"AW.HT.EX": "icon-warning-heat-red.svg",
 		"AW.LI.EX": "icon-warning-lightning-red.svg",
 		"AW.LT.EX": "icon-warning-polarlow-red.svg",
 		"AW.RA.EX": "icon-warning-rain-red.svg",
@@ -119,7 +119,7 @@
 		"AW.WI.EX": "icon-warning-wind-red.svg",
  		"Snow": "icon-warning-snow-red.svg",
 		"Fog": "icon-warning-fog-red.svg",
-	    "Extreme heat": "AW.HT.EX.svg",
+	        "Extreme heat": "icon-warning-heat-red.svg",
 		"Thunderstorms": "icon-warning-lightning-red.svg",
 		"Rain": "icon-warning-rain-red.svg",
 		"Ice": "icon-warning-ice-red.svg",
@@ -292,83 +292,100 @@
 		},
 		"YR.NO SECTION": "STARTS HERE",
 		"clearsky_day": {
-			"icon": "01d.svg",
+			"icon1": "01d.svg",
+                        "icon2": "clear-day.svg",
 			"summary": "Clear Sky"
 		},
 		"clearsky_night": {
-			"icon": "01n.svg",
+			"icon1": "01n.svg",
+                        "icon2": "clear-night.svg",
 			"summary": "Clear Sky"
 		},
 		"clearsky_twilight": {
-			"icon": "01m.svg",
+			"icon1": "01m.svg",
+                        
 			"summary": "Clear Sky"
 		},
 		"fair_day": {
-			"icon": "02d.svg",
+			"icon1": "02d.svg",
+                        "icon2": "mostly-clear-day.svg",
 			"summary": "Fair"
 		},
 		"fair_night": {
-			"icon": "02n.svg",
+			"icon1": "02n.svg",
+                        "icon2": "mostly-clear-night.svg",
 			"summary": "Fair"
 		},
 		"fair_twilight": {
-			"icon": "02m.svg",
+			"icon1": "02m.svg",
 			"summary": "Fair"
 		},
-        "mostlycloudy_day": {
-			"icon": "03d-most.svg",
+                "mostlycloudy_day": {
+			"icon1": "03d-most.svg",
+                        "icon2": "overcast-day.svg",
 			"summary": "Partly Cloudy"
 		},
 		"mostlycloudy_night": {
-			"icon": "03n-most.svg",
-			"summary": "Partly Cloudy"
+			"icon1": "03n-most.svg",
+                        "icon2": "overcast-night.svg",
+                        "summary": "Partly Cloudy"
 		},
 		"partlycloudy_day": {
-			"icon": "03d-part.svg",
+			"icon1": "03d-part.svg",
+                        "icon2": "partly-cloudy-day.svg",
 			"summary": "Partly Cloudy"
 		},
 		"partlycloudy_night": {
-			"icon": "03n-part.svg",
+			"icon1": "03n-part.svg",
+                        "icon2": "partly-cloudy-night.svg",
 			"summary": "Partly Cloudy"
 		},
 		"partlycloudy_twilight": {
-			"icon": "03m.svg",
+			"icon1": "03m.svg",
 			"summary": "Partly Cloudy"
 		},
 		"cloudy": {
-			"icon": "04.svg",
+			"icon1": "04.svg",
+                        "icon2": "overcast.svg",
 			"summary": "Cloudy"
 		},
 		"rainshowers_day": {
-			"icon": "05d.svg",
+			"icon1": "05d.svg",
+                        "icon2": "overcast-day-rain.svg",
 			"summary": "Showers"
 		},
 		"rainshowers_night": {
-			"icon": "05n.svg",
+			"icon1": "05n.svg",
+                        "icon2": "overcast-night-rain.svg",
 			"summary": "Showers"
 		},
 		"rainshowers_twilight": {
-			"icon": "05.'svg",
+			"icon1": "05.'svg",
+                        "icon2": "rain.svg",
 			"summary": "Showers"
 		},
 		"rainshowersandthunder_day": {
-			"icon": "06d.svg",
+			"icon1": "06d.svg",
+                        "icon2": "thunderstorms-day-rain.svg",
 			"summary": "Thundery Showers"
 		},
 		"rainshowersandthunder_night": {
-			"icon": "06n.svg",
+			"icon1": "06n.svg",
+                        "icon2": "thunderstorms-night-rain.svg",
 			"summary": "Thundery Showers"
 		},
 		"rainshowersandthunder_twilight": {
-			"icon": "06m.svg",
+			"icon1": "06m.svg",
 			"summary": "Thundery Showers"
 		},
 		"sleetshowers_day": {
-			"icon": "07d.svg",
+			"icon1": "07d.svg",
+                        "icon2": "overcast-day-sleet.svg",
 			"summary": "Sleet Showers"
 		},
 		"sleetshowers_night": {
-			"icon": "07n.svg",
+			"icon1": "07n.svg",
+                        "icon2": "overcast-night-sleet.svg",
 			"summary": "Sleet Showers"
 		},
 		"sleetshowers_twilight": {
@@ -376,11 +393,13 @@
 			"summary": "Sleet Showers"
 		},
 		"snowshowers_day": {
-			"icon": "08d.svg",
+			"icon1": "08d.svg",
+                        "icon2": "overcast-day-snow.svg",
 			"summary": "Snow Showers"
 		},
 		"snowshowers_night": {
-			"icon": "08n.svg",
+			"icon1": "08n.svg",
+                        "icon2": "overcast-night-snow.svg",
 			"summary": "Snow Showers"
 		},
 		"snowshowers_twilight": {
@@ -388,39 +407,48 @@
 			"summary": "Snow Showers"
 		},
 		"rain": {
-			"icon": "09.svg",
+			"icon1": "09.svg",
+                        "icon2": "rain.svg",
 			"summary": "Rain"
 		},
 		"heavyrain": {
-			"icon": "10.svg",
+			"icon1": "10.svg",
+                        "icon2": "extreme-rain.svg",
 			"summary": "Heavy Rain"
 		},
 		"heavyrainandthunder": {
-			"icon": "11.svg",
+			"icon1": "11.svg",
+                        "icon2": "thunderstorms-extreme-rain.svg",
 			"summary": "Heavy Rain and Thunder"
 		},
 		"sleet": {
-			"icon": "12.svg",
+			"icon1": "12.svg",
+                        "icon2": "sleet.svg",
 			"summary": "Sleet"
 		},
 		"snow": {
-			"icon": "13.svg",
+			"icon1": "13.svg",
+                        "icon2": "snow.svg",
 			"summary": "Snow"
 		},
 		"snowandthunder": {
-			"icon": "14.svg",
+			"icon1": "14.svg",
+                        "icon2": "thunderstorms-snow.svg",
 			"summary": "Snow with Thunder"
 		},
 		"fog": {
-			"icon": "15.svg",
+			"icon1": "15.svg",
+                        "icon2": "fog.svg",
 			"summary": "Fog"
 		},
 		"rainandthunder": {
-			"icon": "22.svg",
+			"icon1": "22.svg",
+                        "icon2": "thunderstorms-rain.svg",
 			"summary": "Thundery Rain"
 		},
 		"sleetandthunder": {
-			"icon": "23.svg",
+			"icon1": "23.svg",
+                        "icon2": "thunderstorms-snow.svg",
 			"summary": "Sleet and Thunder"
 		},
 		"lightrainshowersandthunder_day": {
@@ -618,7 +646,7 @@
 			"icon2": "snow.svg",
 			"icon3": "/wuicons/nt_43.svg"
 		},
-		"blowingsnow.png": {
+ 		"blowingsnow.png": {
 			"icon1": "50.svg",
 			"icon2": "snow.svg",
 			"icon3": "/wuicons/15.svg"
@@ -690,12 +718,12 @@
 		},
 		"fair.png": {
 			"icon1": "02d.svg",
-			"icon2": "clear-day.svg",
+			"icon2": "mostly-clear-day.svg",
 			"icon3": "/wuicons/34.svg"
 		},
 		"fairn.png": {
 			"icon1": "02n.svg",
-			"icon2": "clear-night.svg",
+			"icon2": "mostly-clear-night.svg",
 			"icon3": "/wuicons/nt_33.svg"
 		},
 		"drizzlef.png": {
@@ -775,12 +803,12 @@
 		},
 		"mcloudy.png": {
 			"icon1": "03d-most.svg",
-			"icon2": "partly-cloudy-day.svg",
+			"icon2": "overcast-day.svg",
 			"icon3": "/wuicons/28.svg"
 		},
 		"mcloudyn.png": {
 			"icon1": "03n-most.svg",
-			"icon2": "partly-cloudy-night.svg",
+			"icon2": "overcast-night.svg",
 			"icon3": "/wuicons/nt_28.svg"
 		},
 		"mcloudyr.png": {

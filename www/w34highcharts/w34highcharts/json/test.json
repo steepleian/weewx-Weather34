@@ -1,0 +1,26 @@
+"lightningplot": {
+#if $distanceMax_json is not None
+"distanceMax": $distanceMax_json, 
+#end if
+#if $distanceAvg_json is not None
+"distanceAvg": $distanceAvg_json, 
+#end if
+#if $strikeCount_json is not None
+"strikeCount": $strikeCount_json, 
+#end if
+#if $noiseCount_json is not None
+"noiseCount": $noiseCount_json, 
+#end if
+#if $disturberCount_json is not None
+"disturberCount": $disturberCount_json, 
+#end if
+#if $energyMax_json is not None
+"energyMax": $energyMax_json, 
+#end if
+#if $energyAvg_json is not None
+"energyAvg": $energyAvg_json, 
+#end if
+#if $lightningSum_json is not None
+"lightningsum": $lightningSum_json 
+#end if
+}, 

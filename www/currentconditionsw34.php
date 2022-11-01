@@ -6,6 +6,7 @@ uppercase{ text-transform:capitalize;}
 <?php
 include('settings1.php');
 include('w34CombinedData.php');
+$iconset = "icon2";
 $cloud_region = explode("/", $TZ);
 error_reporting(0);
 
@@ -41,39 +42,39 @@ else if ($windunit =='km/h' ||  $windunit =='m/s' && $weather["cloudbase3"]<609)
 //homeweatherstation weather34 current conditions using hardware values
 if ($windunit=='kts'){$windunit="kn";}       
 //rain-weather34
-if($weather["rain_rate"]>0 && $weather["wind_speed_avg"]>15){echo "<img rel='prefetch' src='css/svg/10w.svg' width='60px' height='55px' alt='weather34 windy rain icon'>";}
-else if($weather["rain_rate"]>10){echo "<img rel='prefetch' src='css/svg/10.svg' width='70px' height='60px' alt='weather34 heavy rain icon'>";}
-else if($weather["rain_rate"]>0){echo "<img rel='prefetch' src='css/svg/09.svg' width='70px' height='60px' alt='weather34 rain icon'>";}
+if($weather["rain_rate"]>0 && $weather["wind_speed_avg"]>15){echo "<img rel='prefetch' src='css/svg/umbrella-wind.svg' width='60px' height='55px' alt='weather34 windy rain icon'>";}
+else if($weather["rain_rate"]>10){echo "<img rel='prefetch' src='css/svg/umbrella-wind-alt.svg' width='70px' height='60px' alt='weather34 heavy rain icon'>";}
+else if($weather["rain_rate"]>0){echo "<img rel='prefetch' src='css/svg/rain.svg' width='70px' height='60px' alt='weather34 rain icon'>";}
 //fog-weather34
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $dayPartNatural == "night" && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog.svg' width='70px' height='60px' alt='weather34 fog icon'>";}
-else if($weather["temp"] -$weather["dewpoint"] <0.8  && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog.svg' width='70px' height='60px' alt='weather34 fog'>";}
+else if($weather["temp"] -$weather["dewpoint"] <0.8  && $dayPartNatural == "night" && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog-night.svg' width='70px' height='60px' alt='weather34 fog icon'>";}
+else if($weather["temp"] -$weather["dewpoint"] <0.8  && $weather["temp"]>5){echo "<img rel='prefetch' src='css/svg/fog-day.svg' width='70px' height='60px' alt='weather34 fog'>";}
 //windy moderate-weather34
-else if($weather["wind_speed_avg"]>=15 && $dayPartNatural == "night" && $weather["cloud_cover"]<20){echo "<img rel='prefetch' src='css/svg/01nw.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
-else if($weather["wind_speed_avg"]>=15 && $weather["cloud_cover"]<20){echo "<img rel='prefetch' src='css/svg/01dw.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
+else if($weather["wind_speed_avg"]>=15 && $dayPartNatural == "night" && $weather["cloud_cover"]<20){echo "<img rel='prefetch' src='css/svg/wind.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
+else if($weather["wind_speed_avg"]>=15 && $weather["cloud_cover"]<20){echo "<img rel='prefetch' src='css/svg/wind.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
 //windy moderate-weather34
 else if($weather["wind_speed_avg"]>=15 && $dayPartNatural == "night"){echo "<img rel='prefetch' src='css/svg/wind.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
 else if($weather["wind_speed_avg"]>=15){echo "<img rel='prefetch' src='css/svg/wind.svg' width='70px' height='60px' alt='weather34 windy icon'>";}
 
 //cloud-icon
 else if ($weather["cloud_cover"]<7 and $weather["cloud_cover"]>0) {
-if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/01n.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/01d.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
+if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/clear-night.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
+else echo "<img rel='prefetch' src='css/svg/clear-day.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 } 
 else if ($weather["cloud_cover"]<32) {
-if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/02n.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/02d.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
+if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/mostly-clear-night.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
+else echo "<img rel='prefetch' src='css/svg/mostly-clear-day.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
 else if ($weather["cloud_cover"]<70) {
-if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/03n-part.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/03d-part.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
+if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/partly-cloudy-night.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
+else echo "<img rel='prefetch' src='css/svg/partly-cloudy-day.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
 else if ($weather["cloud_cover"]<95) {
-if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/03n-most.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/03d-most.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
+if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/overcast-night.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
+else echo "<img rel='prefetch' src='css/svg/overcast-day.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
 else if($weather["cloud_cover"]>=95) {
-if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/04.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
-else echo "<img rel='prefetch' src='css/svg/04.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
+if ($dayPartNatural == "night" ){echo "<img rel='prefetch' src='css/svg/overcast.svg' width='70px' height='60px' alt='weather34 windy icon'>";} 
+else echo "<img rel='prefetch' src='css/svg/overcast.svg' width='70px' height='60px' alt='weather34 windy icon'>"; 
 }
 
 //metar with darksky fallback-weather34

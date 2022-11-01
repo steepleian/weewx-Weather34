@@ -1,0 +1,112 @@
+<script src="scripts/dark-theme.js"></script><!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Highcharts Example</title>
+
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="scripts/dark-theme.js"></script>
+<div id="container" style=" width: auto; height: 145px;"></div>
+
+
+
+
+
+
+		<script type="text/javascript">
+
+
+// Parse the data from an inline table using the Highcharts Data plugin
+Highcharts.chart('container', {
+    data: {
+         csvURL: 'https://claydonsweather.org.uk/weewx/divumdev/w34highcharts/json/wind_rose_mod.csv',
+        enablePolling: true,
+        dataRefreshRate: 16
+    },
+
+    chart: { 
+        polar: true,
+        backgroundColor: 'none',
+        type: 'column'
+		
+		
+    },
+
+    title: {
+        text: null
+    },
+    
+    credits: {
+        enabled: false
+    },
+    subtitle: {
+        text: null
+    },
+
+    pane: {
+        backgroundColor: 'none',
+        size: '88%'
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    xAxis: {
+        gridLineWidth: 0,
+        minorGridLineWidth: 0,
+        lineWidth: '0px',
+        tickmarkPlacement: 'on',
+        tickLength: 0,
+        labels: {
+             style: {
+                 fontSize: '7px',
+                 color: '#ff7c39'  
+             }
+        }
+
+    },
+
+    yAxis: {
+        gridLineWidth: 0,
+        minorGridLineWidth: 0,
+        lineWidth: '0px',
+        min: 0,
+        endOnTick: false,
+        showLastLabel: true,
+        title: {
+            text: null
+        },
+        labels: {
+            formatter: function () {
+                return ' ';
+            }
+        },
+        reversedStacks: false
+    },
+
+    tooltip: {
+        valueSuffix: '%',
+        enabled: true
+    },
+
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            shadow: false,
+            groupPadding: 0,
+            pointPlacement: 'on'
+        }
+    }
+});
+		</script>
+	</body>
+</html>

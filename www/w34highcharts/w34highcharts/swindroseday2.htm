@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Highcharts Example</title>
+
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/windbarb.js"></script>
+    <script src="https://code.highcharts.com/modules/boost.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="scripts/dark-theme.js" type="text/javascript"></script>
+    <script src="scripts/plots_config.js" type="text/javascript"></script>
+    <script src="scripts/plots.js" type="text/javascript"></script>
+    <script src="scripts/convert_units.js" type="text/javascript"></script>
+    <script src="../languages/translations.js" type="text/javascript"></script>
+
+<div id="container" style=" width: auto; height: 140px;"></div>
+
+
+
+
+
+
+		<script type="text/javascript">
+
+
+// Parse the data from an inline table using the Highcharts Data plugin
+Highcharts.chart('container', {
+    data: {
+         csvURL: '/var/www/html/weewx/weather34/w34highcharts/windroseday2.txt',
+        enablePolling: true,
+        dataRefreshRate: 60
+    },
+
+    chart: { 
+        polar: true,
+        type: 'column'
+		
+		
+    },
+
+    title: {
+        text: null
+    },
+    
+ credits: {
+        enabled: false
+    },
+    subtitle: {
+        text: null
+    },
+
+    pane: {
+        size: '90%'
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    xAxis: {
+        tickmarkPlacement: 'on'
+    },
+
+    yAxis: {
+        min: 0,
+        endOnTick: false,
+        showLastLabel: true,
+        title: {
+            text: null
+        },
+        labels: {
+            formatter: function () {
+                return ' ';
+            }
+        },
+        reversedStacks: false
+    },
+
+    tooltip: {
+        valueSuffix: '%'
+    },
+
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            shadow: false,
+            groupPadding: 0,
+            pointPlacement: 'on'
+        }
+    }
+});
+		</script>
+	</body>
+</html>

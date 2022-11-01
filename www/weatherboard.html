@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/png" href="favicon.ico" />
+      <title>Steeple Claydon Weather, UK</title>
+    <meta name="description" content="Up to date weather readings for Steeple Claydon Weather, UK.">
+    <style>
+      #centered {
+        width:100%;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body style="background-color:black;font-family:arial,helvetica,verdana,sans-serif;color:#00FFFF;font-size:12px;">
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  var host = location.host;
+  if (host == "") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '');
+  }
+</script>
+
+<script>
+    page_update_pwd = 'foobar';
+    refresh_rate = 2;
+    expiration_time = 4;
+  function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+      window.onload = func;
+    } else {
+      window.onload = function() {
+        if (oldonload) {
+          oldonload();
+        }
+        func();
+      }
+    }
+  }
+  function getUrlParam(paramName) {
+      var name, regexS, regex, results;
+      name = paramName.replace(/(\[|\])/g, '\$1');
+      regexS = '[\\?&]' + name + '=([^&#]*)';
+      regex = new RegExp(regexS);
+      results = regex.exec(window.location.href);
+      if (results === null) {
+          return '';
+      } else {
+          return results[1];
+      }
+  }
+  var pageTimedOut = false;
+  function expirePage() {
+    if (pageTimedOut) {
+        // We've already timed out,
+        return false;
+    }
+    pageTimedOut = true;
+    var liveLabel = document.getElementById("live-label");
+    liveLabel.innerHTML = "CLICK";
+    var activityElement = document.getElementById("activity-string");
+    activityElement.innerHTML = "";
+    // set an onclick event on live-label to restart everything
+    liveLabel.addEventListener("click", clickListener);
+  }
+  function clickListener() {
+    // disable the onClick event again
+    var liveLabel = document.getElementById("live-label");
+    liveLabel.removeEventListener('click', clickListener);
+    liveLabel.innerHTML = "";
+    // restart everything
+    pageTimedOut = false;
+    // restart the page timeout
+    timeOfNextPageExpiration = getTimeOfNextPageExpiration();
+  }
+  function getTimeToNextUpdateCurrent() {
+    return refresh_rate * 1000;
+  }
+  // Get time that page expires.
+  function getTimeOfNextPageExpiration() {
+    if (getUrlParam('pageUpdate') !== page_update_pwd) {
+      // expire in N hours
+      return Date.now() + 1000 * 60 * 60 * expiration_time;
+    } else {
+      // expire in 10,000 days
+      return Date.now() + 1000 * 60 * 60 * 24 * 10000;
+    }
+  }
+  // global variables - times of next events
+  var timeOfNextPageExpiration = getTimeOfNextPageExpiration();
+  addLoadEvent(updateCurrent);
+
+  function updateCurrent() {
+    if (pageTimedOut) {
+        return false;
+    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4) {
+        if (this.status == 200) {
+          var result = JSON.parse(this.responseText);
+
+          // Check the date
+          // "dateTime": 1578965850,
+          var lastUpdate = new Date(result["current.dateTime.raw"] * 1000);
+          var age = Math.round(Math.abs(new Date() - lastUpdate) / 1000);
+          var element = document.getElementById("live-label");
+          element.style.fontWeight = "bolder";
+          if (age <= 6) {
+            element.innerHTML = "LIVE&nbsp;&nbsp;";
+          } else {
+            element.innerHTML = age + "s ago&nbsp;&nbsp;";
+          }
+
+          // Display the time of the last update.
+          var activityElement = document.getElementById("last-update");
+          activityElement.innerHTML = lastUpdate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+
+          // Trend
+          if (result.hasOwnProperty("trend.outTemp")) {
+            document.getElementById("trend.outTemp").innerHTML = result["trend.outTemp"];
+          } else {
+            document.getElementById("trend.outTemp").innerHTML = '';
+          }
+          if (result.hasOwnProperty("trend.barometer.desc")) {
+            document.getElementById("trend.barometer.desc").innerHTML = result["trend.barometer.desc"];
+          } else {
+            document.getElementById("trend.barometer.desc").innerHTML = '';
+          }
+          // Current
+          if (result.hasOwnProperty("current.outTemp.formatted")) {
+            document.getElementById("current.outTemp.formatted").innerHTML = result["current.outTemp.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("current.outTemp.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("current.dewpoint.formatted")) {
+            // dew point
+            document.getElementById("current.dewpoint.formatted").innerHTML = result["current.dewpoint.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("current.dewpoint.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("current.windSpeed.formatted")) {
+            document.getElementById("current.windSpeed.formatted").innerHTML = result["current.windSpeed.formatted"].padStart(5,' ');
+            var windBearing = ''.padStart(4, ' ').padEnd(5,' ');
+            if (result["current.windSpeed.formatted"] != 0.0) {
+              if (result.hasOwnProperty("current.windDir.ordinal_compass")) {
+                windBearing = result["current.windDir.ordinal_compass"].padStart(4, ' ').padEnd(5,' ');
+              } else {
+              }
+            }
+            document.getElementById("current.windDir.ordinal_compass").innerHTML = windBearing;
+          } else {
+            document.getElementById("current.windSpeed.formatted").innerHTML = ''.padStart(5,' ');
+            document.getElementById("current.windDir.ordinal_compass").innerHTML = ''.padEnd(3,' ');
+          }
+          if (result.hasOwnProperty("current.rainRate.formatted")) {
+            document.getElementById("current.rainRate.formatted").innerHTML = result["current.rainRate.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("current.rainRate.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("10m.outTemp.max.formatted")) {
+            document.getElementById("10m.outTemp.max.formatted").innerHTML = result["10m.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("10m.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("10m.outTemp.min.formatted")) {
+            document.getElementById("10m.outTemp.min.formatted").innerHTML = result["10m.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("10m.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("10m.wind.rms.formatted")) {
+            document.getElementById("10m.wind.rms.formatted").innerHTML = result["10m.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("10m.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("10m.windGust.max.formatted")) {
+            document.getElementById("10m.windGust.max.formatted").innerHTML = result["10m.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("10m.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("10m.rain.sum.formatted")) {
+            document.getElementById("10m.rain.sum.formatted").innerHTML = result["10m.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("10m.rain.sum.formatted").innerHTML = '';
+          }
+          if (result.hasOwnProperty("hour.outTemp.max.formatted")) {
+            document.getElementById("hour.outTemp.max.formatted").innerHTML = result["hour.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("hour.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("hour.outTemp.min.formatted")) {
+            document.getElementById("hour.outTemp.min.formatted").innerHTML = result["hour.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("hour.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("hour.wind.rms.formatted")) {
+            document.getElementById("hour.wind.rms.formatted").innerHTML = result["hour.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("hour.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("hour.windGust.max.formatted")) {
+            document.getElementById("hour.windGust.max.formatted").innerHTML = result["hour.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("hour.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("hour.rain.sum.formatted")) {
+            document.getElementById("hour.rain.sum.formatted").innerHTML = result["hour.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("hour.rain.sum.formatted").innerHTML = '';
+          }
+          if (result.hasOwnProperty("day.outTemp.max.formatted")) {
+            document.getElementById("day.outTemp.max.formatted").innerHTML = result["day.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("day.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("day.outTemp.min.formatted")) {
+            document.getElementById("day.outTemp.min.formatted").innerHTML = result["day.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("day.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("day.wind.rms.formatted")) {
+            document.getElementById("day.wind.rms.formatted").innerHTML = result["day.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("day.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("day.windGust.max.formatted")) {
+            document.getElementById("day.windGust.max.formatted").innerHTML = result["day.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("day.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("day.rain.sum.formatted")) {
+            document.getElementById("day.rain.sum.formatted").innerHTML = result["day.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("day.rain.sum.formatted").innerHTML = '';
+          }
+          if (result.hasOwnProperty("week.outTemp.max.formatted")) {
+            document.getElementById("week.outTemp.max.formatted").innerHTML = result["week.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("week.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("week.outTemp.min.formatted")) {
+            document.getElementById("week.outTemp.min.formatted").innerHTML = result["week.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("week.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("week.wind.rms.formatted")) {
+            document.getElementById("week.wind.rms.formatted").innerHTML = result["week.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("week.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("week.windGust.max.formatted")) {
+            document.getElementById("week.windGust.max.formatted").innerHTML = result["week.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("week.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("week.rain.sum.formatted")) {
+            document.getElementById("week.rain.sum.formatted").innerHTML = result["week.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("week.rain.sum.formatted").innerHTML = '';
+          }
+          if (result.hasOwnProperty("month.outTemp.max.formatted")) {
+            document.getElementById("month.outTemp.max.formatted").innerHTML = result["month.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("month.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("month.outTemp.min.formatted")) {
+            document.getElementById("month.outTemp.min.formatted").innerHTML = result["month.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("month.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("month.wind.rms.formatted")) {
+            document.getElementById("month.wind.rms.formatted").innerHTML = result["month.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("month.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("month.windGust.max.formatted")) {
+            document.getElementById("month.windGust.max.formatted").innerHTML = result["month.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("month.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("month.rain.sum.formatted")) {
+            document.getElementById("month.rain.sum.formatted").innerHTML = result["month.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("month.rain.sum.formatted").innerHTML = '';
+          }
+          if (result.hasOwnProperty("year.outTemp.max.formatted")) {
+            document.getElementById("year.outTemp.max.formatted").innerHTML = result["year.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("year.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("year.outTemp.min.formatted")) {
+            document.getElementById("year.outTemp.min.formatted").innerHTML = result["year.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("year.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("year.wind.rms.formatted")) {
+            document.getElementById("year.wind.rms.formatted").innerHTML = result["year.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("year.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("year.windGust.max.formatted")) {
+            document.getElementById("year.windGust.max.formatted").innerHTML = result["year.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("year.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("year.rain.sum.formatted")) {
+            document.getElementById("year.rain.sum.formatted").innerHTML = result["year.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("year.rain.sum.formatted").innerHTML = '';
+          }
+          if (result.hasOwnProperty("rainyear.outTemp.max.formatted")) {
+            document.getElementById("rainyear.outTemp.max.formatted").innerHTML = result["rainyear.outTemp.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("rainyear.outTemp.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("rainyear.outTemp.min.formatted")) {
+            document.getElementById("rainyear.outTemp.min.formatted").innerHTML = result["rainyear.outTemp.min.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("rainyear.outTemp.min.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("rainyear.wind.rms.formatted")) {
+            document.getElementById("rainyear.wind.rms.formatted").innerHTML = result["rainyear.wind.rms.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("rainyear.wind.rms.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("rainyear.windGust.max.formatted")) {
+            document.getElementById("rainyear.windGust.max.formatted").innerHTML = result["rainyear.windGust.max.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("rainyear.windGust.max.formatted").innerHTML = ''.padStart(5,' ');
+          }
+          if (result.hasOwnProperty("rainyear.rain.sum.formatted")) {
+            document.getElementById("rainyear.rain.sum.formatted").innerHTML = result["rainyear.rain.sum.formatted"].padStart(5,' ');
+          } else {
+            document.getElementById("rainyear.rain.sum.formatted").innerHTML = '';
+          }
+        }
+      }
+    };
+    try {
+      xhttp.open("GET", "jsondata/loop-data.txt", true);
+      xhttp.send();
+    } catch (e) {
+    } finally {
+      // set a timer to call updateCurrent (the 2 second timer) 2s from now.
+      setTimeout(updateCurrent, getTimeToNextUpdateCurrent());
+      // Check to see if it's time to call expirePage.
+      if (Date.now() >= timeOfNextPageExpiration) {
+        expirePage();
+      }
+    }
+  }
+  function decode_rgb(i) {
+    var red   = i >> 16;
+    var green = (i & 0xFF00) >> 8;
+    var blue  = i & 0xFF;
+    return `rgb(${red},${green},${blue})`
+  }
+</script>
+    <div>
+      <div>
+        <table id="centered" style="font-size:14px;">
+          <tr>
+            <td style="text-align:left;width:220px;">
+              <span id="last-update"></span>
+            </td>
+            <td style="text-align:center;">
+              <h1 style="font-size:14px;text-decoration:underline;">
+                  Steeple Claydon Weather, UK
+              </h1>
+            </td>
+            <td style="text-align:right;width:220px;">
+              <span id="live-label"></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div style="font-size:14px;text-align:center;">
+      <span style="font-size:14px;">Current</span>
+      <div style="font-size:12px;">
+        Temperature Trend: <span id="trend.outTemp"></span>
+        &mdash;
+        Barometer Trend: <span id="trend.barometer.desc"></span>
+      </div>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Out Temp</td>
+          <td style="font-size:12px;">Dew Pt</td>
+          <td style="font-size:12px;">Wind Sp</td>
+          <td style="font-size:12px;">Wind Dir</td>
+          <td style="font-size:12px;">Rain Rate</td>
+        </tr>
+        <tr>
+          <td id="current.outTemp.formatted" style='white-space:pre;'></td>
+          <td id="current.dewpoint.formatted" style='white-space:pre;'></td>
+          <td id="current.windSpeed.formatted" style='white-space:pre;'></td>
+          <td id="current.windDir.ordinal_compass" style='white-space:pre;'></td>
+          <td id="current.rainRate.formatted" style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Last 10 Minutes</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='10m.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='10m.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='10m.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='10m.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='10m.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Hour</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='hour.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='hour.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='hour.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='hour.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='hour.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Today</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='day.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='day.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='day.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='day.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='day.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Week</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='week.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='week.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='week.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='week.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='week.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Month</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='month.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='month.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='month.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='month.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='month.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Year</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='year.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='year.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='year.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='year.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='year.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+      <span style="font-size:16px;">Rain Year</span>
+      <table id="centered">
+        <tr>
+          <td style="font-size:12px;">Hi Out Temp</td>
+          <td style="font-size:12px;">Lo Out Temp</td>
+          <td style="font-size:12px;">Wind RMS</td>
+          <td style="font-size:12px;">Hi Gust</td>
+          <td style="font-size:12px;">Rain</td>
+        </tr>
+        <tr>
+          <td id='rainyear.outTemp.max.formatted' style='white-space:pre;'></td>
+          <td id='rainyear.outTemp.min.formatted' style='white-space:pre;'></td>
+          <td id='rainyear.wind.rms.formatted' style='white-space:pre;'></td>
+          <td id='rainyear.windGust.max.formatted' style='white-space:pre;'></td>
+          <td id='rainyear.rain.sum.formatted' style='white-space:pre;'></td>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

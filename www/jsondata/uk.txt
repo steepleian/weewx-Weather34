@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>Met Office warnings for London &amp; South East England</title>
+        <link>https://www.metoffice.gov.uk/weather/warnings-and-advice/uk-warnings</link>
+        <description>Weather warnings of severe and extreme weather from the Met Office</description>
+        <language>en-gb</language>
+        <copyright>(c) Crown copyright</copyright>
+        <pubDate>Wed, 05 Oct 2022 10:00:54 GMT</pubDate>
+        <dc:creator>webteam@metoffice.gov.uk</dc:creator>
+    </channel>
+</rss>

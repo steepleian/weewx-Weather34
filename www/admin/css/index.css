@@ -1,0 +1,26 @@
+#login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #ccc;
+  }
+  #login-form h1 {
+    margin: 0 0 20px 0;
+  }
+  #login-form input {
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 10px;
+  }
+  #login-form input[type=submit] {
+    border: 0;
+    padding: 15px;
+    background: #5b77bd;
+    color: #fff;
+    cursor: pointer;
+  }
+  * {
+    font-family: arial, sans-serif;
+    box-sizing: border-box;
+  }

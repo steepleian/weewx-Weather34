@@ -40,10 +40,10 @@ Once completed, make sure you save weewx.conf
 
 * From the command line: - 
                 
-		Download weewx-Weather34-main.zip from https://github.com/steepleian/weewx-Waether34/edit/main/ into your Download folder alongside the services.txt file
+		Download weewx-Weather34-master.zip from https://github.com/steepleian/weewx-w34rc1/edit/main/ into your Download folder alongside the services.txt file
 		cd [path_to_your_Download_folder]
-		unzip weewx-Weather34-main.zip
-		cd weewx-Weather34-main
+		unzip weewx-w34rc1-main.zip
+		cd weewx-w34rc1-main
 		sudo python w34_installer.py or sudo python3 w34_installer.py (if you are running Python3)
 		
 		    You will be prompted for the config file for your WeeWX install type.

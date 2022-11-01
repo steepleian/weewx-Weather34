@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Highcharts Example</title>
+
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+<script src="../Highcharts-6.1.0/code/highcharts.js"></script>
+<script src="../Highcharts-6.1.0/code/highcharts-more.js"></script>
+<script src="../Highcharts-6.1.0/code/modules/data.js"></script>
+<script src="../Highcharts-6.1.0/code/themes/dark-unica.js"></script>
+
+<div id="container" style=" width: auto; height: 140px;"></div>
+
+
+
+
+
+
+		<script type="text/javascript">
+
+
+// Parse the data from an inline table using the Highcharts Data plugin
+Highcharts.chart('container', {
+    data: {
+         csvURL: 'https//claydonsweather.org.uk/weewx/divumdev/w34highcharts/json/wind_rose_mod.txt',
+        enablePolling: true,
+        dataRefreshRate: 60
+    },
+
+    chart: { 
+        polar: true,
+        type: 'column'
+		
+		
+    },
+
+    title: {
+        text: null
+    },
+    
+ credits: {
+        enabled: false
+    },
+    subtitle: {
+        text: null
+    },
+
+    pane: {
+        size: '90%'
+    },
+
+    legend: {
+        enabled: false
+    },
+
+    xAxis: {
+        tickmarkPlacement: 'on'
+    },
+
+    yAxis: {
+        min: 0,
+        endOnTick: false,
+        showLastLabel: true,
+        title: {
+            text: null
+        },
+        labels: {
+            formatter: function () {
+                return ' ';
+            }
+        },
+        reversedStacks: false
+    },
+
+    tooltip: {
+        valueSuffix: '%'
+    },
+
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            shadow: false,
+            groupPadding: 0,
+            pointPlacement: 'on'
+        }
+    }
+});
+		</script>
+	</body>
+</html>
