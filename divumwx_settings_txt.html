@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="us">
 <!-- The page take the information inputted by the client and sends them a file called services.txt which is used in the -->
-<!-- installation of the Weather34 skin template on a WeeWX Personal Weather Station system. -->
+<!-- installation of the DivumWX skin template on a WeeWX Personal Weather Station system. -->
 <!-- Original code written by Ian Millard -->
 <!-- Rewritten on February 2021 by Steven Sheeley, reusing the file saving routine -->
 <!-- Whilst it was attempted to maintain the look and feel of the original, all -->
-<!-- html, css and javascript used in the new page is by Steven Sheeley for the Weather34/DivumWX Team-->
+<!-- html, css and javascript used in the new page is by Steven Sheeley for the DivumWX Team-->
 
 <head>
     <meta charset="utf-8">
     <title>DivumWX services.txt generator form</title>
     <link rel="icon" href="https://steepleian.github.io/weewx-Weather34/favicon.ico"/>
-    <meta name="description" content="This form generates the services.txt file that is needed to install the Weather34 skin and modify the weewx conf file." />
+    <meta name="description" content="This form generates the services.txt file that is needed to install the DivumWX skin and modify the weewx conf file." />
     <meta name="robots" content="noindex, nofollow">
     <script src="https://kit.fontawesome.com/772d7a8539.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
@@ -156,9 +156,9 @@
     <div class="container">
         <div class="Banner">
             <div style="text-align: center">
-                <h3>Weather34 services.txt Generator</h3>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="Please take notice of the following. The fields with a Red asterisk are required fields and your generated services.txt field will appear to work during installation, however, the info entered into your weewx conf fille will be erroneous and cause Weather34 to not work correctly."></i><br />
+                <h3>DivumWX services.txt Generator</h3>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="Please take notice of the following. The fields with a Red asterisk are required fields and your generated services.txt field will appear to work during installation, however, the info entered into your weewx conf fille will be erroneous and cause DivumWX to not work correctly."></i><br />
             </div>
-            <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX Weather34 skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the Weather34 Archive file to. Once this is complete, you are ready to do the base installation of the Weather34 Skin.</div><br />
+            <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX DivumWX skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the DivumWX Archive file to. Once this is complete, you are ready to do the base installation of the DivumWX Skin.</div><br />
             <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
             <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>No data is retained on this server after you click on the <b>Submit Button</b>.</b></div>
             <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>DarkSky as been removed as a forecasting service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because DarkSky is no longer accepting any new accounts, and Aeris Weather still provides a free service.</b></div><br/>
@@ -189,7 +189,7 @@
         <div class="Map" id="mapid" style="text-align: center"></div>
         <div class="Section-2">
             <div style="text-align: center">
-                <h4>Aeris Weather Key/Secret Entry Section (Required)</h4>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="This section is required for forecasting in the Weather34 skin. If you do not sighup for a Free API Key as shown in the link below, forecasting will not operate. Please ensure that you enable Aeris below and enter your Aeris Key and Secret Token."></i><br />
+                <h4>Aeris Weather Key/Secret Entry Section (Required)</h4>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="This section is required for forecasting in the DivumWX skin. If you do not sighup for a Free API Key as shown in the link below, forecasting will not operate. Please ensure that you enable Aeris below and enter your Aeris Key and Secret Token."></i><br />
             </div>
             <div>
                 Do you have a Aeris Weather Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
@@ -328,7 +328,7 @@
         </div>
         <div class="Services">
             <div style="text-align: center">
-                <label for="text">Active Web Services Code String Selection - Make your selection below.</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Weather34 uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
+                <label for="text">Active Web Services Code String Selection - Make your selection below.</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="DivumWX uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
                 <br />
                 <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Air Quality Index (AQI)
                 <input type="checkbox" name="checkbox[]" id="ckaw" value="awc.awh.awd.awp.awa" disabled checked title="This is a required service" /> Aeris Weather
