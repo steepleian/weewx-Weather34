@@ -174,5 +174,22 @@ if ($units == "uk") {
     $pressureinterval = "0.5";
     $rainfallconvmm = "1";
 }
+
+if ($position4 == "top_advisory_uk.php") {
+    $advisory = "pop_ukalerts.php";
+}
+else if ($position4 == "top_advisory_eu.php") {
+    $advisory = "pop_europealerts.php";
+}
+
+else if ($position4 == "top_advisory_eu.php") {
+    $advisory = "pop_europealerts.php";
+}
+else if ($position4 == "top_advisory_au.php") {
+    $advisory = "pop_bomalerts.php";
+} 
+else if ($position4 == "top_advisory_nws.php") {
+    $advisory = "pop_nwsalerts.php";
+}
 ?>
 
