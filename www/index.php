@@ -213,7 +213,14 @@ if ('serviceWorker' in navigator) {
         $chartinfo .
         " Australian BOM Alerts</a>";
 } ?></span>
-
+<?php if (
+    $position6 == "forecast3aw.php" &&
+    $position4 == "top_advisory_nws.php"
+) {
+    echo '<a alt="NWS warnings" title="NWS Warnings" href="pop_nwsalerts.php"  data-lity>&nbsp;' .
+        $chartinfo .
+        " USA NWS Alerts</a>";
+} ?></span>
   
       </div>
   <span class='moduletitle'>
