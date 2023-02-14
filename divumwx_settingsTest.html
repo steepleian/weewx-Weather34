@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="us">
+<!-- The page take the information inputted by the client and sends them a file called services.txt which is used in the -->
+<!-- installation of the DivumWX skin template on a WeeWX Personal Weather Station system. -->
+<!-- Original code written by Ian Millard -->
+<!-- Rewritten on February 2021 by Steven Sheeley, reusing the file saving routine -->
+<!-- Whilst it was attempted to maintain the look and feel of the original, all -->
+<!-- html, css and javascript used in the new page is by Steven Sheeley for the DivumWX Team-->
+
+<head>
+    <meta charset="utf-8">
+    <title>Temporary DivumWX services.txt generator form</title>
+    <link rel="icon" href="https://steepleian.github.io/weewx-Weather34/favicon.ico"/>
+    <meta name="description" content="This form generates the services.txt file that is needed to install the DivumWX skin and modify the weewx conf file." />
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://kit.fontawesome.com/772d7a8539.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(10%, 20%, 30%, 30%, 10%);
+            margin: auto;
+            gap: 5px 5px;
+            width: 90%;
+            border: 2px solid #000;
+            background-color: #dbdada94;
+            padding: 4px;
+            border-radius: 12px;
+            box-shadow: 5px 5px 5px #83bdffde;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "Banner Banner Banner Banner"
+                "Section-1 Section-1 Section-1 Map"
+                "Section-2 Section-2 Section-2 Section-2"
+                "Services Services Services Services"
+                "Footer Footer Footer Footer";
+        }
+        .Banner {
+            grid-area: Banner;
+            padding: 6px;
+            border-radius: 10px;
+            border: 2px solid inset #000;
+            background-color: #FFF;
+            border-style: inset;
+        }
+        .Section-1 {
+            grid-area: Section-1;
+            padding: 8px;
+            background-color: #83bdff;
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+        .Map {
+            grid-area: Map;
+            position: relative;
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+        .Section-2 {
+            grid-area: Section-2;
+            padding: 8px;
+            background-color: #83bdff;
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+        .Services {
+            grid-area: Services;
+            padding: 8px;
+            background-color: #c0dbfa;
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
+        .Footer {
+            grid-area: Footer;
+            background-color: #cccccc;
+            border-radius: 10px;
+            border: 2px solid #000;
+            text-align: center;
+            padding: 10px;
+        }
+        .fa-asterisk{
+            color: #fc0000;
+        }
+        #mapid {
+            position: relative;
+            height: 340px;
+            width: 397px;
+            background-color: #fff;
+            cursor: crosshair;
+        }
+        body{
+            background-color: #cee5ff;
+        }
+        hr {
+            border: 3px double;
+            width: 75%;
+        }
+        h3 {
+            color: #000;
+            font-size: 150%;
+            display: inline;
+        }
+        h4{
+            color: #000;
+            display: inline;
+        }
+        h6{
+            color: #000;
+            font-size:xx-small;
+        }
+        input[type=text] {
+            width: 98%;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 98%;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        radiogroup {
+            width: auto;
+        }
+        input[type="text"]:disabled{
+            background-color: #d8d6d6;
+        }
+        input[type="select"]{
+            background-color: #d8d6d6;
+        }
+        .myButton {
+            box-shadow: 0px 10px 14px #000;
+            background: linear-gradient(to bottom, #0578fc 5%, #8cc2ff 100%);
+            border-radius: 4px;
+            border: 1px solid #000;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 4px;
+            text-decoration: none;
+            text-shadow: 0px 1px 11px #000;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
+<body>
+    <!-- Begin Container -->
+    <div class="container">
+        <div class="Banner">
+            <div style="text-align: center">
+                <h3>Temporary DivumWX services.txt Generator</h3>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="Please take notice of the following. The fields with a Red asterisk are required fields and your generated services.txt field will appear to work during installation, however, the info entered into your weewx conf fille will be erroneous and cause DivumWX to not work correctly."></i><br />
+            </div>
+            <div style="text-align: center">This form is designed to create the required <b>services.txt</b> file for the WeeWX DivumWX skin installation. Fill out the form below with the requested information. Each one of the optional inputs has a Yes/No radio button. The default is No and the text input field is disabled. You may leave them empty if you do not have that service/information. If you want more information, there is a link you can visit for each one of them in the description. If you have a API key or an ID for one of those services, click on the <b>Yes</b> button and enter the required information. Each of the inputs also have more information available if you hover over the <b>?</b>.<br /> Once you've completed the form click the download button. This will automatically send you the file called <i><b>settings.txt</b></i> which you can save to your default download (or any) folder. Once the download is complete, copy the file to the directory that you downloaded the DivumWX Archive file to. Once this is complete, you are ready to do the base installation of the DivumWX Skin.</div><br />
+            <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>Notice: When you first enter this page, you will see a popup question on the left hand side of the webpage, near the menu button, asking of this website can access your location. <i>Don't panic!!</i> We're not tracking you. The map to the right uses a feature that, if you allow this page to do so, will scroll to your approximate location on the map and then you are able to better refine your latitude and longitude by scrolling and clicking to auto fill the text boxes below.  If you choose to not allow that, you can still drag and scroll to your location and then click to do the same thing.</b></div>
+            <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>No data is retained on this server after you click on the <b>Submit Button</b>.</b></div>
+            <div style="text-align: center"><i class="fa-solid fa-exclamation fa-bounce"></i>&nbsp;<b>DarkSky as been removed as a forecasting service and has been replaced by <a href"https://www.aerisweather.com/">Aeris Weather</a> because DarkSky is no longer accepting any new accounts, and Aeris Weather still provides a free service.</b></div><br/>
+            <div style="text-align: left"><i class="fa-solid fa-question"></i> = Information&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-exclamation fa-bounce"></i> = Attention&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-asterisk fa-beat"></i> = Input Required&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader"></i> = Read Me&nbsp;&nbsp;&nbsp;(Hover over any of these icons for a popup tooltip (except the exclamation))</div>
+        </div>
+        <div class="Section-1">
+            <div style="text-align: center">
+                <h4> Weather Station Location, Language and IP Address Section</h4>
+            </div>
+            &nbsp;<label for="text">Latitude</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            <input type="text" id="txtLat" required><br />
+            &nbsp;<label for="text">Longitude</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select the location of your weather station on the map to the right by scrolling to where it's physically located and clicking on the map at that location. Your latitude and longitude will then be automatically filled out on the form to the left."></i><br/>
+            <input type="text" id="txtLon"><br />
+            &nbsp;<label>Website Language</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your language from the list below"></i><br />
+            <select id="selLang">
+                <option selected value="">-- Please Choose Your Language--</option>
+                <option value="en">English</option>
+                <option value="de">German</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="it">Italian</option>
+                <option value="br">Portuguese (Br)</option>
+                <option value="ru">Russian</option>
+            </select><br />
+            &nbsp;<label for="text">Local Web Server IP Address</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Enter the Weather Station's Web Server IP Address"></i>
+            <input type="text" id="txtSrvIP" />
+        </div>
+        <div class="Map" id="mapid" style="text-align: center"></div>
+        <div class="Section-2">
+            <div style="text-align: center">
+                <h4>Aeris Weather Key/Secret Entry Section (Required)</h4>&nbsp;&nbsp;&nbsp;<i class="fas fa-book-reader" title="This section is required for forecasting in the DivumWX skin. If you do not sighup for a Free API Key as shown in the link below, forecasting will not operate. Please ensure that you enable Aeris below and enter your Aeris Key and Secret Token."></i><br />
+            </div>
+            <div>
+                Do you have a Aeris Weather Account?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i>&nbsp;&nbsp;
+                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" />Yes
+                <input type="radio" name="awKeyChkd" id="awKeyChkd" onclick="EnableDisableAWK()" checked />No&nbsp;&nbsp;(Further details and be found <a href="https://www.aerisweather.com/" target="_blank" rel="noopener noreferrer">here</a> and you can sign up for free <a href="https://www.aerisweather.com/signup/pws/" target="_blank" rel="noopener noreferrer">here.</a>)<br />
+                &nbsp;<label for="text">Aeris Weather Key</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Key."></i><br />
+                <input type="text" id="txtAwKey" disabled="true" /><br />
+                &nbsp<label for="text">Aeris Weather Secret</label>&nbsp;<i class="fa-solid fa-asterisk fa-beat fa-2xs" title="Required Input"></i>&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Aeris Weather Secret."></i><br />
+                <input type="text" id="txtAwSecret" disabled="true" /><br />
+            </div>
+            <hr>
+            <div style="text-align: center">
+                <h4>Weather Underground Key/Unit Section</h4>
+            </div>
+            <div>
+                Do you have a Weather Underground Key?&nbsp;&nbsp;<i class="fa fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground Key and select the measurement units."></i>
+                <input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" />Yes</label>
+                <input type="radio" name="wuKeyChkd" id="wuKeyChkd" onclick="EnableDisableWUK()" checked />No</label>&nbsp;&nbsp;(Details can be found <a href="https://www.wunderground.com/signup" target="_blank" rel="noopener noreferrer">here.</a>)
+            </div>
+            <div>
+                <label for="text">Weather Underground API Key</label>&nbap;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your Weather Underground API Key."></i><br />
+                <input type="text" id="txtWuKey" disabled="true" /><br />
+                <label>Please select your Weather Underground Units below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your Weather Underground Units from the list below"></i><br />
+                <select id="selWuUnits" disabled="true">
+                    <option selected disabled value="">-- Please Choose Your Units--</option>
+                    <option value="e">Imperial</option>
+                    <option value="m">Metric</option>
+                    <option value="s">Scandinavia</option>
+                    <option value="h">United Kingdom</option>
+                    <option value="auto">auto</option>
+                </select><br />
+            </div>
+            <hr>
+            <div style="text-align: center">
+                <h4>World Air Pollution API Key Entry Section</h4>
+            </div>
+            <div>
+                Do you have a AQI Key?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your AQI Key."></i>
+                <input type="radio" name="aqKeyChkd" id="aqKeyChkd" onclick="EnableDisableAQI()" />Yes
+                <input type="radio" name="aqKeyChkd" id="aqKeyChkd" onclick="EnableDisableAQI()" checked />No&nbsp;&nbsp;(Details can be found here,<a href="https://aqicn.org/json-api/doc/" target="_blank" rel="noopener noreferrer"> AQI API Info</a> or get your Key (token) <a href="https://aqicn.org/data-platform/token/#/" target="_blank" rel="noopener noreferrer">here.</a>
+                <input type="text" id="txtAqKey" disabled="true" /><br />
+            </div>
+            <div>
+                Do you have a PurpleAir ID?&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to enter your PurpleAir ID."></i>
+                <input type="radio" name="puIdChkd" id="puIdChkd" onclick="EnableDisablePUID()" />Yes
+                <input type="radio" name="puIdChkd" id="puIdChkd" onclick="EnableDisablePUID()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www2.purpleair.com/community/faq" target="_blank" rel="noopener noreferrer">here.</a>)
+                <input type="text" id="txtPuId" disabled="true" />
+            </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
+                    <h4>Aviation Weather API (CheckWX) section</h4>
+                </div>
+                <div>
+                    Do you have a CheckWX Key for METAR (<b>MET</b>eorological <b>A</b>erodrome <b>R</b>eport)data?&nbsp;<i class="fa-solid fa-question" title="METAR is a format for reporting weather information in a format that is predominantly used by aircraft pilots and meteorologists. This field is disabled until you click on the Radio button for Yes, then you will be able to enter your METAR Key."></i>
+                    <input type="radio" name="meKeyChkd" id="meKeyChkd" onclick="EnableDisableMEK()" />Yes
+                    <input type="radio" name="meKeyChkd" id="meKeyChkd" onclick="EnableDisableMEK()" checked />No&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/documentation" target="_blank" rel="noopener noreferrer">here</a>, and an account can be created <a href="https://www.checkwxapi.com/auth/signup" target="_blank" rel="noopener noreferrer">here.</a>
+                </div>
+                <input type="text" id="txtMeKey" disabled="true" /><br />
+                <label for="text">Enter the ICAO (<b>I</b>nternational <b>C</b>ivil <b>A</b>viation <b>O</b>rganization) code for the METAR capable airport nearest you.&nbsp;&nbsp;(Details can be found <a href="https://www.checkwxapi.com/station/search" target="_blank" rel="noopener noreferrer">here</a>)</label><i class="fa-solid fa-question"
+                    title="The ICAO airport code or location indicator is a four-letter code designating aerodromes around the world, defined by the International Civil Aviation Organization. This field is disabled until you click on the Radio button for Yes, then you will be able to enter the ICAO Code."></i>
+                <input type="text" id="txtMeCode" disabled="true" />
+            </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
+                    <h4>MetOffice Severe Weather Warning section</h4>
+                </div>
+                <div>
+                    Enable MetOffice Severe Weather Warnings (UK Users Only)?&nbsp;&nbsp;<i class="fa-solid fa-question" title="This field is disabled until you click on the Radio button for Yes, then you will be able to select your region."></i>
+                    <input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" />Yes
+                    <input type="radio" name="raUkenable" id="raUkenable" onclick="EnableDisableRAUK()" checked />No&nbsp;&nbsp;(This is for UK users only, it does not work for any other Countries/Continents)
+                    <select id="selUkregion" disabled="true">
+                        <option selected disabled value="">--- Please choose ---</option>
+                        <option value="os">Orkney & Shetland</option>
+                        <option value="he">Highlands & Eilean Siar</option>
+                        <option value="gr">Grampian</option>
+                        <option value="st">Strathclyde</option>
+                        <option value="ta">Central, Tayside & Fife</option>
+                        <option value="dg">SW Scotland, Lothian Borders</option>
+                        <option value="ni">Northern Ireland</option>
+                        <option value="wl">Wales</option>
+                        <option value="nw">North West England</option>
+                        <option value="ne">North East England</option>
+                        <option value="yh">Yorkshire & Humberside</option>
+                        <option value="wm">West Midlands</option>
+                        <option value="em">East Midlands</option>
+                        <option value="ee">East of England</option>
+                        <option value="sw">South West England</option>
+                        <option value="se">London & South East</option>
+                    </select><br />
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
+                    <h4>Australian Bureau of Meterology section</h4>
+                </div>
+                <div>
+                    Is your weather station located in Australia and do you want Weather warnings for your state or territory?&nbsp;<i class="fa-solid fa-question" title="The Australian Bureau of Meterology provides a collection of data feeds that have been divided into State based options for all weather warnings. This field is disabled until you click on the Radio button for Yes, then you will be able to enter your METAR Key."></i>
+                    <input type="radio" name="bomKeyChkd" id="bomKeyChkd" onclick="EnableDisableBOMK()" />Yes
+                    <input type="radio" name="bomKeyChkd" id="bomKeyChkd" onclick="EnableDisableBOMK()" checked />No&nbsp;&nbsp;(Details can be found <a href="http://www.bom.gov.au/rss/?ref=ftr" target="_blank" rel="noopener noreferrer">here.</a>)
+                </div>
+                <label>Please select your State or Territory below</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="Please select your State or Territory from the list below"></i><br />
+                <select id="selBOMState" disabled="true">
+                    <option selected disabled value="">-- Please Choose Your State/Territory--</option>
+                    <option value="IDZ00054.warnings_nsw.xml">New South Wales</option>
+                    <option value="IDZ00055.warnings_nt.xml">Northern Territory</option>
+                    <option value="IDZ00056.warnings_qld.xml">Queensland</option>
+                    <option value="IDZ00057.warnings_sa.xml">South Australia</option>
+                    <option value="IDZ00058.warnings_tas.xml">Tasmania</option>
+                    <option value="IDZ00059.warnings_vic.xml">Victoria</option>
+                    <option value="IDZ00060.warnings_wa.xml">West Australia</option>
+                </select><br />
+            </div>
+            <hr>
+            <div>
+                <div style="text-align: center">
+                    <h4>European Cloud Cover Section</h4>
+                </div>
+                If your weather station resides in Europe, do you want to enable Cloud Cover display?&nbsp;<i class="fa fa-question-circle" title="This is currently only available for Geographical Europe"></i>
+                <input type="radio" name="cldCvrChkd" id="cldCvrChkd" onclick="EnableDisableCLD()"/>Yes
+                <input type="radio" name="cldCvrChkd" id="cldCvrChkd" onclick="EnableDisableCLD()" checked />No
+            </div>
+            <label for="text">Land Mass Selection</label><i class="fa-solid fa-question" title="Select the land mass (Continent) where your weather station is located."></i>
+            <select id="selCldCvrContinent" disabled="true">
+				<option selected disabled value="">-- Choose Your Land Mass --</option>
+				<option value="eu">Europe</option>
+				<option value="af" disabled>Africa, Middle East</option>
+				<option value="ana" disabled>North America</option>
+				<option value="ama" disabled>Central America</option>
+				<option value="asa"disabled>South America</option>
+				<option value="seasia" disabled>South East Asia</option>
+				<option value="oce" disabled>Oceania</option>
+			</select><br /><br />
+        </div>
+        <div class="Services">
+            <div style="text-align: center">
+                <label for="text">Active Web Services Code String Selection - Make your selection below.</label>&nbsp;&nbsp;<i class="fa-solid fa-question" title="DivumWX uses 'services' to create reports from other web providers as shown below. The minimum required ones are already checked and you can pick others that you want run on your server by checking the associated checkbox."></i>
+                <br />
+                <input type="checkbox" name="checkbox[]" id="ckaq" value="aq" /> Air Quality Index (AQI)
+                <input type="checkbox" name="checkbox[]" id="ckaw" value="awc.awh.awd.awp.awa" disabled checked title="This is a required service" /> Aeris Weather
+                <input type="checkbox" name="checkbox[]" id="ckwu" value="wu" /> Weather Underground Forecast
+                <input type="checkbox" name="checkbox[]" id="ckeq" value="eq" disabled checked title="This is a required service" /> Earthquake Notification
+                <input type="checkbox" name="checkbox[]" id="ckki" value="ki" disabled checked title="This is a required service" /> Geomagnetic Storms
+                <br />
+                <input type="checkbox" name="checkbox[]" id="ckme" value="me" disabled checked title="This is a required service" /> METAR Reports
+                <input type="checkbox" name="checkbox[]" id="ns" value="ns" /> AU BOM Warnings
+                <input type="checkbox" name="checkbox[]" id="ckpu" value="pu" /> Purple Air Quality Reports
+                <input type="checkbox" name="checkbox[]" id="ckuk" value="uk" /> MetOffice Warnings
+            </div>
+        </div>
+        <div class="Footer">
+            <div style="text-align: center"><input class="myButton" id="bt" value="Download services.txt file" onclick="saveFile()" /></div>
+      </div>
+    <!-- End Container-->
+    <script>
+        window.onload=function(){
+            document.getElementById("txtLat").focus();
+        }
+    </script>
+    <script>
+        var mymap = L.map('mapid').fitWorld();
+        var txtLat = document.getElementById('txtLat');
+        var txtLon = document.getElementById('txtLon');
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmF5dmVuaGF1cyIsImEiOiJjbDBnNXpoaDYwcXRxM2puc29qajZ3dDgxIn0.3wG1BkjQ8ynbhqekMYU8rg', {
+            maxZoom: 22,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(mymap);
+        function onLocationFound(e) {
+            var radius = e.accuracy / 2;
+        }
+        function onLocationError(e) {
+            alert(e.message);
+        }
+        mymap.on('locationfound', onLocationFound);
+        mymap.on('locationerror', onLocationError);
+        mymap.locate({
+            setView: true
+        });
+        mymap.on('click', function(e) {
+            txtLat.value = +e.latlng.lat.toFixed(6);
+            txtLon.value = +e.latlng.lng.toFixed(6);
+        });
+    </script>
+    <script type="text/javascript">
+        function EnableDisableAWK() {
+            var awKeyChkd = document.getElementById("awKeyChkd");
+            var txtAwKey = document.getElementById("txtAwKey");
+            var txtAwSecret = document.getElementById("txtAwSecret");
+            var ckaw = document.getElementById("ckaw");
+            txtAwKey.disabled = awKeyChkd.checked ? false : true;
+            txtAwSecret.disabled = awKeyChkd.checked ? false : true;
+            if (!awKeyChkd.disabled) {
+                awKeyChkd.focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function EnableDisableWUK() {
+            var wuKeyChkd = document.getElementById("wuKeyChkd");
+            var txtWuKey = document.getElementById("txtWuKey");
+            var selWuUnits = document.getElementById("selWuUnits");
+            txtWuKey.disabled = wuKeyChkd.checked ? false : true;
+            selWuUnits.disabled = wuKeyChkd.checked ? false : true;
+            if(wuKeyChkd.checked == true){
+                ckwu.checked = true;
+            }else{
+                ckwu.checked = false;
+            }
+	    if (!wuKeyChkd.disabled) {
+                wuKeyChkd.focus();
+            }
+        }
+    </script>
+        <script type="text/javascript">
+            function EnableDisableAQI() {
+                var aqKeyChkd = document.getElementById("aqKeyChkd");
+                var txtAqKey = document.getElementById("txtAqKey");
+                var ckaq = document.getElementById("ckaq");
+                txtAqKey.disabled = aqKeyChkd.checked ? false : true;
+                if(aqKeyChkd.checked == true){
+                    ckaq.checked = true;
+                }else{
+                    ckaq.checked = false;
+                }
+                if (!txtAqKey.disabled) {
+                    txtAqKey.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisablePUID() {
+                var puIdChkd = document.getElementById("puIdChkd");
+                var txtPuId = document.getElementById("txtPuId");
+                var ckpu = document.getElementById("ckpu");
+                txtPuId.disabled = puIdChkd.checked ? false : true;
+                if(puIdChkd.checked == true){
+                    ckpu.checked = true;
+                }else{
+                    ckpu.checked = false;
+                }
+                if (!txtPuId.disabled) {
+                    txtPuId.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableMEK() {
+                var meKeyChkd = document.getElementById("meKeyChkd");
+                var txtMeKey = document.getElementById("txtMeKey");
+                var txtMeCode = document.getElementById("txtMeCode");
+                txtMeKey.disabled = meKeyChkd.checked ? false : true;
+                txtMeCode.disabled = meKeyChkd.checked ? false : true;
+                if (!txtMeKey.disabled) {
+                    txtMeKey.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableRAUK() {
+                var raUkenable = document.getElementById("raUkenable");
+                var selUkregion = document.getElementById("selUkregion");
+                var ckeu = document.getElementById("ckeu");
+                selUkregion.disabled = raUkenable.checked ? false : true;
+                if(raUkenable.checked == true){
+                    ckeu.checked = true;
+                }else{
+                    ckeu.checked = false;
+                }
+                if (!selUkregion.disabled) {
+                    selUkregion.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableBOMK() {
+                var bomKeyChkd = document.getElementById("bomKeyChkd");
+                var selBOMState = document.getElementById("selBOMState");
+                var ns = document.getElementById("ns");
+                selBOMState.disabled = bomKeyChkd.checked ? false : true;
+                if(bomKeyChkd.checked == true){
+                    ns.checked = true;
+                }else{
+                    ns.checked = false;
+                }
+                if (!selBOMState.disabled) {
+                    selBOMState.focus();
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            function EnableDisableCLD() {
+                var cldCvrChkd = document.getElementById("cldCvrChkd");
+                var selCldCvrContinent = document.getElementById("selCldCvrContinent");
+                selCldCvrContinent.disabled = cldCvrChkd.checked ? false : true;
+                if (!selCldCvrContinent.disabled) {
+                    selCldCvrContinent.focus();
+                }
+            }
+        </script>
+        <script>
+            let saveFile = () => {
+                // Get the data from each element on the form.
+                const lat = document.getElementById('txtLat');
+                const lon = document.getElementById('txtLon');
+                const lang = document.getElementById('selLang');
+                const cld_continent = document.getElementById('selCldCvrContinent');
+                const aq_apikey = document.getElementById('txtAqKey');
+                const srv_ip = document.getElementById('txtSrvIP');
+                const aw_apikey = document.getElementById('txtAwKey');
+                const aw_apisecret = document.getElementById('txtAwSecret');
+                const wu_apikey = document.getElementById('txtWuKey');
+                const wu_units = document.getElementById('selWuUnits');
+                const pu_id = document.getElementById('txtPuId');
+                const me_key = document.getElementById('txtMeKey');
+                const me_code = document.getElementById('txtMeCode');
+                const bm_state = document.getElementById('selBOMState');
+                const uk_region = document.getElementById('selUkregion');
+                const uk_xmldata = true;
+                const enable = "True";
+                const txtServices = jQuery.map($(':checkbox[name=checkbox\\[\\]]:checked'), function(n, i) {
+                    return n.value;
+                }).join('.');
+                // This variable stores all the data.
+                let data =
+                    '{' + ' \r\n' +
+                    '"##' + 'Start of user fields' + '",' + ' \r\n' +
+                    '"' + 'lat' + '"' + ':' + "'" + lat.value + "'," + ' \r\n' +
+                    '"' + 'lon' + '"' + ':' + "'" + lon.value + "'," + ' \r\n' +
+                    '"' + 'lang' + '"' + ':' + "'" + lang.value + "'," + ' \r\n' +
+                    '"' + 'cld_continent' + '"' + ':' + "'" + cld_continent.value + "'," + ' \r\n' +
+                    '"' + 'aq_apikey' + '"' + ':' + "'" + aq_apikey.value + "'," + ' \r\n' +
+                    '"' + 'aw_apikey' + '"' + ':' + "'" + aw_apikey.value + "'," + ' \r\n' +
+                    '"' + 'aw_apisecret' + '"' + ':' + "'" + aw_apisecret.value + "'," + ' \r\n' +
+                    '"' + 'wu_apikey' + '"' + ':' + "'" + wu_apikey.value + "'," + ' \r\n' +
+                    '"' + 'wu_units' + '"' + ':' + "'" + wu_units.value + "'," + ' \r\n' +
+                    '"' + 'pu_id' + '"' + ':' + "'" + pu_id.value + "'," + ' \r\n' +
+                    '"' + 'me_key' + '"' + ':' + "'" + me_key.value + "'," + ' \r\n' +
+                    '"' + 'me_code' + '"' + ':' + "'" + me_code.value + "'," + ' \r\n' +
+                    '"' + 'srv_ip' + '"' + ':' + "'" + srv_ip.value + "'," + ' \r\n' +
+                    '"' + 'bm_state' + '"' + ':' + "'" + bm_state.value + "'," + ' \r\n' +
+                    '"' + 'uk_region' + '"' + ':' + "'" + uk_region.value + "'," + ' \r\n' +
+                    '"' + 'uk_xml_data' + '"' + ':' + "'" + uk_xmldata + "'," + ' \r\n' +
+                    '"##' + 'List of all user fields above to be replaced in strings below' + '",' + ' \r\n' + '"sub_fields"' + ':' + "'lat,lon,lang,cld_continent,aq_apikey,aw_apikey,aw_apisecret,wu_apikey,wu_units,me_apikey,me_code,pu_id,srv_ip,bm_state,uk_region'," + ' \r\n' +
+                    '"config_entries3"' + ':' + "'''=" + ' \r\n' +
+                    "'DivumWXWebServices' " + ':' + ' \r\n' +
+                    '"# Air quality, your own latitude, longitude, token and interval in seconds are required\\n"' + ' \r\n' +
+                    '"# Weather Underground, your own latitude, longitude, API key, language, units and interval in seconds required\\n"' + ' \r\n' +
+                    '"# Weather Underground Units key e = US, m = METRIC, s = SI(with m/s Scandinavia), h = UK(with mph)\\n"' + ' \r\n' +
+                    '"# Example https://api.weather.com/v3/wx/forecast/daily/5day?geocode=51.94,-0.987&language=en&format=json&units=h&apiKey=yourapikeyhere\\n"' + ' \r\n' +
+                    '"# Earthquake reports interval in seconds required\\n"' + ' \r\n' +
+                    '"# K-Index reports interval in seconds required\\n"' + ' \r\n' +
+                    '"# Metar reports airport code, API Key and interval in seconds required\\n"' + ' \r\n' +
+                    '"# Example https://api.checkwx.com/metar/EGTK/decoded\\n"' + ' \r\n' +
+                    '"# Example X-API-Key:yourapikeyhere\\n"' + ' \r\n' +
+                    '"# Purpleair reports device ID and interval in seconds required\\n"' + ' \r\n' +
+                    '"# Example https://www.purpleair.com/json?show=38365\\n"' + ' \r\n' +
+                    '"# Select the services you require by creating a string of the services above\\n"' + ' \r\n' +
+                    '"# Example services = ds.me.eq.ki.wu.aq.al.ah.ao.aa.pu\\n"' + ' \r\n' +
+                    '"# Select your preferred time interval in seconds for each service\\n"' + ' \r\n' +
+                    '{' + ' \r\n' +
+                    " 'aq_url':'https://api.waqi.info/feed/geo:" + lat.value + ';' + lon.value + '/?token=' + aq_apikey.value + "'" + ',' + ' \r\n' +
+                    " 'aq_interval':'3600'" + ',' + ' \r\n' +
+                    " 'awc_url':'https://api.aerisapi.com/conditions/" + lat.value + ',' + lon.value + '?format=json&filter=1min&plimit=1&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awc_interval':'300'" + ',' + ' \r\n' +
+                    " 'awh_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=1hr&limit=24&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awh_interval':'1800'" + ',' + ' \r\n' +
+                    " 'awd_url':'https://api.aerisapi.com/forecasts/" + lat.value + ',' + lon.value + '?filter=daynight&limit=16&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awd_interval':'1800'" + ',' + ' \r\n' +
+                    " 'awp_url':'https://api.aerisapi.com/phrases/summary/" + lat.value + ',' + lon.value + '?client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awp_interval':'1800'" + ',' + ' \r\n' +
+                    " 'awa_url':'https://api.aerisapi.com/alerts/" + lat.value + ',' + lon.value + '?format=json&limit=10&lang=it&client_id=' + aw_apikey.value + '&client_secret=' + aw_apisecret.value + "'" + ',' + ' \r\n' +
+                    " 'awa_interval':'1800'" + ',' + ' \r\n' +
+                    " 'wu_url':'https://api.weather.com/v3/wx/forecast/daily/5day?geocode=" + lat.value + ',' + lon.value + '&language=' + lang.value + '&format=json&units=' + wu_units.value + '&apiKey=' + wu_apikey.value + "'" + ',' + ' \r\n' +
+                    " 'wu_interval':'3600'" + ',' + ' \r\n' +
+                    " 'eq_url':'https://www.seismicportal.eu/fdsnws/event/1/query?limit=50&lat=" + lat.value + '&lon=' + lon.value + '&maxradius=10000&format=json&minmag=2' + "'," + ' \r\n' +
+                    " 'eq_interval':'3600'" + ',' + ' \r\n' +
+                    " 'ki_url':'https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json'" + ',' + ' \r\n' +
+                    " 'ki_interval':'21600'" + ',' + ' \r\n' +
+                    " 'me_url':'https://api.checkwx.com/metar/" + me_code.value + '/decoded' + "'," + ' \r\n' +
+                    " 'me_header':'X-API-Key:" + me_key.value + "'" + ',' + ' \r\n' +
+                    " 'me_interval':'3600'" + ',' + ' \r\n' +
+                    " 'pu_url':'https://www.purpleair.com/json?show=" + pu_id.value + "'" + ',' + ' \r\n' +
+                    " 'pu_interval':'3600'" + ',' + ' \r\n' +
+                    " 'ns_url':'http://www.bom.gov.au/fwo/" + bm_state.value + "'" + ',' + ' \r\n' +
+                    " 'ns_interval':'900'" + ',' + ' \r\n' +
+                    " 'uk_url':'https://metoffice.gov.uk/public/data/PWSCache/WarningsRSS/Region/" + uk_region.value + "'" + ',' + ' \r\n' +
+                    " 'uk_interval':'3600'" + ',' + ' \r\n' +
+                    " 'services':'" + txtServices + "'" + ' \r\n' +
+                    "}'''" + ',' + ' \r\n' +
+                    '"config_entries4"' + ":'''=" + ' \r\n' +
+                    "'DivumWXCloudCover' :" + ' \r\n' +
+                    '"# Apply your own latitude and longitude and continent to the URLs in this section\\n"' + ' \r\n' +
+                    '{' + ' \r\n' +
+                    "   'enable':'" + enable + "'" + ',' + ' \r\n' +
+                    "   'db_field':'signal8'" + ',' + ' \r\n' +
+                    "   'cc_interval':'300'" + ',' + ' \r\n' +
+                    "   'cc1_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat=" + lat.value + '&lon=' + lon.value + '&width=300&height=300&zoom=1.00&continent=' + cld_continent.value + "'" + ',' + ' \r\n' +
+                    "   'cc1_filename':'/tmp/sat1.png'" + ',' + ' \r\n' +
+                    "   'cc2_url':'https://api.sat24.com/crop?type=infraPolair&lat=" + lat.value + '&lon=' + lon.value + '&width=300&height=300&zoom=1.00&continent=' + cld_continent.value + "'" + ',' + ' \r\n' +
+                    "   'cc2_filename':'/tmp/sat2.png'" + ',' + ' \r\n' +
+                    "   'cc3_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat=" + lat.value + '&lon=' + lon.value + '&width=300&height=300&zoom=1.00&continent=' + cld_continent.value + "'" + ',' + ' \r\n' +
+                    "   'cc3_filename':'/tmp/sat1.png'" + ',' + ' \r\n' +
+                    "   'cc3_url':'https://www.fourmilab.ch/cgi-bin/Earth?img=NASAmMM.evif&imgsize=320&dynimg=y&opt=-l&lat=" + lat.value + '&ns=NSHEM&lon=' + lon.value + '&ew=EWHEM&alt=35785&tle=&date=0&utc=&jd=/Earth.jpg'" + ',' + ' \r\n' +
+                    "   'cc3_filename':'/tmp/earth-1.jpg'" + ',' + ' \r\n' +
+                    "   'cc4_url':'https://www.fourmilab.ch/cgi-bin/Earth?img=LRO_100m.evif&imgsize=320&dynimg=y&gamma=1.32&opt=-l&lat=" + lat.value + '&ns=NSHEM&lon=' + lon.value + '&ew=EWHEM&alt=8527&tle=&date=0&utc=&jd=/Earth.jpg'" + ',' + ' \r\n' +
+                    "   'cc4_filename':'/tmp/moon-1.jpg'" + ',' + ' \r\n' +
+                    "}'''" + ',' + ' \r\n' +
+                    '}'
+                    // Convert the text to BLOB.
+                const textToBLOB = new Blob([data], {
+                    type: 'text/plain'
+                });
+                const sFileName = 'services.txt'; // The file to save the data.
+
+                let newLink = document.createElement("a");
+                newLink.download = sFileName;
+
+                if (window.webkitURL != null) {
+                    newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+                } else {
+                    newLink.href = window.URL.createObjectURL(textToBLOB);
+                    newLink.style.display = "none";
+                    document.body.appendChild(newLink);
+                }
+                newLink.click();
+            }
+        </script>
+<h6>Version - 2.1.85</h6>
+</body>
+</html>
