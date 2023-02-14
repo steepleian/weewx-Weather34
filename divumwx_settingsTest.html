@@ -455,12 +455,12 @@
             function EnableDisableRAUK() {
                 var raUkenable = document.getElementById("raUkenable");
                 var selUkregion = document.getElementById("selUkregion");
-                var ckeu = document.getElementById("ckeu");
+                var ckuk = document.getElementById("ckuk");
                 selUkregion.disabled = raUkenable.checked ? false : true;
                 if(raUkenable.checked == true){
-                    ckeu.checked = true;
+                    ckuk.checked = true;
                 }else{
-                    ckeu.checked = false;
+                    ckuk.checked = false;
                 }
                 if (!selUkregion.disabled) {
                     selUkregion.focus();
@@ -585,17 +585,14 @@
                     "}'''" + ',' + ' \r\n' +
                     '"config_entries4"' + ":'''=" + ' \r\n' +
                     "'DivumWXCloudCover' :" + ' \r\n' +
-                    '"# Apply your own latitude and longitude and continent to the URLs in this section\\n"' + ' \r\n' +
                     '{' + ' \r\n' +
                     "   'enable':'" + enable + "'" + ',' + ' \r\n' +
                     "   'db_field':'signal8'" + ',' + ' \r\n' +
-                    "   'cc_interval':'300'" + ',' + ' \r\n' +
+                    "   'cc_interval':'600'" + ',' + ' \r\n' +
                     "   'cc1_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat=" + lat.value + '&lon=' + lon.value + '&width=300&height=300&zoom=1.00&continent=' + cld_continent.value + "'" + ',' + ' \r\n' +
                     "   'cc1_filename':'/tmp/sat1.png'" + ',' + ' \r\n' +
                     "   'cc2_url':'https://api.sat24.com/crop?type=infraPolair&lat=" + lat.value + '&lon=' + lon.value + '&width=300&height=300&zoom=1.00&continent=' + cld_continent.value + "'" + ',' + ' \r\n' +
                     "   'cc2_filename':'/tmp/sat2.png'" + ',' + ' \r\n' +
-                    "   'cc3_url':'https://api.sat24.com/crop?type=visual5hdcomplete&lat=" + lat.value + '&lon=' + lon.value + '&width=300&height=300&zoom=1.00&continent=' + cld_continent.value + "'" + ',' + ' \r\n' +
-                    "   'cc3_filename':'/tmp/sat1.png'" + ',' + ' \r\n' +
                     "   'cc3_url':'https://www.fourmilab.ch/cgi-bin/Earth?img=NASAmMM.evif&imgsize=320&dynimg=y&opt=-l&lat=" + lat.value + '&ns=NSHEM&lon=' + lon.value + '&ew=EWHEM&alt=35785&tle=&date=0&utc=&jd=/Earth.jpg'" + ',' + ' \r\n' +
                     "   'cc3_filename':'/tmp/earth-1.jpg'" + ',' + ' \r\n' +
                     "   'cc4_url':'https://www.fourmilab.ch/cgi-bin/Earth?img=LRO_100m.evif&imgsize=320&dynimg=y&gamma=1.32&opt=-l&lat=" + lat.value + '&ns=NSHEM&lon=' + lon.value + '&ew=EWHEM&alt=8527&tle=&date=0&utc=&jd=/Earth.jpg'" + ',' + ' \r\n' +
@@ -621,6 +618,6 @@
                 newLink.click();
             }
         </script>
-<h6>Version - 2.1.85</h6>
+<h6>Version - 2.2.2</h6>
 </body>
 </html>
