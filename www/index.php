@@ -159,7 +159,7 @@ if ('serviceWorker' in navigator) {
     $position6 == "forecast3aw.php" ||
     $position6 == "forecast3awlarge.php"
 ) {
-    echo ' <a alt="Forecasts" title="Forecasts" href="pop_menu_forecast_alt.php" data-lity style="padding-top:98%">' .
+    echo ' <a alt="Forecasts" title="Forecasts" href="pop_menu_forecast.php" data-lity style="padding-top:98%">' .
         $chartinfo .
         " Forecasts </a>";
 } ?>
