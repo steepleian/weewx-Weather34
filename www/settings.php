@@ -86,7 +86,7 @@ $chartsource = "w34highcharts";
 $creditsURL = ""; // for chart pages only
 $credits = "Data Supplied via Weather Underground"; // for chart pages only
 $templateinfo = ""; // template information page
-$templateversion = "W34-<maxblue>4.3.0</maxblue>";
+$templateversion = "W34-<maxblue>4.3.1</maxblue>";
 
 $software = "WeeWX <span>Hardware</span> Users";
 $designedfor = "<br>For WeeWX Users";
