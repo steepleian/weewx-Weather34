@@ -506,8 +506,12 @@ if (isset($weewxapi))
     $weather["temp_trend"] = number_format($weewxrt[2], 1) - number_format($weewxapi[67], 1);
     $weather["humidity_trend"] = number_format($weewxapi[3], 0) - number_format($weewxapi[68], 0);
     $weather["dewpoint_trend"] = number_format($weewxrt[4], 1) - number_format($weewxapi[69], 1);
-    $weather["temp_indoor_trend"] = number_format($weewxrt[22], 1) - number_format($weewxapi[70], 1);
-    $weather["temp_humidity_trend"] = number_format($weewxrt[23], 1) - number_format($weewxapi[71], 1);
+    if (isset($weewxrt[22])) {
+        $weather["temp_indoor_trend"] = number_format($weewxrt[22], 1) - number_format($weewxapi[70], 1);
+    }
+    if (isset($weewxrt[23])) { 
+        $weather["temp_humidity_trend"] = number_format($weewxrt[23], 1) - number_format($weewxapi[71], 1);
+    }
     $weather["barotrend"] = $weewxrt[10] - $barotrend[0];
     $weather['barometer6h'] = $weewxrt[10] - $weewxapi[73];
     $weather['winddir6h'] = ($weewxapi[72] == "   N/A" ? "0" : $weewxapi[72]);
