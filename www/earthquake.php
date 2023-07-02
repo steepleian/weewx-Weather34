@@ -229,6 +229,26 @@ else if ($magnitude<7){echo "<div class=\"eqcircle1home\"><spanredmag>${magnitud
 <div class =\"spane\"> <regionalstrong>".$lang['StrongE']."</regionalstrong> </div>
 <div class=\"eqtexthome\"> $eqtitle <br> Time: $eventime <br> Distance<colordist>".$eqdist."</colordist> </div>";}
 //very strong
+else if ($magnitude<8){echo "<div class=\"eqcircle1home\"><spanredmag>${magnitude}
+<svgearthquake>
+<svg id='i-activity' viewBox='0 0 32 32' width='10' height='10' fill='none' stroke='currentcolor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'>
+    <path d='M4 16 L11 16 14 29 18 3 21 16 28 16' />
+</svg><svgearthquake>
+
+</spanredmag> </eqcircle1home></div>
+<div class =\"spane\"> <regionalstrong>"Very Strong"</regionalstrong> </div>
+<div class=\"eqtexthome\"> $eqtitle <br> Time: $eventime <br> Distance<colordist>".$eqdist."</colordist> </div>";}
+//very strong
+else if ($magnitude<9){echo "<div class=\"eqcircle1home\"><spanredmag>${magnitude}
+<svgearthquake>
+<svg id='i-activity' viewBox='0 0 32 32' width='10' height='10' fill='none' stroke='currentcolor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'>
+    <path d='M4 16 L11 16 14 29 18 3 21 16 28 16' />
+</svg><svgearthquake>
+
+</spanredmag> </eqcircle1home></div>
+<div class =\"spane\"> <regionalstrong>"Severe"</regionalstrong> </div>
+<div class=\"eqtexthome\"> $eqtitle <br> Time: $eventime <br> Distance<colordist>".$eqdist."</colordist> </div>";}
+//very strong
 else if ($magnitude<10){echo "<div class=\"eqcircle1home\"><spanredmag>${magnitude}
 <svgearthquake>
 <svg id='i-activity' viewBox='0 0 32 32' width='10' height='10' fill='none' stroke='currentcolor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'>
@@ -236,6 +256,17 @@ else if ($magnitude<10){echo "<div class=\"eqcircle1home\"><spanredmag>${magnitu
 </svg><svgearthquake>
 
 </spanredmag> </eqcircle1home></div>
-<div class =\"spane\"> Very <regionalstrong>".$lang['StrongE']."</regionalstrong> !!</div>
+<div class =\"spane\"> <regionalstrong>"Violent"</regionalstrong> </div>
+<div class=\"eqtexthome\"> $eqtitle <br> Time: $eventime <br> Distance<colordist>".$eqdist."</colordist> </div>";}
+//very strong
+else if ($magnitude<10){echo "<div class=\"eqcircle1home\"><spanredmag>${magnitude}
+<svgearthquake>
+<svg id='i-activity' viewBox='0 0 32 32' width='10' height='10' fill='none' stroke='currentcolor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'>
+    <path d='M4 16 L11 16 14 29 18 3 21 16 28 16' />
+</svg><svgearthquake>
+
+
+</spanredmag> </eqcircle1home></div>
+<div class =\"spane\"> Very <regionalstrong>"Extreme"</regionalstrong> !!</div>
 <div class=\"eqtexthome\"> $eqtitle <br> Time: $eventime <br> Distance<colordist>".$eqdist."</colordist> </div>";}
 ?>
