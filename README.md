@@ -1,4 +1,9 @@
 # Weather34 skin for WeeWX
+
+# Please note. This skin for WeeWX has reached end of life status. It will be maintained for bug fixes only until its successor, weewx-DivumWX, currently approaching Beta testing, achieves launch status. The new version will be called weewx-DivumWX and will be compatible with Debian 12 and the forthcoming WeeWX version 5. A demonstration of weewx-DivumWX can be seen at https://claydonsweather.org.uk
+ 
+# This version has only been tested with versions of Debian 11 and below. There are no guarantees that it will work with later versions of Debian, or versions of WeeWX beyond 4.10.2.
+
 Weather Station website skin with Live Data for WeeWX. This version is compatible with WeeWX 4.x.x builds / Python 2.7 and Python 3.x. **This version of the template requires either the extended database schema introduced with WeeWX 4.0.0 or one that has been manually extended to included fields for lightning data.** It is strongly recommended that you start with an entirely new clean Python3 install of WeeWX 4.4.0 or later.
 
 Version W34-HC-IMJD-4.3.0
