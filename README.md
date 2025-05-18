@@ -1,6 +1,6 @@
 # Weather34 skin for WeeWX
 
-# Please note. This skin for WeeWX has reached end of life status. It will be maintained for bug fixes only until its successor, weewx-DivumWX, currently approaching Beta testing, achieves launch status. The new version will be called weewx-DivumWX and will be compatible with Debian 12 and the forthcoming WeeWX version 5. A demonstration of weewx-DivumWX can be seen at https://claydonsweather.org.uk
+# Please note. This skin for WeeWX has reached end of life status. It will be maintained for bug fixes only until its successor, weewx-DivumWX, currently approaching Beta testing, achieves launch status. The new version will be called weewx-DivumWX and will be compatible with Debian 12 and the forthcoming WeeWX version 5. A demonstration of weewx-DivumWX can be seen at https://claydonsweather.org.uk. Repository at https://github.com/Millardiang/weewx-divumwx
  
 # This version has only been tested with versions of Debian 11 and below. There are no guarantees that it will work with later versions of Debian, or versions of WeeWX beyond 4.10.2.
 
